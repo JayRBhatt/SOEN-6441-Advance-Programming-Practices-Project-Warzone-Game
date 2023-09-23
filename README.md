@@ -4,9 +4,9 @@ A Command line implementation of the game "Warzone" called **Risk**. The rules,m
 
 # Team Members
 
-1) Jay Bhatt -
-2) Madhav Anadkat -
-3) Bhargav Fofandi -
+1) Jay Bhatt
+2) Madhav Anadkat
+3) Bhargav Fofandi
 4) a
 5) b
 6) c
