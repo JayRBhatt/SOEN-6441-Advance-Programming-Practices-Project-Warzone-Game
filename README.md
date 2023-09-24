@@ -7,7 +7,7 @@ A Command line implementation of the game "Warzone" called **Risk**. The rules,m
 1) Jay Bhatt
 2) Madhav Anadkat
 3) Bhargav Fofandi
-4) a
+4) Meera Muraleedharan Nair
 5) b
 6) c
 
