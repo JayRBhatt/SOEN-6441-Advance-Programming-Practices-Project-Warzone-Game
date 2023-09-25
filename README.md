@@ -8,8 +8,8 @@ A Command line implementation of the game "Warzone" called **Risk**. The rules,m
 2) Madhav Anadkat
 3) Bhargav Fofandi
 4) Meera Muraleedharan Nair
-5) b
-6) c
+5) Reema Ann Reny
+6) Mariya Bosy Kondody
 
 # Instructor
 
