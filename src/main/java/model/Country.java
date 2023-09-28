@@ -2,9 +2,9 @@ package model;
 
 public class Country {
 
-	private int d_Id;
+	private int d_CountryId;
 	
-	private String d_Name;
+	private String d_CountryName;
 	
 	private String d_Continent;
 	
@@ -13,43 +13,47 @@ public class Country {
 	private String d_PlayerName;
 	
 	
-	public int getD_Id() {
-		return d_Id;
+
+	public int get_CountryId() {
+		return d_CountryId;
 	}
 
-	public void setD_Id(int p_Id) {
-		this.d_Id = p_Id;
+	public void set_CountryId(int p_CountryId) {
+		this.d_CountryId = p_CountryId;
 	}
 
-	public String getD_Name() {
-		return d_Name;
+	public String get_CountryName() {
+		return d_CountryName;
 	}
 
-	public void setD_Name(String p_Name) {
-		this.d_Name = p_Name;
+	public void set_CountryName(String p_CountryName) {
+		this.d_CountryName = p_CountryName;
 	}
 
-	public String getD_Continent() {
+	public String get_Continent() {
 		return d_Continent;
 	}
 
-	public void setD_Continent(String p_Continent) {
+	public void set_Continent(String p_Continent) {
 		this.d_Continent = p_Continent;
 	}
 
-	public int getD_ArmiesAssigned() {
+	public int get_ArmiesPresent() {
 		return d_ArmiesPresent;
 	}
 
-	public void setD_ArmiesAssigned(int p_ArmiesPresent) {
+	public void set_ArmiesPresent(int p_ArmiesPresent) {
 		this.d_ArmiesPresent = p_ArmiesPresent;
 	}
 
-	public String getD_PlayerName() {
+	public String get_PlayerName() {
 		return d_PlayerName;
 	}
 
-	public void setD_PlayerName(String d_PlayerName) {
-		this.d_PlayerName = d_PlayerName;
+	public void set_PlayerName(String p_PlayerName) {
+		this.d_PlayerName = p_PlayerName;
 	}
+	
+	
+	
 }
