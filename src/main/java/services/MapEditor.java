@@ -17,16 +17,18 @@ public class MapEditor
             System.out.println("Oh great You already have a map to load! You Smartie!");
             System.out.println("yoyyo");
             System.out.println("Here are the commands you'll require to edit the map you already have:-\neditmap filename");
-             new GameEngineController().controller(2);
+            // new GameEngineController().controller(2);
             
             String str=sc.nextLine();
+
+            
         }
         else if(l_createOrEdit == 2)
         {
             System.out.println("Oh you don't have a map? Dont worry about it, we'll help you make one. Just follow the commands mentioned below:-\neditcontinent -add CONTINENTID AWARDARMIES or -remove CONTINENTID\neditcountry -add COUNTRYID CONTINENTNAME or -remove COUNTRYID\neditneighbor -add COUNTRYID NEIGHBORCOUNTRYID or -remove COUNTRYID NEIGHBORCOUNTRYID");
             String l_mapCreation = sc.nextLine();
 
-             new GameEngineController().controller(2);
+
         
         }
         
