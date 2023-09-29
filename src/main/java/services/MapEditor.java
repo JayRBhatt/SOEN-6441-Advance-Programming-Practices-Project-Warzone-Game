@@ -15,7 +15,6 @@ public class MapEditor
         if(l_createOrEdit == 1)
         {
             System.out.println("Oh great You already have a map to load! You Smartie!");
-            System.out.println("yoyyo");
             System.out.println("Here are the commands you'll require to edit the map you already have:-\neditmap filename");
             // new GameEngineController().controller(2);
             
