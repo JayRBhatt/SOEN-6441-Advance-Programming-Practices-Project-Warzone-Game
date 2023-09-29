@@ -1,4 +1,4 @@
-package utils;
+package utils.maputils;
 
 public class ReadMapTest {
 
