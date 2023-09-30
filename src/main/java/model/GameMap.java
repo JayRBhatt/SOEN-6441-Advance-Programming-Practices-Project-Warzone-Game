@@ -1,5 +1,17 @@
 package model;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import utils.InvalidCommandException;
+import utils.maputils.SaveMap;
+import utils.maputils.ValidateMap;
+
 public class GameMap
 {
 
@@ -11,13 +23,15 @@ public class GameMap
      this.d_players= new HashMap<>();
  }
  
-     private HashMap<String,Continents> d_continents;
+     private HashMap<String,Continent> d_continents;
      private HashMap<String,Country> d_countries ;
      private HashMap<String,Player> d_players;
-     private String d_invalidMessage;
-    private static GameMap d_GameMap;
+     
+     private String d_InvalidMessage;
+     private static GameMap d_GameMap;
+     private String d_Name;
 
-     public HashMap<String, Continents> getContinents()
+     public HashMap<String, Continent> getContinents()
      {
          return d_continents;
      }
@@ -27,7 +41,7 @@ public class GameMap
          return d_continents.get(p_ID);
      }
 
-     public HashMap<String, Countries> getCountries()
+     public HashMap<String, Country> getCountries()
      {
          return d_countries;
      }
@@ -37,12 +51,12 @@ public class GameMap
          return d_countries.get(p_ID);
      }
 
-     public HashMap<String, Players> getPlayers()
+     public HashMap<String, Player> getGamePlayers()
     {
         return d_players;
     }
 
-    public Player getPlayer(String p_ID)
+    public Player getGamePlayer(String p_ID)
     {
         return d_players.get(p_ID);
     }
@@ -62,17 +76,17 @@ public class GameMap
         return d_Name;
     }
 
-    public String setName(String p_Name)
+    public void setName(String p_Name)
     {
         this.d_Name =  p_Name;
     }
 ////////////////////////////
-    public void ClearMap()
-    {
-        GameMap.getInstance().getContinents().clear();
-        GameMap.getInstance().getCountries().clear();
-        GameMap.getInstance().getPlayers().clear();
-    }
+    // public void ClearMap()
+    // {
+    //     GameMap.getInstance().getContinents().clear();
+    //     GameMap.getInstance().getCountries().clear();
+    //     GameMap.getInstance().getPlayers().clear();
+    // }
 ////////////////////////////
 
     public void addContinent(String p_ContinentName, String p_TroopsValue)
@@ -86,7 +100,7 @@ public class GameMap
 
     public void removeContinent(String p_ContinentName)
     {
-        Set<String> l_CountrySet = this.getContinents().remove(p_ContinentName).getCountries().stream().map(Country::getName).collect()Collectors.toSet();
+        Set<String> l_CountrySet = this.getContinents().remove(p_ContinentName).getCountries().stream().map(Country::getCountryName).collect(Collectors.toSet());
         for(String l_Country: l_CountrySet)
         {
             this.getCountries().remove(l_Country);
@@ -109,7 +123,7 @@ public class GameMap
         Country l_Country = this.getCountry(p_CountryName);
 
         this.getContinent(l_Country.getContinent()).getCountries().remove(l_Country);
-        this.getCountries().remove(l_Country.getName);
+        this.getCountries().remove(l_Country.getCountryName());
         System.out.println("...And the "+l_Country+" is erased off the map!! ");
     }
 
@@ -123,28 +137,28 @@ public class GameMap
         
     }
 
-    public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws ValidationExpression
+    public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws InvalidCommandException
     {
         Country l_Country = this.getCountry(p_CountryName);
         Country l_NeighborCountry = this.getCountry(p_NeighborCountryName);
         if(l_Country==null)
         {
-            throw new ValidationException("Ayoo, You messed up!");
+            throw new InvalidCommandException("Ayoo, You messed up!");
         } 
         else if(l_Country.getNeighbors().contains(l_NeighborCountry) || l_NeighborCountry.getNeighbors().contains(l_Country))
         {
-            throw new ValidationException("Oh c'mon! No way they are neighbors");
+            throw new InvalidCommandException("Oh c'mon! No way they are neighbors");
         }
         else
         {
-            this.l_Country.getNeighbors().remove(l_NeighborCountry);
+            this.getCountry(p_CountryName).getNeighbors().remove(l_NeighborCountry);
             System.out.println("Good Riddance!! Annoying Neighbors makes one's life a living hell. Removed: "+ p_CountryName+ " and "+p_NeighborCountryName+" as neighbors");
         }
     }
 
-    public void addGamePlayer(String p_PlayerName) throws ValidationException {
+    public void addGamePlayer(String p_PlayerName) throws InvalidCommandException {
         if (this.getGamePlayers().containsKey(p_PlayerName)) {
-            throw new ValidationException("Duplicates?! No you don't belong here");
+            throw new InvalidCommandException("Duplicates?! No you don't belong here");
         }
         Player l_GamePlayer = new Player();
         l_GamePlayer.setPlayerName(p_PlayerName);
@@ -152,35 +166,35 @@ public class GameMap
         System.out.println("Hello " + p_PlayerName+", Welcome to the world of wars!!");
     }
 
-    public void removeExistingPlayer(String p_PlayerName) throws ValidationException {
+    public void removeExistingPlayer(String p_PlayerName) throws InvalidCommandException {
         Player l_ExistingPlayer = this.getGamePlayer(p_PlayerName);
         if (l_ExistingPlayer == null) {
-            throw new ValidationException("Player does not exist: " + p_PlayerName);
+            throw new InvalidCommandException("Player does not exist: " + p_PlayerName);
         }
-        this.getGamePlayers().remove(l_GamePlayer.getPlayerName());
+        this.getGamePlayers().remove(l_ExistingPlayer.getPlayerName());
         System.out.println("You didn't like the name or What? Deleted: " + p_PlayerName);
     }
 
-    public void saveMap() throws ValidationException {
+    public void saveMap() throws InvalidCommandException {
         
-        if (MapValidation.validateMap(d_GameMap, 0)) {
+        if (ValidateMap.validateMap(d_GameMap, 0)) {
             SaveMap d_SaveMap = new SaveMap();
             boolean flag = true;
             while (flag) {
                 d_GameMap.getName();
                 if (Objects.isNull(d_GameMap.getName()) || d_GameMap.getName().isEmpty()) {
-                    throw new ValidationException("Nope! Not the Correct name I suppose.");
+                    throw new InvalidCommandException("Nope! Not the Correct name I suppose.");
                 } else {
                     if (d_SaveMap.saveMapIntoFile(d_GameMap, d_GameMap.getName())) {
                         System.out.println("Wow! The Map is in Correct Format ");
                     } else {
-                        throw new ValidationException("This isn't a Multiverse, give a different name for the country");
+                        throw new InvalidCommandException("This isn't a Multiverse, give a different name for the country");
                     }
                     flag = false;
                 }
             }
         } else {
-            throw new ValidationException("C'mon that isn't a Valid Map. Its a children's drawing at best! *Scoffs*");
+            throw new InvalidCommandException("C'mon that isn't a Valid Map. Its a children's drawing at best! *Scoffs*");
         }
     }
 
@@ -189,15 +203,15 @@ public class GameMap
         List<Player> d_Gameplayers = d_GameMap.getGamePlayers().values().stream().collect(Collectors.toList());
 
         List<Country> d_CountryList = d_GameMap.getCountries().values().stream().collect(Collectors.toList()); 
-        Collections.shuffle(d_countryList);
+        Collections.shuffle(d_CountryList);
         
-        for (int i = 0; i < d_countryList.size(); i++) {
-            Country d_c = d_countryList.get(i);                
+        for (int i = 0; i < d_CountryList.size(); i++) {
+            Country d_c = d_CountryList.get(i);                
             Player d_p = d_players.get(d_player_index);          
-            d_p.getCapturedCountries().add(d_c);
-            d_c.setGamePlayer(d_p);
-            System.out.println(d_c.getName() + " Assigned to " + d_p.getName());
-            if (d_player_index < d_GameMap.getPlayers().size() - 1) {     
+            d_p.getOccupiedCountries().add(d_c);
+            d_c.setPlayer(d_p);
+            System.out.println(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
+            if (d_player_index < d_GameMap.getGamePlayers().size() - 1) {     
                 d_player_index++;
             } else {                                         
                 d_player_index = 0;
@@ -219,13 +233,13 @@ public class GameMap
         for (Map.Entry<String, Continent> continentEntry : d_GameMap.getContinents().entrySet()) 
         {
             Continent l_Continent = continentEntry.getValue();
-            System.out.format(tableFormat, continent.getName());
+            System.out.format(l_tableFormat, l_Continent.getContinentName());
         }
 
         printTableFooter("*********************");
 
         System.out.println("\nThe countries in this Map and their details:\n");
-        tableFormat = "|%-23s|%-18s|%-60s|%-15s|%n";
+        l_tableFormat = "|%-23s|%-18s|%-60s|%-15s|%n";
 
         printTableHeader("**************************************************************************************************************************");
         System.out.format("     Country's name     | Continent's Name |   Neighbour Countries                                      | No. of armies |%n");
@@ -237,10 +251,10 @@ public class GameMap
 
             for (Country country : continent.getCountries()) {
                 System.out.format(
-                    tableFormat,
-                    country.getName(),
-                    continent.getName(),
-                    country.createANeighborList(country.getNeighbors()),
+                    l_tableFormat,
+                    country.getCountryName(),
+                    continent.getContinentName(),
+                    country.createNeighborList(country.getNeighbors()),
                     country.getArmies()
                 );
             }
@@ -248,7 +262,7 @@ public class GameMap
 
         printTableFooter("***********************************************************************");
 
-        HashMap<String, Player> players = d_GameMap.getPlayers();
+        HashMap<String, Player> players = d_GameMap.getGamePlayers();
         System.out.println("\nPlayers in this game if the game has started are:\n");
 
         if (players != null) 
@@ -258,7 +272,7 @@ public class GameMap
         }
 
         System.out.println("\nThe Map ownership of the players are:\n");
-        tableFormat = "|%-15s|%-30s|%-21d|%n";
+        l_tableFormat = "|%-15s|%-30s|%-21d|%n";
 
         printTableHeader("***********************************************************************");
         System.out.format("| Player's name |    Continent's Controlled    | No. of Armies Owned |%n");
@@ -268,10 +282,10 @@ public class GameMap
 
         for (Player player : playerList) {
             System.out.format(
-                tableFormat,
-                player.getName(),
-                player.createACaptureList(player.getCapturedCountries()),
-                player.getReinforcementArmies()
+                l_tableFormat,
+                player.getPlayerName(),
+                player.createOccupyList(player.getOccupiedCountries()),
+                player.getAdditionalArmies()
             );
         }
 
