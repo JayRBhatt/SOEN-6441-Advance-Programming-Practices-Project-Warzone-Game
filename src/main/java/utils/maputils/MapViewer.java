@@ -52,4 +52,27 @@ public class MapViewer
             }
         }
     }
+
+    public static Map<String, List<String>> readCountriesFromFile(GameMap p_GameMap, List<String> p_CountryArray) throws ValidationException 
+    {
+        Map<String,List<String>> l_NeighborCountries = new HashMap<>();
+        for(String l_CountryString : p_CountryArray)
+        {
+            List<String> l_CountryStringArray = Arrays.stream(l_CountryString.split(" ")).collect(Collectors.toList());
+            if(l_CountryStringArray.size() >= 2)
+            {
+                p_GameMap.addCountry(l_CountryStringArray.get(0), l_CountryStringArray.get(1));
+                l_NeighborCountries.put(l_CountryStringArray.get(0), l_CountryStringArray.subList(2, l_CountryStringArray.size()))
+            }
+        }
+        return l_NeighborCountries;
+    }
+
+    public static void addNeighborsFromFile(GameMap p_GameMap, Map<String, List<String>> p_NeighborList) throws ValidationException {
+        for (String l_Country : p_NeighborList.keySet()) {
+            for (String l_Neighbor : p_NeighborList.get(l_Country)) {
+                p_GameMap.addNeighbor(l_Country, l_Neighbor);
+            }
+        }
+    }
 }

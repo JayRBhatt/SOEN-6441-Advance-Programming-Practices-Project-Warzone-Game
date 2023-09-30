@@ -11,13 +11,13 @@ public class GameMap
      this.d_players= new HashMap<>();
  }
  
-     private HashMap<String,Continents> d_continents;
-     private HashMap<String,Country> d_countries ;
-     private HashMap<String,Player> d_players;
-     private String d_invalidMessage;
+    private HashMap<String,Continents> d_continents;
+    private HashMap<String,Country> d_countries ;
+    private HashMap<String,Player> d_GamePlayers;
+    private String d_invalidMessage;
     private static GameMap d_GameMap;
-
-     public HashMap<String, Continents> getContinents()
+    private String d_Name;
+     public HashMap<String, Continent> getContinents()
      {
          return d_continents;
      }
@@ -27,7 +27,7 @@ public class GameMap
          return d_continents.get(p_ID);
      }
 
-     public HashMap<String, Countries> getCountries()
+     public HashMap<String, Country> getCountries()
      {
          return d_countries;
      }
