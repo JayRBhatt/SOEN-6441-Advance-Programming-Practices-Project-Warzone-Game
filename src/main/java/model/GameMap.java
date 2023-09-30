@@ -29,6 +29,17 @@ public class GameMap
     private String d_InvalidMessage;
     private static GameMap d_GameMap;
     private String d_Name;
+
+    public static GameMap getInstance()
+    {
+        if(Objects.isNull(d_GameMap))
+        {
+            d_GameMap = new GameMap();
+        }
+        return d_GameMap;
+    }
+
+
      public HashMap<String, Continent> getContinents()
      {
          return d_continents;
@@ -79,12 +90,12 @@ public class GameMap
         this.d_Name =  p_Name;
     }
 ////////////////////////////
-    // public void ClearMap()
-    // {
-    //     GameMap.getInstance().getContinents().clear();
-    //     GameMap.getInstance().getCountries().clear();
-    //     GameMap.getInstance().getPlayers().clear();
-    // }
+    public void ClearMap()
+    {
+        GameMap.getInstance().getContinents().clear();
+        GameMap.getInstance().getCountries().clear();
+        GameMap.getInstance().getGamePlayers().clear();
+    }
 ////////////////////////////
 
     public void addContinent(String p_ContinentName, String p_TroopsValue)
