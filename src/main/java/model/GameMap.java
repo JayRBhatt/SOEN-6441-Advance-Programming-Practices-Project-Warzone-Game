@@ -20,13 +20,13 @@ public class GameMap
 
      this.d_continents= new HashMap<>();
      this.d_countries= new HashMap<>();
-     this.d_players= new HashMap<>();
+     this.d_GamePlayers= new HashMap<>();
  }
  
-    private HashMap<String,Continents> d_continents;
+    private HashMap<String,Continent> d_continents;
     private HashMap<String,Country> d_countries ;
     private HashMap<String,Player> d_GamePlayers;
-    private String d_invalidMessage;
+    private String d_InvalidMessage;
     private static GameMap d_GameMap;
     private String d_Name;
      public HashMap<String, Continent> getContinents()
@@ -51,12 +51,12 @@ public class GameMap
 
      public HashMap<String, Player> getGamePlayers()
     {
-        return d_players;
+        return d_GamePlayers;
     }
 
     public Player getGamePlayer(String p_ID)
     {
-        return d_players.get(p_ID);
+        return d_GamePlayers.get(p_ID);
     }
 
     public String getInvalidMessage()
@@ -205,7 +205,7 @@ public class GameMap
         
         for (int i = 0; i < d_CountryList.size(); i++) {
             Country d_c = d_CountryList.get(i);                
-            Player d_p = d_players.get(d_player_index);          
+            Player d_p = d_GamePlayers.get(d_player_index);          
             d_p.getOccupiedCountries().add(d_c);
             d_c.setPlayer(d_p);
             System.out.println(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
