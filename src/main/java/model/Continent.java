@@ -11,13 +11,6 @@ public class Continent
     int d_ContinentValue;
     Set<Country> d_Countries;
 
-    public Continent(String p_ContinentID, String p_ContinentName, int p_ContinentValue) 
-    {
-		this.d_ContinentID=p_ContinentID;
-		this.d_ContinentName=p_ContinentName;
-		this.d_ContinentValue=p_ContinentValue;
-        this.d_Countries = new HashSet<>();
-	}
 
     public String getContinentId() 
     {
@@ -49,7 +42,8 @@ public class Continent
         this.d_ContinentValue= p_ContinentValue;
     }
 
-    public Set<Country> getCountries() {
+    public Set<Country> getCountries() 
+    {
         if (d_Countries == null) {
             d_Countries = new HashSet<>();
         }
