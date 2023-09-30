@@ -24,7 +24,7 @@ public class MapViewer
             File l_FileLoaded = new File("maps/" + p_FileName);
             FileReader l_FileReader = new FileReader(l_FileLoaded);
             Map<String, List<String>> l_FileContent = new HashMap<>();
-            String l_CurrentKey="";
+            String l_CurrentKey = "";
             BufferedReader l_Buffer = new BufferedReader(l_FileReader);
             while(l_Buffer.ready())
             {
@@ -58,8 +58,7 @@ public class MapViewer
         for (String l_InputString : p_ContinentArray) 
         {
             String[] l_InputArray = l_InputString.split(" ");
-            if (l_InputArray.length == 2) 
-            {
+            if (l_InputArray.length == 2) {
                 p_GameMap.addContinent(l_InputArray[0], l_InputArray[1]);
             }
         }
@@ -71,8 +70,7 @@ public class MapViewer
         for(String l_CountryString : p_CountryArray)
         {
             List<String> l_CountryStringArray = Arrays.stream(l_CountryString.split(" ")).collect(Collectors.toList());
-            if(l_CountryStringArray.size() >= 2)
-            {
+            if (l_CountryStringArray.size() >= 2) {
                 p_GameMap.addCountry(l_CountryStringArray.get(0), l_CountryStringArray.get(1));
                 l_NeighborCountries.put(l_CountryStringArray.get(0), l_CountryStringArray.subList(2, l_CountryStringArray.size()));
             }

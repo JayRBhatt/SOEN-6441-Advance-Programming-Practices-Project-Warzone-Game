@@ -1,8 +1,6 @@
 package model;
 
 import java.util.*;
-import model.order.Order;
-import model.order.OrderCreator;
 
 public class Player {
     private int d_PlayerId;

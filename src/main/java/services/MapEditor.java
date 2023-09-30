@@ -29,9 +29,8 @@ public class MapEditor
                     
                 }
             }
-       }
-    }                     
-}
+       }                   
+
         else if(l_createOrEdit == 2)
         {
             System.out.println("Oh you don't have a map? Dont worry about it, we'll help you make one. Just follow the commands mentioned below:-\neditcontinent -add CONTINENTID AWARDARMIES or -remove CONTINENTID\neditcountry -add COUNTRYID CONTINENTNAME or -remove COUNTRYID\neditneighbor -add COUNTRYID NEIGHBORCOUNTRYID or -remove COUNTRYID NEIGHBORCOUNTRYID");
