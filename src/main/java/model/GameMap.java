@@ -23,14 +23,12 @@ public class GameMap
      this.d_players= new HashMap<>();
  }
  
-     private HashMap<String,Continent> d_continents;
-     private HashMap<String,Country> d_countries ;
-     private HashMap<String,Player> d_players;
-     
-     private String d_InvalidMessage;
-     private static GameMap d_GameMap;
-     private String d_Name;
-
+    private HashMap<String,Continents> d_continents;
+    private HashMap<String,Country> d_countries ;
+    private HashMap<String,Player> d_GamePlayers;
+    private String d_invalidMessage;
+    private static GameMap d_GameMap;
+    private String d_Name;
      public HashMap<String, Continent> getContinents()
      {
          return d_continents;
