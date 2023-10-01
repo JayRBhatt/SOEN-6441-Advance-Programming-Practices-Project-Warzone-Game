@@ -119,7 +119,7 @@ public String createOccupyList(List<Country> p_Occupy) {
 public void calculateTotalReinforcementArmies() {
 	// TODO Auto-generated method stub
 	
-//	Player l_Player = p_GameMap.getGamePlayer(p_Id);
+	//	Player l_Player = p_GameMap.getGamePlayer(p_Id);
 	if(getOccupiedCountries().size() > 0) {
 		
 		d_AssignedTroops = 3 * getOccupiedCountries().size();
@@ -128,6 +128,6 @@ public void calculateTotalReinforcementArmies() {
 	else {
 		set_AssignedTroops(3);
 	}
-	System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops" );
+	System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
 }
 }
