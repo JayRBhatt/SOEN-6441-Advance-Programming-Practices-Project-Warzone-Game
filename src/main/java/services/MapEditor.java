@@ -22,13 +22,13 @@ public class MapEditor
             System.out.println("Here are the commands you'll require to edit the map you already have:-\neditmap filename");
             // new GameEngineController().controller(2);
             
-          String l_command = sc.nextLine();
+            String l_command = sc.nextLine();
             List<String> l_commandList=null;
             l_commandList = Arrays.stream(l_command.split(" ")).collect(Collectors.toList());
 
-            if(l_commandList.length ==  2)
+            if(l_commandList.size() ==  2)
             {
-                if(l_commandList[0].equalsIgnoreCase("editmap"))
+                if(l_commandList.get(0).equalsIgnoreCase("editmap"))
                 {
                     
                 }
