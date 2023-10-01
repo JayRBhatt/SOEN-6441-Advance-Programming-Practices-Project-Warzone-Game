@@ -7,7 +7,8 @@ public class Player {
     private String d_PlayerName;    
     private List<Country> d_OccupiedCountries = new ArrayList<>();
     private Deque<Order> d_Orders = new ArrayDeque<>(); 
-    private d_AdditionalArmies;
+    private int d_AdditionalArmies;
+    private int d_AssignedTroops
 
 public static List<Order> OrderList = new ArrayList<>();
     /** 
@@ -61,6 +62,15 @@ public int getAdditionalArmies(){
 public void setAdditionalArmies(int p_AdditionalArmies){
     this.d_AdditionalArmies=p_AdditionalArmies;
 }
+
+public int get_AssignedTroops() {
+	return d_AssignedTroops;
+}
+
+public void set_AssignedTroops(int p_AssignedTroops) {
+	this.d_AssignedTroops = p_AssignedTroops;
+}
+
 public void publishOrder(String p_Command){
     boolean l_PublishCommand = true;
     String[] l_ArrOfCommands=p_Command.split(" ");
@@ -104,5 +114,17 @@ public String createOccupyList(List<Country> p_Occupy) {
         l_Conclusion += l_Occupy.getPlayerName() + "-";
     }
     return l_Conclusion.length() > 0 ? l_Conclusion.substring(0,l_Conclusion.length() - 1): "";
+}
+
+public void calculateTotalReinforcementArmies(GameMap d_GameMap) {
+	// TODO Auto-generated method stub
+	if(getOccupiedCountries().size() > 0) {
+		
+		d_AssignedTroops = 3 * getOccupiedCountries().size();
+	}
+	else {
+		set_AssignedTroops(3);
+	}
+	System.out.println(getPlayerName() + "has been assigned with" + d_AssignedTroops + " troops" );
 }
 }
