@@ -111,13 +111,14 @@ public boolean stationAdditionalArmiesFromPlayer(int p_ArmyNumber){
 public String createOccupyList(List<Country> p_Occupy) {
     String l_Conclusion = "";
     for(Country l_Occupy : p_Occupy){
-        l_Conclusion += l_Occupy.getPlayerName() + "-";
+        l_Conclusion += l_Occupy.getPlayer() + "-";
     }
     return l_Conclusion.length() > 0 ? l_Conclusion.substring(0,l_Conclusion.length() - 1): "";
 }
 
-public void calculateTotalReinforcementArmies(GameMap p_GameMap) {
+public void calculateTotalReinforcementArmies() {
 	// TODO Auto-generated method stub
+	
 //	Player l_Player = p_GameMap.getGamePlayer(p_Id);
 	if(getOccupiedCountries().size() > 0) {
 		

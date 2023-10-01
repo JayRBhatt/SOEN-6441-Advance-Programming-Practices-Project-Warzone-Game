@@ -24,6 +24,6 @@ public class Reinforcements {
 	
     public void assignReinforcementTroops(Player p_Player) {
 //    	p_Player.calculateTotalReinforcementArmies(d_GameMap, p_Player.getPlayerId());
-    	p_Player.calculateTotalReinforcementArmies(d_GameMap);
+    	p_Player.calculateTotalReinforcementArmies();
         }
 }
