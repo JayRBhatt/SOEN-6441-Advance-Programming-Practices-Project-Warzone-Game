@@ -8,7 +8,7 @@ public class Player {
     private List<Country> d_OccupiedCountries = new ArrayList<>();
     private Deque<Order> d_Orders = new ArrayDeque<>(); 
     private int d_AdditionalArmies;
-    private int d_AssignedTroops
+    private int d_AssignedTroops;
 
 public static List<Order> OrderList = new ArrayList<>();
     /** 
@@ -116,15 +116,17 @@ public String createOccupyList(List<Country> p_Occupy) {
     return l_Conclusion.length() > 0 ? l_Conclusion.substring(0,l_Conclusion.length() - 1): "";
 }
 
-public void calculateTotalReinforcementArmies(GameMap d_GameMap) {
+public void calculateTotalReinforcementArmies(GameMap p_GameMap) {
 	// TODO Auto-generated method stub
+//	Player l_Player = p_GameMap.getGamePlayer(p_Id);
 	if(getOccupiedCountries().size() > 0) {
 		
 		d_AssignedTroops = 3 * getOccupiedCountries().size();
+		set_AssignedTroops(d_AssignedTroops);
 	}
 	else {
 		set_AssignedTroops(3);
 	}
-	System.out.println(getPlayerName() + "has been assigned with" + d_AssignedTroops + " troops" );
+	System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops" );
 }
 }

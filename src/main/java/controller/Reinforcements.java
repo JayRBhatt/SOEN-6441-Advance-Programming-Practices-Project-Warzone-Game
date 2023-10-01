@@ -1,24 +1,29 @@
 package controller;
 
+import model.GameMap;
+import model.Player;
+
 public class Reinforcements {
-private GameMap d_GameMap;
 	
-	private Player d_CurrentPlayer;
+	private GameMap d_GameMap;
+	
+	public Reinforcements() {
+		d_GameMap = GameMap.getInstance();
+	}
 	
 	public void start(int p_GamePhaseID) {
 		calculateReinforcements();
-		
 	}
 
 	private void calculateReinforcements() {
-		//for each player assign troops depending on the country assigned to them
-		for(Player l_Player : d_GameMap.getPlayers().values()) {
-			setReinforcementTroops();
+		for(Player l_Player : d_GameMap.getGamePlayers().values()) {
+			assignReinforcementTroops(l_Player);
             		
 		}
 	}
 	
-    public void setReinforcementTroops() {
-            d_CurrentPlayer.calculateTotalReinforcementArmies(d_GameMap);
+    public void assignReinforcementTroops(Player p_Player) {
+//    	p_Player.calculateTotalReinforcementArmies(d_GameMap, p_Player.getPlayerId());
+    	p_Player.calculateTotalReinforcementArmies(d_GameMap);
         }
 }
