@@ -28,7 +28,7 @@ public class GameEngineController {
         switch (p_GamePhaseID) 
         {
             case 1:
-                new MapEditor().start(p_GamePhaseID);
+                new MapEditor().mapEdit(p_GamePhaseID);
                 break;
             case 2:
                 new GamePlayBegins().runPhase(p_GamePhaseID);

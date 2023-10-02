@@ -11,10 +11,10 @@ import utils.InvalidCommandException;
 public class GamePlayBegins
 {
     private final Scanner sc = new Scanner(System.in);
-    private final List<String> CLI_COMMANDS = Arrays.asList("showmap", "loadmap", "gameplayer", "assigncountries");
+    private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer", "assigncountries");
     GameMap d_GameMap;
     
-    public void runPhase(int d_GamePhaseID) throws InvalidCommandException
+    public void runPhase(int p_GamePhaseID) throws InvalidCommandException
     {
         System.out.println("I'm in \"GamePlayBegins\" phase");
         while (true) {
@@ -160,13 +160,13 @@ public class GamePlayBegins
      * @param p_InputList the command list from console
      * @return true if command is executable else false
      */
-    public boolean isValidInput(List<String> inputList) 
+    public boolean isValidInput(List<String> p_InputList) 
     {
-        if (!inputList.isEmpty()) 
+        if (p_InputList.isEmpty()) 
         {
-            String primaryCommand = inputList.get(0).toLowerCase();
-            return CLI_COMMANDS.contains(primaryCommand);
-        }
-        return false;
-    }
+            p_InputList.add("unknown");
+        }   
+            String l_primaryCommand = p_InputList.get(0).toLowerCase();
+             return l_PreDefinedCommands.contains(l_primaryCommand);
+    }  
 }

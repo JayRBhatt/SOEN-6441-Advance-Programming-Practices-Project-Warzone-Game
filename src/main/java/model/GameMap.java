@@ -89,14 +89,14 @@ public class GameMap
     {
         this.d_Name =  p_Name;
     }
-////////////////////////////
+
     public void ClearMap()
     {
         GameMap.getInstance().getContinents().clear();
         GameMap.getInstance().getCountries().clear();
         GameMap.getInstance().getGamePlayers().clear();
     }
-////////////////////////////
+
 
     public void addContinent(String p_ContinentName, String p_TroopsValue)
     {
