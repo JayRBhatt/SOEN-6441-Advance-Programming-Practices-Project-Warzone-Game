@@ -31,8 +31,7 @@ public class MapEditor
             String l_PrimaryCommand = l_InputList.get(0);
             l_InputList.remove(l_PrimaryCommand);
         
-            for (String l_Command : l_InputList) {
-                String[] l_CommandArray = l_Command.split(" ");
+           
                 switch (l_PrimaryCommand.toLowerCase()) {
                     case "editcontinent":
                         handleEditContinentCommands(l_InputList);
@@ -71,7 +70,7 @@ public class MapEditor
                 }
             
             }
-        }
+        
     }
     private List<String> splitInput(String input) 
     {
@@ -242,24 +241,24 @@ public class MapEditor
     private void displayHelpCommands(){
 System.out.println("List of user map creation commands from console:");
 System.out.println("- To add or remove a continent:");
-System.out.println("  - editcontinent -add continentID continentvalue");
-System.out.println("  - editcontinent -remove continentID");
+System.out.println("editcontinent -add continentID continentvalue");
+System.out.println("editcontinent -remove continentID");
 System.out.println("- To add or remove a country:");
-System.out.println("  - editcountry -add countryID continentID");
-System.out.println("  - editcountry -remove countryID");
+System.out.println("editcountry -add countryID continentID");
+System.out.println("editcountry -remove countryID");
 System.out.println("- To add or remove a neighbor to a country:");
-System.out.println("  - editneighbor -add countryID neighborcountryID");
-System.out.println("  - editneighbor -remove countryID neighborcountryID");
+System.out.println("editneighbor -add countryID neighborcountryID");
+System.out.println("editneighbor -remove countryID neighborcountryID");
 System.out.println("---------------------------------------------------------");
 System.out.println("Read/Update existing map commands:");
 System.out.println("- To edit map: editmap filename");
 System.out.println("---------------------------------------------------------");
 System.out.println("Additional map commands:");
-System.out.println("- To show the map: showmap");
-System.out.println("- To validate map: validatemap");
+System.out.println("To show the map: showmap");
+System.out.println("To validate map: validatemap");
 System.out.println("---------------------------------------------------------");
 System.out.println("Note: To save the created map, use the command:");
-System.out.println("- To save map: savemap filename");
+System.out.println("To save map: savemap filename");
 System.out.println("---------------------------------------------------------");
 System.out.println("================================ End of Map Editor Phase ==================================");
     }
