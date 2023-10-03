@@ -35,7 +35,7 @@ public class OrderIssue
      * @return the next phase to be executed
      * @throws Exception  when execution fails
      */
-    public void begin(int p_GamePhaseID) throws Exception {
+    public void begin(int p_GamePhaseID) throws InvalidCommandException {
             int l_PlayerNumber = 0;
             while (l_PlayerNumber < d_GameMap.getPlayers().size()) {
                 for (Player l_Player : d_GameMap.getPlayers().values()) {

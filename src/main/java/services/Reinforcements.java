@@ -1,8 +1,9 @@
 package services;
 
 import model.GameMap;
-import model.Order;
+//import model.Order;
 import model.Player;
+import utils.InvalidCommandException;
 
 public class Reinforcements {
 
@@ -12,7 +13,7 @@ public class Reinforcements {
 		d_GameMap = GameMap.getInstance();
 	}
 	
-	public void start(int p_GamePhaseID) throws Exception {
+	public void start(int p_GamePhaseID) throws InvalidCommandException {
 		calculateReinforcements();
 		new OrderIssue().begin(p_GamePhaseID);
 	}
