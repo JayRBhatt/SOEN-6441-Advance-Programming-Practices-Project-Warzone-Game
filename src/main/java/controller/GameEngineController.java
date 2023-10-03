@@ -37,6 +37,9 @@ public class GameEngineController {
             case 3:
                 System.out.println("In 3rd Phaseee");
                 break;
+            case 5: 
+                new ExecuteOrderService().startExecuteOrder(p_GamePhaseID);
+                break;
 
             default:
                 System.out.println("khotu");
