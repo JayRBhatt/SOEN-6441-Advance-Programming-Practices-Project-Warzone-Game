@@ -13,7 +13,7 @@ import utils.maputils.SaveMap;
 import utils.maputils.ValidateMap;
 
 /**
- * A class that for the entire GameMap 
+ * A class for the entire GameMap 
  * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
@@ -123,23 +123,34 @@ public class GameMap {
     }
 
     /**
-     * 
-     * @return
+     * Method to get the name
+     * @return the name
      */
     public String getName() {
         return d_Name;
     }
 
+    /**
+     * Method to set the name
+     * @param p_Name the name to be set
+     */
     public void setName(String p_Name) {
         this.d_Name = p_Name;
     }
-
+	/**
+	 * Method that clear all of the elements of GameMap object
+	 */
     public void ClearMap() {
         GameMap.getInstance().getContinents().clear();
         GameMap.getInstance().getCountries().clear();
         GameMap.getInstance().getGamePlayers().clear();
     }
 
+    /**
+     * Method to add a continent 
+     * @param p_ContinentName name of the continent
+     * @param p_TroopsValue number of troops
+     */
     public void addContinent(String p_ContinentName, String p_TroopsValue) {
 
         Continent l_Continent = new Continent(p_TroopsValue, p_TroopsValue, 0, null);
@@ -149,6 +160,10 @@ public class GameMap {
         System.out.println("Woohooo! You have added a Continnet to your World Map!!");
     }
 
+    /**
+     * Method to remove a continent
+     * @param p_ContinentName name of the continent to be removed
+     */
     public void removeContinent(String p_ContinentName) {
         Set<String> l_CountrySet = this.getContinents().remove(p_ContinentName).getCountries().stream()
                 .map(Country::getCountryName).collect(Collectors.toSet());
@@ -158,6 +173,11 @@ public class GameMap {
         System.out.println("WOW!!" + p_ContinentName + "is off the Map!!!");
     }
 
+    /**
+     * Method to add a country
+     * @param p_CountryName name of the country
+     * @param p_ContinentName name of the continent
+     */
     public void addCountry(String p_CountryName, String p_ContinentName) {
         Country l_Country = new Country();
         l_Country.setCountryName(p_CountryName);
@@ -167,6 +187,10 @@ public class GameMap {
         System.out.println("There you have it!: " + p_CountryName + " a part of " + p_ContinentName);
     }
 
+    /**
+     * Method to remove a country
+     * @param p_CountryName name of country to be removed
+     */
     public void removeCountry(String p_CountryName) {
         Country l_Country = this.getCountry(p_CountryName);
         System.out.println(l_Country);
@@ -175,6 +199,11 @@ public class GameMap {
         System.out.println("...And the " + p_CountryName + " is erased off the map!! ");
     }
 
+    /**
+     * Method to add a neighbor to a country
+     * @param p_CountryName name of the current country
+     * @param p_NeighborCountryName name of the neighbor country
+     */
     public void addNeighbor(String p_CountryName, String p_NeighborCountryName) {
         Country l_Country = this.getCountry(p_CountryName);
         Country l_NeighborCountry = this.getCountry(p_NeighborCountryName);
@@ -184,6 +213,12 @@ public class GameMap {
 
     }
 
+    /**
+     * Method to remove a neighbor country
+     * @param p_CountryName name of current country
+     * @param p_NeighborCountryName name of the neighbor country
+     * @throws InvalidCommandException in case of any invalid comment
+     */
     public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws InvalidCommandException {
         Country l_Country = this.getCountry(p_CountryName);
         System.out.println(l_Country);
@@ -202,6 +237,11 @@ public class GameMap {
         }
     }
 
+    /**
+     * Method to add a new player
+     * @param p_PlayerName player name
+     * @throws InvalidCommandException in case of any invalid comment
+     */
     public void addGamePlayer(String p_PlayerName) throws InvalidCommandException {
         if (this.getGamePlayers().containsKey(p_PlayerName)) {
             throw new InvalidCommandException("Duplicates?! No you don't belong here");
@@ -215,6 +255,11 @@ public class GameMap {
 
     }
 
+    /**
+     * Method to remove an existing player 
+     * @param p_PlayerName name of the player to be removed
+     * @throws InvalidCommandException in case of any invalid comment
+     */
     public void removeExistingPlayer(String p_PlayerName) throws InvalidCommandException {
         Player l_ExistingPlayer = this.getGamePlayer(p_PlayerName);
         if (l_ExistingPlayer == null) {
@@ -224,6 +269,10 @@ public class GameMap {
         System.out.println("You didn't like the name or What? Deleted: " + p_PlayerName);
     }
 
+    /**
+     * Method to save the map
+     * @throws InvalidCommandException in case of any invalid comment
+     */
     public void saveMap() throws InvalidCommandException {
 
         if (ValidateMap.validateMap(d_GameMap, 0)) {
@@ -249,6 +298,9 @@ public class GameMap {
         }
     }
 
+    /**
+     * Method to assign countries to each player
+     */
     public void assignCountries() {
         int d_player_index = 0;
         List<Player> l_players = d_GameMap.getGamePlayers().values().stream().collect(Collectors.toList());
@@ -354,6 +406,9 @@ public class GameMap {
     // System.out.format(format);
     // }
 
+    /**
+     * Method to show the current map
+     */
     public void showMap() {
         System.out.println("\nShowing the Map Details:\n");
 
@@ -426,10 +481,18 @@ public class GameMap {
         printTableFooter("+-----------------+------------------------+---------------------+");
     }
 
+    /**
+     * Method to print the table header
+     * @param format the table format
+     */
     private void printTableHeader(String format) {
         System.out.println(format);
     }
 
+    /**
+     * Method to print the table footer
+     * @param format the table format
+     */
     private void printTableFooter(String format) {
         System.out.println(format);
     }

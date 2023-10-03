@@ -31,14 +31,12 @@ public class OrderIssue {
     }
 
     /**
-     *
      * A function that allows the player to start issuing orders
      * This function checks the number of armies left for the players and allows him
      * to deploy to countries accordingly.
      * This function also shows the list of countries making it user-friendly.
-     * 
-     * @return the next phase to be executed
-     * @throws Exception when execution fails
+     * @param p_GamePhaseID the current phase Id
+     * @throws InvalidCommandException when execution fails
      */
     public void begin(int p_GamePhaseID) throws InvalidCommandException {
         int l_PlayerNumber = 0;

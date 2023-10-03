@@ -31,8 +31,6 @@ public class ExecuteOrder {
 
     /**
      * Constructs an ExecuteOrderService with a reference to the game map.
-     *
-     * @param gameMap The game map instance.
      */
     public ExecuteOrder() {
         // this.d_GameMap = d_GameMap;
@@ -42,22 +40,18 @@ public class ExecuteOrder {
 
     /**
      * Starts the execution of orders in the Execute Order phase.
-     *
-     * @return The next game phase.
-     * @throws Exception if game phase transition is invalid.
+     * @param p_GamePhaseID the current game phase Id
+     * @throws InvalidCommandException if game phase transition is invalid.
      */
-
-
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         executeOrders();
         System.out.println("All the orders have been executed successfully");
         new GameEngineController().controller(5);
     }
 
-
-    /**
-     * Executes orders for each player in the game.
-     */
+	/**
+	 * Executes orders for each player in the game.
+	 */
     private void executeOrders() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {

@@ -18,9 +18,9 @@ import utils.InvalidCommandException;
 
 public class GameEngineController {
     /**
+     * Controller method which starts the game
      * @param p_GamePhaseID holding the ID of the current game phase
-     * @return
-     * @throws InvalidCommandException
+     * @throws InvalidCommandException in case of any invalid comments
      */
 
     public void controller(int p_GamePhaseID) throws InvalidCommandException {

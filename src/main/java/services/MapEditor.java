@@ -11,6 +11,16 @@ import utils.InvalidCommandException;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 
+/**
+ * Map editor class to edit the maps
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class MapEditor {
     private Scanner sc = new Scanner(System.in);
     GameMap d_GameMap;
@@ -18,10 +28,18 @@ public class MapEditor {
             "showmap",
             "savemap", "editmap", "validatemap");
 
+    /**
+     * MapEditor constructor
+     */
     public MapEditor() {
         this.d_GameMap = GameMap.getInstance();
     }
 
+    /**
+     * Method to edit the map
+     * @param p_GamePhaseID Id of the current phase
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     public void mapEdit(int p_GamePhaseID) throws InvalidCommandException {
         while (true) {
             System.out.println("Now you have entered the initial stage of the game, that is, Creation of map");
@@ -95,6 +113,11 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to split the input
+     * @param p_Input input string
+     * @return splitted output
+     */
     private List<String> splitInput(String p_Input) {
         if (p_Input.contains("-")) {
             return Arrays.stream(p_Input.split("-"))
@@ -106,6 +129,10 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to handle invalid input
+     * @param p_inputList the input 
+     */
     private void handleInvalidInput(List<String> p_inputList) {
         if (p_inputList.get(0).startsWith("exit")) {
             p_inputList.add(0, "exit");
@@ -116,6 +143,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to validate the input
+     * @param p_InputList the input list
+     * @return true if .... false if   
+     * 
+     */
     public boolean isValidInput(List<String> p_InputList) {
         if (p_InputList.size() == 1) {
             p_InputList.add("unknown");
@@ -124,6 +157,11 @@ public class MapEditor {
         return l_PreDefinedCommands.contains(l_primaryCommand);
     }
 
+    /**
+     * Method to handle the edit continent commands
+     * @param p_CommandList the list of continent commands
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     private void handleEditContinentCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -146,6 +184,11 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to handle edit country commands
+     * @param p_CommandList list of commands
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     private void handleEditCountryCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -168,6 +211,11 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to handle edit neighbor commands
+     * @param p_CommandList list of commands
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     private void handleEditNeighborCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -190,6 +238,11 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method to add continent
+     * @param p_CommandList list of commands
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     private void addContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
@@ -198,6 +251,11 @@ public class MapEditor {
         d_GameMap.addContinent(p_CommandList.get(1), p_CommandList.get(2));
     }
 
+    /**
+     * Method to remove a continent
+     * @param p_CommandList 
+     * @throws InvalidCommandException
+     */
     private void removeContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();

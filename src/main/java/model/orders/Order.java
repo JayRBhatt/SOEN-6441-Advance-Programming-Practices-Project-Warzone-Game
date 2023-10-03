@@ -4,6 +4,15 @@ import java.util.*;
 
 import model.Country;
 
+/**
+ * A class to manage the orders
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ */
 public class Order {
     private static Order d_Order;
     private OrderDetails d_OrderInfo;
@@ -16,6 +25,10 @@ public class Order {
     // this.targetCountry = targetCountry;
     // }
 
+    /**
+     * Method to get the current instance
+     * @return the order object
+     */
     public static Order getInstance() {
         if (Objects.isNull(d_Order)) {
             d_Order = new Order();

@@ -8,15 +8,35 @@ import utils.maputils.ValidateMap;
 import controller.GameEngineController;
 import model.*;
 import utils.InvalidCommandException;
+
+/**
+ * A class that starts the game by giving the player instructions
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ */
+
 public class GamePlayBegins
 {
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer", "assigncountries");
     GameMap d_GameMap;
+    
+    /**
+     * GamePlayBegins constructor
+     */
     public GamePlayBegins() {
         d_GameMap = GameMap.getInstance();
     }
     
+    /**
+     * Method that runs the current phase
+     * @param p_GamePhaseID the current phase Id
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     public void runPhase(int p_GamePhaseID) throws InvalidCommandException
     {
         System.out.println("I'm in \"GamePlayBegins\" phase");
@@ -137,6 +157,11 @@ public class GamePlayBegins
         // System.out.println("I'm in \"GamePlayBegins\" phase");
 
     }
+    /**
+     * Method that loads the map from file
+     * @param p_Filename the file name
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     private void loadMapFromFile(String p_Filename) throws InvalidCommandException 
     {
         MapViewer.readMap(d_GameMap, p_Filename);
@@ -149,7 +174,6 @@ public class GamePlayBegins
     /**
      * This method validates to check if the current cli command is executable
      * in the current phase
-     *
      * @param p_InputList the command list from console
      * @return true if command is executable else false
      */
@@ -162,6 +186,12 @@ public class GamePlayBegins
             String l_primaryCommand = p_InputList.get(0).toLowerCase();
              return l_PreDefinedCommands.contains(l_primaryCommand);
     }  
+    
+    /**
+     * Method to split the input string
+     * @param p_Input the input
+     * @return the 
+     */
     private List<String> splitInput(String p_Input){
           if (p_Input.contains("-")) 
             {
