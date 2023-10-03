@@ -146,4 +146,11 @@ public class Player {
         System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
 
     }
+
+    @Override
+    public String toString() {
+        return "helloworld [d_PlayerId=" + d_PlayerId + ", d_PlayerName=" + d_PlayerName + ", d_AdditionalArmies="
+                + d_AdditionalArmies + ", d_AssignedTroops=" + d_AssignedTroops + "]";
+    }
+
 }

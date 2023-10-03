@@ -24,6 +24,7 @@ public class GameEngineController {
      */
 
     public void controller(int p_GamePhaseID) throws InvalidCommandException {
+        System.out.println("your number is" + p_GamePhaseID);
         switch (p_GamePhaseID) {
             case 1:
                 new MapEditor().mapEdit(p_GamePhaseID);

@@ -29,7 +29,10 @@ public class Continent {
     }
 
     public void setContinentName(String p_ContinentName) {
+
+        System.out.println("methid");
         this.d_ContinentName = p_ContinentName;
+        System.out.println("para" + p_ContinentName + "::::  this vali value ::->" + this.d_ContinentName);
     }
 
     public int getContinentValue() {
