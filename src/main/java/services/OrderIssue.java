@@ -44,12 +44,12 @@ public class OrderIssue {
         int l_PlayerNumber = 0;
         while (l_PlayerNumber < d_GameMap.getGamePlayers().size()) {
             for (Player l_Player : d_GameMap.getGamePlayers().values()) {
-                if (l_Player.get_AssignedTroops() <= 0) {
+                if (l_Player.getAdditionalArmies() <= 0) {
                     l_PlayerNumber++;
                     continue;
                 }
                 String l_PlayerName = l_Player.getPlayerName();
-                int l_ReinforcementArmies = l_Player.get_AssignedTroops();
+                int l_ReinforcementArmies = l_Player.getAdditionalArmies();
                 System.out.println("Armies assigned to Player " + l_PlayerName + " are : " + l_ReinforcementArmies);
                 System.out.println("Please assign your armies to the below listed countries :");
                 printAssignedCountries(l_Player);

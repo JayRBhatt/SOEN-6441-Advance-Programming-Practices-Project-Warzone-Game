@@ -72,18 +72,19 @@ public class Player {
         this.d_AdditionalArmies = p_AdditionalArmies;
     }
 
-    public int get_AssignedTroops() {
-        return d_AssignedTroops;
-    }
+    // public int get_AssignedTroops() {
+    //     return d_AssignedTroops;
+    // }
 
-    public void set_AssignedTroops(int p_AssignedTroops) {
-        this.d_AssignedTroops = p_AssignedTroops;
-    }
+    // public void set_AssignedTroops(int p_AssignedTroops) {
+    //     this.d_AssignedTroops = p_AssignedTroops;
+    // }
 
     public void publishOrder(String p_Command) {
         boolean l_PublishCommand = true;
         String[] l_ArrOfCommands = p_Command.split(" ");
         int l_AdditionalArmies = Integer.parseInt(l_ArrOfCommands[2]);
+        System.out.println("heree"+l_AdditionalArmies);
         if (!confirmIfCountryisOccupied(l_ArrOfCommands[1], this)) {
             System.out.println("OOPS! This Country is not yours");
             l_PublishCommand = false;
@@ -116,6 +117,7 @@ public class Player {
     }
 
     public boolean stationAdditionalArmiesFromPlayer(int p_ArmyNumber) {
+        System.out.println("here123"+d_AdditionalArmies);
         if (p_ArmyNumber > d_AdditionalArmies || p_ArmyNumber < 0) {
             return false;
         }
@@ -142,10 +144,10 @@ public class Player {
         // }
 
         // else {
-        set_AssignedTroops(10);
+        setAdditionalArmies(10);
         // }
 
-        System.out.println(getPlayerName() + " has been assigned with " + get_AssignedTroops() + " troops");
+        System.out.println(getPlayerName() + " has been assigned with " + getAdditionalArmies() + " troops");
 
     }
 

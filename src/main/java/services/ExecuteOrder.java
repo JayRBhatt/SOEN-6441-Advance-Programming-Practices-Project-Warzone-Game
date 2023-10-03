@@ -51,7 +51,7 @@ public class ExecuteOrder {
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         executeOrders();
         System.out.println("All the orders have been executed successfully");
-        new GameEngineController().controller(5);
+        new GameEngineController().controller(6);
     }
 
 
