@@ -41,23 +41,12 @@ public class GamePlayBegins
         System.out.println("I'm in \"GamePlayBegins\" phase");
         while (true) {
             System.out.println("1. If you need help DON'T WORRY We have got your back just type help to view the list of commands " + "\n" + "2. If you want to exit the game just type exit");
-            String l_Input = sc.nextLine();
-            List<String> l_InputList = null;
-            if (l_Input.contains("-")) 
-            {
-                l_InputList = Arrays.stream(l_Input.split("-"))
-                        .filter(s -> !s.isEmpty())
-                        .map(String::trim)
-                        .collect(Collectors.toList());
-            } 
-            else 
-            {
-                l_InputList = Arrays.stream(l_Input.split(" ")).collect(Collectors.toList());
-            }
-
+            String l_InputString = sc.nextLine();
+            List<String> l_InputList =  splitInput(l_InputString);
+          
             if (!isValidInput(l_InputList)) 
             {
-                if (l_Input.startsWith("exit")) 
+                if (l_InputString.startsWith("exit")) 
                 {
                     l_InputList.add(0, "exit");
                 } 
@@ -199,4 +188,18 @@ public class GamePlayBegins
             String l_primaryCommand = p_InputList.get(0).toLowerCase();
              return l_PreDefinedCommands.contains(l_primaryCommand);
     }  
+    private List<String> splitInput(String p_Input){
+          if (p_Input.contains("-")) 
+            {
+                return Arrays.stream(p_Input.split("-"))
+                        .filter(s -> !s.isEmpty())
+                        .map(String::trim)
+                        .collect(Collectors.toList());
+            } 
+            else 
+            {
+                return Arrays.stream(p_Input.split(" ")).collect(Collectors.toList());
+            }
+
+    }
 }
