@@ -8,12 +8,31 @@ import utils.maputils.ValidateMap;
 import controller.GameEngineController;
 import model.*;
 import utils.InvalidCommandException;
+
+/**
+ * A class that manages the flow of different phases of the warzone game
+ *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
+
 public class GamePlayBegins
 {
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer", "assigncountries");
     GameMap d_GameMap;
     
+    
+    /**
+     * This function runs the phase and execute the tasks depending on the commands given
+     * @param p_GamePhaseID current Game Phase
+     * @throws InvalidCommandException when any invalid command is encountered
+     */
     public void runPhase(int p_GamePhaseID) throws InvalidCommandException
     {
         System.out.println("I'm in \"GamePlayBegins\" phase");
@@ -42,11 +61,11 @@ public class GamePlayBegins
                 else 
                 {
                     l_InputList.clear();
-                    // if not available in command list forcing to call help
+                    // if the current command is not present in command list forcing to call help
                     l_InputList.add("help");
                 }
             }
-            //Handle loadmap command from console
+            //Handling the loadmap command from console
 
             String l_PrimaryCommand = l_InputList.get(0);
             l_InputList.remove(l_PrimaryCommand);
@@ -63,7 +82,7 @@ public class GamePlayBegins
                         }
                         break;
                     }
-                    //Handle gameplayer command from console
+                    //Handling the gameplayer command from console
 
                     case "gameplayer": 
                     {
@@ -99,7 +118,7 @@ public class GamePlayBegins
                         }
                         break;
                     }
-                    //Handle assigncountries command from console
+                    //Handling the assigncountries command from console
 
                     case "assigncountries": 
                     {
@@ -107,14 +126,16 @@ public class GamePlayBegins
                         {
                             d_GameMap.assignCountries();
                             System.out.println("================================End of GamePlay begins Phase==================================");
-                                new GameEngineController().controller(3);
+                                
+                            //moves to the new game phase
+                            new GameEngineController().controller(3);
                             } 
                         else 
                         {
                             throw new InvalidCommandException("Create atleast two players before assigning countries");
                         }
                     }
-                    //Handle showmap command from console
+                    //Handling the showmap command from console
 
                     case "showmap": 
                     {
@@ -123,9 +144,10 @@ public class GamePlayBegins
                     }
                     case "exit": 
                     {
-                        new GameEngineController().controller(3);
+                        //moves to the next game phase
+                    	new GameEngineController().controller(3);
                     }
-                    //Print the commands for help
+                    //Printing the guide to the different commands to the user for the current phase
                     default: {
                         System.out.println("Order of game play commands:");
                         System.out.println("-----------------------------------------------------------------------------------------");
@@ -140,10 +162,15 @@ public class GamePlayBegins
                 }
             }
         }
-        // new GameEngineController().controller(3);
-        // System.out.println("I'm in \"GamePlayBegins\" phase");
-
     }
+
+     /**
+     * This method loads the game map from the map file
+     *
+     * @param p_Filename the map file name
+     * @throws ValidationException when validation fails
+     */
+
     private void loadMapFromFile(String p_Filename) throws InvalidCommandException 
     {
         MapViewer.readMap(d_GameMap, p_Filename);
@@ -154,11 +181,10 @@ public class GamePlayBegins
     }
 
     /**
-     * This method validates to check if the current cli command is executable
-     * in the current phase
+     * This method checks whether the current command is executable in this phase or not
      *
      * @param p_InputList the command list from console
-     * @return true if command is executable else false
+     * @return true if command is executable or else it returns false
      */
     public boolean isValidInput(List<String> p_InputList) 
     {

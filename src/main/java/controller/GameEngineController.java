@@ -19,7 +19,6 @@ import utils.InvalidCommandException;
 public class GameEngineController {
     /**
      * @param p_GamePhaseID holding the ID of the current game phase
-     * @return 
      * @throws InvalidCommandException
      */
 

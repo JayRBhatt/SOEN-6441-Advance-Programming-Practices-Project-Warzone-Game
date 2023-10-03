@@ -292,9 +292,9 @@ public class GameMap
         for (Player player : playerList) {
             System.out.format(
                 l_tableFormat,
-                player.getPlayerName(),
-                player.createOccupyList(player.getOccupiedCountries()),
-                player.getAdditionalArmies()
+                player.getPlayerName()
+//                player.createOccupyList(player.getOccupiedCountries()),
+//                player.getAdditionalArmies()
             );
         }
 
