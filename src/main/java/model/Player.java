@@ -132,19 +132,8 @@ public class Player {
     }
 
     public void calculateTotalReinforcementArmies() {
-        // TODO Auto-generated method stub
 
-        // // Player l_Player = p_GameMap.getGamePlayer(p_Id);
-        // if(getOccupiedCountries().size() > 0) {
-
-        // d_AssignedTroops = 3 * getOccupiedCountries().size();
-        // set_AssignedTroops(d_AssignedTroops);
-        // }
-
-        // else {
         set_AssignedTroops(10);
-        // }
-
         System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
 
     }

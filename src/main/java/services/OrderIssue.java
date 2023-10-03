@@ -8,7 +8,7 @@ import model.Player;
 import utils.InvalidCommandException;
 
 /**
- * A class that manages the flow of diffrent phases of the warzone game
+ * A class that manages the flow of different phases of the warzone game
  *
  * @author Jay Bhatt
  * @author Madhav Anadkat
@@ -80,7 +80,7 @@ public class OrderIssue {
     /**
      * A function to help the Player issue orders.
      * This function help the player with the syntax of command
-     * Also allows the player to enter the command and let the palyer know the
+     * Also allows the player to enter the command and let the player know the
      * command entered is right
      * 
      * @return command entered by the player
