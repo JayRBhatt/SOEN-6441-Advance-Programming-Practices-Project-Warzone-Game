@@ -12,9 +12,25 @@ import model.Continent;
 import model.Country;
 import model.GameMap;
 
+/**
+ * Class to vaidate the map
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class ValidateMap 
 {
-        public static boolean validateMap(GameMap p_GameMap, int p_MinimumCountryCount) 
+	/**
+	 * Method to validate the map
+	 * @param p_GameMap the GameMap object
+	 * @param p_MinimumCountryCount the minimum country count
+	 * @return true if map is validated and OK else false
+	 */
+    public static boolean validateMap(GameMap p_GameMap, int p_MinimumCountryCount) 
     {   if(checkContinentIsEmpty(p_GameMap)){
         
         return false;
@@ -41,6 +57,11 @@ public class ValidateMap
     return true;
     }
 
+    /**
+     * Method to check if continent is empty
+     * @param p_GameMap the GameMap object
+     * @return true if continent is empty else false
+     */
     public static boolean checkContinentIsEmpty(GameMap p_GameMap) 
     {
         if (p_GameMap.getContinents().isEmpty()) 
@@ -60,6 +81,11 @@ public class ValidateMap
         return false;
     }
 
+    /**
+     * Method to check if a for duplicate continents 
+     * @param p_GameMap the GameMap object
+     * @return
+     */
     public static boolean checkDuplicateContinents(GameMap p_GameMap) 
     {
         Set<String> p_ContinentNames = p_GameMap.getContinents().keySet();
@@ -73,6 +99,11 @@ public class ValidateMap
     }
 
 
+    /**
+     * Method to check if neighbors exist for a country
+     * @param p_GameMap the GameMap object
+     * @return
+     */
      private static boolean checkIfNeighbourExist(GameMap p_GameMap) {
         Set<String> l_countryNames = p_GameMap.getCountries().keySet();
         Set<String> l_lowercaseCountryNames = l_countryNames.stream()

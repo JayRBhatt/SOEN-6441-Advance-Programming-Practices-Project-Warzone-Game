@@ -14,8 +14,24 @@ import java.util.stream.Collectors;
 import model.GameMap;
 import utils.InvalidCommandException;
 
+/**
+ * Method to view the map
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class MapViewer 
 {
+	/**
+	 * Method to read the map
+	 * @param p_GameMap the GameMap object
+	 * @param p_FileName the name of the file
+	 * @throws InvalidCommandException in case of any invalid commands
+	 */
     public static void readMap(GameMap p_GameMap, String p_FileName) throws InvalidCommandException
     {
         try
@@ -53,6 +69,12 @@ public class MapViewer
         }
     }
 
+    /**
+     * Method to read the continents from file
+     * @param p_GameMap the GameMap object
+     * @param p_ContinentArray the list of continents
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     public static void readContinentsFromFile(GameMap p_GameMap, List<String> p_ContinentArray) throws InvalidCommandException 
     {
         for (String l_InputString : p_ContinentArray) 
@@ -64,6 +86,13 @@ public class MapViewer
         }
     }
 
+    /**
+     * Method to create the map
+     * @param p_GameMap the GameMap object
+     * @param p_CountryArray the list of country array
+     * @return the neighbor countries
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     public static Map<String, List<String>> readCountriesFromFile(GameMap p_GameMap, List<String> p_CountryArray) throws InvalidCommandException
     {
         Map<String,List<String>> l_NeighborCountries = new HashMap<>();
@@ -78,6 +107,12 @@ public class MapViewer
         return l_NeighborCountries;
     }
 
+    /**
+     * Method to add neighbor from files
+     * @param p_GameMap the GameMap object
+     * @param p_NeighborList list of neighbors 
+     * @throws InvalidCommandException in case of any invalid commands
+     */
     public static void addNeighborsFromFile(GameMap p_GameMap, Map<String, List<String>> p_NeighborList) throws InvalidCommandException {
         for (String l_Country : p_NeighborList.keySet()) {
             for (String l_Neighbor : p_NeighborList.get(l_Country)) {
