@@ -81,27 +81,27 @@ public class MapEditor
             }
         }
     }
-    private List<String> splitInput(String input) 
+    private List<String> splitInput(String p_Input) 
     {
-        if (input.contains("-")) 
+        if (p_Input.contains("-")) 
         {
-            return Arrays.stream(input.split("-"))
+            return Arrays.stream(p_Input.split("-"))
                     .filter(s -> !s.isEmpty())
                     .map(String::trim)
                     .collect(Collectors.toList());
         } else {
-            return Arrays.stream(input.split(" ")).collect(Collectors.toList());
+            return Arrays.stream(p_Input.split(" ")).collect(Collectors.toList());
         }
     }
      
 
-    private void handleInvalidInput(List<String> inputList) {
-        if (inputList.get(0).startsWith("exit")) {
-            inputList.add(0, "exit");
+    private void handleInvalidInput(List<String> p_inputList) {
+        if (p_inputList.get(0).startsWith("exit")) {
+            p_inputList.add(0, "exit");
         } else {
-            inputList.clear();
-            inputList.add("help");
-            inputList.add("unknown");
+            p_inputList.clear();
+            p_inputList.add("help");
+            p_inputList.add("unknown");
         }
     }
     public boolean isValidInput(List<String> p_InputList) 
