@@ -10,7 +10,7 @@ public class OrderCreator {
         switch (l_Type) {
             case "deploy":
                 DeployOrder deployOrder = new DeployOrder();
-                deployOrder.setOrderInfo(generateDeployOrderInfo(p_commands, p_player));
+                deployOrder.setOrder(generateDeployOrderInfo(p_commands, p_player));
                 l_Order = deployOrder;
                 break;
             default:

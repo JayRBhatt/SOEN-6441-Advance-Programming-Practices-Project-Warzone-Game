@@ -1,6 +1,8 @@
-package model;
+package model.orders;
 
 import java.util.*;
+
+import model.Country;
 
 public class Order {
     private String orderDetails;
@@ -9,8 +11,7 @@ public class Order {
     private OrderDetails d_OrderInfo;
 public Order(){
     
-}
-    private OrderDetails d_OrderInfo;  
+} 
 
     public Order(String orderDetails, int numberOfArmies, Country targetCountry) {
         this.orderDetails = orderDetails;
