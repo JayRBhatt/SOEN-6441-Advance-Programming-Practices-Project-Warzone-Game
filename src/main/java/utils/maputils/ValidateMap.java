@@ -15,26 +15,37 @@ import model.GameMap;
 public class ValidateMap 
 {
         public static boolean validateMap(GameMap p_GameMap, int p_MinimumCountryCount) 
-    {
-        boolean l_IsValid = true;
-        l_IsValid &= !checkContinentIsEmpty(p_GameMap);
-        l_IsValid &= !checkDuplicateContinents(p_GameMap);
-        l_IsValid &= !checkDuplicateCountries(p_GameMap);
-        l_IsValid &= checkCountryCount(p_GameMap, p_MinimumCountryCount);
-        l_IsValid &= !checkDuplicateNeighbours(p_GameMap);
-
-        if (l_IsValid) {
-            l_IsValid &= checkIfNeighbourExist(p_GameMap);
-            l_IsValid &= checkIfContinentIsConnected(p_GameMap) || checkIfMapIsConnected(p_GameMap);
+    {   if(checkContinentIsEmpty(p_GameMap)){
+        
+        return false;
+    }
+    if(checkDuplicateContinents(p_GameMap)){
+        return false;
+    }
+    if(checkDuplicateCountries(p_GameMap)){
+        return false;
+    }
+    if(!checkCountryCount(p_GameMap, p_MinimumCountryCount)){
+        return false;
+    }
+    if(checkDuplicateNeighbours(p_GameMap)){
+        return false;
+    }
+    if(checkIfNeighbourExist(p_GameMap)){
+        if(!checkIfContinentIsConnected(p_GameMap)) {
+            if(!checkIfMapIsConnected(p_GameMap)) {
+                return false;
+            }
         }
-
-        return l_IsValid;
+    }
+    return true;
     }
 
     public static boolean checkContinentIsEmpty(GameMap p_GameMap) 
     {
         if (p_GameMap.getContinents().isEmpty()) 
         {
+            
             return true;
         }
         for (Continent l_continent : p_GameMap.getContinents().values()) 
@@ -45,6 +56,7 @@ public class ValidateMap
                 return true;
             }
         }
+    
         return false;
     }
 
@@ -56,6 +68,7 @@ public class ValidateMap
             System.out.println("There are duplicate continents present in the current map.");
             return true;
         }
+        
         return false;
     }
 
@@ -77,6 +90,7 @@ public class ValidateMap
                 }
             }
         }
+    
         return true;
     }
 
@@ -89,6 +103,7 @@ public class ValidateMap
             System.out.println("There are duplicate countries present in the current map.");
             return true;
         }
+
         return false;
     }
 
@@ -102,6 +117,7 @@ public class ValidateMap
                 }
             }
         }
+    
         return false;
     }
 
