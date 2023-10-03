@@ -49,15 +49,14 @@ public class OrderIssue
                     } 
                     String l_PlayerName = l_Player.getPlayerName();
                     int l_ReinforcementArmies = l_Player.get_AssignedTroops();
-                    System.out.println("Armies assigned to Player " + l_PlayerName + "are : " +l_ReinforcementArmies);
-                    System.out.println("Please assign your armies to the below listed countries :");
+                    System.out.println("The Armies assigned to Player " + l_PlayerName + "are : " +l_ReinforcementArmies);
+                    System.out.println("Please assign your armies only to the below listed countries:");
                     printAssignedCountries(l_Player);
                     String l_CommandInputString = readFromPlayer();
                     l_Player.publishOrder(l_CommandInputString); 
                 }
             }
-            System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
-            System.out.println("**************************************************************************************");
+            System.out.println("It looks like you have assigned all your armies.Now its time to move to the next phase!!");
             new GameEngineController().controller(4);
         }
 
@@ -80,16 +79,16 @@ private void printAssignedCountries(Player player) {
      */
     private String readFromPlayer() {
             String l_CommandInput;
-            System.out.println("Lets Begin Issuing Oders ! : ");
-            System.out.println("1. Type 'help' and Enter to see the commands.");
+            System.out.println("Lets Begin Issuing Orders ! : ");
+            System.out.println("1.For any guidance type help we are happy to help you.");
             while(true){
                 l_CommandInput = sc.nextLine();
                     if (VerifyCommandDeploy(l_CommandInput.toUpperCase())) 
                         return l_CommandInput;
                  else {
-                    System.out.println("Here are the list of Game Loop Commands..");
-                    System.out.println("You can use this command to deploy the Armies");
-                    System.out.println("deploy<space>countryName<space>no.of.armies");
+                    System.out.println("There you go, Here is the list of Commands you can use for this phase");
+                    System.out.println("The command to deploy the Armies is");
+                    System.out.println("deploy countryName no.of.armies");
                     System.out.println("Please enter the command Now:");
                 }
             }

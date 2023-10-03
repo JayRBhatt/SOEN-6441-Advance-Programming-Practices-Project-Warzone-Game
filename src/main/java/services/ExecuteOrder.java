@@ -49,8 +49,10 @@ public class ExecuteOrder {
 
 
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
+        System.out.println("**************************************************************************************");
+        System.out.println("Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
         executeOrders();
-        System.out.println("All the orders have been executed successfully");
+        System.out.println("Its done all your orders have been executed successfully");
         new GameEngineController().controller(5);
     }
 
@@ -86,7 +88,7 @@ public class ExecuteOrder {
 
         // Check if the player or destination is null
         if (orderDetails.getPlayer() == null || orderDetails.getDestination() == null) {
-            System.out.println("Cannot be Executed: Invalid order information.");
+            System.out.println("Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again");
             return false;
         }
         // Get player, destination, and the number of armies from orderDetails
@@ -108,7 +110,7 @@ public class ExecuteOrder {
 
         // Print execution details
         System.out.println(
-                "\nExecution has been completed: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
+                "\nHoorayyy, The Execution has been completed successfully: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
         System.out.println("=========================================================================================");
         return true;
     }

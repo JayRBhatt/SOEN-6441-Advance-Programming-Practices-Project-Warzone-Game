@@ -37,10 +37,11 @@ public class GamePlayBegins
      * @throws InvalidCommandException when any invalid command is encountered
      */
     public void runPhase(int p_GamePhaseID) throws InvalidCommandException
-    {
-        System.out.println("I'm in \"GamePlayBegins\" phase");
+    { 
+        System.out.println("================================ End of Map Editor Phase ==================================");
+        System.out.println("Congo!! It looks like you have made it to the second phase of the game the GamePlayBegins phase");
         while (true) {
-            System.out.println("1. If you need help DON'T WORRY We have got your back just type help to view the list of commands " + "\n" + "2. If you want to exit the game just type exit");
+            System.out.println("1. If you need help DON'T WORRY We have got your back just type help to view the list of commands " + "\n" + "2. If you are done and want to exit the phase just type exit");
             String l_InputString = sc.nextLine();
             List<String> l_InputList =  splitInput(l_InputString);
           
@@ -118,7 +119,6 @@ public class GamePlayBegins
                         if (d_GameMap.getGamePlayers().size() > 1) 
                         {
                             d_GameMap.assignCountries();
-                            System.out.println("================================End of GamePlay begins Phase==================================");
                                 
                             //moves to the new game phase
                             new GameEngineController().controller(3);
@@ -142,7 +142,7 @@ public class GamePlayBegins
                     }
                     //Printing the guide to the different commands to the user for the current phase
                     default: {
-                        System.out.println("Order of game play commands:");
+                        System.out.println("The list of user commands for these phase are mentioned below:");
                         System.out.println("-----------------------------------------------------------------------------------------");
                         System.out.println("If you wish to load the map type : loadmap filename");
                         System.out.println("If you wish to see the existing map type : showmap");

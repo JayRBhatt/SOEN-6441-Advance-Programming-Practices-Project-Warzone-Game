@@ -15,7 +15,9 @@ import utils.maputils.ValidateMap;
 public class GameMap {
 
     public GameMap() {
-
+       this.d_continents = new HashMap<>();
+       this.d_countries = new HashMap<>();
+       this.d_GamePlayers = new HashMap<>();
     }
 
     private HashMap<String, Continent> d_continents;

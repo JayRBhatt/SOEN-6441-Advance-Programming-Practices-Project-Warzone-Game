@@ -1,17 +1,21 @@
 package model;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class Continent 
 {
-    String d_ContinentID;
-    String d_ContinentName;
-    int d_ContinentValue;
-    Set<Country> d_Countries;
+   private String d_ContinentID;
+   private String d_ContinentName;
+   private int d_ContinentValue;
+   private Set<Country> d_Countries;
 
-
+   public Continent(String d_ContinentID, String d_ContinentName, int d_ContinentValue, Set<Country> d_Countries){
+     this.d_ContinentID = d_ContinentID;
+     this.d_ContinentName = d_ContinentName;
+     this.d_ContinentValue = d_ContinentValue;
+     this.d_Countries = d_Countries;
+   }
     public String getContinentId() 
     {
         return d_ContinentID;

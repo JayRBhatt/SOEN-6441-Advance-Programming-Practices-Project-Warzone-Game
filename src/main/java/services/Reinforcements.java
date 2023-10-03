@@ -14,6 +14,7 @@ public class Reinforcements {
 	}
 	
 	public void start(int p_GamePhaseID) throws InvalidCommandException {
+		System.out.println("================================End of GamePlay begins Phase==================================");
 		calculateReinforcements();
 		new OrderIssue().begin(p_GamePhaseID);
 	}
