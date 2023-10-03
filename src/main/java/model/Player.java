@@ -6,6 +6,9 @@ import model.orders.OrderCreator;
 
 import model.orders.Order;
 
+/**
+ * A class that defines the structure of a player in the game 
+ */
 public class Player {
     private int d_PlayerId;
     private String d_PlayerName;

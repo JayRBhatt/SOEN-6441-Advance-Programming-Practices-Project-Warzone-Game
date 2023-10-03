@@ -47,7 +47,7 @@ public class Reinforcements {
 	}
 	/**
 	 * For the particular player, calls the associated calculateTotalReinforcementArmies()
-	 * @param p_Player for each player
+	 * @param p_Player indicating each player
 	 */
 	public void assignReinforcementTroops(Player p_Player) {
 		p_Player.calculateTotalReinforcementArmies();

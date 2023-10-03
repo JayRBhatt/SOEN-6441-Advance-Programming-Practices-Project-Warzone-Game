@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringJoiner;
 
+/**
+ * A class that defines the structure of a country in the game 
+ */
 public class Country {
     
      String d_CountryId;
