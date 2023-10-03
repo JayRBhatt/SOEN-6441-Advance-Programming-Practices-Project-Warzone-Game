@@ -35,7 +35,7 @@ public class GameMap {
 
     public HashMap<String, Continent> getContinents() {
 
-        return d_continents;
+        return this.d_continents;
     }
 
     public Continent getContinent(String p_ID) {
@@ -82,7 +82,7 @@ public class GameMap {
 
     public void addContinent(String p_ContinentName, String p_TroopsValue) {
 
-        Continent l_Continent = new Continent();
+        Continent l_Continent = new Continent(p_TroopsValue, p_TroopsValue, 0, null);
         l_Continent.setContinentName(p_ContinentName);
         l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName, l_Continent);
@@ -148,8 +148,11 @@ public class GameMap {
         }
         Player l_GamePlayer = new Player();
         l_GamePlayer.setPlayerName(p_PlayerName);
-        this.getGamePlayers().put(p_PlayerName, l_GamePlayer);
+        System.out.println("Our player is :::--->" + l_GamePlayer);
+        getGamePlayers().put(p_PlayerName, l_GamePlayer);
+
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
+
     }
 
     public void removeExistingPlayer(String p_PlayerName) throws InvalidCommandException {
@@ -207,39 +210,125 @@ public class GameMap {
         }
     }
 
+    // public void showMap() {
+    // System.out.println("\nShowing the Map Details:\n");
+
+    // System.out.println("\nThe Continents in this Map:\n");
+    // String l_tableFormat = "|%-16s|%n";
+
+    // printTableHeader("*********************");
+    // System.out.format("| Continent's name |%n");
+    // printTableHeader("*********************");
+
+    // for (Map.Entry<String, Continent> continentEntry :
+    // d_GameMap.getContinents().entrySet()) {
+    // Continent l_Continent = continentEntry.getValue();
+    // System.out.format(l_tableFormat, l_Continent.getContinentName());
+    // }
+
+    // printTableFooter("*********************");
+
+    // System.out.println("\nThe countries in this Map and their details:\n");
+    // l_tableFormat = "|%-23s|%-18s|%-60s|%-15s|%n";
+
+    // printTableHeader(
+    // "**************************************************************************************************************************");
+    // System.out.format(
+    // " Country's name | Continent's Name | Neighbour Countries | No. of armies
+    // |%n");
+    // printTableHeader(
+    // "**************************************************************************************************************************");
+
+    // for (Map.Entry<String, Continent> continentEntry :
+    // d_GameMap.getContinents().entrySet()) {
+    // Continent continent = continentEntry.getValue();
+
+    // for (Country country : continent.getCountries()) {
+    // System.out.format(
+    // l_tableFormat,
+    // country.getCountryName(),
+    // continent.getContinentName(),
+    // country.createNeighborList(country.getNeighbors()),
+    // country.getArmies());
+    // }
+    // }
+
+    // printTableFooter("***********************************************************************");
+
+    // HashMap<String, Player> players = d_GameMap.getGamePlayers();
+    // System.out.println("\nPlayers in this game if the game has started are:\n");
+
+    // if (players != null) {
+    // players.forEach((key, value) -> System.out.println(key));
+    // System.out.println();
+    // }
+
+    // System.out.println("\nThe Map ownership of the players are:\n");
+    // l_tableFormat = "|%-15s|%-20s|%-21d|%n";
+
+    // printTableHeader("***********************************************************************");
+    // System.out.format("| Player's name | Continent's Controlled | No. of Armies
+    // Owned |%n");
+    // printTableHeader("***********************************************************************");
+
+    // List<Player> playerList =
+    // players.values().stream().collect(Collectors.toList());
+
+    // for (Player player : playerList) {
+    // System.out.format(
+    // l_tableFormat,
+    // player.getPlayerName()
+    // //player.createOccupyList(player.getOccupiedCountries()),
+    // // player.getAdditionalArmies()
+    // );
+    // }
+
+    // printTableFooter("***********************************************************************");
+    // }
+
+    // private void printTableHeader(String format) {
+    // System.out.format(format);
+    // }
+
+    // private void printTableFooter(String format) {
+    // System.out.format(format);
+    // }
+
     public void showMap() {
         System.out.println("\nShowing the Map Details:\n");
 
         System.out.println("\nThe Continents in this Map:\n");
-        String l_tableFormat = "|%-15s|%n";
 
-        printTableHeader("*********************");
-        System.out.format("| Continent's name |%n");
-        printTableHeader("*********************");
+        printTableHeader("+-----------------+");
+        System.out.println("| Continent's name |");
+        printTableHeader("+-----------------+");
 
         for (Map.Entry<String, Continent> continentEntry : d_GameMap.getContinents().entrySet()) {
             Continent l_Continent = continentEntry.getValue();
-            System.out.format(l_tableFormat, l_Continent.getContinentName());
+            System.out.format("|%-16s|%n", l_Continent.getContinentName());
         }
 
-        printTableFooter("*********************");
+        printTableFooter("+-----------------+");
 
         System.out.println("\nThe countries in this Map and their details:\n");
-        l_tableFormat = "|%-23s|%-18s|%-60s|%-15s|%n";
 
         printTableHeader(
-                "**************************************************************************************************************************");
+                "+-----------------------+----------------+------------------------------------------------+---------------+");
         System.out.format(
-                "     Country's name     | Continent's Name |   Neighbour Countries                                      | No. of armies |%n");
+                "|%-23s|%-16s|%-48s|%-15s|%n",
+                "Country's name",
+                "Continent's Name",
+                "Neighbour Countries",
+                "No. of armies");
         printTableHeader(
-                "**************************************************************************************************************************");
+                "+-----------------------+----------------+------------------------------------------------+---------------+");
 
         for (Map.Entry<String, Continent> continentEntry : d_GameMap.getContinents().entrySet()) {
             Continent continent = continentEntry.getValue();
 
             for (Country country : continent.getCountries()) {
                 System.out.format(
-                        l_tableFormat,
+                        "|%-23s|%-16s|%-48s|%-15s|%n",
                         country.getCountryName(),
                         continent.getContinentName(),
                         country.createNeighborList(country.getNeighbors()),
@@ -247,7 +336,8 @@ public class GameMap {
             }
         }
 
-        printTableFooter("***********************************************************************");
+        printTableFooter(
+                "+-----------------------+----------------+------------------------------------------------+---------------+");
 
         HashMap<String, Player> players = d_GameMap.getGamePlayers();
         System.out.println("\nPlayers in this game if the game has started are:\n");
@@ -258,32 +348,30 @@ public class GameMap {
         }
 
         System.out.println("\nThe Map ownership of the players are:\n");
-        l_tableFormat = "|%-15s|%-30s|%-21d|%n";
 
-        printTableHeader("***********************************************************************");
-        System.out.format("| Player's name |    Continent's Controlled    | No. of Armies Owned |%n");
-        printTableHeader("***********************************************************************");
+        printTableHeader("+-----------------+------------------------+---------------------+");
+        System.out.format("| Player's name   | Continent's Controlled | No. of Armies Owned |%n");
+        printTableHeader("+-----------------+------------------------+---------------------+");
 
         List<Player> playerList = players.values().stream().collect(Collectors.toList());
 
         for (Player player : playerList) {
             System.out.format(
-                    l_tableFormat,
-                    player.getPlayerName()
-            // player.createOccupyList(player.getOccupiedCountries()),
-            // player.getAdditionalArmies()
-            );
+                    "|%-17s|%-24s|%-21d|%n",
+                    player.getPlayerName(),
+                    player.createOccupyList(player.getOccupiedCountries()),
+                    player.getAdditionalArmies());
         }
 
-        printTableFooter("***********************************************************************");
+        printTableFooter("+-----------------+------------------------+---------------------+");
     }
 
     private void printTableHeader(String format) {
-        System.out.format(format);
+        System.out.println(format);
     }
 
     private void printTableFooter(String format) {
-        System.out.format(format);
+        System.out.println(format);
     }
 
 }

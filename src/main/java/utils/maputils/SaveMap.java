@@ -29,7 +29,8 @@ public class SaveMap {
         mapData += "[Territories]\n";
         for (Continent continent : p_GameMap.getContinents().values()) {
             for (Country country : p_GameMap.getCountries().values()) {
-                mapData += country.getCountryName() + " " + country.getContinent() + " " + createANeighborList(country.getNeighbors()) + "\n";
+                mapData += country.getCountryName() + " " + country.getContinent() + " "
+                        + createANeighborList(country.getNeighbors()) + "\n";
             }
 
             PrintWriter writeData = null;
