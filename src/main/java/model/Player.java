@@ -10,7 +10,7 @@ public class Player {
     private int d_AdditionalArmies;
     private int d_AssignedTroops;
 
-public static List<Order> OrderList = new ArrayList<>();
+//public static List<Order> OrderList = new ArrayList<>();
     /** 
  * @return int
  */
@@ -80,7 +80,7 @@ public void publishOrder(String p_Command){
         l_PublishCommand = false;
     }
     if(!stationAdditionalArmiesFromPlayer(l_AdditionalArmies)){
-       System.out.println("Sorry, You don't have any more Available Army to deploy");
+       System.out.println("Sorry, You don't have any more Available troops to deploy");
        l_PublishCommand = false;
     }
    
@@ -119,15 +119,19 @@ public String createOccupyList(List<Country> p_Occupy) {
 public void calculateTotalReinforcementArmies() {
 	// TODO Auto-generated method stub
 	
-	//	Player l_Player = p_GameMap.getGamePlayer(p_Id);
-	if(getOccupiedCountries().size() > 0) {
+// 	//	Player l_Player = p_GameMap.getGamePlayer(p_Id);
+// 	if(getOccupiedCountries().size() > 0) {
 		
-		d_AssignedTroops = 3 * getOccupiedCountries().size();
-		set_AssignedTroops(d_AssignedTroops);
-	}
-	else {
-		set_AssignedTroops(3);
-	}
-	System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
+// 		d_AssignedTroops = 3 * getOccupiedCountries().size();
+// 		set_AssignedTroops(d_AssignedTroops);
+// 	}
+	
+//   else {
+		set_AssignedTroops(10);
+// 	}
+	
+  System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
+  
+}
 }
 }

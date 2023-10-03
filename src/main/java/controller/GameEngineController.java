@@ -1,6 +1,8 @@
 package controller;
 
+import model.GameMap;
 import services.*;
+import utils.InvalidCommandException;
 
 /**
  * A class that manages the flow of diffrent phases of the warzone game
@@ -17,12 +19,16 @@ import services.*;
 public class GameEngineController {
     /**
      * @param p_GamePhaseID holding the ID of the current game phase
+     * @return 
+     * @throws InvalidCommandException
      */
 
-    public void controller(int p_GamePhaseID) {
-        switch (p_GamePhaseID) {
+    public void controller(int p_GamePhaseID) throws InvalidCommandException 
+    {
+        switch (p_GamePhaseID) 
+        {
             case 1:
-                new MapEditor().start(p_GamePhaseID);
+                new MapEditor().mapEdit(p_GamePhaseID);
                 break;
             case 2:
                 new GamePlayBegins().runPhase(p_GamePhaseID);

@@ -1,29 +1,24 @@
-package utils.exeptions;
+package utils.exceptions;
 
-public class InvalidExecutionException Exception extends Exception
+public class InvalidInputException  extends Exception
 {
     String d_Message = "Oh C'mon you can't be using this command in this phase";
 
-    public InvalidExecutionException()
+    public InvalidInputException()
     {
         super();
     }
 
-    public InvalidExecutionException(String p_displayMessage)
+    public InvalidInputException(String p_displayMessage)
     {
         super(p_displayMessage);
     }
 
     @Override
-    public String getDisplayMessage()
-    {
-        if()
-        {
-            if(super.getDisplayMessage!=null)
-            {
-                return super.getDisplayMessage();
-            }
-            return d_Message;
+    public String getMessage() {
+        if (super.getMessage() != null) {
+            return super.getMessage();
         }
+        return d_Message;
     }
 }
