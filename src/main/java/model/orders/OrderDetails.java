@@ -1,10 +1,11 @@
-package model.order;
+package model;
 
 import model.Country;
 import model.Player;
 
 /**
  * A class with the information of Order details
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -21,6 +22,7 @@ public class OrderDetails {
 
     /**
      * A function to get the player information
+     * 
      * @return the object of player
      */
     public Player getPlayer() {
@@ -30,6 +32,7 @@ public class OrderDetails {
 
     /**
      * A function to set the player information
+     * 
      * @param d_Player the object of player
      */
     public void setPlayer(Player d_Player) {
@@ -39,7 +42,8 @@ public class OrderDetails {
 
     /**
      * A function to get the departure of the armies from the order
-     * @return  the departure country object
+     * 
+     * @return the departure country object
      */
     public Country getDeparture() {
 
@@ -48,6 +52,7 @@ public class OrderDetails {
 
     /**
      * A function to set the departure of the armies from the order
+     * 
      * @param d_Departure departure country object
      */
     public void setDeparture(Country d_Departure) {
@@ -57,6 +62,7 @@ public class OrderDetails {
 
     /**
      * A function to get where the army is going to.
+     * 
      * @return the destination of armies
      */
     public String getDestination() {
@@ -66,6 +72,7 @@ public class OrderDetails {
 
     /**
      * A function to set the destination of the armies
+     * 
      * @param d_Destination the destination of armies
      */
     public void setDestination(String d_Destination) {
@@ -73,9 +80,9 @@ public class OrderDetails {
         this.d_Destination = d_Destination;
     }
 
-
     /**
      * A function to get the number of armies in the order
+     * 
      * @return the number of armies
      */
     public int getNumberOfArmy() {
@@ -85,6 +92,7 @@ public class OrderDetails {
 
     /**
      * A function to set the number of armies in the order
+     * 
      * @param d_NumberOfArmy the number of armies
      */
     public void setNumberOfArmy(int d_NumberOfArmy) {
