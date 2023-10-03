@@ -41,7 +41,7 @@ public class GamePlayBegins
         System.out.println("================================ End of Map Editor Phase ==================================");
         System.out.println("Congo!! It looks like you have made it to the second phase of the game the GamePlayBegins phase");
         while (true) {
-            System.out.println("1. If you need help DON'T WORRY We have got your back just type help to view the list of commands " + "\n" + "2. If you are done and want to exit the phase just type exit");
+            System.out.println("1. If you need help DON'T WORRY We have got your back just type help to view the list of commands " + "\n" + "2. If you want to exit the game just type exit");
             String l_InputString = sc.nextLine();
             List<String> l_InputList =  splitInput(l_InputString);
           
@@ -177,6 +177,7 @@ public class GamePlayBegins
      * This method checks whether the current command is executable in this phase or not
      *
      * @param p_InputList the command list from console
+     * @return true if command is executable or else it returns false
      * @return true if command is executable or else it returns false
      */
     public boolean isValidInput(List<String> p_InputList) 

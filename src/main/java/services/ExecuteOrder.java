@@ -52,7 +52,7 @@ public class ExecuteOrder {
         System.out.println("**************************************************************************************");
         System.out.println("Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
         executeOrders();
-        System.out.println("Its done all your orders have been executed successfully");
+        System.out.println("All the orders have been executed successfully");
         new GameEngineController().controller(5);
     }
 
@@ -102,8 +102,7 @@ public class ExecuteOrder {
         for (Country l_Country : l_Player.getOccupiedCountries()) {
             if (l_Country.getCountryName().equals(l_Destination)) {
                 l_Country.deployArmies(l_ArmiesToDeploy);
-                System.out
-                        .println(l_Country.getArmies() + " armies have been deployed in " + l_Country.getCountryName());
+                System.out.println(l_Country.getArmies() + " Armies have been deployed in " + l_Country.getCountryName());
             }
         }
 

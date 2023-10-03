@@ -56,7 +56,8 @@ public class OrderIssue
                     l_Player.publishOrder(l_CommandInputString); 
                 }
             }
-            System.out.println("It looks like you have assigned all your armies.Now its time to move to the next phase!!");
+            System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
+            System.out.println("**************************************************************************************");
             new GameEngineController().controller(4);
         }
 
@@ -103,7 +104,7 @@ private void printAssignedCountries(Player player) {
     private boolean VerifyCommandDeploy(String p_CommandString){
             String[] l_CommandInputsList = p_CommandString.split(" ");
             if(l_CommandInputsList.length ==  3){
-                return l_CommandInputsList[0].equals("DEPLOY");
+                return l_CommandInputsList[0].equals("deploy");
             }
             else
                 return false;
