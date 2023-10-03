@@ -1,7 +1,9 @@
 package services;
 
+import controller.GameEngineController;
 import model.GameMap;
 import model.Player;
+import utils.InvalidCommandException;
 
 public class Reinforcements {
 
@@ -11,8 +13,10 @@ public class Reinforcements {
 		d_GameMap = GameMap.getInstance();
 	}
 
-	public void start(int p_GamePhaseID) {
+	public void start(int p_GamePhaseID) throws InvalidCommandException {
 		calculateReinforcements();
+		new GameEngineController().controller(4);
+
 	}
 
 	private void calculateReinforcements() {

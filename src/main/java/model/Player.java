@@ -145,7 +145,7 @@ public class Player {
         set_AssignedTroops(10);
         // }
 
-        System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
+        System.out.println(getPlayerName() + " has been assigned with " + get_AssignedTroops() + " troops");
 
     }
 

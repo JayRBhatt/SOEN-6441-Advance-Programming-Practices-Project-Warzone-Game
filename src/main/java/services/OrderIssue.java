@@ -50,7 +50,7 @@ public class OrderIssue {
                 }
                 String l_PlayerName = l_Player.getPlayerName();
                 int l_ReinforcementArmies = l_Player.get_AssignedTroops();
-                System.out.println("Armies assigned to Player " + l_PlayerName + "are : " + l_ReinforcementArmies);
+                System.out.println("Armies assigned to Player " + l_PlayerName + " are : " + l_ReinforcementArmies);
                 System.out.println("Please assign your armies to the below listed countries :");
                 printAssignedCountries(l_Player);
                 String l_CommandInputString = readFromPlayer();
@@ -59,7 +59,7 @@ public class OrderIssue {
         }
         System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
         System.out.println("**************************************************************************************");
-        new GameEngineController().controller(4);
+        new GameEngineController().controller(5);
     }
 
     /**
@@ -96,7 +96,7 @@ public class OrderIssue {
             else {
                 System.out.println("Here are the list of Game Loop Commands..");
                 System.out.println("You can use this command to deploy the Armies");
-                System.out.println("deploy<space>countryName<space>no.of.armies");
+                System.out.println("deploy countryName no.of.armies");
                 System.out.println("Please enter the command Now:");
             }
         }
