@@ -1,4 +1,4 @@
-package model;
+package model.orders;
 
 import model.Country;
 import model.Player;

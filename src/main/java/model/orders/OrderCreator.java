@@ -1,5 +1,6 @@
-package model;
+package model.orders;
 
+import model.Player;
 
 public class OrderCreator {
     public static Order generateOrder(String[] p_commands, Player p_player) {
