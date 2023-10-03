@@ -19,13 +19,12 @@ import utils.InvalidCommandException;
 public class GameEngineController {
     /**
      * @param p_GamePhaseID holding the ID of the current game phase
+     * @return
      * @throws InvalidCommandException
      */
 
-    public void controller(int p_GamePhaseID) throws InvalidCommandException 
-    {
-        switch (p_GamePhaseID) 
-        {
+    public void controller(int p_GamePhaseID) throws InvalidCommandException {
+        switch (p_GamePhaseID) {
             case 1:
                 new MapEditor().mapEdit(p_GamePhaseID);
                 break;
@@ -34,10 +33,15 @@ public class GameEngineController {
                 break;
 
             case 3:
-                System.out.println("In 3rd Phaseee");
+                new Reinforcements().start(p_GamePhaseID);
                 break;
-            case 5: 
-                new ExecuteOrderService().startExecuteOrder(p_GamePhaseID);
+
+            case 4:
+                new OrderIssue().begin(p_GamePhaseID);
+                break;
+
+            case 5:
+                new ExecuteOrder().startExecuteOrder(p_GamePhaseID);
                 break;
 
             default:

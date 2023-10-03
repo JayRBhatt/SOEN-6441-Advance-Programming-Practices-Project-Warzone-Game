@@ -1,12 +1,17 @@
 package services;
 
-import controller.GameController;
-import model.GameMap;
-import model.Player;
-import model.order.Order;
+import controller.*;
+// import model.Country;
+// import model.GameMap;
+// import model.Order;
+// import model.OrderDetails;
+// import model.Player;
+import model.*;
+import utils.InvalidCommandException;
 
 /**
- * This class represents the service responsible for executing orders in the game.
+ * This class represents the service responsible for executing orders in the
+ * game.
  * It implements the GameController interface.
  *
  * @author Jay Bhatt
@@ -17,44 +22,42 @@ import model.order.Order;
  * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
-public class ExecuteOrderService implements GameController {
+public class ExecuteOrder {
 
-    private final GameMap d_GameMap;
+    GameMap d_GameMap;
 
     /**
      * Constructs an ExecuteOrderService with a reference to the game map.
      *
      * @param gameMap The game map instance.
      */
-    public ExecuteOrderService(GameMap d_GameMap) {
-        this.d_GameMap = d_GameMap;
+    public ExecuteOrder() {
+        // this.d_GameMap = d_GameMap;
+        d_GameMap = GameMap.getInstance();
     }
 
     /**
      * Starts the execution of orders in the Execute Order phase.
      *
      * @return The next game phase.
-     * @throws Exception if  game phase transition is invalid.
+     * @throws Exception if game phase transition is invalid.
      */
-    @Override
-    public void startExecuteOrder(int p_GamePhaseID) throws Exception {
-        if (p_GamePhaseID != 5) {
-            throw new Exception("Invalid game phase transition.");
-        }
+
+    public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         executeOrders();
         System.out.println("All the orders have been executed successfully");
-        GameEngineController.controller(5);
+        new GameEngineController().controller(5);
     }
 
     /**
      * Executes orders for each player in the game.
      */
     private void executeOrders() {
-        for (Player l_Player : d_GameMap.getPlayers().values()) {
+        for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {
                 execute(order);
                 if (execute(order)) {
-                    System.out.println("Order executed: " + order.getOrderDetails());  
+                    System.out.println("Order executed: " + order.getOrderDetails());
                 } else {
                     System.out.println("Failed to execute order: " + order.getOrderDetails());
                 }
@@ -66,7 +69,8 @@ public class ExecuteOrderService implements GameController {
      * Executes a game order by deploying armies to a destination country.
      *
      * @param order The order to execute.
-     * @return {@code true} if the order was successfully executed, {@code false} otherwise.
+     * @return {@code true} if the order was successfully executed, {@code false}
+     *         otherwise.
      */
     public boolean execute(Order order) {
         // Get the order details
@@ -82,16 +86,19 @@ public class ExecuteOrderService implements GameController {
         String l_Destination = orderDetails.getDestination();
         int l_ArmiesToDeploy = orderDetails.getNumberOfArmy();
 
-        // Iterate through the player's occupied countries to find the destination country
-        for(Country l_Country : l_Player.getOccupiedCountries()){
-            if(l_Country.getName().equals(l_Destination)){
+        // Iterate through the player's occupied countries to find the destination
+        // country
+        for (Country l_Country : l_Player.getOccupiedCountries()) {
+            if (l_Country.getCountryName().equals(l_Destination)) {
                 l_Country.deployArmies(l_ArmiesToDeploy);
-                System.out.println(l_Country.getArmies() + " armies have been deployed in " + l_Country.getName());
+                System.out
+                        .println(l_Country.getArmies() + " armies have been deployed in " + l_Country.getCountryName());
             }
         }
 
         // Print execution details
-        System.out.println("\nExecution has been completed: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
+        System.out.println(
+                "\nExecution has been completed: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
         System.out.println("=========================================================================================");
         return true;
     }
