@@ -49,36 +49,46 @@ public class MapEditor {
                     }
 
                     case "editcountry":
+
+                    {
                         handleEditCountryCommands(l_input);
                         break;
+                    }
 
-                    case "editneighbor":
+                    case "editneighbor": {
                         handleEditNeighborCommands(l_input);
                         break;
+                    }
 
-                    case "showmap":
+                    case "showmap": {
                         System.out.println("working");
                         d_GameMap.showMap();
                         break;
+                    }
 
-                    case "validatemap":
+                    case "validatemap": {
                         handleValidateMap();
                         break;
+                    }
 
-                    case "savemap":
+                    case "savemap": {
                         handleSaveMap(l_input);
                         break;
+                    }
 
-                    case "editmap":
+                    case "editmap": {
                         handleEditMap(l_input);
                         break;
+                    }
 
-                    case "exit":
+                    case "exit": {
                         exitMapCreationPhase();
                         new GameEngineController().controller(2);
+                    }
 
-                    default:
+                    default: {
                         displayHelpCommands();
+                    }
                 }
 
             }
@@ -122,16 +132,17 @@ public class MapEditor {
         String l_SubCommand = p_CommandList.get(0);
 
         switch (l_SubCommand) {
-            case "add":
+            case "add": {
                 addContinent(p_CommandList);
                 break;
-
-            case "remove":
+            }
+            case "remove": {
                 removeContinent(p_CommandList);
                 break;
-
-            default:
+            }
+            default: {
                 throw new InvalidCommandException();
+            }
         }
     }
 
@@ -143,16 +154,17 @@ public class MapEditor {
         String l_SubCommand = p_CommandList.get(0);
 
         switch (l_SubCommand) {
-            case "add":
+            case "add": {
                 addCountry(p_CommandList);
                 break;
-
-            case "remove":
+            }
+            case "remove": {
                 removeCountry(p_CommandList);
                 break;
-
-            default:
+            }
+            default: {
                 throw new InvalidCommandException();
+            }
         }
     }
 

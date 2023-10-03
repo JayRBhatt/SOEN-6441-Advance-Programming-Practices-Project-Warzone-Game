@@ -1,0 +1,8 @@
+[Map]
+
+[Continents]
+asia 11
+[Territories]
+pak asia india
+india asia pak
+
