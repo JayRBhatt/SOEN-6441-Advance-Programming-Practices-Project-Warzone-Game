@@ -18,16 +18,14 @@ public class GameMap
 
  public GameMap(){
 
-     this.d_continents= new HashMap<>();
-     this.d_countries= new HashMap<>();
-     this.d_GamePlayers= new HashMap<>();
+   
  }
  
-    private HashMap<String,Continent> d_continents;
-    private HashMap<String,Country> d_countries ;
-    private HashMap<String,Player> d_GamePlayers;
+    private HashMap<String,Continent> d_continents=new HashMap<>();;
+    private HashMap<String,Country> d_countries=new HashMap<>(); ;
+    private HashMap<String,Player> d_GamePlayers=new HashMap<>();;
     private String d_InvalidMessage;
-    private static GameMap d_GameMap;
+    private static GameMap d_GameMap = new GameMap();
     private String d_Name;
 
     public static GameMap getInstance()
@@ -42,6 +40,7 @@ public class GameMap
 
      public HashMap<String, Continent> getContinents()
      {
+    
          return d_continents;
      }
 
@@ -100,9 +99,10 @@ public class GameMap
 
     public void addContinent(String p_ContinentName, String p_TroopsValue)
     {
-        //
+    
         Continent l_Continent = new Continent();
         l_Continent.setContinentName(p_ContinentName);
+        l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName,l_Continent);
         System.out.println("Woohooo! You have added a Continnet to your World Map!!");
     }
@@ -130,10 +130,10 @@ public class GameMap
     public void removeCountry(String p_CountryName)
     {
         Country l_Country = this.getCountry(p_CountryName);
-
+        System.out.println(l_Country);
         this.getContinent(l_Country.getContinent()).getCountries().remove(l_Country);
         this.getCountries().remove(l_Country.getCountryName());
-        System.out.println("...And the "+l_Country+" is erased off the map!! ");
+        System.out.println("...And the "+p_CountryName+" is erased off the map!! ");
     }
 
     public void addNeighbor(String p_CountryName, String p_NeighborCountryName)
@@ -149,13 +149,16 @@ public class GameMap
     public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws InvalidCommandException
     {
         Country l_Country = this.getCountry(p_CountryName);
+        System.out.println(l_Country);
         Country l_NeighborCountry = this.getCountry(p_NeighborCountryName);
+        System.out.println(l_NeighborCountry);
         if(l_Country==null)
         {
             throw new InvalidCommandException("Ayoo, You messed up!");
         } 
-        else if(l_Country.getNeighbors().contains(l_NeighborCountry) || l_NeighborCountry.getNeighbors().contains(l_Country))
+        else if(!l_Country.getNeighbors().contains(l_NeighborCountry) || !l_NeighborCountry.getNeighbors().contains(l_Country))
         {
+          
             throw new InvalidCommandException("Oh c'mon! No way they are neighbors");
         }
         else
@@ -209,14 +212,14 @@ public class GameMap
 
     public void assignCountries() {
         int d_player_index = 0;
-        List<Player> d_Gameplayers = d_GameMap.getGamePlayers().values().stream().collect(Collectors.toList());
+        List<Player> l_players = d_GameMap.getGamePlayers().values().stream().collect(Collectors.toList());
 
         List<Country> d_CountryList = d_GameMap.getCountries().values().stream().collect(Collectors.toList()); 
         Collections.shuffle(d_CountryList);
         
         for (int i = 0; i < d_CountryList.size(); i++) {
             Country d_c = d_CountryList.get(i);                
-            Player d_p = d_GamePlayers.get(d_player_index);          
+            Player d_p = l_players.get(d_player_index);          
             d_p.getOccupiedCountries().add(d_c);
             d_c.setPlayer(d_p);
             System.out.println(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());

@@ -26,6 +26,9 @@ public class GamePlayBegins
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer", "assigncountries");
     GameMap d_GameMap;
+    public GamePlayBegins() {
+        d_GameMap = GameMap.getInstance();
+    }
     
     
     /**
@@ -63,6 +66,7 @@ public class GamePlayBegins
                     l_InputList.clear();
                     // if the current command is not present in command list forcing to call help
                     l_InputList.add("help");
+                    l_InputList.add("unknown");
                 }
             }
             //Handling the loadmap command from console
@@ -188,7 +192,7 @@ public class GamePlayBegins
      */
     public boolean isValidInput(List<String> p_InputList) 
     {
-        if (p_InputList.isEmpty()) 
+        if (p_InputList.size()==1) 
         {
             p_InputList.add("unknown");
         }   
