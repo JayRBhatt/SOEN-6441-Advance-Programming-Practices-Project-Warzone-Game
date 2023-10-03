@@ -7,7 +7,9 @@ public class Order {
     private int numberOfArmies;
     private Country targetCountry;
     private OrderDetails d_OrderInfo;
-
+public Order(){
+    
+}
     public Order(String orderDetails, int numberOfArmies, Country targetCountry) {
         this.orderDetails = orderDetails;
         this.numberOfArmies = numberOfArmies;

@@ -2,6 +2,10 @@ package services;
 
 import java.util.Scanner;
 import controller.*;
+import model.Country;
+import model.GameMap;
+import model.Player;
+import utils.InvalidCommandException;
 
 
 /**
@@ -24,7 +28,7 @@ public class OrderIssue
     /**
      * Constructor to get the current state of GameMap instance
      */
-        public void OrderIssue(){
+        public OrderIssue(){
             d_GameMap = GameMap.getInstance();
         }
             /**
@@ -35,26 +39,26 @@ public class OrderIssue
      * @return the next phase to be executed
      * @throws Exception  when execution fails
      */
-    public GamePhase begin(int p_GamePhaseID) throws Exception {
+    public void  begin(int p_GamePhaseID) throws InvalidCommandException {
             int l_PlayerNumber = 0;
-            while (l_PlayerNumber < d_GameMap.getPlayers().size()) {
-                for (Player l_Player : d_GameMap.getPlayers().values()) {
-                    if (l_Player.getReinforcementArmies() <= 0) {
+            while (l_PlayerNumber < d_GameMap.getGamePlayers().size()) {
+                for (Player l_Player : d_GameMap.getGamePlayers().values()) {
+                    if (l_Player.get_AssignedTroops() <= 0) {
                         l_PlayerNumber++;
                         continue;
                     } 
-                    String l_PlayerName = l_Player.getName();
-                    int l_ReinforcementArmies = l_Player.getReinforcementArmies();
+                    String l_PlayerName = l_Player.getPlayerName();
+                    int l_ReinforcementArmies = l_Player.get_AssignedTroops();
                     System.out.println("Armies assigned to Player " + l_PlayerName + "are : " +l_ReinforcementArmies);
                     System.out.println("Please assign your armies to the below listed countries :");
                     printAssignedCountries(l_Player);
                     String l_CommandInputString = readFromPlayer();
-                    l_Player.issueOrder(l_CommandInputString);
-                }\
+                    l_Player.publishOrder(l_CommandInputString); 
+                }
             }
             System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
             System.out.println("**************************************************************************************");
-            return p_GamePhase.nextState(d_NextGamePhase);
+            new GameEngineController().controller(4);
         }
 
     /**
@@ -63,8 +67,8 @@ public class OrderIssue
      * @return prints the countries the player holds.
      */
 private void printAssignedCountries(Player player) {
-    for (Country country : player.getCapturedCountries()) {
-        System.out.println(country.getName());
+    for (Country country : player.getOccupiedCountries()) {
+        System.out.println(country.getCountryName());
     }
     System.out.println("****************************************************************************************");
 }
@@ -79,7 +83,7 @@ private void printAssignedCountries(Player player) {
             System.out.println("Lets Begin Issuing Oders ! : ");
             System.out.println("1. Type 'help' and Enter to see the commands.");
             while(true){
-                l_CommandInput = SCANNER.nextLine();
+                l_CommandInput = sc.nextLine();
                     if (VerifyCommandDeploy(l_CommandInput.toUpperCase())) 
                         return l_CommandInput;
                  else {
