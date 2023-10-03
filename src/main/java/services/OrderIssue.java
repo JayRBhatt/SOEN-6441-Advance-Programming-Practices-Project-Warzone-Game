@@ -50,7 +50,7 @@ public class OrderIssue
                     printAssignedCountries(l_Player);
                     String l_CommandInputString = readFromPlayer();
                     l_Player.issueOrder(l_CommandInputString);
-                }\
+                }
             }
             System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
             System.out.println("**************************************************************************************");
