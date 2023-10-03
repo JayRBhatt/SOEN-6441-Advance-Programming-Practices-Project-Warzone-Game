@@ -21,22 +21,22 @@ public class GameMap
    
  }
  
-    private HashMap<String,Continent> d_continents=new HashMap<>();;
-    private HashMap<String,Country> d_countries=new HashMap<>(); ;
-    private HashMap<String,Player> d_GamePlayers=new HashMap<>();;
+    private HashMap<String, Continent> d_continents;
+    private HashMap<String, Country> d_countries ;
+    private HashMap<String, Player> d_GamePlayers;
+
     private String d_InvalidMessage;
     private static GameMap d_GameMap = new GameMap();
     private String d_Name;
 
-    public static GameMap getInstance()
-    {
+     public static GameMap getInstance()
+     {
         if(Objects.isNull(d_GameMap))
         {
             d_GameMap = new GameMap();
         }
         return d_GameMap;
-    }
-
+     }
 
      public HashMap<String, Continent> getContinents()
      {

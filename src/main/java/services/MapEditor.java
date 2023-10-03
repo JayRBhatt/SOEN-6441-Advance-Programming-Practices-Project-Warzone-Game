@@ -44,7 +44,7 @@ public class MapEditor
                     case "editcontinent":
                         handleEditContinentCommands(l_input);
                         break;
-        
+       
                     case "editcountry":
                         handleEditCountryCommands(l_input);
                         break;
