@@ -1,4 +1,4 @@
-package model.order;
+package model;
 
 import model.Country;
 import model.Player;

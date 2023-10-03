@@ -1,6 +1,7 @@
 package services;
 
 import model.GameMap;
+import model.Order;
 import model.Player;
 
 public class Reinforcements {
@@ -11,8 +12,9 @@ public class Reinforcements {
 		d_GameMap = GameMap.getInstance();
 	}
 	
-	public void start(int p_GamePhaseID) {
+	public void start(int p_GamePhaseID) throws Exception {
 		calculateReinforcements();
+		new OrderIssue().begin(p_GamePhaseID);
 	}
 
 	private void calculateReinforcements() {
