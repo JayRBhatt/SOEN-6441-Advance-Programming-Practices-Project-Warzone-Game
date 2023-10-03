@@ -12,22 +12,41 @@ import utils.InvalidCommandException;
 import utils.maputils.SaveMap;
 import utils.maputils.ValidateMap;
 
-public class GameMap {
+/**
+ * A class that for the entire GameMap 
+ * 
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 
+
+public class GameMap {
+	
+    private HashMap<String, Continent> d_continents;
+    private HashMap<String, Country> d_countries;
+    private HashMap<String, Player> d_GamePlayers;
+    private String d_InvalidMessage;
+    private static GameMap d_GameMap = new GameMap();
+    private String d_Name;
+
+	/**
+	 *  The GameMap constructor to initialize the attributes
+	 */
     public GameMap() {
         this.d_continents = new HashMap<>();
         this.d_countries = new HashMap<>();
         this.d_GamePlayers = new HashMap<>();
     }
 
-    private HashMap<String, Continent> d_continents;
-    private HashMap<String, Country> d_countries;
-    private HashMap<String, Player> d_GamePlayers;
-
-    private String d_InvalidMessage;
-    private static GameMap d_GameMap = new GameMap();
-    private String d_Name;
-
+    /**
+     *  Method to get the current instance of GameMap
+     * @return the new GameMap instance
+     */
     public static GameMap getInstance() {
         if (Objects.isNull(d_GameMap)) {
             d_GameMap = new GameMap();
@@ -35,39 +54,78 @@ public class GameMap {
         return d_GameMap;
     }
 
+    /**
+     * Method to get all the continents
+     * @return all the continents
+     */
     public HashMap<String, Continent> getContinents() {
 
         return this.d_continents;
     }
 
+    /**
+     * Method to get the continent with the id p_Id
+     * @param p_ID Continent Id
+     * @return the continent with particular Id
+     */
     public Continent getContinent(String p_ID) {
         return d_continents.get(p_ID);
     }
 
+    /**
+     * Method to get the list of all the countries
+     * @return all the countries
+     */
     public HashMap<String, Country> getCountries() {
         return d_countries;
     }
 
+    /**
+     * Method to get one country
+     * @param p_ID indicates the country Id
+     * @return Country object
+     */
     public Country getCountry(String p_ID) {
         return d_countries.get(p_ID);
     }
 
+    /**
+     * Method to get the list of players in the current game
+     * @return the list of players in the current game
+     */
     public HashMap<String, Player> getGamePlayers() {
         return d_GamePlayers;
     }
 
+    /**
+     * Method to get a single player in the game
+     * @param p_ID Id of that particular player
+     * @return Player object
+     */
     public Player getGamePlayer(String p_ID) {
         return d_GamePlayers.get(p_ID);
     }
 
+    /**
+     * Method to get invalid message information
+     * @return the invalid message information
+     */
     public String getInvalidMessage() {
         return d_InvalidMessage;
     }
 
+    /**
+     * Method to set invalid message information
+     * @param p_InvalidMessage The invalid message
+     */
     public void setInvalidMessage(String p_InvalidMessage) {
         this.d_InvalidMessage = p_InvalidMessage;
     }
 
+    /**
+     * 
+     * @return
+     */
     public String getName() {
         return d_Name;
     }

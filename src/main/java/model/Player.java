@@ -7,7 +7,7 @@ import model.orders.OrderCreator;
 import model.orders.Order;
 
 /**
- * A class that defines the structure of a player in the game 
+ * A class that defines the structure of a country in the game 
  */
 public class Player {
     private int d_PlayerId;
@@ -20,13 +20,15 @@ public class Player {
     public static List<Order> OrderList = new ArrayList<>();
 
     /**
-     * @return int
+     * Method to get the player id
+     * @return the player id
      */
     public int getPlayerId() {
         return d_PlayerId;
     }
 
     /**
+     * Method to set the player id
      * @param p_PlayerId
      */
     public void setPlayerId(int p_PlayerId) {
@@ -34,6 +36,7 @@ public class Player {
     }
 
     /**
+     * Method to get the player name
      * @return String
      */
     public String getPlayerName() {
@@ -41,13 +44,17 @@ public class Player {
     }
 
     /**
+     * Method to set the player name
      * @param p_PlayerName
      */
     public void setPlayerName(String p_PlayerName) {
         this.d_PlayerName = p_PlayerName;
     }
 
-    
+    /**
+     * 
+     * @return the list of occupied countries
+     */
     public List<Country> getOccupiedCountries() {
         return d_OccupiedCountries;
     }

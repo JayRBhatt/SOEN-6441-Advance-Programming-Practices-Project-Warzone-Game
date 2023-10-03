@@ -5,8 +5,18 @@ import java.util.Set;
 
 /**
  * A class that defines the structure of a continent in the game 
+  *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
+
 public class Continent {
+	
     private String d_ContinentID;
     private String d_ContinentName;
     private int d_ContinentValue;
@@ -27,7 +37,7 @@ public class Continent {
     }
 
     /**
-     *  To get the continent id
+     * Method to get the continent id
      * @return the continent id
      */
     public String getContinentId() {
@@ -35,7 +45,7 @@ public class Continent {
     }
 
     /**
-     * To set the continent id
+     * Method to set the continent id
      * @param p_ContinentID indicates the continent id
      */
     public void setContinentId(String p_ContinentID) {
@@ -43,7 +53,7 @@ public class Continent {
     }
 
     /**
-     * To get the continent name
+     * Method to get the continent name
      * @return the continent name
      */
     public String getContinentName() {
@@ -51,7 +61,7 @@ public class Continent {
     }
 
     /**
-     * To set the continent name
+     * Method to set the continent name
      * @param p_ContinentName indicates the continent name
      */
     public void setContinentName(String p_ContinentName) {
@@ -61,7 +71,7 @@ public class Continent {
     }
 
     /**
-     * To get the continent value
+     * Method to get the continent value
      * @return the value of the continent
      */
     public int getContinentValue() {
@@ -69,7 +79,7 @@ public class Continent {
     }
 
     /**
-     * To set the continent value
+     * Method to set the continent value
      * @param p_ContinentValue indicates the continent value
      */
     public void setContinentValue(int p_ContinentValue) {
@@ -78,7 +88,7 @@ public class Continent {
 
 
     /**
-     * To get the set of all countries in that continent
+     * Method to get the set of all countries in that continent
      * @return the set of countries
      */
     public Set<Country> getCountries() {
