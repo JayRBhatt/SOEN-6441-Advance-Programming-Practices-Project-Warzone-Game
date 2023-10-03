@@ -13,9 +13,14 @@ import utils.maputils.ValidateMap;
 public class MapEditor
 {
     private Scanner sc=new Scanner(System.in);
-    GameMap d_GameMap;
+    GameMap d_GameMap ;
    private final List<String> l_PreDefinedCommands = Arrays.asList("editcontinent", "editcountry", "editneighbor", "showmap",
     "savemap", "editmap", "validatemap");
+
+    public MapEditor() {
+        this.d_GameMap = GameMap.getInstance();
+    }
+
     public void mapEdit(int p_GamePhaseID) throws InvalidCommandException
     {
         while (true) {
@@ -29,23 +34,27 @@ public class MapEditor
             }
              
             String l_PrimaryCommand = l_InputList.get(0);
+  
             l_InputList.remove(l_PrimaryCommand);
-        
-           
+    
+            for (String l_Command : l_InputList) {
+                String[] l_CommandArray = l_Command.split(" ");
+                List<String> l_input = Arrays.asList(l_CommandArray);
                 switch (l_PrimaryCommand.toLowerCase()) {
                     case "editcontinent":
-                        handleEditContinentCommands(l_InputList);
+                        handleEditContinentCommands(l_input);
                         break;
         
                     case "editcountry":
-                        handleEditCountryCommands(l_InputList);
+                        handleEditCountryCommands(l_input);
                         break;
         
                     case "editneighbor":
-                        handleEditNeighborCommands(l_InputList);
+                        handleEditNeighborCommands(l_input);
                         break;
         
                     case "showmap":
+                    System.out.println("working");
                         d_GameMap.showMap();
                         break;
         
@@ -54,11 +63,11 @@ public class MapEditor
                         break;
         
                     case "savemap":
-                        handleSaveMap(l_InputList);
+                        handleSaveMap(l_input);
                         break;
         
                     case "editmap":
-                        handleEditMap(l_InputList);
+                        handleEditMap(l_input);
                         break;
         
                     case "exit":
@@ -70,7 +79,7 @@ public class MapEditor
                 }
             
             }
-        
+        }
     }
     private List<String> splitInput(String input) 
     {
@@ -92,12 +101,12 @@ public class MapEditor
         } else {
             inputList.clear();
             inputList.add("help");
-            inputList.add("dummy");
+            inputList.add("unknown");
         }
     }
     public boolean isValidInput(List<String> p_InputList) 
     {
-        if (p_InputList.isEmpty()) 
+        if (p_InputList.size()==1  ) 
         {
             p_InputList.add("unknown");
         }   
@@ -211,12 +220,12 @@ public class MapEditor
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-    
+    System.out.println(p_CommandList.get(2));
         d_GameMap.removeNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 
     private void handleValidateMap(){
-
+    
         String validationMessage = ValidateMap.validateMap(d_GameMap, 0) ? "Validation successful" : "Validation failed";
         System.out.println(validationMessage);
 

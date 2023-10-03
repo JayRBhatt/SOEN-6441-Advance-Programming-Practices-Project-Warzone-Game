@@ -21,7 +21,7 @@ public class MapViewer
         try
         {
             p_GameMap.ClearMap();
-            File l_FileLoaded = new File("maps/" + p_FileName);
+            File l_FileLoaded = new File("src/main/maps/" + p_FileName);
             FileReader l_FileReader = new FileReader(l_FileLoaded);
             Map<String, List<String>> l_FileContent = new HashMap<>();
             String l_CurrentKey = "";
