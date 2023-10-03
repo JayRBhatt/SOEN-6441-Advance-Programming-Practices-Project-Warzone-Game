@@ -48,9 +48,9 @@ public class OrderIssue
                     System.out.println("Armies assigned to Player " + l_PlayerName + "are : " +l_ReinforcementArmies);
                     System.out.println("Please assign your armies to the below listed countries :");
                     printAssignedCountries(l_Player);
-                    String l_CommandInputsList = readFromPlayer();
-                    l_Player.issueOrder(l_CommandInputsList);
-                }
+                    String l_CommandInputString = readFromPlayer();
+                    l_Player.issueOrder(l_CommandInputString);
+                }\
             }
             System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
             System.out.println("**************************************************************************************");
@@ -77,7 +77,7 @@ private void printAssignedCountries(Player player) {
     private String readFromPlayer() {
             String l_CommandInput;
             System.out.println("Lets Begin Issuing Oders ! : ");
-            System.out.println("1. Type 'help' and Enter to see the commands to help you.");
+            System.out.println("1. Type 'help' and Enter to see the commands.");
             while(true){
                 l_CommandInput = SCANNER.nextLine();
                     if (VerifyCommandDeploy(l_CommandInput.toUpperCase())) 
