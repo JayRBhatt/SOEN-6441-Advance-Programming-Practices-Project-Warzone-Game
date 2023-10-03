@@ -1,56 +1,106 @@
-package model;
+package model.orders;
 
 import java.util.*;
 
-public class Order {
-    private String orderDetails;
-    private int numberOfArmies;
-    private Country targetCountry;
-    private OrderDetails d_OrderInfo;
-public Order(){
-    
-}
-    private OrderDetails d_OrderInfo;  
+import model.Country;
 
-    public Order(String orderDetails, int numberOfArmies, Country targetCountry) {
-        this.orderDetails = orderDetails;
-        this.numberOfArmies = numberOfArmies;
-        this.targetCountry = targetCountry;
+public class Order {
+    private static Order d_Order;
+    private OrderDetails d_OrderInfo;
+    private List<Order> d_OrderList = new ArrayList<Order>();
+    private String d_Type;
+    // public Order(String orderDetails, int numberOfArmies, Country targetCountry)
+    // {
+    // this.orderDetails = orderDetails;
+    // this.numberOfArmies = numberOfArmies;
+    // this.targetCountry = targetCountry;
+    // }
+
+    public static Order getInstance() {
+        if (Objects.isNull(d_Order)) {
+            d_Order = new Order();
+        }
+        return d_Order;
     }
 
-    public OrderInfo getOrderDetails() {
+    /**
+     * A function to get the order list
+     *
+     * @return the list of type Order class
+     */
+    public List<Order> getOrderList() {
+
+        return d_OrderList;
+    }
+
+    /**
+     * A function to set the order list
+     *
+     * @param p_OrderList Order List of type Order class
+     */
+    public void setOrderList(List<Order> p_OrderList) {
+
+        this.d_OrderList = p_OrderList;
+    }
+
+    /**
+     * A function to get order information
+     *
+     * @return the order information in an object
+     */
+    public OrderDetails getOrderDetails() {
 
         return d_OrderInfo;
     }
 
-    public String getOrderDetails() {
-        return orderDetails;
+    /**
+     * A function to the set Order information based on the order
+     *
+     * @param p_OrderInfo Order Information contained in an object of type OrderInfo
+     */
+
+    public void setOrderDetails(OrderDetails p_OrderInfo) {
+        this.d_OrderInfo = p_OrderInfo;
     }
 
-    public int getNumberOfArmies() {
-        return numberOfArmies;
+    /**
+     * A function to add the order to the order list
+     *
+     * @param p_Order The order to be added to the list
+     */
+    public void AddToOrderList(Order p_Order) {
+
+        d_OrderList.add(p_Order);
     }
 
-    public Country getTargetCountry() {
-        return targetCountry;
+    /**
+     * A function to return the type of order
+     *
+     * @return String which indicates the type of order
+     */
+    public String getType() {
+
+        return d_Type;
     }
 
-    // public boolean execute() {
-    //     if (getOrderDetails().getPlayer() == null || getOrderDetails().getDestination() == null) {
-    //         System.out.println("Cannot be Executed: Invalid order information.");
-    //         return false;
-    //     }
-    //     Player l_Player = getOrderDetails().getPlayer();
-    //     String l_Destination = getOrderDetails().getDestination();
-    //     int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
-    //     for(Country l_Country : l_Player.getCapturedCountries()){
-    //         if(l_Country.getName().equals(l_Destination)){
-    //             l_Country.deployArmies(l_ArmiesToDeploy);
-    //             System.out.println(l_Country.getArmies() + " armies have been deployed in " + l_Country.getName());
-    //         }
-    //     }
-    //     System.out.println("\nExecution has been completed: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
-    //     System.out.println("=========================================================================================");
-    //     return true;
-    // }
+    /**
+     * A function to set the type of order
+     *
+     * @param p_Type String which indicates the type of order
+     */
+    public void setType(String p_Type) {
+
+        this.d_Type = p_Type;
+    }
+
+    /**
+     * A function to be overridden by the Child class
+     *
+     * @return false as there is not order to be executed
+     */
+    public boolean execute() {
+        System.out.println("Void order is not able to execute");
+        return false;
+    }
+
 }

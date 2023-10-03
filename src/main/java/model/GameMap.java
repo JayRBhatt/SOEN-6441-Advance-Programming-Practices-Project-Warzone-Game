@@ -15,7 +15,9 @@ import utils.maputils.ValidateMap;
 public class GameMap {
 
     public GameMap() {
-
+        this.d_continents = new HashMap<>();
+        this.d_countries = new HashMap<>();
+        this.d_GamePlayers = new HashMap<>();
     }
 
     private HashMap<String, Continent> d_continents;
@@ -81,8 +83,7 @@ public class GameMap {
     }
 
     public void addContinent(String p_ContinentName, String p_TroopsValue) {
-
-        Continent l_Continent = new Continent();
+        Continent l_Continent = new Continent(p_TroopsValue, p_TroopsValue, 0, null);
         l_Continent.setContinentName(p_ContinentName);
         l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName, l_Continent);

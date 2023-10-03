@@ -1,6 +1,8 @@
 package model;
 
 import java.util.*;
+import model.orders.Order;
+import model.orders.OrderCreator;
 
 public class Player {
     private int d_PlayerId;
@@ -90,7 +92,7 @@ public class Player {
         }
 
         if (l_PublishCommand) {
-            Order l_Order = orderCreator.generateOrder(l_ArrOfCommands, this);
+            Order l_Order = OrderCreator.generateOrder(l_ArrOfCommands, this);
             OrderList.add(l_Order);
             receiveOrder(l_Order);
             System.out.println("Your Order has been successfully added in the list: Deploy "
