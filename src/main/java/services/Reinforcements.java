@@ -28,9 +28,8 @@ public class Reinforcements {
 	}
 	
 	/**
-	 * Starts the execution of orders in the Reinforcement phase.
-     * Calls the method calculateReinforcements()
-	 * @param p_GamePhaseID
+	 * Starts the execution of orders in the Reinforcement phase and calls calculateReinforcements()
+	 * @param p_GamePhaseID indicating  the current phase
 	 * @throws InvalidCommandException if game phase transition is invalid.
 	 */
 	public void start(int p_GamePhaseID) throws InvalidCommandException {
@@ -48,7 +47,7 @@ public class Reinforcements {
 	}
 	/**
 	 * For the particular player, calls the associated calculateTotalReinforcementArmies()
-	 * @param p_Player
+	 * @param p_Player for each player
 	 */
 	public void assignReinforcementTroops(Player p_Player) {
 		p_Player.calculateTotalReinforcementArmies();

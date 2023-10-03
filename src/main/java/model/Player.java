@@ -44,6 +44,7 @@ public class Player {
         this.d_PlayerName = p_PlayerName;
     }
 
+    
     public List<Country> getOccupiedCountries() {
         return d_OccupiedCountries;
     }
@@ -55,11 +56,15 @@ public class Player {
     public Deque<Order> getOrders() {
         return d_Orders;
     }
-
+    /**
+     * @param p_Orders
+     */
     private void setOrders(Deque<Order> p_Orders) {
         this.d_Orders = p_Orders;
     }
-
+	/**
+	 * @param p_Order
+	 */
     private void receiveOrder(Order p_Order) {
         d_Orders.add(p_Order);
     }
@@ -68,6 +73,9 @@ public class Player {
         return d_AdditionalArmies;
     }
 
+    /**
+     * @param p_AdditionalArmies
+     */
     public void setAdditionalArmies(int p_AdditionalArmies) {
         this.d_AdditionalArmies = p_AdditionalArmies;
     }
@@ -76,6 +84,9 @@ public class Player {
         return d_AssignedTroops;
     }
 
+    /**
+     * @param p_AssignedTroops
+     */
     public void set_AssignedTroops(int p_AssignedTroops) {
         this.d_AssignedTroops = p_AssignedTroops;
     }
@@ -131,8 +142,10 @@ public class Player {
         return l_Conclusion.length() > 0 ? l_Conclusion.substring(0, l_Conclusion.length() - 1) : "";
     }
 
+    /**
+     * Sets assigned troops of each player to 10 and prints it
+     */
     public void calculateTotalReinforcementArmies() {
-
         set_AssignedTroops(10);
         System.out.println(getPlayerName() + "has been assigned with" + get_AssignedTroops() + " troops");
 

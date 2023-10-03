@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"services","c":"Reinforcements","l":"assignReinforcementTroops(Player)","u":"assignReinforcementTroops(model.Player)"},{"p":"services","c":"Reinforcements","l":"Reinforcements()","u":"%3Cinit%3E()"},{"p":"services","c":"Reinforcements","l":"start(int)"}];updateSearchResults();
