@@ -1,13 +1,14 @@
 package services;
 
+
 import controller.*;
-// import model.Country;
-// import model.GameMap;
-// import model.Order;
-// import model.OrderDetails;
-// import model.Player;
-import model.*;
+import model.Country;
+import model.GameMap;
+import model.orders.OrderDetails;
+import model.Player;
+import model.orders.Order;
 import utils.InvalidCommandException;
+
 
 /**
  * This class represents the service responsible for executing orders in the
@@ -24,7 +25,9 @@ import utils.InvalidCommandException;
  */
 public class ExecuteOrder {
 
+
     GameMap d_GameMap;
+
 
     /**
      * Constructs an ExecuteOrderService with a reference to the game map.
@@ -36,6 +39,7 @@ public class ExecuteOrder {
         d_GameMap = GameMap.getInstance();
     }
 
+
     /**
      * Starts the execution of orders in the Execute Order phase.
      *
@@ -43,11 +47,13 @@ public class ExecuteOrder {
      * @throws Exception if game phase transition is invalid.
      */
 
+
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         executeOrders();
         System.out.println("All the orders have been executed successfully");
         new GameEngineController().controller(5);
     }
+
 
     /**
      * Executes orders for each player in the game.
@@ -65,6 +71,7 @@ public class ExecuteOrder {
         }
     }
 
+
     /**
      * Executes a game order by deploying armies to a destination country.
      *
@@ -76,6 +83,7 @@ public class ExecuteOrder {
         // Get the order details
         OrderDetails orderDetails = order.getOrderDetails();
 
+
         // Check if the player or destination is null
         if (orderDetails.getPlayer() == null || orderDetails.getDestination() == null) {
             System.out.println("Cannot be Executed: Invalid order information.");
@@ -85,6 +93,7 @@ public class ExecuteOrder {
         Player l_Player = orderDetails.getPlayer();
         String l_Destination = orderDetails.getDestination();
         int l_ArmiesToDeploy = orderDetails.getNumberOfArmy();
+
 
         // Iterate through the player's occupied countries to find the destination
         // country
@@ -96,6 +105,7 @@ public class ExecuteOrder {
             }
         }
 
+
         // Print execution details
         System.out.println(
                 "\nExecution has been completed: " + l_ArmiesToDeploy + " armies deployed to " + l_Destination + ".");
@@ -103,3 +113,8 @@ public class ExecuteOrder {
         return true;
     }
 }
+
+
+
+
+

@@ -29,17 +29,17 @@ public class DeployOrder extends Order {
      * @return true if the execution was successful else return false
      */
     public boolean execute() {
-        if (getOrderInfo().getPlayer() == null || getOrderInfo().getDestination() == null) {
+        if (getOrderDetails().getPlayer() == null || getOrderDetails().getDestination() == null) {
             System.out.println("Fail to execute Deploy order: Invalid order information.");
             return false;
         }
-        Player l_Player = getOrderInfo().getPlayer();
-        String l_Destination = getOrderInfo().getDestination();
-        int l_ArmiesToDeploy = getOrderInfo().getNumberOfArmy();
-        for(Country l_Country : l_Player.getCapturedCountries()){
-            if(l_Country.getName().equals(l_Destination)){
+        Player l_Player = getOrderDetails().getPlayer();
+        String l_Destination = getOrderDetails().getDestination();
+        int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
+        for(Country l_Country : l_Player.getOccupiedCountries()){
+            if(l_Country.getCountryName().equals(l_Destination)){
                 l_Country.deployArmies(l_ArmiesToDeploy);
-                System.out.println("The country " + l_Country.getName() + " has been deployed with " + l_Country.getArmies() + " armies.");
+                System.out.println("The country " + l_Country.getCountryName() + " has been deployed with " + l_Country.getArmies() + " armies.");
             }
         }
         System.out.println("\nExecution is completed: deployed " + l_ArmiesToDeploy + " armies to " + l_Destination + ".");
