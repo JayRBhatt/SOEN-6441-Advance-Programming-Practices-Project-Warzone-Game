@@ -23,20 +23,20 @@ public class OrderCreator {
      * @return an order object with all the details of order
      */
     public static Order generateOrder(String[] p_commands, Player p_player) {
-        String l_Type = p_commands[0].toLowerCase();
-        Order l_deployOrder;
+        String l_OrderType = p_commands[0].toLowerCase();
+        Order l_Orderdeployment;
 
-        switch (l_Type) {
+        switch (l_OrderType) {
             case "deploy":
-                l_deployOrder = new DeployOrder();
-                l_deployOrder.setOrderDetails(generateDeployOrderInfo(p_commands, p_player));
+                l_Orderdeployment = new DeployOrder();
+                l_Orderdeployment.setOrderDetails(generateDeployOrderInfo(p_commands, p_player));
                 break;
             default:
-                System.out.println("\nInvalid order arguments; unable to create order");
-                l_deployOrder = new Order();
+                System.out.println("\nInvalid order arguments; Unable to create order");
+                l_Orderdeployment = new Order();
         }
 
-        return l_deployOrder;
+        return l_Orderdeployment;
     }
 
     /**
@@ -48,12 +48,12 @@ public class OrderCreator {
      *         and number of army to be deployed
      */
     private static OrderDetails generateDeployOrderInfo(String[] p_Command, Player p_Player) {
-        String l_CountryID = p_Command[1];
+        String l_IDCountry = p_Command[1];
         int l_NumberOfArmy = Integer.parseInt(p_Command[2]);
 
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
-        l_OrderDetails.setDestination(l_CountryID);
+        l_OrderDetails.setDestination(l_IDCountry);
         l_OrderDetails.setNumberOfArmy(l_NumberOfArmy);
 
         return l_OrderDetails;
