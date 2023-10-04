@@ -9,7 +9,7 @@ import model.orders.Order;
 import utils.InvalidCommandException;
 
 /**
- * Class that has the main logic behind the functioning of Reinforcements phase
+ * Class that has the main logic behind the functioning of Execute order phase
  * in
  * the game
  *
@@ -17,24 +17,24 @@ import utils.InvalidCommandException;
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair
  */
-public class ExecuteOrder {
+
+ public class ExecuteOrder {
 
     GameMap d_GameMap;
 
     /**
      * Constructs an ExecuteOrderService with a reference to the game map.
      *
-     * @param gameMap The game map instance.
      */
+
     public ExecuteOrder() {
         d_GameMap = GameMap.getInstance();
     }
 
     /**
-     * Starts the execution of orders in the Execute Order phase.
-     *
-     * @return The next game phase.
-     * @throws Exception if game phase transition is invalid.
+     * Starts the execution of orders in the Execute Order phase and then takes the player to the next game phase 
+     * after this phase gets completed 
+     * @throws InvalidCommandException if game phase transition is invalid.
      */
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         System.out.println("**************************************************************************************");
@@ -65,7 +65,7 @@ public class ExecuteOrder {
      * Executes a game order by deploying armies to a destination country.
      *
      * @param order The order to execute.
-     * @return {@code true} if the order was successfully executed, {@code false}
+     * @return true if the order was successfully executed, or false
      *         otherwise.
      */
     public boolean execute(Order order) {

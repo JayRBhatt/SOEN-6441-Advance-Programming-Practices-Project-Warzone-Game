@@ -4,7 +4,7 @@ import services.*;
 import utils.InvalidCommandException;
 
 /**
- * A class that manages the flow of diffrent phases of the warzone game
+ * A class that manages the flow of different phases of the warzone game
  *
  * @author Jay Bhatt
  * @author Madhav Anadkat
@@ -18,7 +18,6 @@ import utils.InvalidCommandException;
 public class GameEngineController {
     /**
      * @param p_GamePhaseID holding the ID of the current game phase
-     * @return
      * @throws InvalidCommandException
      */
 

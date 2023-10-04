@@ -12,9 +12,25 @@ import model.Continent;
 import model.Country;
 import model.GameMap;
 
+
+/**
+ * A class which provides the logic for validating the game map
+ * 
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ */
+
 public class ValidateMap 
 {
-        public static boolean validateMap(GameMap p_GameMap, int p_MinimumCountryCount) 
+ /**
+  * A method which validates the map by checking various different factors
+  * @param p_GameMap a GameMap which has to be validated
+  * @param p_MinimumCountryCount
+  * @return true if all the validation factors are satisfied or else returns false
+  */
+
+    public static boolean validateMap(GameMap p_GameMap, int p_MinimumCountryCount) 
     {   if(checkContinentIsEmpty(p_GameMap)){
         
         return false;
@@ -41,8 +57,15 @@ public class ValidateMap
     return true;
     }
 
+    /**
+     * A method which checks whether the continent is empty or not 
+     * @param p_GameMap a GameMap which has to be validated
+     * @return true if the validation is successful or else it returns false
+     */
+
     public static boolean checkContinentIsEmpty(GameMap p_GameMap) 
     {
+        // checks if there are no continents in the game map
         if (p_GameMap.getContinents().isEmpty()) 
         {
             
@@ -50,6 +73,8 @@ public class ValidateMap
         }
         for (Continent l_continent : p_GameMap.getContinents().values()) 
         {
+            
+            // checks if there are no countries in the continent
             if (l_continent.getCountries().isEmpty()) 
             {
                 System.out.println("This continent " + l_continent.getContinentName() + " has no countries currently");
@@ -59,6 +84,12 @@ public class ValidateMap
     
         return false;
     }
+   
+   /**
+    * A method which checks if there are duplicate continents present inside the game map
+    * @param p_GameMap A gamemap which has to be validated
+    * @return true if the validation is successful or else it return false
+    */
 
     public static boolean checkDuplicateContinents(GameMap p_GameMap) 
     {
@@ -72,7 +103,11 @@ public class ValidateMap
         return false;
     }
 
-
+/**
+ * A method which checks if the neighbour is a part of country list
+ * @param p_GameMap a game map which has to be validated
+ * @return true if validation is successful or else return false
+ */
      private static boolean checkIfNeighbourExist(GameMap p_GameMap) {
         Set<String> l_countryNames = p_GameMap.getCountries().keySet();
         Set<String> l_lowercaseCountryNames = l_countryNames.stream()
@@ -94,6 +129,11 @@ public class ValidateMap
         return true;
     }
 
+    /**
+     * A method which checks if there are any duplicate countries present in the map
+     * @param p_GameMap
+     * @return true if the validation is successful or else returns false
+     */
 
     public static boolean checkDuplicateCountries(GameMap p_GameMap) 
     {
@@ -107,6 +147,11 @@ public class ValidateMap
         return false;
     }
 
+    /**
+     * A method which checks if there are any duplicate neighbours 
+     * @param p_GameMap
+     * @return true if validation is successful or else returns false
+     */
     public static boolean checkDuplicateNeighbours(GameMap p_GameMap) {
         for (Continent l_Continent : p_GameMap.getContinents().values()) {
             for (Country l_Country : l_Continent.getCountries()) {
@@ -121,10 +166,23 @@ public class ValidateMap
         return false;
     }
 
+ /**
+  * A method which checks if the provided neighbour contains duplicates
+  * @param p_Neighbours
+  * @return true if validation is successful or else false
+  */
+
     private static boolean hasDuplicateNeighbours(Set<Country> p_Neighbours) {
         Set<Country> p_UniqueNeighbours = new HashSet<>(p_Neighbours);
         return p_UniqueNeighbours.size() != p_Neighbours.size();
     }
+
+/**
+ * A method which checks that the country count is greater than minimum number of countries required
+ * @param p_GameMap
+ * @param p_MinimumCountryCount
+ * @return true if the validation is successful or else it returns false
+ */
 
     public static boolean checkCountryCount(GameMap p_GameMap, int p_MinimumCountryCount) {
         if (p_GameMap.getCountries().size() < p_MinimumCountryCount) {
@@ -133,7 +191,9 @@ public class ValidateMap
         }
         return true;
     }
-
+/**
+ * Class to check the connectivity of the graph
+ */
     static class ConnectedGraph {
         private int d_vertices;
         private List<Integer>[] d_edges;
@@ -145,11 +205,20 @@ public class ValidateMap
                 d_edges[i] = new ArrayList<>();
             }
         }
-
+/**
+ * A method which create the edge between two vertices
+ * @param p_vertex1 the vertex 1
+ * @param p_vertex2 the vertex 2
+ */
         void addEdge(int p_vertex1, int p_vertex2) {
             d_edges[p_vertex1].add(p_vertex2);
         }
 
+   /**
+    * A method to run dfs traversal
+    * @param p_node where the traversal starts
+    * @param p_visited hold the boolean value based on if it is visited or not
+    */     
         private void dfsTraversal(int p_node, boolean[] p_visited) {
             p_visited[p_node] = true;
             for (int l_nextNode : d_edges[p_node]) {
@@ -158,6 +227,11 @@ public class ValidateMap
                 }
             }
         }
+   /**
+    * A method to get the transpose of a graph
+   
+    * @return the graph
+    */
 
         private ConnectedGraph getTranspose() {
             ConnectedGraph l_graph = new ConnectedGraph(d_vertices);
@@ -168,7 +242,11 @@ public class ValidateMap
             }
             return l_graph;
         }
-
+/**
+ * A method to check if the graph is strongly connected or not
+ 
+ *@return true if validation is successful or else returns false
+ */
         boolean checkIfStronglyConnected() {
             boolean[] l_visited = new boolean[d_vertices];
             dfsTraversal(0, l_visited);
@@ -192,6 +270,12 @@ public class ValidateMap
         }
     }
 
+    /**
+     * A method to check whether the continent is connected or not
+     
+     * @param p_GameMap
+     * @return true if the continents are strongly connected or else returns false
+     */
     public static boolean checkIfContinentIsConnected(GameMap p_GameMap) {
         Set<String> l_CountryNames = p_GameMap.getCountries().keySet();
         List<String> l_LowercaseCountryNames =new ArrayList<>();
@@ -218,7 +302,11 @@ public class ValidateMap
 
         return checkMapConnectivity(l_Graph);
     }
-
+/**
+ * A method which checks if the whole map is strongly connected or not
+ * @param p_GameMap
+ * @return true if the whole map is strongly connected or else returns false
+ */
     public static boolean checkIfMapIsConnected(GameMap p_GameMap) {
         Set<String> l_CountryNames = p_GameMap.getCountries().keySet();
         List<String> l_LowercaseCountryNames = l_CountryNames.stream()
@@ -240,7 +328,11 @@ public class ValidateMap
 
         return checkMapConnectivity(l_Graph);
     }
-
+/**
+ * A method to check the map connectivity based on graph connectivity
+ * @param p_Graph
+ * @return returns true if the graph is connected or else it returns false
+ */
     private static boolean checkMapConnectivity(ConnectedGraph p_Graph) {
         return p_Graph.checkIfStronglyConnected();
     }

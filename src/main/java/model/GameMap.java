@@ -64,7 +64,7 @@ public class GameMap {
     }
 
     /**
-     * Returns a particular contiennt out of the HashMap
+     * Returns a particular continent out of the HashMap
      * 
      * @param p_ID
      * @return d_continents
@@ -171,8 +171,14 @@ public class GameMap {
         this.getContinents().put(p_ContinentName, l_Continent);
         System.out.println("Woohooo! You have added a Continent to your World Map!!");
     }
-
-    public void removeContinent(String p_ContinentName) {
+    
+     /**
+     * Removes the Continent from The Map
+     * 
+     * @param p_ContinentName
+     */
+    
+     public void removeContinent(String p_ContinentName) {
         Set<String> l_CountrySet = this.getContinents().remove(p_ContinentName).getCountries().stream()
                 .map(Country::getCountryName).collect(Collectors.toSet());
         for (String l_Country : l_CountrySet) {
@@ -336,7 +342,7 @@ public class GameMap {
     }
 
     /**
-     * Shows the Continents, Countries and the player sthat are present in the
+     * Shows the Continents, Countries and the player stat are present in the
      * map(added by user) in a readable and easier format
      * 
      */
@@ -413,7 +419,7 @@ public class GameMap {
     }
 
     /**
-     * Format related method for showmapto print a particular pattern on CLI
+     * Format related method for showmap to print a particular pattern on CLI
      * 
      * @param format
      */
@@ -422,7 +428,7 @@ public class GameMap {
     }
 
     /**
-     * Format related method for showmapto print a particular pattern on CLI
+     * Format related method for showmap to print a particular pattern on CLI
      * 
      * @param format
      */

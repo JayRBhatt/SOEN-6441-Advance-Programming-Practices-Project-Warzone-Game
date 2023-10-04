@@ -4,8 +4,6 @@ import java.util.*;
 import model.orders.Order;
 import model.orders.OrderCreator;
 
-import model.orders.Order;
-
 /**
  * Class that provides every method that is required for any properties of
  * a Player in the game
@@ -45,7 +43,7 @@ public class Player {
     /**
      * Returns a List of Occupied Countries by a Player
      * 
-     * @return
+     * @return d_OccupiedCountries
      */
     public List<Country> getOccupiedCountries() {
         return d_OccupiedCountries;
@@ -63,19 +61,10 @@ public class Player {
     /**
      * Returns a Deque of Orders for a player
      * 
-     * @return
+     * @return d_Orders
      */
     public Deque<Order> getOrders() {
         return d_Orders;
-    }
-
-    /**
-     * Sets the Orders for a Player
-     * 
-     * @param p_Orders
-     */
-    private void setOrders(Deque<Order> p_Orders) {
-        this.d_Orders = p_Orders;
     }
 
     /**
@@ -83,7 +72,8 @@ public class Player {
      * 
      * @param p_Order
      */
-    private void receiveOrder(Order p_Order) {
+   
+     private void receiveOrder(Order p_Order) {
         d_Orders.add(p_Order);
     }
 
@@ -92,6 +82,7 @@ public class Player {
      * 
      * @return d_AdditionalArmies
      */
+
     public int getAdditionalArmies() {
         return d_AdditionalArmies;
     }
@@ -101,6 +92,7 @@ public class Player {
      * 
      * @param p_AdditionalArmies
      */
+
     public void setAdditionalArmies(int p_AdditionalArmies) {
         this.d_AdditionalArmies = p_AdditionalArmies;
     }
@@ -140,7 +132,7 @@ public class Player {
      * 
      * @param p_Country
      * @param p_Player
-     * @return true or False
+     * @return true if country is occupied by player or else returns false
      */
     public boolean confirmIfCountryisOccupied(String p_Country, Player p_Player) {
         List<Country> l_ListOfOccupiedCountries = p_Player.getOccupiedCountries();
@@ -156,7 +148,8 @@ public class Player {
      * Checks whether to deploy the armies or not
      * 
      * @param p_ArmyNumber
-     * @return
+     * @return true if the operation was successful and false if number of army provided by user is greater than remaining armies of the player or 
+     * army provided by user is negative
      */
     public boolean stationAdditionalArmiesFromPlayer(int p_ArmyNumber) {
 
@@ -168,10 +161,10 @@ public class Player {
     }
 
     /**
-     * Creates a list of occupancy of countries by a player and returns the list
+     * Creates a list of occupancy of countries by a player and returns 
      * 
      * @param p_Occupy
-     * @return
+     * @return the list
      */
     public String createOccupyList(List<Country> p_Occupy) {
         String l_Conclusion = "";

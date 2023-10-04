@@ -1,9 +1,7 @@
 package services;
 
 /**
- * Class that has the main logic behind the functioning of Reinforcements phase
- * in
- * the game
+ * Class that has the main logic behind the Exiting the game
  *
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
