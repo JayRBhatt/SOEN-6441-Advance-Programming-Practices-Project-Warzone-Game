@@ -251,7 +251,7 @@ public class MapEditor {
      * @param p_CommandList
      * @throws InvalidCommandException
      */
-    private void addContinent(List<String> p_CommandList) throws InvalidCommandException {
+    public void addContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
