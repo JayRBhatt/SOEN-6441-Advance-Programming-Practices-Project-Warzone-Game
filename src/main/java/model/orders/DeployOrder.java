@@ -5,9 +5,9 @@ import model.Player;
 
 /**
 * Class DeployOrder which is a child of Order, used to execute the orders
- *
+ * The child class DeployOrder of class Order,is used to execute the orders from the players
 /**
- * A class with the information of Order details
+ * This class includes the order details
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -24,13 +24,13 @@ public class DeployOrder extends Order {
         setType("deploy");
     }
     /**
-     * the execute function for the order type deploy
+     * This functions execute deployment of orders.
      *
      * @return true if the execution was successful else return false
      */
     public boolean execute() {
         if (getOrderDetails().getPlayer() == null || getOrderDetails().getDestination() == null) {
-            System.out.println("Fail to execute Deploy order: Invalid order information.");
+            System.out.println("You have entered Invalid order information.Deploy Order command execution failed ");
             return false;
         }
         Player l_Player = getOrderDetails().getPlayer();
@@ -39,11 +39,14 @@ public class DeployOrder extends Order {
         for(Country l_Country : l_Player.getOccupiedCountries()){
             if(l_Country.getCountryName().equals(l_Destination)){
                 l_Country.deployArmies(l_ArmiesToDeploy);
-                System.out.println("The country " + l_Country.getCountryName() + " has been deployed with " + l_Country.getArmies() + " armies.");
+                System.out.println("Armies Deployed Successfully!");
+                System.out.println("No Of Armies Deployed : "+ l_Country.getArmies()+ " & Country Name : "+ l_Country.getCountryName());
             }
         }
-        System.out.println("\nExecution is completed: deployed " + l_ArmiesToDeploy + " armies to " + l_Destination + ".");
-        System.out.println("=========================================================================================");
+        System.out.println("\nExecution is Completed: deployed " + l_ArmiesToDeploy + " armies to " + l_Destination + ".");
+        System.out.println("\n Execution Completed !!");
+        System.out.println("\n We have deployed "+ l_ArmiesToDeploy + "armies to the country " + l_Destination + ".");
+        System.out.println("*********************************************************************************************");
         return true;
     }
 
