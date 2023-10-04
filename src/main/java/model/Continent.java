@@ -55,7 +55,7 @@ public class Continent {
      * Returns the value of the continent given by the user(Number of Awarded armies
      * the User wants to be associated with the continent)
      * 
-     * @return
+     * @return d_ContinentValue
      */
 
     public int getContinentValue() {

@@ -19,8 +19,8 @@ public class OrderCreator {
      * Method to generate the order
      * 
      * @param p_commands commands inputted by user
-     * @param p_player   player
-     * @return an order object with alll the details of order
+     * @param p_player player
+     * @return an order object with all the details of order
      */
     public static Order generateOrder(String[] p_commands, Player p_player) {
         String l_Type = p_commands[0].toLowerCase();

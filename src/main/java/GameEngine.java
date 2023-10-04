@@ -2,7 +2,7 @@ import controller.GameEngineController;
 import utils.InvalidCommandException;
 
 /**
- * A class that starts the game with the first phase Edit Map
+ * A class that starts the game with the first phase
  *
  * @author Jay Bhatt
  * @author Madhav Anadkat

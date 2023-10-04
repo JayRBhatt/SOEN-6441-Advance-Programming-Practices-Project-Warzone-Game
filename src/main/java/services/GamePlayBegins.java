@@ -11,7 +11,7 @@ import model.*;
 import utils.InvalidCommandException;
 
 /**
- * Class that has the main logic behind the functioning of Gameplay phase in
+ * Class that has the main logic behind the functioning of GameplayBegins phase in
  * the game
  *
  * @author Jay Bhatt
@@ -165,10 +165,10 @@ public class GamePlayBegins {
     }
 
     /**
-     * Method to Split the input into a list of String
+     * Method to Split the inputstring based on hyphens(-) and spaces(" ")
      * 
      * @param p_Input user input
-     * @return list of String
+     * @return list of String obtained by splitting the input string.
      */
     private List<String> splitInput(String p_Input) {
         if (p_Input.contains("-")) {

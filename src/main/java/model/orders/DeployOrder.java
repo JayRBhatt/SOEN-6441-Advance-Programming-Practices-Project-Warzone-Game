@@ -24,7 +24,7 @@ public class DeployOrder extends Order {
         setType("deploy");
     }
     /**
-     * Overriding the execute function for the order type deploy
+     * the execute function for the order type deploy
      *
      * @return true if the execution was successful else return false
      */
