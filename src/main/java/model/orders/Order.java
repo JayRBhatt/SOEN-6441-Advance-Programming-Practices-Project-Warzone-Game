@@ -122,7 +122,7 @@ public class Order {
      */
     
      public boolean execute() {
-        System.out.println("Void order is not able to execute");
+        System.out.println("Cannot execute void order");
         return false;
     }
 }
