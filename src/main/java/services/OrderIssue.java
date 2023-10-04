@@ -29,10 +29,10 @@ public class OrderIssue {
     }
 
     /**
-     * Method that runs the main logic of Order Issue
+     * Method that runs the main logic of Order Issue and takes the player to the next phase
      * 
-     * @param p_GamePhaseID the current ID of the Phas
-     * @throws InvalidCommandException
+     * @param p_GamePhaseID the current ID of the Phase
+     * @throws InvalidCommandException if it encounters any wrong command
      */
     public void begin(int p_GamePhaseID) throws InvalidCommandException {
         int l_PlayerNumber = 0;
@@ -57,31 +57,27 @@ public class OrderIssue {
     }
 
     /**
-     * A function that shows the list of countires in which the player can deploy
+     * A function that shows the list of countries in which the player can deploy
      * the armies.
-     * It makes the application user-friendly.
      * 
-     * @return prints the countries the player holds.
+     * @param p_Player
      */
-    private void printAssignedCountries(Player player) {
-        for (Country country : player.getOccupiedCountries()) {
+    private void printAssignedCountries(Player p_Player) {
+        for (Country country : p_Player.getOccupiedCountries()) {
             System.out.println(country.getCountryName());
         }
         System.out.println("****************************************************************************************");
     }
 
     /**
-     * A function to help the Player issue orders.
-     * This function help the player with the syntax of command
-     * Also allows the player to enter the command and let the palyer know the
-     * command entered is right
+     *It reads the command input from the player and validates it
      * 
-     * @return command entered by the player
+     * @return command entered by the Player
      */
     private String readFromPlayer() {
         String l_CommandInput;
         System.out.println("Lets Begin Issuing Orders ! : ");
-        System.out.println("1.For any guidance type help we are happy to help you.");
+        System.out.println("1.For any guidance type help, we are happy to help you.");
         while (true) {
             l_CommandInput = sc.nextLine();
             if (VerifyCommandDeploy(l_CommandInput.toUpperCase()))

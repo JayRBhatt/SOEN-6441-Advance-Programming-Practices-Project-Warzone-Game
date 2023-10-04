@@ -1,26 +1,30 @@
 package model.orders;
-
-
 import java.util.*;
 
-
-import model.Country;
-
-
+/**
+ * It is a class to manage the orders of the players
+ *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class Order {
     private static Order d_Order;
     private OrderDetails d_OrderInfo;
     private List<Order> d_OrderList = new ArrayList<Order>();
     private String d_Type;
-    // public Order(String orderDetails, int numberOfArmies, Country targetCountry)
-    // {
-    // this.orderDetails = orderDetails;
-    // this.numberOfArmies = numberOfArmies;
-    // this.targetCountry = targetCountry;
-    // }
+  
+/**
+ * A method to get the instance of the order
+ * 
+ * @return d_Order
+*/
 
-
-    public static Order getInstance() {
+     public static Order getInstance() {
         if (Objects.isNull(d_Order)) {
             d_Order = new Order();
         }
@@ -29,23 +33,23 @@ public class Order {
 
 
     /**
-     * A function to get the order list
+     * A method to get the order list
      *
      * @return the list of type Order class
      */
-    public List<Order> getOrderList() {
-
-
-        return d_OrderList;
+  
+     public List<Order> getOrderList() {
+     return d_OrderList;
     }
 
 
     /**
-     * A function to set the order list
+     * A method to set the order list
      *
      * @param p_OrderList Order List of type Order class
      */
-    public void setOrderList(List<Order> p_OrderList) {
+    
+     public void setOrderList(List<Order> p_OrderList) {
 
 
         this.d_OrderList = p_OrderList;
@@ -53,10 +57,11 @@ public class Order {
 
 
     /**
-     * A function to get order information
+     * A method to get order information
      *
      * @return the order information in an object
      */
+
     public OrderDetails getOrderDetails() {
 
 
@@ -65,7 +70,7 @@ public class Order {
 
 
     /**
-     * A function to the set Order information based on the order
+     * A method to the set Order information based on the order
      *
      * @param p_OrderInfo Order Information contained in an object of type OrderInfo
      */
@@ -77,7 +82,7 @@ public class Order {
 
 
     /**
-     * A function to add the order to the order list
+     * A method to add the order to the order list
      *
      * @param p_Order The order to be added to the list
      */
@@ -89,40 +94,37 @@ public class Order {
 
 
     /**
-     * A function to return the type of order
+     * A method to return the type of order
      *
-     * @return String which indicates the type of order
+     * @return string which indicates the type of order
      */
     public String getType() {
 
-
-        return d_Type;
+       return d_Type;
     }
 
 
     /**
-     * A function to set the type of order
+     * A method to set the type of order
      *
-     * @param p_Type String which indicates the type of order
+     * @param p_Type string which indicates the type of order
      */
+
     public void setType(String p_Type) {
-
-
-        this.d_Type = p_Type;
+    this.d_Type = p_Type;
     }
 
 
     /**
-     * A function to be overridden by the Child class
+     * A method to be overridden by the Child class
      *
-     * @return false as there is not order to be executed
+     * @return false as there is no order to be executed
      */
-    public boolean execute() {
+    
+     public boolean execute() {
         System.out.println("Void order is not able to execute");
         return false;
     }
-
-
 }
 
 

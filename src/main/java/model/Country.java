@@ -88,7 +88,7 @@ public class Country {
     }
 
     /**
-     * Sets the Numbe rof Army the Country will possess
+     * Sets the Number of Army the Country will possess
      * 
      * @param p_Armies
      */
@@ -144,7 +144,7 @@ public class Country {
     /**
      * Returns the set of name of the neighbors of the Country
      * 
-     * @return d_NEighborsCountryName
+     * @return d_NeighborsCountryName
      */
     public Set<String> getNeighborsCountryName() {
         if (d_NeighborsCountryName == null) {
@@ -166,11 +166,12 @@ public class Country {
     }
 
     /**
-     * Adds the name of the neighbor to the Set and returns a string of all the
-     * neighbors with a delimiter '-' in between
+     * It creates a concatenated string of country names from a set of neighbors which is
+     * separated by hyphens ("-").
      * 
      * @param p_Neighbors
-     * @return
+     * @return string containing the names of neighboring countries which are
+     *         separated by hyphens.
      */
     public String createNeighborList(Set<Country> p_Neighbors) {
         StringJoiner result = new StringJoiner("-");

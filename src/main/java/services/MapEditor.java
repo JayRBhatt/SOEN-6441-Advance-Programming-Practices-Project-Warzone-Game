@@ -35,7 +35,7 @@ public class MapEditor {
     }
 
     /**
-     * Method where the command gets checked of its type(editcontinet or editcountry
+     * Method where the command gets checked of its type(editcontinent or editcountry
      * etc)
      * 
      * @param p_GamePhaseID
@@ -116,10 +116,10 @@ public class MapEditor {
     }
 
     /**
-     * Method that splits the Input and save sit into a List of Strings
+     * Method that splits the Input and save it into a List of Strings
      * 
      * @param p_Input
-     * @return
+     * @return the result as a list of string
      */
     private List<String> splitInput(String p_Input) {
         if (p_Input.contains("-")) {
@@ -151,7 +151,7 @@ public class MapEditor {
      * Method that checks whether the input is valid
      * 
      * @param p_InputList
-     * @return
+     * @return true if the input provided by the player is present in set of PredefinedCommands or else it returns false
      */
     public boolean isValidInput(List<String> p_InputList) {
         if (p_InputList.size() == 1) {
@@ -246,7 +246,7 @@ public class MapEditor {
     }
 
     /**
-     * Method that adds continent ot the map
+     * Method that adds continent on the map
      * 
      * @param p_CommandList
      * @throws InvalidCommandException
@@ -260,7 +260,7 @@ public class MapEditor {
     }
 
     /**
-     * Method that removes a continent off of the map
+     * Method that removes a continent off the map
      * 
      * @param p_CommandList
      * @throws InvalidCommandException
@@ -288,7 +288,7 @@ public class MapEditor {
     }
 
     /**
-     * Method that removes a country off of the map
+     * Method that removes a country off the map
      * 
      * @param p_CommandList
      * @throws InvalidCommandException
@@ -368,7 +368,7 @@ public class MapEditor {
     }
 
     /**
-     * Method that initializes the map once teh game enters the next phase
+     * Method that initializes the map once the game enters the next phase
      * 
      */
     private void exitMapCreationPhase() {
