@@ -11,6 +11,14 @@ import utils.InvalidCommandException;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 
+/**
+ * Class that has the main logic behind the functioning of Map Editor phase in
+ * the game
+ *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ */
 public class MapEditor {
     private Scanner sc = new Scanner(System.in);
     GameMap d_GameMap;
@@ -18,14 +26,28 @@ public class MapEditor {
             "showmap",
             "savemap", "editmap", "validatemap");
 
+    /**
+     * A Constructor to initialize d_GameMap
+     * 
+     */
     public MapEditor() {
         this.d_GameMap = GameMap.getInstance();
     }
 
+    /**
+     * Method where the command gets checked of its type(editcontinet or editcountry
+     * etc)
+     * 
+     * @param p_GamePhaseID
+     * @throws InvalidCommandException
+     */
     public void mapEdit(int p_GamePhaseID) throws InvalidCommandException {
         while (true) {
-            System.out.println("Wow,It looks like Now you have entered in the very first phase of the game,The Map editor phase where players create the game maps");
-            System.out.println("We are here to guide you throughout the game:" + "\n" + "1.If you don't know what to do just type help it will show you the user commands we developed for you to create a gamemap" + "\n"
+            System.out.println(
+                    "Wow,It looks like Now you have entered in the very first phase of the game,The Map editor phase where players create the game maps");
+            System.out.println("We are here to guide you throughout the game:" + "\n"
+                    + "1.If you don't know what to do just type help it will show you the user commands we developed for you to create a gamemap"
+                    + "\n"
                     + "2. If you are done with the map creation and want to save the phase type exit");
             String l_InputString = sc.nextLine();
             List<String> l_InputList = splitInput(l_InputString);
@@ -93,6 +115,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method that splits the Input and save sit into a List of Strings
+     * 
+     * @param p_Input
+     * @return
+     */
     private List<String> splitInput(String p_Input) {
         if (p_Input.contains("-")) {
             return Arrays.stream(p_Input.split("-"))
@@ -104,6 +132,11 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method that Handles validation of the input
+     * 
+     * @param p_inputList
+     */
     private void handleInvalidInput(List<String> p_inputList) {
         if (p_inputList.get(0).startsWith("exit")) {
             p_inputList.add(0, "exit");
@@ -114,6 +147,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method that checks whether the input is valid
+     * 
+     * @param p_InputList
+     * @return
+     */
     public boolean isValidInput(List<String> p_InputList) {
         if (p_InputList.size() == 1) {
             p_InputList.add("unknown");
@@ -122,6 +161,12 @@ public class MapEditor {
         return l_PreDefinedCommands.contains(l_primaryCommand);
     }
 
+    /**
+     * Method specific to handle the editcontinent command
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void handleEditContinentCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -144,6 +189,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method specific to handle the editcountry commands
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void handleEditCountryCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -166,6 +217,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method specific to handle editneighbor command
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void handleEditNeighborCommands(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.isEmpty()) {
             return;
@@ -188,6 +245,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method that adds continent ot the map
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void addContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
@@ -196,6 +259,12 @@ public class MapEditor {
         d_GameMap.addContinent(p_CommandList.get(1), p_CommandList.get(2));
     }
 
+    /**
+     * Method that removes a continent off of the map
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void removeContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();
@@ -204,6 +273,12 @@ public class MapEditor {
         d_GameMap.removeContinent(p_CommandList.get(1));
     }
 
+    /**
+     * Method that adds a country to the map
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void addCountry(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
@@ -212,6 +287,12 @@ public class MapEditor {
         d_GameMap.addCountry(p_CommandList.get(1), p_CommandList.get(2));
     }
 
+    /**
+     * Method that removes a country off of the map
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void removeCountry(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();
@@ -220,6 +301,12 @@ public class MapEditor {
         d_GameMap.removeCountry(p_CommandList.get(1));
     }
 
+    /**
+     * Method that Adds a neighbor to a country
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void addNeighbor(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
@@ -228,6 +315,12 @@ public class MapEditor {
         d_GameMap.addNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 
+    /**
+     * Method that removes a neighbor of a country
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void removeNeighbor(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
@@ -236,6 +329,10 @@ public class MapEditor {
         d_GameMap.removeNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 
+    /**
+     * Method that handles validatemap command
+     * 
+     */
     private void handleValidateMap() {
 
         String validationMessage = ValidateMap.validateMap(d_GameMap, 0) ? "Validation successful"
@@ -244,6 +341,12 @@ public class MapEditor {
 
     }
 
+    /**
+     * Method that handles savemap command
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void handleSaveMap(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() == 1) {
             d_GameMap.setName(p_CommandList.get(0));
@@ -251,6 +354,12 @@ public class MapEditor {
         }
     }
 
+    /**
+     * Method that handles editmap command
+     * 
+     * @param p_CommandList
+     * @throws InvalidCommandException
+     */
     private void handleEditMap(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() == 1) {
             MapViewer.readMap(d_GameMap, p_CommandList.get(0));
@@ -258,12 +367,21 @@ public class MapEditor {
 
     }
 
+    /**
+     * Method that initializes the map once teh game enters the next phase
+     * 
+     */
     private void exitMapCreationPhase() {
         d_GameMap.ClearMap();
     }
 
+    /**
+     * Help commands to be displayed to the user for their reference
+     * 
+     */
     private void displayHelpCommands() {
-        System.out.println("The mentioned below are the list of map creation console commands developed by us for the players:");
+        System.out.println(
+                "The mentioned below are the list of map creation console commands developed by us for the players:");
         System.out.println("If you wish to add a continent in a map:");
         System.out.println("editcontinent -add continentID continentvalue");
         System.out.println("If you wish to remove a continent from the map");
