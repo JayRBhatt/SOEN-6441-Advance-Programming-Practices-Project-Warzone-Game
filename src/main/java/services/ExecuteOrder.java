@@ -48,7 +48,7 @@ import utils.InvalidCommandException;
     /**
      * Executes orders for each player in the game.
      */
-    private void executeOrders() {
+    public void executeOrders() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {
                 boolean isOrderExecuted = execute(order);
