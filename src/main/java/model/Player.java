@@ -1,13 +1,19 @@
 package model;
 
-
 import java.util.*;
 import model.orders.Order;
 import model.orders.OrderCreator;
 
 import model.orders.Order;
 
-
+/**
+ * Class that provides every method that is required for any properties of
+ * a Player in the game
+ *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ */
 public class Player {
     private int d_PlayerId;
     private String d_PlayerName;
@@ -16,90 +22,98 @@ public class Player {
     private int d_AdditionalArmies;
     private int d_AssignedTroops;
 
-
     public static List<Order> OrderList = new ArrayList<>();
 
-
     /**
-     * @return int
-     */
-    public int getPlayerId() {
-        return d_PlayerId;
-    }
-
-
-    /**
-     * @param p_PlayerId
-     */
-    public void setPlayerId(int p_PlayerId) {
-        this.d_PlayerId = p_PlayerId;
-    }
-
-
-    /**
+     * Returns the Name of the Player
+     * 
      * @return String
      */
     public String getPlayerName() {
         return d_PlayerName;
     }
 
-
     /**
+     * Sets the Name of a Player
+     * 
      * @param p_PlayerName
      */
     public void setPlayerName(String p_PlayerName) {
         this.d_PlayerName = p_PlayerName;
     }
 
-
+    /**
+     * Returns a List of Occupied Countries by a Player
+     * 
+     * @return
+     */
     public List<Country> getOccupiedCountries() {
         return d_OccupiedCountries;
     }
 
-
+    /**
+     * Sets the List of Occupied Countries by a player
+     * 
+     * @param p_OccupiedCountries
+     */
     public void setOccupiedCountries(List<Country> p_OccupiedCountries) {
         this.d_OccupiedCountries = p_OccupiedCountries;
     }
 
-
+    /**
+     * Returns a Deque of Orders for a player
+     * 
+     * @return
+     */
     public Deque<Order> getOrders() {
         return d_Orders;
     }
 
-
+    /**
+     * Sets the Orders for a Player
+     * 
+     * @param p_Orders
+     */
     private void setOrders(Deque<Order> p_Orders) {
         this.d_Orders = p_Orders;
     }
 
-
+    /**
+     * Adds an order to the Deque of Orders
+     * 
+     * @param p_Order
+     */
     private void receiveOrder(Order p_Order) {
         d_Orders.add(p_Order);
     }
 
-
+    /**
+     * Returns the number of Additional Armies of a player
+     * 
+     * @return d_AdditionalArmies
+     */
     public int getAdditionalArmies() {
         return d_AdditionalArmies;
     }
 
-
+    /**
+     * Sets the number of Additional Armies for a player
+     * 
+     * @param p_AdditionalArmies
+     */
     public void setAdditionalArmies(int p_AdditionalArmies) {
         this.d_AdditionalArmies = p_AdditionalArmies;
     }
 
-
-    // public int get_AssignedTroops() {
-    //     return d_AssignedTroops;
-    // }
-
-    public void set_AssignedTroops(int p_AssignedTroops) {
-        this.d_AssignedTroops = p_AssignedTroops;
-    }
-
+    /**
+     * Publishes the order given by a player
+     * 
+     * @param p_Command
+     */
     public void publishOrder(String p_Command) {
         boolean l_PublishCommand = true;
         String[] l_ArrOfCommands = p_Command.split(" ");
         int l_AdditionalArmies = Integer.parseInt(l_ArrOfCommands[2]);
-        System.out.println("heree"+l_AdditionalArmies);
         if (!confirmIfCountryisOccupied(l_ArrOfCommands[1], this)) {
             System.out.println("OOPS! This Country is not yours");
             l_PublishCommand = false;
@@ -108,7 +122,6 @@ public class Player {
             System.out.println("Sorry, You don't have any more Available troops to deploy");
             l_PublishCommand = false;
         }
-
 
         if (l_PublishCommand) {
             Order l_Order = OrderCreator.generateOrder(l_ArrOfCommands, this);
@@ -122,7 +135,13 @@ public class Player {
         }
     }
 
-
+    /**
+     * Confirms whether a country is occupied or not
+     * 
+     * @param p_Country
+     * @param p_Player
+     * @return true or False
+     */
     public boolean confirmIfCountryisOccupied(String p_Country, Player p_Player) {
         List<Country> l_ListOfOccupiedCountries = p_Player.getOccupiedCountries();
         for (Country l_Country : l_ListOfOccupiedCountries) {
@@ -133,9 +152,14 @@ public class Player {
         return false;
     }
 
-
+    /**
+     * Checks whether to deploy the armies or not
+     * 
+     * @param p_ArmyNumber
+     * @return
+     */
     public boolean stationAdditionalArmiesFromPlayer(int p_ArmyNumber) {
-        System.out.println("here123"+d_AdditionalArmies);
+
         if (p_ArmyNumber > d_AdditionalArmies || p_ArmyNumber < 0) {
             return false;
         }
@@ -143,7 +167,12 @@ public class Player {
         return true;
     }
 
-
+    /**
+     * Creates a list of occupancy of countries by a player and returns the list
+     * 
+     * @param p_Occupy
+     * @return
+     */
     public String createOccupyList(List<Country> p_Occupy) {
         String l_Conclusion = "";
         for (Country l_Occupy : p_Occupy) {
@@ -152,29 +181,22 @@ public class Player {
         return l_Conclusion.length() > 0 ? l_Conclusion.substring(0, l_Conclusion.length() - 1) : "";
     }
 
-
+    /**
+     * Calculates the total of alloted reinforcements for a player
+     * 
+     */
     public void calculateTotalReinforcementArmies() {
-        // TODO Auto-generated method stub
 
-
-        // // Player l_Player = p_GameMap.getGamePlayer(p_Id);
-        // if(getOccupiedCountries().size() > 0) {
-
-
-        // d_AssignedTroops = 3 * getOccupiedCountries().size();
-        // set_AssignedTroops(d_AssignedTroops);
-        // }
-
-
-        // else {
         setAdditionalArmies(10);
-        // }
-
 
         System.out.println(getPlayerName() + " has been assigned with " + getAdditionalArmies() + " troops");
 
     }
 
+    /**
+     * An overriden method of toString for debugging
+     * 
+     */
     @Override
     public String toString() {
         return "helloworld [d_PlayerId=" + d_PlayerId + ", d_PlayerName=" + d_PlayerName + ", d_AdditionalArmies="
@@ -182,8 +204,3 @@ public class Player {
     }
 
 }
-
-
-
-
-

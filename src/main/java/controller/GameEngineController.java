@@ -49,7 +49,7 @@ public class GameEngineController {
                 break;
 
             default:
-                System.out.println("khotu");
+                System.exit(0);
         }
     }
 

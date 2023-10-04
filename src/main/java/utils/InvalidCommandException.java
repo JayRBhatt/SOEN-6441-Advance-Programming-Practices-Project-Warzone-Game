@@ -26,7 +26,8 @@ public class InvalidCommandException extends Exception {
     }
 
     /**
-     * Returns the exception message, or the default message if no custom message is provided.
+     * Returns the exception message, or the default message if no custom message is
+     * provided.
      * 
      * @return The exception message.
      */

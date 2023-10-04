@@ -1,0 +1,11 @@
+[Map]
+
+[Continents]
+asia 10
+northamerica 10
+[Territories]
+russia asia india canada
+canada northamerica russia america
+india asia russia america
+america northamerica india canada
+
