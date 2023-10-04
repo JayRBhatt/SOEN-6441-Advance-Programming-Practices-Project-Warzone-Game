@@ -49,7 +49,7 @@ public class OrderIssue
                     } 
                     String l_PlayerName = l_Player.getPlayerName();
                     int l_ReinforcementArmies = l_Player.getAdditionalArmies();
-                    System.out.println("The Armies assigned to Player " + l_PlayerName + "are : " +l_ReinforcementArmies);
+                    System.out.println("The Armies assigned to Player " + l_PlayerName + " are : " +l_ReinforcementArmies);
                     System.out.println("Please assign your armies only to the below listed countries:");
                     printAssignedCountries(l_Player);
                     String l_CommandInputString = readFromPlayer();
@@ -58,7 +58,7 @@ public class OrderIssue
             }
             System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
             System.out.println("**************************************************************************************");
-            new GameEngineController().controller(4);
+            new GameEngineController().controller(5);
         }
 
     /**
@@ -104,7 +104,7 @@ private void printAssignedCountries(Player player) {
     private boolean VerifyCommandDeploy(String p_CommandString){
             String[] l_CommandInputsList = p_CommandString.split(" ");
             if(l_CommandInputsList.length ==  3){
-                return l_CommandInputsList[0].equals("deploy");
+                return l_CommandInputsList[0].equals("DEPLOY");
             }
             else
                 return false;
