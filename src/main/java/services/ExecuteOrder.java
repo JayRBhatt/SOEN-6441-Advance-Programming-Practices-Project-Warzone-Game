@@ -63,8 +63,8 @@ public class ExecuteOrder {
     private void executeOrders() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {
-                execute(order);
-                if (execute(order)) {
+                boolean isOrderExecuted = execute(order);
+                if (isOrderExecuted) {
                     System.out.println("Order executed: " + order.getOrderDetails());
                 } else {
                     System.out.println("Failed to execute order: " + order.getOrderDetails());
