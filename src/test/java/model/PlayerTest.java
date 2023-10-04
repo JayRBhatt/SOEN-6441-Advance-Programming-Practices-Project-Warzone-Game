@@ -19,7 +19,7 @@ public class PlayerTest {
     Country c3 = new Country();
     GameMap d_GameMap = GameMap.getInstance();
 
-      @Before
+    @Before
     public void setUp() throws Exception {
         c1.setCountryName("India");
         c2.setCountryName("China");
@@ -31,13 +31,13 @@ public class PlayerTest {
         d_CapturedCountries.add(c3);
         p.setOccupiedCountries(d_CapturedCountries);
     }
-      @After
+    @After
     public void tearDown() throws Exception {
         d_GameMap.getContinents().clear();
         d_GameMap.getCountries().clear();
         d_GameMap.getGamePlayers().clear();
     }
-      @Test
+    @Test
     public void testValidCheckIfCountryExists() {
         assertTrue(p.confirmIfCountryisOccupied(d_CountryValid,p));
     }
