@@ -8,18 +8,18 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class issueOrderTest {
+public class IssueOrderTest {
     private IssueOrder issueOrderTest;
     private String playerName;
     private int noOfReinforcementArmies;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
-    public issueOrderTest(String playerName)
+    public IssueOrderTest(String playerName)
     {
         this.playerName = playerName;
     }
-        public IssueOrderTest(int noOfReinforcementArmies)
+    public IssueOrderTest(int noOfReinforcementArmies)
     {
         this.noOfReinforcementArmies = noOfReinforcementArmies;
     }
