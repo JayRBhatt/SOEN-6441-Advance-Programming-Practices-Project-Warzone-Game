@@ -1,6 +1,5 @@
 package controller;
 
-import model.GameMap;
 import services.*;
 import utils.InvalidCommandException;
 
@@ -24,7 +23,7 @@ public class GameEngineController {
      */
 
     public void controller(int p_GamePhaseID) throws InvalidCommandException {
-        System.out.println("your number is" + p_GamePhaseID);
+
         switch (p_GamePhaseID) {
             case 1:
                 new MapEditor().mapEdit(p_GamePhaseID);
@@ -43,6 +42,10 @@ public class GameEngineController {
 
             case 5:
                 new ExecuteOrder().startExecuteOrder(p_GamePhaseID);
+                break;
+
+            case 6:
+                new ExitService().exitGame(p_GamePhaseID);
                 break;
 
             default:

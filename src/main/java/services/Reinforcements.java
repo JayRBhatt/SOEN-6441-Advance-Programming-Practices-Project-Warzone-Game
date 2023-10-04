@@ -1,5 +1,6 @@
 package services;
 
+import controller.GameEngineController;
 import model.GameMap;
 //import model.Order;
 import model.Player;
@@ -12,11 +13,11 @@ public class Reinforcements {
 	public Reinforcements() {
 		d_GameMap = GameMap.getInstance();
 	}
-	
+
 	public void start(int p_GamePhaseID) throws InvalidCommandException {
-		System.out.println("================================End of GamePlay begins Phase==================================");
 		calculateReinforcements();
-		new OrderIssue().begin(p_GamePhaseID);
+		new GameEngineController().controller(4);
+
 	}
 
 	private void calculateReinforcements() {

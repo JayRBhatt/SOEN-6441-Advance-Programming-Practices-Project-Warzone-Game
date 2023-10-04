@@ -88,7 +88,7 @@ public class GameMap {
         l_Continent.setContinentName(p_ContinentName);
         l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName, l_Continent);
-        System.out.println("Woohooo! You have added a Continnet to your World Map!!");
+        System.out.println("Woohooo! You have added a Continent to your World Map!!");
     }
 
     public void removeContinent(String p_ContinentName) {
@@ -97,7 +97,7 @@ public class GameMap {
         for (String l_Country : l_CountrySet) {
             this.getCountries().remove(l_Country);
         }
-        System.out.println("WOW!!" + p_ContinentName + "is off the Map!!!");
+        System.out.println("WOW!!" + p_ContinentName + " is off the Map!!!");
     }
 
     public void addCountry(String p_CountryName, String p_ContinentName) {
@@ -106,15 +106,14 @@ public class GameMap {
         l_Country.setContinent(p_ContinentName);
         this.getCountries().put(p_CountryName, l_Country);
         this.getContinent(p_ContinentName).getCountries().add(l_Country);
-        System.out.println("There you have it!: " + p_CountryName + " a part of " + p_ContinentName);
+        System.out.println("There you have it! " + p_CountryName + " a part of " + p_ContinentName);
     }
 
     public void removeCountry(String p_CountryName) {
         Country l_Country = this.getCountry(p_CountryName);
-        System.out.println(l_Country);
         this.getContinent(l_Country.getContinent()).getCountries().remove(l_Country);
         this.getCountries().remove(l_Country.getCountryName());
-        System.out.println("...And the " + p_CountryName + " is erased off the map!! ");
+        System.out.println("...And " + p_CountryName + " is erased off the map!! ");
     }
 
     public void addNeighbor(String p_CountryName, String p_NeighborCountryName) {
@@ -128,9 +127,8 @@ public class GameMap {
 
     public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws InvalidCommandException {
         Country l_Country = this.getCountry(p_CountryName);
-        System.out.println(l_Country);
+
         Country l_NeighborCountry = this.getCountry(p_NeighborCountryName);
-        System.out.println(l_NeighborCountry);
         if (l_Country == null) {
             throw new InvalidCommandException("Ayoo, You messed up!");
         } else if (!l_Country.getNeighbors().contains(l_NeighborCountry)
@@ -150,7 +148,6 @@ public class GameMap {
         }
         Player l_GamePlayer = new Player();
         l_GamePlayer.setPlayerName(p_PlayerName);
-        System.out.println("Our player is :::--->" + l_GamePlayer);
         getGamePlayers().put(p_PlayerName, l_GamePlayer);
 
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");

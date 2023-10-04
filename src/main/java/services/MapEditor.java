@@ -42,8 +42,6 @@ public class MapEditor {
                 List<String> l_input = Arrays.asList(l_CommandArray);
                 switch (l_PrimaryCommand.toLowerCase()) {
                     case "editcontinent": {
-                        System.out.println("after object");
-
                         handleEditContinentCommands(l_input);
                         break;
                     }
@@ -234,7 +232,7 @@ public class MapEditor {
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-        System.out.println(p_CommandList.get(2));
+
         d_GameMap.removeNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 

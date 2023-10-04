@@ -19,7 +19,7 @@ public class ExitService {
      *
      * @param exitCode The exit code to use when exiting the program.
      */
-    public static void exitGame(int exitCode) {
+    public void exitGame(int exitCode) {
         System.out.println("Exiting the game...");
 
         // Exit the program with the specified exit code

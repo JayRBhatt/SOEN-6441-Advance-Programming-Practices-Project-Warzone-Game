@@ -53,7 +53,7 @@ public class ExecuteOrder {
         System.out.println("Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
         executeOrders();
         System.out.println("All the orders have been executed successfully");
-        new GameEngineController().controller(5);
+        new GameEngineController().controller(6);
     }
 
 
