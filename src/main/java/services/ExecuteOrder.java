@@ -36,6 +36,7 @@ import utils.InvalidCommandException;
      * after this phase gets completed 
      * @throws InvalidCommandException if game phase transition is invalid.
      */
+    
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         System.out.println("**************************************************************************************");
         System.out.println(
@@ -48,6 +49,7 @@ import utils.InvalidCommandException;
     /**
      * Executes orders for each player in the game.
      */
+    
     public void executeOrders() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {
@@ -68,6 +70,7 @@ import utils.InvalidCommandException;
      * @return true if the order was successfully executed, or false
      *         otherwise.
      */
+    
     public boolean execute(Order order) {
         // Get the order details
         OrderDetails orderDetails = order.getOrderDetails();

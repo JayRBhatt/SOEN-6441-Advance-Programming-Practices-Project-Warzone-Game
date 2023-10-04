@@ -45,6 +45,7 @@ public class OrderDetails {
      * 
      * @return the departure country object
      */
+    
     public Country getDeparture() {
 
         return d_Departure;
@@ -55,6 +56,7 @@ public class OrderDetails {
      * 
      * @param d_Departure departure country object
      */
+    
     public void setDeparture(Country d_Departure) {
 
         this.d_Departure = d_Departure;
@@ -65,6 +67,7 @@ public class OrderDetails {
      * 
      * @return the destination of armies
      */
+    
     public String getDestination() {
 
         return d_Destination;
@@ -75,6 +78,7 @@ public class OrderDetails {
      * 
      * @param d_Destination the destination of armies
      */
+    
     public void setDestination(String d_Destination) {
 
         this.d_Destination = d_Destination;
@@ -85,6 +89,7 @@ public class OrderDetails {
      * 
      * @return the number of armies
      */
+    
     public int getNumberOfArmy() {
 
         return d_NumberOfArmy;
@@ -95,6 +100,7 @@ public class OrderDetails {
      * 
      * @param d_NumberOfArmy the number of armies
      */
+    
     public void setNumberOfArmy(int d_NumberOfArmy) {
 
         this.d_NumberOfArmy = d_NumberOfArmy;
