@@ -32,7 +32,7 @@ public class OrderCreator {
                 l_deployOrder.setOrderDetails(generateDeployOrderInfo(p_commands, p_player));
                 break;
             default:
-                System.out.println("\nFail to create an order due to invalid arguments");
+                System.out.println("\nInvalid order arguments; unable to create order");
                 l_deployOrder = new Order();
         }
 
