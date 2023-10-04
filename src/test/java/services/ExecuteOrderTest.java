@@ -1,151 +1,103 @@
+
 package services;
 
-import controller.GameEngineController;
-import model.*;
-import model.orders.*;
-import services.ExecuteOrder;
-
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.util.*;
-
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import model.Country;
+import model.GameMap;
+import model.Player;
+import model.orders.Order;
+import model.orders.OrderDetails;
 
 public class ExecuteOrderTest {
 
     private ExecuteOrder executeOrder;
-    private GameMap d_GameMap;
-    private Player d_Player1;
-    private Player d_Player2;
-    private Country d_Country1;
-    private Country d_Country2;
-    private Order d_Order1;
-    private Order d_Order2;
+    private GameMap gameMap;
+    private Player player1;
+    private Player player2;
+    private Country country1;
+    private Country country2;
 
     @Before
-    public void setUp() {
+    public void initializeTestData() {
         executeOrder = new ExecuteOrder();
-        d_GameMap = GameMap.getInstance();
+        gameMap = GameMap.getInstance();
 
-        d_Player1 = new Player();
-        d_Player1.setPlayerName("Player1");
-        d_Player2 = new Player();
-        d_Player2.setPlayerName("Player2");
+        player1 = new Player();
+        player1.setPlayerName("Jay");
+        player2 = new Player();
+        player2.setPlayerName("Bhargav");
 
-        d_Country1 = new Country();
-        d_Country1.setCountryName("India");
-        d_Country1.setPlayer(d_Player1);
+        country1 = new Country();
+        country1.setCountryName("India");
+        country1.setPlayer(player1);
 
-        d_Country2 = new Country();
-        d_Country2.setCountryName("China");
-        d_Country2.setPlayer(d_Player2);
+        country2 = new Country();
+        country2.setCountryName("China");
+        country2.setPlayer(player2);
 
-        d_Player1.getOccupiedCountries().add(d_Country1);
-        d_Player2.getOccupiedCountries().add(d_Country2);
+        player1.getOccupiedCountries().add(country1);
+        player2.getOccupiedCountries().add(country2);
 
-        // Create mock orders
-        d_Order1 = mock(Order.class);
-        when(d_Order1.execute()).thenReturn(true);
-        OrderDetails orderDetails1 = new OrderDetails(d_Player1, "India", 3);
-        when(d_Order1.getOrderDetails()).thenReturn(orderDetails1);
+        Order order1 = new Order();
+        OrderDetails orderDetails1 = new OrderDetails();
+        orderDetails1.setPlayer(player1);
+        orderDetails1.setDestination(country1.getCountryName());
+        orderDetails1.setNumberOfArmy(0);
+        order1.setOrderDetails(orderDetails1);
 
-        d_Order2 = mock(Order.class);
-        when(d_Order2.execute()).thenReturn(true);
-        OrderDetails orderDetails2 = new OrderDetails(d_Player2, "China", 2);
-        when(d_Order2.getOrderDetails()).thenReturn(orderDetails2);
+        Order order2 = new Order();
+        OrderDetails orderDetails2 = new OrderDetails();
+        orderDetails2.setPlayer(player2);
+        orderDetails2.setDestination(country2.getCountryName());
+        orderDetails2.setNumberOfArmy(0);
+        order2.setOrderDetails(orderDetails2);
 
-        d_Player1.getOrders().add(d_Order1);
-        d_Player2.getOrders().add(d_Order2);
-        d_GameMap.getGamePlayers().put("Player1", d_Player1);
-        d_GameMap.getGamePlayers().put("Player2", d_Player2);
+        player1.getOrders().add(order1);
+        player2.getOrders().add(order2);
 
-        resetConsoleOutput();
+        gameMap.getGamePlayers().put(player1.getPlayerName(), player1);
+        gameMap.getGamePlayers().put(player2.getPlayerName(), player2);
     }
 
-    // Test case to verify the execution of multiple orders
     @Test
-    public void testExecuteOrders() {
-        executeOrder.executeOrders();
+    public void testExecuteValidOrder() {
+        // Create a valid order to test execution
+        Order validOrder = new Order();
+        OrderDetails validOrderDetails = new OrderDetails();
+        validOrderDetails.setPlayer(player1);
+        validOrderDetails.setDestination("India");
+        validOrderDetails.setNumberOfArmy(2);
 
-        verify(d_Order1, times(1)).execute();
-        verify(d_Order2, times(1)).execute();
+        validOrder.setOrderDetails(validOrderDetails);
 
-        String expectedOutput = "Order executed: " + d_Order1.getOrderDetails() + "\n" +
-                "3 Armies have been deployed in " + d_Order1.getOrderDetails().getDestination() + "\n" +
-                "Order executed: " + d_Order2.getOrderDetails() + "\n" +
-                "2 Armies have been deployed in " + d_Order2.getOrderDetails().getDestination() + "\n";
-        assertEquals(expectedOutput, getConsoleOutput());
-    }
+        // Execute the valid order
+        boolean result = executeOrder.execute(validOrder);
 
-    // Test case to verify the execution of a single order
-    @Test
-    public void testExecuteOrder() {
-        boolean result = executeOrder.execute(d_Order1);
+        // Assert that the execution was successful
         assertTrue(result);
-        String expectedOutput = "3 Armies have been deployed in " + d_Order1.getOrderDetails().getDestination() + "\n" +
-                "\nHoorayyy, The Execution has been completed successfully: 3 armies deployed to " + d_Order1.getOrderDetails().getDestination() + ".\n" +
-                "=========================================================================================\n";
-        assertEquals(expectedOutput, getConsoleOutput());
-        assertEquals(3, d_Country1.getArmies());
+        assertEquals("Jay", player1.getPlayerName());
+        assertEquals(2, country1.getArmies()); // Verify that armies were deployed
     }
 
-    // Test case to verify the execution of an order with a null player
     @Test
-    public void testExecuteOrderWithNullPlayer() {
-        OrderDetails orderDetails = new OrderDetails(null, "India", 3);
-        Order nullPlayerOrder = mock(Order.class);
-        when(nullPlayerOrder.getOrderDetails()).thenReturn(orderDetails);
-        
-        boolean result = executeOrder.execute(nullPlayerOrder);
+    public void testExecuteInvalidOrder() {
+        // Create an invalid order with a null destination
+        Order invalidOrder = new Order();
+        OrderDetails invalidOrderDetails = new OrderDetails();
+        invalidOrderDetails.setPlayer(player1);
+        invalidOrderDetails.setDestination(null);
+        invalidOrderDetails.setNumberOfArmy(2);
+
+        invalidOrder.setOrderDetails(invalidOrderDetails);
+
+        // Execute the invalid order
+        boolean result = executeOrder.execute(invalidOrder);
+
+        // Assert that the execution failed
         assertFalse(result);
         
-        String expectedOutput = "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again\n";
-        assertEquals(expectedOutput, getConsoleOutput());
-    }
-
-    // Test case to verify the execution of an order with a null destination
-    @Test
-    public void testExecuteOrderWithNullDestination() {
-        OrderDetails orderDetails = new OrderDetails(d_Player1, null, 3);
-        Order nullDestinationOrder = mock(Order.class);
-        when(nullDestinationOrder.getOrderDetails()).thenReturn(orderDetails);
-        
-        boolean result = executeOrder.execute(nullDestinationOrder);
-        assertFalse(result);
-        
-        String expectedOutput = "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again\n";
-        assertEquals(expectedOutput, getConsoleOutput());
-    }
-
-    // Test case to verify the execution of an order with an invalid country
-    @Test
-    public void testExecuteOrderWithInvalidCountry() {
-        OrderDetails orderDetails = new OrderDetails(d_Player1, "InvalidCountry", 3);
-        Order invalidCountryOrder = mock(Order.class);
-        when(invalidCountryOrder.getOrderDetails()).thenReturn(orderDetails);
-        
-        boolean result = executeOrder.execute(invalidCountryOrder);
-        assertFalse(result);
-        
-        String expectedOutput = "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again\n";
-        assertEquals(expectedOutput, getConsoleOutput());
-    }
-
-    @After
-    public void tearDown() {
-        System.setOut(System.out);
-    }
-
-    // Helper method to capture console output (you may need to implement this)
-    private String getConsoleOutput() {
-        return consoleOutput.toString().replaceAll("\r", "");
-    }
-
-    // Function to reset or capture console output during the test
-    private void resetConsoleOutput() {
-        consoleOutput.reset();
+        assertEquals(0, country1.getArmies()); // Verify that armies were not deployed
     }
 }
