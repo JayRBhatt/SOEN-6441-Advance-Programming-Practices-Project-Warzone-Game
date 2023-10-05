@@ -45,10 +45,10 @@ public class GamePlayBegins {
                 .println("================================ End of Map Editor Phase ==================================");
         System.out.println(
                 "Congo!! It looks like you have made it to the second phase of the game the GamePlayBegins phase");
-        while (true) {
-            System.out.println(
+         System.out.println(
                     "1. If you need help DON'T WORRY We have got your back just type help to view the list of commands "
                             + "\n" + "2. If you want to exit the game just type exit");
+                while (true) {
             String l_InputString = sc.nextLine();
             List<String> l_InputList = splitInput(l_InputString);
 

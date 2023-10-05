@@ -68,7 +68,9 @@ public class MapViewer
             throw new InvalidCommandException(e.getMessage());
         }
     }
-  
+   
+   
+    
     /**
     * A method which reads the continents from the file and add them to gamemap
       @param p_GameMap map where continent is to be added

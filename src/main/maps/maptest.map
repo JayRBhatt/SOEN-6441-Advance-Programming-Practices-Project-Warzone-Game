@@ -1,0 +1,11 @@
+[Map]
+
+[Continents]
+Asia 9
+America 9
+[Territories]
+Canada America USA
+USA America Canada
+China Asia India
+India Asia China
+

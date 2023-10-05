@@ -42,13 +42,14 @@ public class MapEditor {
      * @throws InvalidCommandException
      */
     public void mapEdit(int p_GamePhaseID) throws InvalidCommandException {
-        while (true) {
-            System.out.println(
+         System.out.println(
                     "Wow,It looks like Now you have entered in the very first phase of the game,The Map editor phase where players create the game maps");
             System.out.println("We are here to guide you throughout the game:" + "\n"
                     + "1.If you don't know what to do just type help it will show you the user commands we developed for you to create a gamemap"
                     + "\n"
                     + "2. If you are done with the map creation and want to save the phase type exit");
+        while (true) {
+          
             String l_InputString = sc.nextLine();
             List<String> l_InputList = splitInput(l_InputString);
             if (!isValidInput(l_InputList)) {
@@ -114,7 +115,7 @@ public class MapEditor {
             }
         }
     }
-
+ 
     /**
      * Method that splits the Input and save it into a List of Strings
      * 
@@ -362,7 +363,7 @@ public class MapEditor {
      */
     private void handleEditMap(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() == 1) {
-            MapViewer.readMap(d_GameMap, p_CommandList.get(0));
+            MapViewer.readMap(d_GameMap,p_CommandList.get(0));
         }
 
     }
