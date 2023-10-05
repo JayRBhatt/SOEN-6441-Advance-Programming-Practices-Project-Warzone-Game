@@ -73,15 +73,15 @@ import utils.InvalidCommandException;
         OrderDetails orderDetails = order.getOrderDetails();
 
         // Check if the player or destination is null
-        if (orderDetails.getPlayer() == null || orderDetails.getDestination() == null) {
+        if (orderDetails.getPlayer() == null || orderDetails.getCountryDestination() == null) {
             System.out.println(
                     "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again");
             return false;
         }
         // Get player, destination, and the number of armies from orderDetails
         Player l_Player = orderDetails.getPlayer();
-        String l_Destination = orderDetails.getDestination();
-        int l_ArmiesToDeploy = orderDetails.getNumberOfArmy();
+        String l_Destination = orderDetails.getCountryDestination();
+        int l_ArmiesToDeploy = orderDetails.getNumberOfArmies();
 
         for (Country l_Country : l_Player.getOccupiedCountries()) {
             if (l_Country.getCountryName().equals(l_Destination)) {

@@ -16,9 +16,9 @@ import model.Player;
 public class OrderDetails {
 
     private Player d_Player;
-    private Country d_Departure;
-    private String d_Destination;
-    private int d_NumberOfArmy;
+    private Country d_DepartureCountry;
+    private String d_DestinationCountry;
+    private int d_NumberOfArmies;
 
     /**
      * A function to get the player information
@@ -45,19 +45,19 @@ public class OrderDetails {
      * 
      * @return the departure country object
      */
-    public Country getDeparture() {
+    public Country getDepartureCountry() {
 
-        return d_Departure;
+        return d_DepartureCountry;
     }
 
     /**
      * A function to set the departure of the armies from the order
      * 
-     * @param d_Departure departure country object
+     * @param d_DepartureCountry departure country object
      */
-    public void setDeparture(Country d_Departure) {
+    public void setDepartureCountry(Country d_DepartureCountry) {
 
-        this.d_Departure = d_Departure;
+        this.d_DepartureCountry = d_DepartureCountry;
     }
 
     /**
@@ -65,19 +65,19 @@ public class OrderDetails {
      * 
      * @return the destination of armies
      */
-    public String getDestination() {
+    public String getCountryDestination() {
 
-        return d_Destination;
+        return d_DestinationCountry;
     }
 
     /**
      * A function to set the destination of the armies
      * 
-     * @param d_Destination the destination of armies
+     * @param d_DestinationCountry the destination of armies
      */
-    public void setDestination(String d_Destination) {
+    public void setCountryDestination(String d_DestinationCountry) {
 
-        this.d_Destination = d_Destination;
+        this.d_DestinationCountry = d_DestinationCountry;
     }
 
     /**
@@ -85,19 +85,19 @@ public class OrderDetails {
      * 
      * @return the number of armies
      */
-    public int getNumberOfArmy() {
+    public int getNumberOfArmies() {
 
-        return d_NumberOfArmy;
+        return d_NumberOfArmies;
     }
 
     /**
      * A function to set the number of armies in the order
      * 
-     * @param d_NumberOfArmy the number of armies
+     * @param d_NumberOfArmies the number of armies
      */
-    public void setNumberOfArmy(int d_NumberOfArmy) {
+    public void setNumberOfArmies(int d_NumberOfArmies) {
 
-        this.d_NumberOfArmy = d_NumberOfArmy;
+        this.d_NumberOfArmies = d_NumberOfArmies;
     }
 
 }

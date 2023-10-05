@@ -111,7 +111,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#AddToOrderList(model.orders.Order)" class="member-name-link">AddToOrderList</a><wbr>(<a href="Order.html" title="class in model.orders">Order</a>&nbsp;p_Order)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#EnqueueOrder(model.orders.Order)" class="member-name-link">EnqueueOrder</a><wbr>(<a href="Order.html" title="class in model.orders">Order</a>&nbsp;p_Order)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">A function to add the order to the order list</div>
 </div>
@@ -129,12 +129,12 @@ loadScripts(document, 'script');</script>
 <div class="block">A function to get order information</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOrderList()" class="member-name-link">getOrderList</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOrderArray()" class="member-name-link">getOrderArray</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">A function to get the order list</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOrderType()" class="member-name-link">getOrderType</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">A function to return the type of order</div>
 </div>
@@ -144,12 +144,12 @@ loadScripts(document, 'script');</script>
 <div class="block">A function to the set Order information based on the order</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOrderList(java.util.List)" class="member-name-link">setOrderList</a><wbr>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;&nbsp;p_OrderList)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOrderArray(java.util.List)" class="member-name-link">setOrderArray</a><wbr>(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;&nbsp;p_OrderList)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">A function to set the order list</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setType(java.lang.String)" class="member-name-link">setType</a><wbr>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_Type)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOrderType(java.lang.String)" class="member-name-link">setOrderType</a><wbr>(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_Type)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">A function to set the type of order</div>
 </div>
@@ -191,9 +191,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getOrderList()">
-<h3>getOrderList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;</span>&nbsp;<span class="element-name">getOrderList</span>()</div>
+<section class="detail" id="getOrderArray()">
+<h3>getOrderArray</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;</span>&nbsp;<span class="element-name">getOrderArray</span>()</div>
 <div class="block">A function to get the order list</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -202,9 +202,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="setOrderList(java.util.List)">
-<h3>setOrderList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOrderList</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;&nbsp;p_OrderList)</span></div>
+<section class="detail" id="setOrderArray(java.util.List)">
+<h3>setOrderArray</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOrderArray</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/9/docs/api/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Order.html" title="class in model.orders">Order</a>&gt;&nbsp;p_OrderList)</span></div>
 <div class="block">A function to set the order list</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -235,9 +235,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="AddToOrderList(model.orders.Order)">
-<h3>AddToOrderList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">AddToOrderList</span><wbr><span class="parameters">(<a href="Order.html" title="class in model.orders">Order</a>&nbsp;p_Order)</span></div>
+<section class="detail" id="EnqueueOrder(model.orders.Order)">
+<h3>EnqueueOrder</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">EnqueueOrder</span><wbr><span class="parameters">(<a href="Order.html" title="class in model.orders">Order</a>&nbsp;p_Order)</span></div>
 <div class="block">A function to add the order to the order list</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -246,9 +246,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getType()">
-<h3>getType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getType</span>()</div>
+<section class="detail" id="getOrderType()">
+<h3>getOrderType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getOrderType</span>()</div>
 <div class="block">A function to return the type of order</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -257,9 +257,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="setType(java.lang.String)">
-<h3>setType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_Type)</span></div>
+<section class="detail" id="setOrderType(java.lang.String)">
+<h3>setOrderType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOrderType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/9/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_Type)</span></div>
 <div class="block">A function to set the type of order</div>
 <dl class="notes">
 <dt>Parameters:</dt>

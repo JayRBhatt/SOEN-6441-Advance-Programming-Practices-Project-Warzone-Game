@@ -14,9 +14,9 @@ import java.util.*;
  */
 public class Order {
     private static Order d_Order;
-    private OrderDetails d_OrderInfo;
-    private List<Order> d_OrderList = new ArrayList<Order>();
-    private String d_Type;
+    private OrderDetails d_OrderDetails;
+    private List<Order> d_OrderArray = new ArrayList<Order>();
+    private String d_OrderType;
   
 /**
  * A method to get the instance of the order
@@ -38,8 +38,8 @@ public class Order {
      * @return the list of type Order class
      */
   
-     public List<Order> getOrderList() {
-     return d_OrderList;
+     public List<Order> getOrderArray() {
+     return d_OrderArray;
     }
 
 
@@ -49,10 +49,10 @@ public class Order {
      * @param p_OrderList Order List of type Order class
      */
     
-     public void setOrderList(List<Order> p_OrderList) {
+     public void setOrderArray(List<Order> p_OrderList) {
 
 
-        this.d_OrderList = p_OrderList;
+        this.d_OrderArray = p_OrderList;
     }
 
 
@@ -65,7 +65,7 @@ public class Order {
     public OrderDetails getOrderDetails() {
 
 
-        return d_OrderInfo;
+        return d_OrderDetails;
     }
 
 
@@ -77,7 +77,7 @@ public class Order {
 
 
     public void setOrderDetails(OrderDetails p_OrderInfo) {
-        this.d_OrderInfo = p_OrderInfo;
+        this.d_OrderDetails = p_OrderInfo;
     }
 
 
@@ -86,10 +86,10 @@ public class Order {
      *
      * @param p_Order The order to be added to the list
      */
-    public void AddToOrderList(Order p_Order) {
+    public void EnqueueOrder(Order p_Order) {
 
 
-        d_OrderList.add(p_Order);
+        d_OrderArray.add(p_Order);
     }
 
 
@@ -98,9 +98,9 @@ public class Order {
      *
      * @return string which indicates the type of order
      */
-    public String getType() {
+    public String getOrderType() {
 
-       return d_Type;
+       return d_OrderType;
     }
 
 
@@ -110,8 +110,8 @@ public class Order {
      * @param p_Type string which indicates the type of order
      */
 
-    public void setType(String p_Type) {
-    this.d_Type = p_Type;
+    public void setOrderType(String p_Type) {
+    this.d_OrderType = p_Type;
     }
 
 

@@ -5,8 +5,8 @@ import model.orders.Order;
 
 public class orderTest {
 
-    private List<Order> d_OrderList = new ArrayList<Order>();
-    private String d_Type;
+    private List<Order> d_OrderArray = new ArrayList<Order>();
+    private String d_OrderType;
 
     Order order =new Order();
     OrderDetails orderInfo = new OrderDetails();

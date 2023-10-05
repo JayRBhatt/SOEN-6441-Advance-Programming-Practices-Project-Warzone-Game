@@ -21,8 +21,8 @@ public class OrderCreatorTest {
         assertNotNull(deployOrder);
         assertTrue(deployOrder instanceof DeployOrder);
         assertEquals(testPlayer, deployOrder.getOrderDetails().getPlayer());
-        assertEquals("Pakistan", deployOrder.getOrderDetails().getDestination());
-        assertEquals(5, deployOrder.getOrderDetails().getNumberOfArmy());
+        assertEquals("Pakistan", deployOrder.getOrderDetails().getCountryDestination());
+        assertEquals(5, deployOrder.getOrderDetails().getNumberOfArmies());
     }
 
     @Test

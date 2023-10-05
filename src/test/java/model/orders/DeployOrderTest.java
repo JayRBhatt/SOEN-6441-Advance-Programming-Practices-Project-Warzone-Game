@@ -21,8 +21,8 @@ public class DeployOrderTest {
     public void testExecuteValidOrder() {
         OrderDetails orderDetails = new OrderDetails();
         orderDetails.setPlayer(testPlayer);
-        orderDetails.setDestination("China");
-        orderDetails.setNumberOfArmy(5);
+        orderDetails.setCountryDestination("China");
+        orderDetails.setNumberOfArmies(5);
         deployOrder.setOrderDetails(orderDetails);
 
         assertTrue(deployOrder.execute());
@@ -32,8 +32,8 @@ public class DeployOrderTest {
     @Test
     public void testExecuteInvalidOrderWithNullPlayer() {
         OrderDetails orderDetails = new OrderDetails();
-        orderDetails.setDestination("China");
-        orderDetails.setNumberOfArmy(5);
+        orderDetails.setCountryDestination("China");
+        orderDetails.setNumberOfArmies(5);
         deployOrder.setOrderDetails(orderDetails);
 
         assertFalse(deployOrder.execute());
@@ -44,7 +44,7 @@ public class DeployOrderTest {
     public void testExecuteInvalidOrderWithNullDestination() {
         OrderDetails orderDetails = new OrderDetails();
         orderDetails.setPlayer(testPlayer);
-        orderDetails.setNumberOfArmy(5);
+        orderDetails.setNumberOfArmies(5);
         deployOrder.setOrderDetails(orderDetails);
 
         assertFalse(deployOrder.execute());

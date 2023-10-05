@@ -53,8 +53,8 @@ public class OrderCreator {
 
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
-        l_OrderDetails.setDestination(l_CountryID);
-        l_OrderDetails.setNumberOfArmy(l_NumberOfArmy);
+        l_OrderDetails.setCountryDestination(l_CountryID);
+        l_OrderDetails.setNumberOfArmies(l_NumberOfArmy);
 
         return l_OrderDetails;
     }
