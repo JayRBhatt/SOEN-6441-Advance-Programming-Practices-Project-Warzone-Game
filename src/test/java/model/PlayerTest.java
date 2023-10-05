@@ -65,7 +65,7 @@ public class PlayerTest {
      * 
      */
       @Test
-    public void checkIfTheCountryIsOccupiedByThePlayer() {
+    public void testCheckIfTheCountryIsOccupiedByThePlayer() {
         assertTrue(p.confirmIfCountryisOccupied(d_CountryValid,p));
     }
     /**
@@ -73,7 +73,7 @@ public class PlayerTest {
      *
      */
     @Test
-    public void checkIfCountryIsNotAssignedToPlayer() {
+    public void testCheckIfCountryIsNotAssignedToPlayer() {
         assertFalse(p.confirmIfCountryisOccupied(d_CountryInvalid,p));
     }
 
@@ -82,7 +82,7 @@ public class PlayerTest {
      * 
      */
     @Test
-    public void validateIfTheNumberOfArmiesAllotedIsCorrect(){
+    public void testValidateIfTheNumberOfArmiesAllotedIsCorrect(){
         assertEquals(10,p.getAdditionalArmies());
     }
 
@@ -92,7 +92,7 @@ public class PlayerTest {
      * 
      */
     @Test
-    public void validateRighfulDeploymentOfTroops(){
+    public void testValidateRighfulDeploymentOfTroops(){
       assertTrue(p.stationAdditionalArmiesFromPlayer(d_ArmyCountValid));
     } 
 
@@ -101,7 +101,7 @@ public class PlayerTest {
      * 
      */
     @Test
-    public void validateWrongfulDeploymentOfTroops() {
+    public void testValidateWrongfulDeploymentOfTroops() {
         assertFalse(p.stationAdditionalArmiesFromPlayer(d_ArmyCountInvalid));
     }
 

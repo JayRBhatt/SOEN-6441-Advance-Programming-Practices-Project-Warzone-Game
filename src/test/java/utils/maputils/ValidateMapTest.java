@@ -10,7 +10,8 @@ import static org.junit.Assert.*;
 
 /**
  *  A class to test all the functionalities in Map Validation
- *
+ *  
+ *  @author Jay Bhatt
  */
 public class ValidateMapTest {
     GameMap d_GameMap;

@@ -10,6 +10,11 @@ import model.Player;
 import model.orders.Order;
 import model.orders.OrderDetails;
 
+/**
+ *  Test class that tests Execute order phase implementations
+ * 
+ *  @author Jay Bhatt
+ */
 public class ExecuteOrderTest {
 
     private ExecuteOrder executeOrder;
@@ -19,6 +24,10 @@ public class ExecuteOrderTest {
     private Country country1;
     private Country country2;
 
+    /**
+     * Initializing the test data
+     * 
+     */
     @Before
     public void initializeTestData() {
         executeOrder = new ExecuteOrder();
@@ -61,6 +70,11 @@ public class ExecuteOrderTest {
         gameMap.getGamePlayers().put(player2.getPlayerName(), player2);
     }
 
+
+    /**
+     * Test case that evaluates the perfect execution of a valid order 
+     * 
+     */
     @Test
     public void testExecuteValidOrder() {
         // Create a valid order to test execution
@@ -81,6 +95,11 @@ public class ExecuteOrderTest {
         assertEquals(2, country1.getArmies()); // Verify that armies were deployed
     }
 
+
+    /**
+     * Test case that evaluates non execution of an invalid order
+     * 
+     */
     @Test
     public void testExecuteInvalidOrder() {
         // Create an invalid order with a null destination
