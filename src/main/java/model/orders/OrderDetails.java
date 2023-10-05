@@ -68,7 +68,7 @@ public class OrderDetails {
      * @return the destination of armies
      */
     
-    public String getDestination() {
+    public String getCountryWhereDeployed() {
 
         return d_Destination;
     }
@@ -79,7 +79,7 @@ public class OrderDetails {
      * @param d_Destination the destination of armies
      */
     
-    public void setDestination(String d_Destination) {
+    public void setCountryWhereDeployed(String d_Destination) {
 
         this.d_Destination = d_Destination;
     }

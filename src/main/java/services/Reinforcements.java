@@ -10,6 +10,7 @@ import utils.InvalidCommandException;
  * in
  * the game
  *
+ *
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair
@@ -30,20 +31,22 @@ public class Reinforcements {
 	 * Method that executes the logic of the Reinforcements phase
 	 * 
 	 * @param p_GamePhaseID ID of the GamePhase
-	 * @throws InvalidCommandException if command is invalid
+	 * @throws InvalidCommandException if command is invlaid
 	 */
 	public void start(int p_GamePhaseID) throws InvalidCommandException {
 		calculateReinforcements();
 		new GameEngineController().controller(4);
+
 	}
 
 	/**
 	 * Method that calculates the reinforcements
 	 * 
 	 */
-	public void calculateReinforcements() {
+	private void calculateReinforcements() {
 		for (Player l_Player : d_GameMap.getGamePlayers().values()) {
 			assignReinforcementTroops(l_Player);
+
 		}
 	}
 
@@ -54,5 +57,6 @@ public class Reinforcements {
 	 */
 	public void assignReinforcementTroops(Player p_Player) {
 		p_Player.calculateTotalReinforcementArmies();
+
 	}
 }

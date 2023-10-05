@@ -52,14 +52,14 @@ public class ExecuteOrderTest {
         Order order1 = new Order();
         OrderDetails orderDetails1 = new OrderDetails();
         orderDetails1.setPlayer(player1);
-        orderDetails1.setDestination(country1.getCountryName());
+        orderDetails1.setCountryWhereDeployed(country1.getCountryName());
         orderDetails1.setNumberOfArmy(0);
         order1.setOrderDetails(orderDetails1);
 
         Order order2 = new Order();
         OrderDetails orderDetails2 = new OrderDetails();
         orderDetails2.setPlayer(player2);
-        orderDetails2.setDestination(country2.getCountryName());
+        orderDetails2.setCountryWhereDeployed(country2.getCountryName());
         orderDetails2.setNumberOfArmy(0);
         order2.setOrderDetails(orderDetails2);
 
@@ -81,7 +81,7 @@ public class ExecuteOrderTest {
         Order validOrder = new Order();
         OrderDetails validOrderDetails = new OrderDetails();
         validOrderDetails.setPlayer(player1);
-        validOrderDetails.setDestination("India");
+        validOrderDetails.setCountryWhereDeployed("India");
         validOrderDetails.setNumberOfArmy(2);
 
         validOrder.setOrderDetails(validOrderDetails);
@@ -106,7 +106,7 @@ public class ExecuteOrderTest {
         Order invalidOrder = new Order();
         OrderDetails invalidOrderDetails = new OrderDetails();
         invalidOrderDetails.setPlayer(player1);
-        invalidOrderDetails.setDestination(null);
+        invalidOrderDetails.setCountryWhereDeployed(null);
         invalidOrderDetails.setNumberOfArmy(2);
 
         invalidOrder.setOrderDetails(invalidOrderDetails);

@@ -120,7 +120,7 @@ public class Player {
             OrderList.add(l_Order);
             receiveOrder(l_Order);
             System.out.println("Your Order has been successfully added in the list: Deploy "
-                    + l_Order.getOrderDetails().getDestination() + " with "
+                    + l_Order.getOrderDetails().getCountryWhereDeployed() + " with "
                     + l_Order.getOrderDetails().getNumberOfArmy() + " armies");
             System.out.println(
                     "=========================================================================================");

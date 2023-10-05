@@ -55,7 +55,7 @@ public class OrderCreator {
 
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
-        l_OrderDetails.setDestination(l_CountryID);
+        l_OrderDetails.setCountryWhereDeployed(l_CountryID);
         l_OrderDetails.setNumberOfArmy(l_NumberOfArmy);
 
         return l_OrderDetails;

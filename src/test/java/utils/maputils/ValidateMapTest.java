@@ -56,7 +56,7 @@ public class ValidateMapTest {
     /**
      * TestCase that checks whether the country is empty or not
      *
-     * @throws ValidationException if validation fails
+     * @throws InvalidCommandException if validation fails
      */
     @Test
     public void testIfContinentIsNotEmpty() throws InvalidCommandException {
@@ -68,7 +68,7 @@ public class ValidateMapTest {
     /**
      * Test case that validates whether the continnet is a connected subgraph
      *
-     * @throws ValidationException if validation fails
+     * @throws InvalidCommandException if validation fails
      */
     @Test
     public void testIfContinentIsConnectedSubgraph() throws InvalidCommandException {
@@ -76,7 +76,7 @@ public class ValidateMapTest {
     }
 
     /**
-     * test case that validates the gamemap is a connected graph
+     * test case that validates the Game map is a connected graph
      */
     @Test
     public void testIfGameMapIsConnected() {

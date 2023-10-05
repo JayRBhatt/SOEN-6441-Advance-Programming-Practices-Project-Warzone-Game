@@ -33,8 +33,8 @@ public class SaveMap {
    
     /**
      * A method which saves a game map into a file with .map extension
-     * @param p_GameMap
-     * @param name
+     * @param p_GameMap 
+     * @param name 
      * @return true if the map is saved or else returns false
      */
     public boolean saveMapIntoFile(GameMap p_GameMap, String name) {
