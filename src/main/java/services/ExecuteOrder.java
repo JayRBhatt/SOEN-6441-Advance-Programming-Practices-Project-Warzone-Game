@@ -36,6 +36,7 @@ import utils.InvalidCommandException;
      * after this phase gets completed 
      * @throws InvalidCommandException if game phase transition is invalid.
      */
+    
     public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
         System.out.println("**************************************************************************************");
         System.out.println(
@@ -48,6 +49,7 @@ import utils.InvalidCommandException;
     /**
      * Executes orders for each player in the game.
      */
+    
     public void executeOrders() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             for (Order order : l_Player.getOrders()) {
@@ -68,19 +70,20 @@ import utils.InvalidCommandException;
      * @return true if the order was successfully executed, or false
      *         otherwise.
      */
+    
     public boolean execute(Order order) {
         // Get the order details
         OrderDetails orderDetails = order.getOrderDetails();
 
         // Check if the player or destination is null
-        if (orderDetails.getPlayer() == null || orderDetails.getDestination() == null) {
+        if (orderDetails.getPlayer() == null || orderDetails.getCountryWhereDeployed() == null) {
             System.out.println(
                     "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again");
             return false;
         }
         // Get player, destination, and the number of armies from orderDetails
         Player l_Player = orderDetails.getPlayer();
-        String l_Destination = orderDetails.getDestination();
+        String l_Destination = orderDetails.getCountryWhereDeployed();
         int l_ArmiesToDeploy = orderDetails.getNumberOfArmy();
 
         for (Country l_Country : l_Player.getOccupiedCountries()) {

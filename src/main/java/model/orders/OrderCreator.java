@@ -22,6 +22,7 @@ public class OrderCreator {
      * @param p_player player
      * @return an order object with all the details of order
      */
+	
     public static Order generateOrder(String[] p_commands, Player p_player) {
         String l_Type = p_commands[0].toLowerCase();
         Order l_deployOrder;
@@ -47,13 +48,14 @@ public class OrderCreator {
      * @return OrderDetails object with information of player, country of deployment
      *         and number of army to be deployed
      */
+    
     private static OrderDetails generateDeployOrderInfo(String[] p_Command, Player p_Player) {
         String l_CountryID = p_Command[1];
         int l_NumberOfArmy = Integer.parseInt(p_Command[2]);
 
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
-        l_OrderDetails.setDestination(l_CountryID);
+        l_OrderDetails.setCountryWhereDeployed(l_CountryID);
         l_OrderDetails.setNumberOfArmy(l_NumberOfArmy);
 
         return l_OrderDetails;

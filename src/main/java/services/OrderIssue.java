@@ -77,7 +77,7 @@ public class OrderIssue {
     private String readFromPlayer() {
         String l_CommandInput;
         System.out.println("Lets Begin Issuing Orders ! : ");
-        System.out.println("1.For any guidance type help we are happy to help you.");
+        System.out.println("1.For any guidance type help, we are happy to help you.");
         while (true) {
             l_CommandInput = sc.nextLine();
             if (VerifyCommandDeploy(l_CommandInput.toUpperCase()))

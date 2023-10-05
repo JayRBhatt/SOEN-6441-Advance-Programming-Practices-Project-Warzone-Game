@@ -18,12 +18,11 @@ public class Order {
     private List<Order> d_OrderList = new ArrayList<Order>();
     private String d_Type;
   
-/**
- * A method to get the instance of the order
- * 
- * @return d_Order
-*/
-
+	/**
+	 * A method to get the instance of the order
+	 * 
+	 * @return d_Order
+	*/
      public static Order getInstance() {
         if (Objects.isNull(d_Order)) {
             d_Order = new Order();
@@ -38,10 +37,9 @@ public class Order {
      * @return the list of type Order class
      */
   
-     public List<Order> getOrderList() {
-     return d_OrderList;
+     public List<Order> getOrders() {
+    	 return d_OrderList;
     }
-
 
     /**
      * A method to set the order list
@@ -49,9 +47,7 @@ public class Order {
      * @param p_OrderList Order List of type Order class
      */
     
-     public void setOrderList(List<Order> p_OrderList) {
-
-
+     public void setOrders(List<Order> p_OrderList) {
         this.d_OrderList = p_OrderList;
     }
 
@@ -63,8 +59,6 @@ public class Order {
      */
 
     public OrderDetails getOrderDetails() {
-
-
         return d_OrderInfo;
     }
 
@@ -74,7 +68,6 @@ public class Order {
      *
      * @param p_OrderInfo Order Information contained in an object of type OrderInfo
      */
-
 
     public void setOrderDetails(OrderDetails p_OrderInfo) {
         this.d_OrderInfo = p_OrderInfo;
@@ -86,9 +79,8 @@ public class Order {
      *
      * @param p_Order The order to be added to the list
      */
-    public void AddToOrderList(Order p_Order) {
-
-
+    
+    public void AddToOrders(Order p_Order) {
         d_OrderList.add(p_Order);
     }
 
@@ -98,7 +90,7 @@ public class Order {
      *
      * @return string which indicates the type of order
      */
-    public String getType() {
+    public String getOrderType() {
 
        return d_Type;
     }
@@ -110,19 +102,19 @@ public class Order {
      * @param p_Type string which indicates the type of order
      */
 
-    public void setType(String p_Type) {
+    public void setOrderType(String p_Type) {
     this.d_Type = p_Type;
     }
 
 
     /**
-     * A method to be overridden by the Child class
+     * Execute method that is to be overriden by child method
      *
-     * @return false as there is no order to be executed
+     * @return false no order to be executed
      */
     
      public boolean execute() {
-        System.out.println("Void order is not able to execute");
+        System.out.println("cannot execute a null or void ");
         return false;
     }
 }
