@@ -4,6 +4,7 @@ import java.util.Scanner;
 import controller.*;
 import model.Country;
 import model.GameMap;
+import model.GamePhase;
 import model.Player;
 import utils.InvalidCommandException;
 
@@ -16,8 +17,10 @@ import utils.InvalidCommandException;
  * @author Meera Muraleedharan Nair
  */
 
-public class OrderIssue {
+public class OrderIssue implements GameEngineController{
     GameMap d_GameMap;
+    GamePhase d_NextGamePhase = GamePhase.ExecuteOrder;
+    GamePhase d_GamePhase;
     private Scanner sc = new Scanner(System.in);
 
     /**
@@ -31,10 +34,11 @@ public class OrderIssue {
     /**
      * Method that runs the main logic of Order Issue and takes the player to the next phase
      * 
-     * @param p_GamePhaseID the current ID of the Phase
+     * @param p_GamePhase the current ID of the Phase
      * @throws InvalidCommandException if it encounters any wrong command
      */
-    public void begin(int p_GamePhaseID) throws InvalidCommandException {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+        d_GamePhase = p_GamePhase;
         int l_PlayerNumber = 0;
         while (l_PlayerNumber < d_GameMap.getGamePlayers().size()) {
             for (Player l_Player : d_GameMap.getGamePlayers().values()) {
@@ -53,7 +57,7 @@ public class OrderIssue {
         }
         System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
         System.out.println("**************************************************************************************");
-        new GameEngineController().controller(5);
+        return p_GamePhase.nextState(d_NextGamePhase);
     }
 
     /**

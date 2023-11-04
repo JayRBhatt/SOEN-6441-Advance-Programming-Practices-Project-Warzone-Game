@@ -1,5 +1,9 @@
+import java.util.Objects;
+
 import controller.GameEngineController;
+import model.GamePhase;
 import utils.InvalidCommandException;
+import utils.exceptions.InvalidInputException;
 
 /**
  * A class that starts the game with the first phase
@@ -14,7 +18,10 @@ import utils.InvalidCommandException;
  */
 
 public class GameEngine {
-    int d_GamePhaseID = 1;
+    /**
+     * gamephase instance for the state
+     */
+     GamePhase d_GamePhase = GamePhase.MapEditor;
 
     /**
      * The main method for accepting command from users to run the warzone game
@@ -34,9 +41,22 @@ public class GameEngine {
      */
 
     public void start() throws InvalidCommandException {
-        System.out.println("Welcome to the Fiercest Game of Warzone Risk!! Get ready to conquer the world!! ");
-        System.out.println(
-                "General Instructions:\n->Type help if you want assistance with the commmands\n-------------------------------------\n->Type Exit to end the game at any stage you like(Hope you stay till the end ;) )");
-        new GameEngineController().controller(d_GamePhaseID);
+        try {
+            if (!d_GamePhase.equals(GamePhase.ExitGame)) {
+                GameEngineController l_GameController = d_GamePhase.getController();
+                if (Objects.isNull(l_GameController)) {
+                    throw new Exception("No Controller found");
+                }
+                d_GamePhase = l_GameController.start(d_GamePhase);
+                System.out.println("You have entered the " + d_GamePhase + " Phase.");
+                System.out.println("-----------------------------------------------------------------------------------------");
+                start();
+            }
+        } catch (InvalidInputException | InvalidCommandException p_Exception) {
+            System.err.println(p_Exception.getMessage());
+            start();
+        } catch (Exception p_Exception) {
+            p_Exception.printStackTrace();
+        }
     }
 }

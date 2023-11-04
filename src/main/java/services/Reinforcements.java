@@ -2,6 +2,7 @@ package services;
 
 import controller.GameEngineController;
 import model.GameMap;
+import model.GamePhase;
 import model.Player;
 import utils.InvalidCommandException;
 
@@ -15,9 +16,11 @@ import utils.InvalidCommandException;
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair
  */
-public class Reinforcements {
+public class Reinforcements implements GameEngineController{
 
 	private GameMap d_GameMap;
+	GamePhase d_GamePhase;
+	GamePhase d_NextGamePhase = GamePhase.IssueOrder;
 
 	/**
 	 * Constructor to initialize the GameMap object
@@ -30,12 +33,13 @@ public class Reinforcements {
 	/**
 	 * Method that executes the logic of the Reinforcements phase
 	 * 
-	 * @param p_GamePhaseID ID of the GamePhase
+	 * @param p_GamePhase ID of the GamePhase
 	 * @throws InvalidCommandException if command is invlaid
 	 */
-	public void start(int p_GamePhaseID) throws InvalidCommandException {
+	public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+		d_GamePhase = p_GamePhase;
 		calculateReinforcements();
-		new GameEngineController().controller(4);
+		return d_NextGamePhase;
 
 	}
 

@@ -1,0 +1,9 @@
+[Map]
+
+[Continents]
+NA 10
+asia 15
+[Territories]
+canada NA india
+india asia canada
+

@@ -3,6 +3,7 @@ package services;
 import controller.*;
 import model.Country;
 import model.GameMap;
+import model.GamePhase;
 import model.orders.OrderDetails;
 import model.Player;
 import model.orders.Order;
@@ -18,8 +19,17 @@ import utils.InvalidCommandException;
  * @author Meera Muraleedharan Nair
  */
 
- public class ExecuteOrder {
-
+ public class ExecuteOrder implements GameEngineController{
+        /**
+     * Reinforcement Phase enum keyword
+     */
+ //   GamePhase d_ReinforcementGamePhase = GamePhase.Reinforcement;
+    /**
+     * Exit Phase enum keyword
+     */
+   // GamePhase d_ExitGamePhase = GamePhase.ExitGame;
+    GamePhase d_NextState = GamePhase.ExitGame;
+    GamePhase d_GamePhase;
     GameMap d_GameMap;
 
     /**
@@ -37,13 +47,13 @@ import utils.InvalidCommandException;
      * @throws InvalidCommandException if game phase transition is invalid.
      */
     
-    public void startExecuteOrder(int p_GamePhaseID) throws InvalidCommandException {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
         System.out.println("**************************************************************************************");
         System.out.println(
                 "Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
         executeOrders();
         System.out.println("All the orders have been executed successfully");
-        new GameEngineController().controller(6);
+        return p_GamePhase.nextState(d_NextState);
     }
 
     /**

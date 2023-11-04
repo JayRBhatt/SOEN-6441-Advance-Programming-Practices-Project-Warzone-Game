@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import controller.*;
 import model.GameMap;
+import model.GamePhase;
 import utils.InvalidCommandException;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
@@ -19,9 +20,10 @@ import utils.maputils.ValidateMap;
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
-public class MapEditor {
+public class MapEditor implements GameEngineController{
     private Scanner sc = new Scanner(System.in);
     GameMap d_GameMap;
+    GamePhase d_NextState = GamePhase.StartUp;
     private final List<String> l_PreDefinedCommands = Arrays.asList("editcontinent", "editcountry", "editneighbor",
             "showmap",
             "savemap", "editmap", "validatemap");
@@ -38,10 +40,10 @@ public class MapEditor {
      * Method where the command gets checked of its type(editcontinent or editcountry
      * etc)
      * 
-     * @param p_GamePhaseID
+     * @param p_GamePhase
      * @throws InvalidCommandException
      */
-    public void mapEdit(int p_GamePhaseID) throws InvalidCommandException {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
         while (true) {
             System.out.println(
                     "Wow,It looks like Now you have entered in the very first phase of the game,The Map editor phase where players create the game maps");
@@ -103,7 +105,7 @@ public class MapEditor {
 
                     case "exit": {
                         exitMapCreationPhase();
-                        new GameEngineController().controller(2);
+                        return p_GamePhase.nextState(d_NextState);
                     }
 
                     default: {

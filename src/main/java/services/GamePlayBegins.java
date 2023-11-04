@@ -19,11 +19,12 @@ import utils.InvalidCommandException;
  * @author Bhargav Fofandi
  */
 
-public class GamePlayBegins {
+public class GamePlayBegins implements GameEngineController{
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer",
             "assigncountries");
     GameMap d_GameMap;
+    GamePhase d_NextState = GamePhase.Reinforcement;
 
     /**
      * Constructor to initialize d_GameMap
@@ -37,10 +38,10 @@ public class GamePlayBegins {
      * This function runs the phase and execute the tasks depending on the commands
      * given
      * 
-     * @param p_GamePhaseID current Game Phase
+     * @param p_GamePhase current Game Phase
      * @throws InvalidCommandException when any invalid command is encountered
      */
-    public void runPhase(int p_GamePhaseID) throws InvalidCommandException {
+    public  GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
         System.out
                 .println("================================ End of Map Editor Phase ==================================");
         System.out.println(
@@ -102,7 +103,7 @@ public class GamePlayBegins {
                         if (d_GameMap.getGamePlayers().size() > 1) {
                             d_GameMap.assignCountries();
 
-                            new GameEngineController().controller(3);
+                            return p_GamePhase.nextState(d_NextState);
                         } else {
                             throw new InvalidCommandException("Create atleast two players before assigning countries");
                         }
@@ -113,7 +114,7 @@ public class GamePlayBegins {
                         break;
                     }
                     case "exit": {
-                        new GameEngineController().controller(3);
+                        return p_GamePhase.nextState(d_NextState);
                     }
                     default: {
                         System.out.println("The list of user commands for these phase are mentioned below:");

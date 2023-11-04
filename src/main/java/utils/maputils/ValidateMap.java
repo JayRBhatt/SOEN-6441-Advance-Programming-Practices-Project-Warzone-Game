@@ -185,7 +185,7 @@ public class ValidateMap
  */
 
     public static boolean checkCountryCount(GameMap p_GameMap, int p_MinimumCountryCount) {
-        if (p_GameMap.getCountries().size() < p_MinimumCountryCount) {
+        if (p_GameMap.getCountries().size() <= p_MinimumCountryCount) {
             System.out.println("The number of countries"+ p_MinimumCountryCount +  "is less than the minimum countries required");
             return false;
         }
