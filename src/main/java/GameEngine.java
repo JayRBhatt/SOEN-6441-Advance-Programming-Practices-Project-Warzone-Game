@@ -1,6 +1,8 @@
 import java.util.Objects;
 
 import controller.GameEngineController;
+import model.DefaultAttackLogic;
+import model.GameCalculation;
 import model.GamePhase;
 import utils.InvalidCommandException;
 import utils.exceptions.InvalidInputException;
@@ -31,7 +33,9 @@ public class GameEngine {
      */
 
     public static void main(String args[]) throws InvalidCommandException {
-        new GameEngine().start();
+        GameCalculation l_gameCalculation = GameCalculation.getInstance();
+        l_gameCalculation.setStrategy(new DefaultAttackLogic());
+        new GameEngine().start(l_gameCalculation);
     }
 
     /**
@@ -40,7 +44,7 @@ public class GameEngine {
      * @throws InvalidCommandException
      */
 
-    public void start() throws InvalidCommandException {
+    public void start(GameCalculation p_GameCalculation) throws InvalidCommandException {
         try {
             if (!d_GamePhase.equals(GamePhase.ExitGame)) {
                 GameEngineController l_GameController = d_GamePhase.getController();
@@ -50,11 +54,11 @@ public class GameEngine {
                 d_GamePhase = l_GameController.start(d_GamePhase);
                 System.out.println("You have entered the " + d_GamePhase + " Phase.");
                 System.out.println("-----------------------------------------------------------------------------------------");
-                start();
+                start(p_GameCalculation);
             }
         } catch (InvalidInputException | InvalidCommandException p_Exception) {
             System.err.println(p_Exception.getMessage());
-            start();
+            start(p_GameCalculation);
         } catch (Exception p_Exception) {
             p_Exception.printStackTrace();
         }

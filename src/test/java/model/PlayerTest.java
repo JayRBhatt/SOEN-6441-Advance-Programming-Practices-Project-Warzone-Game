@@ -43,7 +43,6 @@ public class PlayerTest {
         d_CapturedCountries.add(c2);
         d_CapturedCountries.add(c3);
         p.setOccupiedCountries(d_CapturedCountries);
-        p.calculateTotalReinforcementArmies(); 
         d_ArmyCountValid = 5; 
         d_ArmyCountInvalid = 13;
     }

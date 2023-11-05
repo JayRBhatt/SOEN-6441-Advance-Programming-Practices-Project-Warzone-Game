@@ -16,6 +16,10 @@ import model.Player;
  * @author Meera Muraleedharan Nair
  */
 public class DeployOrder extends Order {
+
+
+    public static String Commands = null;
+    
     /**
      * Constructor for class DeployOrder
      */

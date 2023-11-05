@@ -1,6 +1,8 @@
 package model;
-
 import java.util.*;
+import java.util.stream.Collectors;
+
+import model.orders.DeployOrder;
 import model.orders.Order;
 import model.orders.OrderCreator;
 
@@ -19,8 +21,20 @@ public class Player {
     private Deque<Order> d_Orders = new ArrayDeque<>();
     private int d_AdditionalArmies;
     private int d_AssignedTroops;
+    private List<Cards> d_PlayersCards = new ArrayList<>();
+    private List<Player> d_NeutralPlayers = new ArrayList<>();
 
     public static List<Order> OrderList = new ArrayList<>();
+
+
+
+    public int getPlayerId() {
+        return d_PlayerId;
+    }
+
+    public void setIPlayerId(int p_Id) {
+        this.d_PlayerId = p_Id;
+    }
 
     /**
      * Returns the Name of the Player
@@ -95,6 +109,56 @@ public class Player {
 
     public void setAdditionalArmies(int p_AdditionalArmies) {
         this.d_AdditionalArmies = p_AdditionalArmies;
+    }
+
+    public List<Cards> getPlayersCards() {
+        return d_PlayersCards;
+    }
+
+    public boolean checkCardAvailablity(CardsType p_cardsType) {
+        return d_PlayersCards.stream().anyMatch(p_cards -> p_cards.getCardsType().equals(p_cardsType));
+    }
+
+    public boolean removeCard(CardsType p_CardsType) {
+        return d_PlayersCards.remove(new Cards(p_CardsType));
+    }
+
+    public void removeCards() {
+        d_PlayersCards.clear();
+    }
+
+    public void addPlayerCard(Cards p_Card) {
+        d_PlayersCards.add(p_Card);
+    }
+
+    public List<Player> getNeutralPlayers() {
+        return d_NeutralPlayers;
+    }
+    
+    public void addNeutralPlayers(Player p_NeutralPlayer) {
+        if (!d_NeutralPlayers.contains(p_NeutralPlayer)) {
+            d_NeutralPlayers.add(p_NeutralPlayer);
+        }
+    }
+
+    public void removeNeutralPlayer() {
+        if (!d_NeutralPlayers.isEmpty()) {
+            d_NeutralPlayers.clear();
+        }
+    }
+    public void deployOrder() {
+        Order l_Order = OrderCreator.generateOrder(DeployOrder.Commands.split(" "), this);
+        receiveOrder(l_Order);
+    }
+
+
+    /**
+     * A function to return the next order for execution
+     *
+     * @return order for executing for each player
+     */
+    public Order nextOrder() {
+        return d_Orders.poll();
     }
 
     /**
@@ -178,14 +242,34 @@ public class Player {
      * Calculates the total of alloted reinforcements for a player
      * 
      */
-    public void calculateTotalReinforcementArmies() {
+    public void calculateTotalReinforcementArmies(GameMap p_gameMap) {
 
-        setAdditionalArmies(10);
-
-        System.out.println(getPlayerName() + " has been assigned with " + getAdditionalArmies() + " troops");
+        if (getOccupiedCountries().size() > 0) {   
+            int l_reinforcements = (int) Math.floor(getOccupiedCountries().size() / 3f);  
+            l_reinforcements += getExtraArmiesIfPlayerWins(p_gameMap);
+            setAdditionalArmies(l_reinforcements > 2 ? l_reinforcements : 5);
+        } else {
+            setAdditionalArmies(5);
+        }
+        System.out.println("The Player:" + getPlayerName() + " is assigned with " + getAdditionalArmies() + " armies.");
 
     }
-
+    
+    private int getExtraArmiesIfPlayerWins(GameMap p_gameMap) {
+        int l_reinforcements = 0;
+      
+        Map<String, List<Country>> l_CountryMap = getOccupiedCountries()
+                .stream()
+                .collect(Collectors.groupingBy(Country::getContinent));
+                
+        for (String continent : l_CountryMap.keySet()) {
+            if (p_gameMap.getContinent(continent).getCountries().size() == l_CountryMap.get(continent).size()) {
+               
+                l_reinforcements += p_gameMap.getContinent(continent).getContinentValue();
+            }
+        }
+        return l_reinforcements;
+    }
     /**
      * An overriden method of toString for debugging
      * 

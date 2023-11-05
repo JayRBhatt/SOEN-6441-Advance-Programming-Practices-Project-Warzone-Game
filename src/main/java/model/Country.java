@@ -105,6 +105,10 @@ public class Country {
         d_Armies += p_Armies;
     }
 
+    public void depleteArmies(int p_armies) {
+        d_Armies -= p_armies;
+    }
+
     /**
      * Returns the Set of neighbors of the country
      * 

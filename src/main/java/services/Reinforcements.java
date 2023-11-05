@@ -5,6 +5,7 @@ import model.GameMap;
 import model.GamePhase;
 import model.Player;
 import utils.InvalidCommandException;
+import utils.exceptions.InvalidInputException;
 
 /**
  * Class that has the main logic behind the functioning of Reinforcements phase
@@ -18,9 +19,10 @@ import utils.InvalidCommandException;
  */
 public class Reinforcements implements GameEngineController{
 
-	private GameMap d_GameMap;
+    GameMap d_GameMap;
 	GamePhase d_GamePhase;
 	GamePhase d_NextGamePhase = GamePhase.IssueOrder;
+	Player d_CurrentPlayer;
 
 	/**
 	 * Constructor to initialize the GameMap object
@@ -36,7 +38,7 @@ public class Reinforcements implements GameEngineController{
 	 * @param p_GamePhase ID of the GamePhase
 	 * @throws InvalidCommandException if command is invlaid
 	 */
-	public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+	public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException, InvalidInputException {
 		d_GamePhase = p_GamePhase;
 		calculateReinforcements();
 		return d_NextGamePhase;
@@ -47,9 +49,10 @@ public class Reinforcements implements GameEngineController{
 	 * Method that calculates the reinforcements
 	 * 
 	 */
-	private void calculateReinforcements() {
+	private void calculateReinforcements() throws InvalidInputException{
 		for (Player l_Player : d_GameMap.getGamePlayers().values()) {
-			assignReinforcementTroops(l_Player);
+			d_CurrentPlayer = l_Player;
+			assignReinforcementTroops();
 
 		}
 	}
@@ -59,8 +62,11 @@ public class Reinforcements implements GameEngineController{
 	 * 
 	 * @param p_Player Current Player
 	 */
-	public void assignReinforcementTroops(Player p_Player) {
-		p_Player.calculateTotalReinforcementArmies();
+	public void assignReinforcementTroops() throws InvalidInputException{
+	        if (d_GamePhase.equals(GamePhase.Reinforcement)) {
+				
+            d_CurrentPlayer.calculateTotalReinforcementArmies(d_GameMap);
+        } else throw new InvalidInputException();
 
 	}
 }

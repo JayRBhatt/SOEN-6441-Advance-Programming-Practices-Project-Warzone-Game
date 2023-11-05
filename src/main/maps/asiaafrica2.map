@@ -1,0 +1,11 @@
+[Map]
+
+[Continents]
+africa 10
+asia 12
+[Territories]
+nigeria africa ghana pakistan
+pakistan asia nigeria india
+india asia ghana pakistan
+ghana africa nigeria india
+
