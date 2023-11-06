@@ -82,4 +82,9 @@ public class ValidateMapTest {
     public void testIfGameMapIsConnected() {
         assertEquals(true, ValidateMap.checkIfMapIsConnected(d_GameMap));
     }
+    @Test
+    public void CheckIfMapIsInvalid() throws InvalidCommandException {
+        d_GameMap.removeNeighbor("Newyork", "Pak");
+        assertFalse(ValidateMap.checkIfMapIsConnected(d_GameMap));
+    }
 }
