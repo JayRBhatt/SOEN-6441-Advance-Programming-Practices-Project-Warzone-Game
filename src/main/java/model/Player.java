@@ -3,9 +3,9 @@ package model;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import model.orders.DeployOrder;
 import model.orders.Order;
 import model.orders.OrderCreator;
+import services.OrderIssue;
 import services.OrderIssue;
 
 /**
@@ -159,6 +159,7 @@ public class Player {
 
     public void deployOrder() {
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
+        Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
         receiveOrder(l_Order);
     }
 
@@ -230,22 +231,41 @@ public class Player {
      * 
      */
     public void calculateTotalReinforcementArmies(GameMap p_gameMap) {
-        int l_reinforcements = Math.max(5,
-                Math.floorDiv(getOccupiedCountries().size(), 3) + getExtraArmiesIfPlayerWins(p_gameMap));
-        setAdditionalArmies(l_reinforcements);
+
+        if (getOccupiedCountries().size() > 0) {
+            int l_reinforcements = (int) Math.floor(getOccupiedCountries().size() / 3f);
+            l_reinforcements += getExtraArmiesIfPlayerWins(p_gameMap);
+            setAdditionalArmies(l_reinforcements > 2 ? l_reinforcements : 5);
+        } else {
+            setAdditionalArmies(5);
+        }
         System.out.println("The Player:" + getPlayerName() + " is assigned with " + getAdditionalArmies() + " armies.");
+
     }
 
     private int getExtraArmiesIfPlayerWins(GameMap p_gameMap) {
-        return getOccupiedCountries().stream()
-                .collect(Collectors.groupingBy(Country::getContinent, Collectors.counting()))
-                .entrySet().stream()
-                .filter(entry -> entry.getValue()
-                        .equals(Long.valueOf(p_gameMap.getContinent(entry.getKey()).getCountries().size())))
-                .mapToInt(entry -> p_gameMap.getContinent(entry.getKey()).getContinentValue())
-                .sum();
+        int l_reinforcements = 0;
+
+        Map<String, List<Country>> l_CountryMap = getOccupiedCountries()
+                .stream()
+                .collect(Collectors.groupingBy(Country::getContinent));
+
+        for (String continent : l_CountryMap.keySet()) {
+            if (p_gameMap.getContinent(continent).getCountries().size() == l_CountryMap.get(continent).size()) {
+
+                l_reinforcements += p_gameMap.getContinent(continent).getContinentValue();
+            }
+        }
+        return l_reinforcements;
     }
 
+    /**
+     * A function to check if the country exists in the list of player captured
+     * countries
+     *
+     * @param p_Country The country to be checked if present
+     * @return true if country exists in the assigned country list else false
+     */
     public boolean isCaptured(Country p_Country) {
         return d_OccupiedCountries.contains(p_Country);
     }

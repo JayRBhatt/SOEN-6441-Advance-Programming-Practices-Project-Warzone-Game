@@ -1,10 +1,10 @@
-package model.order;
+package model.orders;
 
-import model.CardType;
+import model.CardsType;
 import model.Country;
 import model.GameMap;
 import model.Player;
-import utils.logger.LogEntryBuffer;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * Represents an order to execute a blockade, which triples the number of armies
@@ -22,7 +22,7 @@ public class BlockadeOrder extends Order {
      */
     public BlockadeOrder() {
         super();
-        setType("blockade");
+        setOrderType("blockade");
         d_gameMap = GameMap.getInstance();
     }
 
@@ -34,14 +34,14 @@ public class BlockadeOrder extends Order {
      */
     @Override
     public boolean execute() {
-        Player l_player = getOrderInfo().getPlayer();
-        Country l_country = getOrderInfo().getTargetCountry();
+        Player l_player = getOrderDetails().getPlayer();
+        Country l_country = getOrderDetails().getTargetCountry();
         if (validateCommand()) {
             l_country.setArmies(l_country.getArmies() * 3);
-            l_player.getCapturedCountries().remove(l_country);
+            l_player.getOccupiedCountries().remove(l_country);
             l_country.setPlayer(null);
-            System.out.println("Executing order: " + getType() + " on " + l_country.getName());
-            l_player.removeCard(CardType.BLOCKADE);
+            System.out.println("Executing order: " + getOrderType() + " on " + l_country.getCountryName());
+            l_player.removeCard(CardsType.BLOCKADE);
             return true;
         }
         return false;
@@ -55,23 +55,23 @@ public class BlockadeOrder extends Order {
      */
     @Override
     public boolean validateCommand() {
-        Player l_player = getOrderInfo().getPlayer();
-        Country l_country = getOrderInfo().getTargetCountry();
+        Player l_player = getOrderDetails().getPlayer();
+        Country l_country = getOrderDetails().getTargetCountry();
 
         if (l_player == null) {
             System.err.println("Invalid player for the blockade order.");
-            d_logEntryBuffer.logInfo("Invalid player for the blockade order.");
+            d_logEntryBuffer.logAction("Invalid player for the blockade order.");
             return false;
         }
 
-        if (!l_country.isOwnedBy(l_player)) {
+        if (l_country.getPlayer() != l_player) {
             System.err.println("The country is not under the player's control.");
-            d_logEntryBuffer.logInfo("The country is not under the player's control.");
+            d_logEntryBuffer.logAction("The country is not under the player's control.");
             return false;
         }
-        if (!l_player.checkIfCardAvailable(CardType.BLOCKADE)) {
+        if (!l_player.checkIfCardAvailable(CardsType.BLOCKADE)) {
             System.err.println("The blockade card is not in the player's possession.");
-            d_logEntryBuffer.logInfo("The blockade card is not in the player's possession.");
+            d_logEntryBuffer.logAction("The blockade card is not in the player's possession.");
             return false;
         }
         return true;
@@ -83,10 +83,10 @@ public class BlockadeOrder extends Order {
      */
     @Override
     public void printOrderCommand() {
-        String l_message = "Blockade applied to " + getOrderInfo().getTargetCountry().getName() +
-                " by " + getOrderInfo().getPlayer().getName();
+        String l_message = "Blockade applied to " + getOrderDetails().getTargetCountry().getCountryName() +
+                " by " + getOrderDetails().getPlayer().getPlayerName();
         System.out.println(l_message);
         System.out.println("------------------------------------------------------------------------------------");
-        d_logEntryBuffer.logInfo(l_message);
+        d_logEntryBuffer.logAction(l_message);
     }
 }
