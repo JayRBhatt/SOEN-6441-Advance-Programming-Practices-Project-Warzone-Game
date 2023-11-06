@@ -9,6 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import utils.InvalidCommandException;
+import utils.loggers.LogEntryBuffer;
 import utils.maputils.SaveMap;
 import utils.maputils.ValidateMap;
 
@@ -40,7 +41,7 @@ public class GameMap {
     private String d_InvalidMessage;
     private static GameMap d_GameMap = new GameMap();
     private String d_Name;
-
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
     /**
      * A static method that returns the instance of the GameMap
      * 
@@ -169,7 +170,8 @@ public class GameMap {
         l_Continent.setContinentName(p_ContinentName);
         l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName, l_Continent);
-        System.out.println("Woohooo! You have added a Continent to your World Map!!");
+        System.out.println("Woohooo! You have added "+p_ContinentName+" to your World Map!!");
+        d_LogEntryBuffer.logAction("Added Continent: "+p_ContinentName);
     }
     
      /**
@@ -185,6 +187,7 @@ public class GameMap {
             this.getCountries().remove(l_Country);
         }
         System.out.println("WOW!!" + p_ContinentName + " is off the Map!!!");
+        d_LogEntryBuffer.logAction("Removed Continent: "+p_ContinentName);
     }
 
     /**
@@ -200,6 +203,7 @@ public class GameMap {
         this.getCountries().put(p_CountryName, l_Country);
         this.getContinent(p_ContinentName).getCountries().add(l_Country);
         System.out.println("There you have it! " + p_CountryName + " a part of " + p_ContinentName);
+        d_LogEntryBuffer.logAction("Added Country: "+p_CountryName+" to "+p_ContinentName+" continent");
     }
 
     /**
@@ -212,6 +216,7 @@ public class GameMap {
         this.getContinent(l_Country.getContinent()).getCountries().remove(l_Country);
         this.getCountries().remove(l_Country.getCountryName());
         System.out.println("...And " + p_CountryName + " is erased off the map!! ");
+        d_LogEntryBuffer.logAction("Removed Continent: "+p_CountryName);
     }
 
     /**
@@ -226,6 +231,7 @@ public class GameMap {
 
         l_Country.getNeighbors().add(l_NeighborCountry);
         System.out.println("Ohhh Look at you! We have neighbors around you, Are they friendly? We'll find out soon");
+        d_LogEntryBuffer.logAction("Added Neighbor: "+p_NeighborCountryName+" to "+p_CountryName);
 
     }
 
@@ -250,6 +256,7 @@ public class GameMap {
             this.getCountry(p_CountryName).getNeighbors().remove(l_NeighborCountry);
             System.out.println("Good Riddance!! Annoying Neighbors makes one's life a living hell. Removed: "
                     + p_CountryName + " and " + p_NeighborCountryName + " as neighbors");
+        d_LogEntryBuffer.logAction("Removed Neighbor: "+p_NeighborCountryName +" of Country: "+p_CountryName);
         }
     }
 
@@ -268,6 +275,7 @@ public class GameMap {
         getGamePlayers().put(p_PlayerName, l_GamePlayer);
 
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
+        d_LogEntryBuffer.logAction("Added GamePlayer: "+p_PlayerName);
 
     }
 
@@ -284,6 +292,8 @@ public class GameMap {
         }
         this.getGamePlayers().remove(l_ExistingPlayer.getPlayerName());
         System.out.println("You didn't like the name or What? Deleted: " + p_PlayerName);
+        
+        d_LogEntryBuffer.logAction("Removed GamePlayer: "+p_PlayerName);
     }
 
     /**
@@ -303,6 +313,7 @@ public class GameMap {
                 } else {
                     if (d_SaveMap.saveMapIntoFile(d_GameMap, d_GameMap.getName())) {
                         System.out.println("Wow! The Map is in Correct Format ");
+                        d_LogEntryBuffer.logAction("The map is Validated and saved");              
                     } else {
                         throw new InvalidCommandException(
                                 "This isn't a Multiverse, give a different name for the country");
@@ -333,6 +344,9 @@ public class GameMap {
             d_p.getOccupiedCountries().add(d_c);
             d_c.setPlayer(d_p);
             System.out.println(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
+            
+            d_LogEntryBuffer.logAction(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
+            
             if (d_player_index < d_GameMap.getGamePlayers().size() - 1) {
                 d_player_index++;
             } else {

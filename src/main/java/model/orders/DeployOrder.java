@@ -40,7 +40,9 @@ public class DeployOrder extends Order {
         }
     
         Player l_Player = getOrderDetails().getPlayer();
-        String l_CountryWhereDeployed = getOrderDetails().getCountryWhereDeployed();
+
+        String l_CountryWhereDeployed = getOrderDetails().getCountryWhereDeployed().toString();
+        
         int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
     
         for (Country l_Country : l_Player.getOccupiedCountries()) {
@@ -55,6 +57,16 @@ public class DeployOrder extends Order {
         System.out.println("\nExecution completed.");
         System.out.println("=========================================================================================");
         return true;
+    }
+    @Override
+    public boolean validateCommand() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'validateCommand'");
+    }
+    @Override
+    public void printOrderCommand() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'printOrderCommand'");
     }
     
 

@@ -9,6 +9,7 @@ import controller.*;
 import model.GameMap;
 import model.GamePhase;
 import utils.InvalidCommandException;
+import utils.loggers.LogEntryBuffer;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 
@@ -24,6 +25,7 @@ public class MapEditor implements GameEngineController{
     private Scanner sc = new Scanner(System.in);
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.StartUp;
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
     private final List<String> l_PreDefinedCommands = Arrays.asList("editcontinent", "editcountry", "editneighbor",
             "showmap",
             "savemap", "editmap", "validatemap");
@@ -44,6 +46,8 @@ public class MapEditor implements GameEngineController{
      * @throws InvalidCommandException
      */
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+        d_LogEntryBuffer.prepareNewLogFile();
+        d_LogEntryBuffer.logAction("Entered Map Editor Phase!");
         while (true) {
             System.out.println(
                     "Wow,It looks like Now you have entered in the very first phase of the game,The Map editor phase where players create the game maps");

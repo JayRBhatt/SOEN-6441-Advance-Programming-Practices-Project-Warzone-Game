@@ -9,6 +9,7 @@ import utils.maputils.ValidateMap;
 import controller.GameEngineController;
 import model.*;
 import utils.InvalidCommandException;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * Class that has the main logic behind the functioning of GameplayBegins phase in
@@ -25,7 +26,7 @@ public class GamePlayBegins implements GameEngineController{
             "assigncountries");
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.Reinforcement;
-
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
     /**
      * Constructor to initialize d_GameMap
      * 
@@ -42,6 +43,9 @@ public class GamePlayBegins implements GameEngineController{
      * @throws InvalidCommandException when any invalid command is encountered
      */
     public  GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+
+        d_LogEntryBuffer.logAction("Ended Map Editor Phase");
+        
         System.out
                 .println("================================ End of Map Editor Phase ==================================");
         System.out.println(
@@ -105,6 +109,7 @@ public class GamePlayBegins implements GameEngineController{
 
                             return p_GamePhase.nextState(d_NextState);
                         } else {
+                            d_LogEntryBuffer.logAction("Game Halted as not enough players were created");
                             throw new InvalidCommandException("Create atleast two players before assigning countries");
                         }
                     }

@@ -1,6 +1,6 @@
-package utils.logger;
+package utils.loggers;
 
-import utils.Observable;
+import utils.maputils.Observable;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -31,7 +31,7 @@ public class LogEntryBuffer implements Observable {
      * @param p_message The message to notify the observer with.
      */
     public void notifyObservers(String p_message) {
-        d_logEntryWriter.writeLogEntry(p_message);
+        d_logEntryWriter.logMessage(p_message);
     }
 
     /**

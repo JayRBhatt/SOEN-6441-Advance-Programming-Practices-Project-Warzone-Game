@@ -1,113 +1,203 @@
 package services;
 
-import java.util.Scanner;
-import controller.*;
-import model.Country;
-import model.GameMap;
-import model.GamePhase;
-import model.Player;
-import utils.InvalidCommandException;
+import model.*;
+import utils.loggers.LogEntryBuffer;
+
+import java.util.*;
+
+import controller.GameEngineController;
 
 /**
- * Class that has the main logic behind the functioning of OrderIssue phase
- * in the game
+ * Class which is the controller for the Issue Order phase
  *
- * @author Mariya Bosy Kondody
- * @author Reema Ann Reny
- * @author Meera Muraleedharan Nair
+ * @author Prathika Suvarna
+ * @author Neona Pinto
+ * @author Dhananjay Narayan
+ * @author Surya Manian
+ * @author Madhuvanthi Hemanathan
+ * @version 1.0.0
  */
-
-public class OrderIssue implements GameEngineController{
-    GameMap d_GameMap;
+public class OrderIssue implements GameEngineController {
+    /**
+     * scanner to read from user
+     */
+    private final static Scanner SCANNER = new Scanner(System.in);
+    /**
+     * variable to keep track of players who skipped
+     */
+    private static Set<Player> SkippedPlayers = new HashSet<>();
+    /**
+     * Static variable to hold commands
+     */
+    public static String Commands = null;
+    /**
+     * GamePhase Instance with next phase
+     */
     GamePhase d_NextGamePhase = GamePhase.ExecuteOrder;
+    /**
+     * GamePhase instance
+     */
     GamePhase d_GamePhase;
-    private Scanner sc = new Scanner(System.in);
+    /**
+     * GameMap instance
+     */
+    GameMap d_GameMap;
+    /**
+     * Log Entry
+     */
+    LogEntryBuffer d_Leb = new LogEntryBuffer();
 
     /**
-     * Constructor that initializes the GameMAp Instance with the current State
-     * 
+     * Constructor to get the GameMap instance
      */
     public OrderIssue() {
         d_GameMap = GameMap.getInstance();
     }
 
     /**
-     * Method that runs the main logic of Order Issue and takes the player to the next phase
-     * 
-     * @param p_GamePhase the current ID of the Phase
-     * @throws InvalidCommandException if it encounters any wrong command
+     * A function to start the issue order phase
+     *
+     * @param p_GamePhase The current phase which is executing
+     * @return the next phase to be executed
+     * @throws Exception when execution fails
      */
-    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+    @Override
+    public GamePhase start(GamePhase p_GamePhase) throws Exception {
         d_GamePhase = p_GamePhase;
-        int l_PlayerNumber = 0;
-        while (l_PlayerNumber < d_GameMap.getGamePlayers().size()) {
+        d_Leb.logAction("\n ISSUE ORDER PHASE \n");
+        while (!(SkippedPlayers.size() == d_GameMap.getGamePlayers().size())) {
             for (Player l_Player : d_GameMap.getGamePlayers().values()) {
-                if (l_Player.getAdditionalArmies() <= 0) {
-                    l_PlayerNumber++;
+                if (!SkippedPlayers.isEmpty() && SkippedPlayers.contains(l_Player)) {
                     continue;
                 }
-                String l_PlayerName = l_Player.getPlayerName();
-                int l_ReinforcementArmies = l_Player.getAdditionalArmies();
-                System.out.println("The Armies assigned to Player " + l_PlayerName + " are : " + l_ReinforcementArmies);
-                System.out.println("Please assign your armies only to the below listed countries:");
-                printAssignedCountries(l_Player);
-                String l_CommandInputString = readFromPlayer();
-                l_Player.publishOrder(l_CommandInputString);
+                System.out.println("Player:" + l_Player.getPlayerName() + "; Armies assigned are: " + l_Player.getAdditionalArmies());
+                System.out.println("The countries to be assigned to the player are: ");
+                for (Country l_Country : l_Player.getOccupiedCountries()) {
+                    System.out.println(l_Country.getPlayer() + " ");
+                }
+                if(!l_Player.getPlayersCards().isEmpty()){
+                    System.out.println("The Cards assigned to the Players are:" );
+                    for(Cards l_Card : l_Player.getPlayersCards()){
+                        System.out.println(l_Card.getCardsType());
+                    }
+                }
+                System.out.println("=================================================================================");
+                boolean l_IssueCommand = false;
+                while (!l_IssueCommand) {
+                    System.out.println("List of game loop commands");
+                    System.out.println("To deploy the armies : deploy countryID numarmies");
+                    System.out.println("To advance/attack the armies : advance countrynamefrom countynameto numarmies");
+                    System.out.println("To airlift the armies : airlift sourcecountryID targetcountryID numarmies");
+                    System.out.println("To blockade the armies : blockade countryID");
+                    System.out.println("To negotiate with player : negotiate playerID");
+                    System.out.println("To bomb the country : bomb countryID");
+                    System.out.println("To skip: pass");
+                    System.out.println("Please enter the correct command");
+                    System.out.println("=============================================================================");
+                    Commands = ReadFromPlayer();
+                    l_IssueCommand = ValidateCommand(Commands, l_Player);
+                    d_Leb.logAction(l_Player.getPlayerName()+" has issued this order :- " + Commands );
+                    if (Commands.equals("pass")) {
+                        break;
+                    }
+                }
+                if (!Commands.equals("pass")) {
+                    l_Player.publishOrder(null);
+                    System.out.println("The order has been had to the list of orders.");
+                    System.out.println("=============================================================================");
+                }
             }
         }
-        System.out.println("You have assigned all your armies to the countries.Lets Move to the next phase!!");
-        System.out.println("**************************************************************************************");
+        SkippedPlayers.clear();
         return p_GamePhase.nextState(d_NextGamePhase);
     }
 
     /**
-     * A function that shows the list of countries in which the player can deploy
-     * the armies.
-     * 
-     * @param p_Player
-     */
-    private void printAssignedCountries(Player p_Player) {
-        for (Country country : p_Player.getOccupiedCountries()) {
-            System.out.println(country.getCountryName());
-        }
-        System.out.println("****************************************************************************************");
-    }
-
-    /**
-     *It reads the command input from the player and validates it
-     * 
-     * @return command entered by the Player
-     */
-    private String readFromPlayer() {
-        String l_CommandInput;
-        System.out.println("Lets Begin Issuing Orders ! : ");
-        System.out.println("1.For any guidance type help, we are happy to help you.");
-        while (true) {
-            l_CommandInput = sc.nextLine();
-            if (VerifyCommandDeploy(l_CommandInput.toUpperCase()))
-                return l_CommandInput;
-            else {
-                System.out.println("There you go, Here is the list of Commands you can use for this phase");
-                System.out.println("The command to deploy the Armies is");
-                System.out.println("deploy countryName no.of.armies");
-                System.out.println("Please enter the command Now:");
-            }
-        }
-    }
-
-    /**
-     * A function to check if the command entered by the player is correct before
-     * proceeding
+     * A function to read all the commands from player
      *
-     * @param p_CommandString The command entered by player
-     * @return true if the format is valid else false
+     * @return command entered by the player
      */
-    private boolean VerifyCommandDeploy(String p_CommandString) {
-        String[] l_CommandInputsList = p_CommandString.split(" ");
-        if (l_CommandInputsList.length == 3) {
-            return l_CommandInputsList[0].equals("DEPLOY");
-        } else
+    public static String ReadFromPlayer() {
+        return SCANNER.nextLine();
+    }
+
+    /**
+     * A static function to validate the deploy command
+     *
+     * @param p_CommandArr The string entered by the user
+     * @param p_Player the player object
+     * @return true if the command is correct else false
+     */
+    public static boolean ValidateCommand(String p_CommandArr, Player p_Player) {
+        List<String> l_Commands = Arrays.asList("deploy", "advance", "bomb", "blockade", "airlift", "negotiate");
+        String[] l_CommandArr = p_CommandArr.split(" ");
+        if (p_CommandArr.toLowerCase().contains("pass")) {
+            AddToSetOfPlayers(p_Player);
             return false;
+        }
+        if (!l_Commands.contains(l_CommandArr[0].toLowerCase())) {
+            System.out.println("The command syntax is invalid.");
+            return false;
+        }
+        if (!CheckLengthOfCommand(l_CommandArr[0], l_CommandArr.length)) {
+            System.out.println("The command syntax is invalid.");
+            return false;
+        }
+        switch (l_CommandArr[0].toLowerCase()) {
+            case "deploy":
+                try {
+                    Integer.parseInt(l_CommandArr[2]);
+                } catch (NumberFormatException l_Exception) {
+                    System.out.println("The number format is invalid");
+                    return false;
+                }
+                break;
+            case "advance":
+                if (l_CommandArr.length < 4) {
+                    System.out.println("The command syntax is invalid.");
+                    return false;
+                }
+                try {
+                    Integer.parseInt(l_CommandArr[3]);
+                } catch (NumberFormatException l_Exception) {
+                    System.out.println("The number format is invalid");
+                    return false;
+                }
+
+            default:
+                break;
+
+        }
+        return true;
+    }
+
+    /**
+     * A function to map the players and their status for the issuing of the order
+     *
+     * @param p_Player The player who has skipped his iteration for the issuing
+     */
+    private static void AddToSetOfPlayers(Player p_Player) {
+        SkippedPlayers.add(p_Player);
+    }
+
+    /**
+     * A function to check the length of each command
+     *
+     * @param p_Command the command to be validated
+     * @return true if length is correct else false
+     */
+    private static boolean CheckLengthOfCommand(String p_Command, int p_Length) {
+        if (p_Command.contains("deploy")) {
+            return p_Length == 3;
+        } else if (p_Command.contains("bomb") || p_Command.contains("blockade") || p_Command.contains("negotiate")) {
+            return (p_Length == 2);
+        } else if (p_Command.contains("airlift") || p_Command.contains("advance")) {
+            return (p_Length == 4);
+        }
+        return false;
     }
 
 }
+
+
+
