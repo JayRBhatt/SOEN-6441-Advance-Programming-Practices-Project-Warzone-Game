@@ -1,11 +1,10 @@
 package model;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-import model.orders.DeployOrder;
 import model.orders.Order;
 import model.orders.OrderCreator;
+import services.OrderIssue;
 
 /**
  * Class that provides every method that is required for any properties of
@@ -26,6 +25,8 @@ public class Player {
     private List<Player> d_NeutralPlayers = new ArrayList<>();
 
     public static List<Order> OrderList = new ArrayList<>();
+
+
 
     public int getPlayerId() {
         return d_PlayerId;
@@ -95,8 +96,8 @@ public class Player {
      * 
      * @param p_Order
      */
-
-    private void receiveOrder(Order p_Order) {
+   
+     private void receiveOrder(Order p_Order) {
         d_Orders.add(p_Order);
     }
 
@@ -143,7 +144,7 @@ public class Player {
     public List<Player> getNeutralPlayers() {
         return d_NeutralPlayers;
     }
-
+    
     public void addNeutralPlayers(Player p_NeutralPlayer) {
         if (!d_NeutralPlayers.contains(p_NeutralPlayer)) {
             d_NeutralPlayers.add(p_NeutralPlayer);
@@ -155,11 +156,11 @@ public class Player {
             d_NeutralPlayers.clear();
         }
     }
-
     public void deployOrder() {
-        Order l_Order = OrderCreator.generateOrder(DeployOrder.Commands.split(" "), this);
+        Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
         receiveOrder(l_Order);
     }
+
 
     /**
      * A function to return the next order for execution
@@ -189,7 +190,7 @@ public class Player {
         }
 
         if (l_PublishCommand) {
-            Order l_Order = OrderCreator.generateOrder(l_ArrOfCommands, this);
+            Order l_Order = OrderCreator.CreateOrder(l_ArrOfCommands, this);
             OrderList.add(l_Order);
             receiveOrder(l_Order);
             System.out.println("Your Order has been successfully added in the list: Deploy "
@@ -221,9 +222,8 @@ public class Player {
      * Checks whether to deploy the armies or not
      * 
      * @param p_ArmyNumber
-     * @return true if the operation was successful and false if number of army
-     *         provided by user is greater than remaining armies of the player or
-     *         army provided by user is negative
+     * @return true if the operation was successful and false if number of army provided by user is greater than remaining armies of the player or 
+     * army provided by user is negative
      */
     public boolean stationAdditionalArmiesFromPlayer(int p_ArmyNumber) {
 
@@ -235,7 +235,7 @@ public class Player {
     }
 
     /**
-     * Creates a list of occupancy of countries by a player and returns
+     * Creates a list of occupancy of countries by a player and returns 
      * 
      * @param p_Occupy
      * @return the list
@@ -253,22 +253,40 @@ public class Player {
      * 
      */
     public void calculateTotalReinforcementArmies(GameMap p_gameMap) {
-        int l_reinforcements = Math.max(5,
-                Math.floorDiv(getOccupiedCountries().size(), 3) + getExtraArmiesIfPlayerWins(p_gameMap));
-        setAdditionalArmies(l_reinforcements);
+
+        if (getOccupiedCountries().size() > 0) {   
+            int l_reinforcements = (int) Math.floor(getOccupiedCountries().size() / 3f);  
+            l_reinforcements += getExtraArmiesIfPlayerWins(p_gameMap);
+            setAdditionalArmies(l_reinforcements > 2 ? l_reinforcements : 5);
+        } else {
+            setAdditionalArmies(5);
+        }
         System.out.println("The Player:" + getPlayerName() + " is assigned with " + getAdditionalArmies() + " armies.");
-    }
 
+    }
+    
     private int getExtraArmiesIfPlayerWins(GameMap p_gameMap) {
-        return getOccupiedCountries().stream()
-                .collect(Collectors.groupingBy(Country::getContinent, Collectors.counting()))
-                .entrySet().stream()
-                .filter(entry -> entry.getValue()
-                        .equals(Long.valueOf(p_gameMap.getContinent(entry.getKey()).getCountries().size())))
-                .mapToInt(entry -> p_gameMap.getContinent(entry.getKey()).getContinentValue())
-                .sum();
+        int l_reinforcements = 0;
+      
+        Map<String, List<Country>> l_CountryMap = getOccupiedCountries()
+                .stream()
+                .collect(Collectors.groupingBy(Country::getContinent));
+                
+        for (String continent : l_CountryMap.keySet()) {
+            if (p_gameMap.getContinent(continent).getCountries().size() == l_CountryMap.get(continent).size()) {
+               
+                l_reinforcements += p_gameMap.getContinent(continent).getContinentValue();
+            }
+        }
+        return l_reinforcements;
     }
 
+    /**
+     * A function to check if the country exists in the list of player captured countries
+     *
+     * @param p_Country The country to be checked if present
+     * @return true if country exists in the assigned country list else false
+     */
     public boolean isCaptured(Country p_Country) {
         return d_OccupiedCountries.contains(p_Country);
     }

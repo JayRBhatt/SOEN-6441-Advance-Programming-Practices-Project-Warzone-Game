@@ -1,93 +1,103 @@
-package model.order;
+package model.orders;
 
-import model.CardType;
+import model.CardsType;
 import model.Country;
 import model.GameMap;
 import model.Player;
-import services.ILoggingService;
+import utils.loggers.LogEntryBuffer;
 
 /**
- * This class gives the order to execute an airlift from one country to another.
+ * This class gives the order to execute AirliftOrder, from one country to another.
+ * @author Surya Manian
  */
 public class AirliftOrder extends Order {
 
-    private final ILoggingService logger;
-    private final GameMap gameMap;
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    /**
+     * A data member to store the instance of the gamemap.
+     */
+    private final GameMap d_GameMap;
 
     /**
-     * Constructor for the Airlift Order.
-     * 
-     * @param loggingService The logging service to be used for log entries
+     * Constructor class for Airlift Order
      */
-    public AirliftOrder(ILoggingService loggingService) {
-        super("airlift");
-        this.logger = loggingService;
-        this.gameMap = GameMap.getInstance();
+    public AirliftOrder() {
+        super();
+        setOrderType("airlift");
+        d_GameMap = GameMap.getInstance();
     }
 
+    /**
+     * execute the Airlift Order
+     *
+     * @return true if the execute was successful else false
+     */
     @Override
     public boolean execute() {
-        Player player = getOrderInfo().getPlayer();
-        Country fromCountry = getOrderInfo().getDeparture();
-        Country toCountry = getOrderInfo().getDestination();
-        int armyCountToAirlift = getOrderInfo().getNumberOfArmy();
+        Player l_Player = getOrderDetails().getPlayer();
+        Country l_fromCountry = getOrderDetails().getDeparture();
+        Country l_toCountry = getOrderDetails().getCountryWhereDeployed();
+        int p_armyNumberToAirLift = getOrderDetails().getNumberOfArmy();
 
-        if (!validateCommand()) {
-            return false;
+        if (validateCommand()) {
+            l_fromCountry.setArmies(l_fromCountry.getArmies() - p_armyNumberToAirLift);
+            l_toCountry.setArmies(l_toCountry.getArmies() + p_armyNumberToAirLift);
+            System.out.println("The order: " + getOrderType() + " " + p_armyNumberToAirLift + " armies from "+l_fromCountry.getCountryName()+" to "+l_toCountry.getCountryName());
+            l_Player.removeCard(CardsType.AIRLIFT);
+            return true;
         }
-
-        fromCountry.setArmies(fromCountry.getArmies() - armyCountToAirlift);
-        toCountry.setArmies(toCountry.getArmies() + armyCountToAirlift);
-
-        logger.logInfo(String.format("Executed airlift: %d armies from %s to %s.",
-                armyCountToAirlift, fromCountry.getName(), toCountry.getName()));
-
-        player.removeCard(CardType.AIRLIFT);
-        return true;
+        return false;
     }
 
+    /**
+     * Validate the command
+     *
+     * @return true if successful or else false
+     */
     @Override
     public boolean validateCommand() {
-        Player player = getOrderInfo().getPlayer();
-        Country fromCountry = getOrderInfo().getDeparture();
-        Country toCountry = getOrderInfo().getDestination();
-        int armyCountToAirlift = getOrderInfo().getNumberOfArmy();
+        Player l_Player = getOrderDetails().getPlayer();
+        Country l_fromCountry = getOrderDetails().getDeparture();
+        Country l_toCountry = getOrderDetails().getCountryWhereDeployed();
+        int p_armyNumberToAirLift = getOrderDetails().getNumberOfArmy();
 
-        if (player == null) {
-            logger.logError("The Player is not valid.");
+        //check if the player is valid
+        if (l_Player == null) {
+            System.out.println("The Player is not valid.");
             return false;
         }
-
-        if (!player.hasCard(CardType.AIRLIFT)) {
-            logger.logError("Player doesn't have Airlift Card.");
+        //check if the player has an airlift card
+        if (!l_Player.checkIfCardAvailable(CardsType.AIRLIFT)) {
+            System.out.println("Player doesn't have Airlift Card.");
             return false;
         }
+        //check if countries belong to the player
+        if (!l_Player.getOccupiedCountries().contains(l_fromCountry) || !l_Player.getOccupiedCountries().contains(l_toCountry)) {
+            System.out.println("Source or target country do not belong to the player.");
+            return false;
 
-        if (!player.ownsCountry(fromCountry) || !player.ownsCountry(toCountry)) {
-            logger.logError("One or both countries do not belong to the player.");
+        }
+        //check if army number is more than 0
+        if (p_armyNumberToAirLift <= 0) {
+            System.out.println("The number of airlift army should be greater than 0");
             return false;
         }
-
-        if (armyCountToAirlift <= 0) {
-            logger.logError("The number of armies to airlift must be greater than 0.");
+        //check if army number is more that they own
+        if (l_fromCountry.getArmies() < p_armyNumberToAirLift) {
+            System.out.println("Player has less no. of army in country " + getOrderDetails().getDeparture().getCountryName());
             return false;
         }
-
-        if (fromCountry.getArmies() < armyCountToAirlift) {
-            logger.logError("Not enough armies in the departure country to airlift.");
-            return false;
-        }
-
         return true;
     }
 
+    /**
+     * Print the command
+     */
     @Override
     public void printOrderCommand() {
-        String message = String.format("Airlifted %d armies from %s to %s.",
-                getOrderInfo().getNumberOfArmy(),
-                getOrderInfo().getDeparture().getName(),
-                getOrderInfo().getDestination().getName());
-        System.out.println(message);
-        logger.logInfo(message);
+        System.out.println("Airlifted " + getOrderDetails().getNumberOfArmy() + " armies from " + getOrderDetails().getDeparture().getCountryName() + " to " + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
+        System.out.println("---------------------------------------------------------------------------------------------");
+        d_LogEntryBuffer.logAction("Airlifted " + getOrderDetails().getNumberOfArmy() + " armies from " + getOrderDetails().getDeparture().getCountryName() + " to " + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
     }
 }
+

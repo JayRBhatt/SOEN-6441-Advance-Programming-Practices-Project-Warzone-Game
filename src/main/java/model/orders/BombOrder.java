@@ -1,10 +1,10 @@
-package model.order;
+package model.orders;
 
-import model.CardType;
+import model.CardsType;
 import model.Country;
 import model.GameMap;
 import model.Player;
-import utils.logger.LogEntryBuffer;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * Manages the logic for the bomb order in the game.
@@ -24,7 +24,7 @@ public class BombOrder extends Order {
      */
     public BombOrder() {
         super();
-        setType("bomb");
+        setOrderType("bomb");
         d_gameMap = GameMap.getInstance();
     }
 
@@ -36,14 +36,14 @@ public class BombOrder extends Order {
      */
     @Override
     public boolean execute() {
-        Player l_player = getOrderInfo().getPlayer();
-        Country l_targetCountry = getOrderInfo().getTargetCountry();
+        Player l_player = getOrderDetails().getPlayer();
+        Country l_targetCountry = getOrderDetails().getTargetCountry();
         if (validateCommand()) {
-            System.out.println("Executing order: " + getType() + " on " + l_targetCountry.getName());
+            System.out.println("Executing order: " + getOrderType() + " on " + l_targetCountry.getCountryName());
             int l_armies = l_targetCountry.getArmies();
             int l_newArmies = Math.max(l_armies / 2, 0);
             l_targetCountry.setArmies(l_newArmies);
-            l_player.removeCard(CardType.BOMB);
+            l_player.removeCard(CardsType.BOMB);
             return true;
         }
         return false;
@@ -58,29 +58,29 @@ public class BombOrder extends Order {
      */
     @Override
     public boolean validateCommand() {
-        Player l_player = getOrderInfo().getPlayer();
-        Country l_targetCountry = getOrderInfo().getTargetCountry();
+        Player l_player = getOrderDetails().getPlayer();
+        Country l_targetCountry = getOrderDetails().getTargetCountry();
 
         if (l_player == null) {
             System.err.println("Invalid player for the bomb order.");
-            d_logEntryBuffer.logInfo("Invalid player for the bomb order.");
+            d_logEntryBuffer.logAction("Invalid player for the bomb order.");
             return false;
         }
 
-        if (!l_player.checkIfCardAvailable(CardType.BOMB)) {
+        if (!l_player.checkIfCardAvailable(CardsType.BOMB)) {
             System.err.println("The bomb card is not available for the player.");
-            d_logEntryBuffer.logInfo("The bomb card is not available for the player.");
+            d_logEntryBuffer.logAction("The bomb card is not available for the player.");
             return false;
         }
 
-        if (l_player.getCapturedCountries().contains(l_targetCountry)) {
+        if (l_player.getOccupiedCountries().contains(l_targetCountry)) {
             System.err.println("A player cannot bomb their own territory.");
-            d_logEntryBuffer.logInfo("A player cannot bomb their own territory.");
+            d_logEntryBuffer.logAction("A player cannot bomb their own territory.");
             return false;
         }
 
         boolean l_isAdjacent = false;
-        for (Country l_country : l_player.getCapturedCountries()) {
+        for (Country l_country : l_player.getOccupiedCountries()) {
             if (l_country.isNeighbor(l_targetCountry)) {
                 l_isAdjacent = true;
                 break;
@@ -89,13 +89,13 @@ public class BombOrder extends Order {
 
         if (!l_isAdjacent) {
             System.err.println("The target country is not adjacent to the player's territories.");
-            d_logEntryBuffer.logInfo("The target country is not adjacent to the player's territories.");
+            d_logEntryBuffer.logAction("The target country is not adjacent to the player's territories.");
             return false;
         }
 
         if (l_player.getNeutralPlayers().contains(l_targetCountry.getPlayer())) {
-            System.err.println("Cannot bomb due to truce with " + l_targetCountry.getPlayer().getName());
-            d_logEntryBuffer.logInfo("Cannot bomb due to truce with " + l_targetCountry.getPlayer().getName());
+            System.err.println("Cannot bomb due to truce with " + l_targetCountry.getPlayer().getPlayerName());
+            d_logEntryBuffer.logAction("Cannot bomb due to truce with " + l_targetCountry.getPlayer().getPlayerName());
             return false;
         }
 
@@ -107,10 +107,10 @@ public class BombOrder extends Order {
      */
     @Override
     public void printOrderCommand() {
-        String l_message = "Bomb order by " + getOrderInfo().getPlayer().getName() +
-                " targeting " + getOrderInfo().getTargetCountry().getName();
+        String l_message = "Bomb order by " + getOrderDetails().getPlayer().getPlayerName() +
+                " targeting " + getOrderDetails().getTargetCountry().getCountryName();
         System.out.println(l_message);
         System.out.println("-------------------------------------------------------------------");
-        d_logEntryBuffer.logInfo(l_message);
+        d_logEntryBuffer.logAction(l_message);
     }
 }

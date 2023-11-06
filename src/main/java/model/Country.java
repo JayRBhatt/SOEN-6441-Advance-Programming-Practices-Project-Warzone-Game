@@ -122,6 +122,17 @@ public class Country {
     }
 
     /**
+     * Method that checks if the country is a neighbour
+     *
+     * @param p_Neighbor the neighboring country
+     * @return the neighbour list
+     */
+    public boolean isNeighbor(Country p_Neighbor) {
+        return this.getNeighbors().contains(p_Neighbor);
+    }
+
+
+    /**
      * Sets the Neighbors to the countries
      * 
      * @param p_Neighbor
