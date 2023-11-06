@@ -2,12 +2,14 @@ package model.orders;
 
 import model.Country;
 import model.Player;
+import utils.loggers.LogEntryBuffer;
 
 /**
-* Class DeployOrder which is a child of Order, used to execute the orders
+ * Class DeployOrder which is a child of Order, used to execute the orders
  *
-/**
+ * /**
  * A class with the information of Order details
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -16,10 +18,8 @@ import model.Player;
  * @author Meera Muraleedharan Nair
  */
 public class DeployOrder extends Order {
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
 
-
-    public static String Commands = null;
-    
     /**
      * Constructor for class DeployOrder
      */
@@ -27,47 +27,62 @@ public class DeployOrder extends Order {
         super();
         setOrderType("deploy");
     }
+
     /**
-     * the execute function for the order type deploy
+     * Overriding the execute function for the order type deploy
      *
      * @return true if the execution was successful else return false
      */
-
     public boolean execute() {
-        if (getOrderDetails().getPlayer() == null || getOrderDetails().getCountryWhereDeployed() == null) {
-            System.out.println("Failed to execute Deploy order: Invalid order information.");
+        Country l_Destination = getOrderDetails().getCountryWhereDeployed();
+        int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
+        System.out.println(
+                "---------------------------------------------------------------------------------------------");
+        System.out.println(
+                "The order: " + getOrderType() + " " + getOrderDetails().getCountryWhereDeployed().getCountryName()
+                        + " " + getOrderDetails().getNumberOfArmy());
+        if (validateCommand()) {
+            l_Destination.deployArmies(l_ArmiesToDeploy);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * A function to validate the commands
+     *
+     * @return true if command can be executed else false
+     */
+    public boolean validateCommand() {
+        Player l_Player = getOrderDetails().getPlayer();
+        Country l_Destination = getOrderDetails().getCountryWhereDeployed();
+        int l_Reinforcements = getOrderDetails().getNumberOfArmy();
+        if (l_Player == null || l_Destination == null) {
+            System.out.println("Invalid order information.");
             return false;
         }
-    
-        Player l_Player = getOrderDetails().getPlayer();
-
-        String l_CountryWhereDeployed = getOrderDetails().getCountryWhereDeployed().toString();
-        
-        int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
-    
-        for (Country l_Country : l_Player.getOccupiedCountries()) {
-            if (l_Country.getCountryName().equals(l_CountryWhereDeployed)) {
-                l_Country.deployArmies(l_ArmiesToDeploy);
-                int l_DeployedArmies = l_Country.getArmies();
-                System.out.println("Successfully deployed " + l_ArmiesToDeploy + " armies to " + l_CountryWhereDeployed + ".");
-                System.out.println("The country " + l_Country.getCountryName() + " now has " + l_DeployedArmies + " armies.");
-            }
+        if (!l_Player.isCaptured(l_Destination)) {
+            System.out.println("The country does not belong to you");
+            return false;
         }
-    
-        System.out.println("\nExecution completed.");
-        System.out.println("=========================================================================================");
+        if (!l_Player.stationAdditionalArmiesFromPlayer(l_Reinforcements)) {
+            System.out.println("You do not have enough Reinforcement Armies to deploy.");
+            return false;
+        }
         return true;
     }
-    @Override
-    public boolean validateCommand() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validateCommand'");
-    }
-    @Override
+
+    /**
+     * A function to print the order on completion
+     */
     public void printOrderCommand() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printOrderCommand'");
+        System.out.println("Deployed " + getOrderDetails().getNumberOfArmy() + " armies to "
+                + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
+        System.out.println(
+                "---------------------------------------------------------------------------------------------");
+        d_LogEntryBuffer.logAction("Deployed " + getOrderDetails().getNumberOfArmy() + " armies to "
+                + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
+
     }
-    
 
 }

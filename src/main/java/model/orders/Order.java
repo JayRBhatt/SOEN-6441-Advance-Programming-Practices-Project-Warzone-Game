@@ -1,15 +1,5 @@
 package model.orders;
 
-/**
- * Concrete Class to manage the orders of the players
- *
- * @author Neona Pinto
- * @author Dhananjay Narayan
- * @author Surya Manian
- * @author Madhuvanthi Hemanathan
- * @author Prathika Suvarna
- * @version 1.0.0
- */
 public abstract class Order {
     /**
      * A data member to strore the order type
@@ -57,7 +47,7 @@ public abstract class Order {
     }
 
     /**
-     * A function to be overridden  by the Child class
+     * A function to be overridden by the Child class
      *
      * @return false as there is not order to be executed
      */
@@ -76,4 +66,3 @@ public abstract class Order {
     public abstract void printOrderCommand();
 
 }
-

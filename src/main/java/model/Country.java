@@ -51,6 +51,10 @@ public class Country {
         return d_Continent;
     }
 
+    public boolean isNeighbor(Country p_Neighbor) {
+        return this.getNeighbors().contains(p_Neighbor);
+    }
+
     /**
      * Sets the Continent Name into which the country is to be residing
      * 
@@ -170,7 +174,8 @@ public class Country {
     }
 
     /**
-     * It creates a concatenated string of country names from a set of neighbors which is
+     * It creates a concatenated string of country names from a set of neighbors
+     * which is
      * separated by hyphens ("-").
      * 
      * @param p_Neighbors

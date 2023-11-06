@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import model.orders.DeployOrder;
 import model.orders.Order;
 import model.orders.OrderCreator;
+import services.OrderIssue;
 
 /**
  * Class that provides every method that is required for any properties of
@@ -157,7 +158,7 @@ public class Player {
     }
 
     public void deployOrder() {
-        Order l_Order = OrderCreator.generateOrder(DeployOrder.Commands.split(" "), this);
+        Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
         receiveOrder(l_Order);
     }
 
@@ -175,30 +176,6 @@ public class Player {
      * 
      * @param p_Command
      */
-    public void publishOrder(String p_Command) {
-        boolean l_PublishCommand = true;
-        String[] l_ArrOfCommands = p_Command.split(" ");
-        int l_AdditionalArmies = Integer.parseInt(l_ArrOfCommands[2]);
-        if (!confirmIfCountryisOccupied(l_ArrOfCommands[1], this)) {
-            System.out.println("OOPS! This Country is not yours");
-            l_PublishCommand = false;
-        }
-        if (!stationAdditionalArmiesFromPlayer(l_AdditionalArmies)) {
-            System.out.println("Sorry, You don't have any more Available troops to deploy");
-            l_PublishCommand = false;
-        }
-
-        if (l_PublishCommand) {
-            Order l_Order = OrderCreator.generateOrder(l_ArrOfCommands, this);
-            OrderList.add(l_Order);
-            receiveOrder(l_Order);
-            System.out.println("Your Order has been successfully added in the list: Deploy "
-                    + l_Order.getOrderDetails().getCountryWhereDeployed() + " with "
-                    + l_Order.getOrderDetails().getNumberOfArmy() + " armies");
-            System.out.println(
-                    "=========================================================================================");
-        }
-    }
 
     /**
      * Confirms whether a country is occupied or not
