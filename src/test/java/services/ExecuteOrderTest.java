@@ -13,8 +13,6 @@ import model.Country;
 import model.GameMap;
 import model.GamePhase;
 import model.Player;
-import model.orders.Order;
-import model.orders.OrderDetails;
 
 /**
  * Test class that tests Execute order phase implementations

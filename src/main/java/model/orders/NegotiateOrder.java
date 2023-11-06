@@ -1,9 +1,9 @@
-package main.java.model.orders;
+package model.orders;
 
-import model.CardType;
+import model.CardsType;
 import model.GameMap;
 import model.Player;
-import utils.logger.LogEntryBuffer;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * This class extends Order to provide functionality for executing a negotiate
@@ -21,7 +21,7 @@ public class NegotiateOrder extends Order {
      */
     public NegotiateOrder() {
         super();
-        setType("negotiate");
+        setOrderType("negotiate");
         d_gameMap = GameMap.getInstance();
     }
 
@@ -33,13 +33,13 @@ public class NegotiateOrder extends Order {
      */
     @Override
     public boolean execute() {
-        Player l_neutralPlayer = getOrderInfo().getNeutralPlayer();
+        Player l_neutralPlayer = getOrderDetails().getNeutralPlayer();
         if (validateCommand()) {
-            System.out.println("Executing order: " + getType() + " with " + l_neutralPlayer.getName());
-            Player l_player = getOrderInfo().getPlayer();
+            System.out.println("Executing order: " + getOrderType() + " with " + l_neutralPlayer.getPlayerName());
+            Player l_player = getOrderDetails().getPlayer();
             l_player.addNeutralPlayers(l_neutralPlayer);
             l_neutralPlayer.addNeutralPlayers(l_player);
-            l_player.removeCard(CardType.DIPLOMACY);
+            l_player.removeCard(CardsType.DIPLOMACY);
             return true;
         }
         return false;
@@ -53,24 +53,24 @@ public class NegotiateOrder extends Order {
      */
     @Override
     public boolean validateCommand() {
-        Player l_player = getOrderInfo().getPlayer();
-        Player l_neutralPlayer = getOrderInfo().getNeutralPlayer();
+        Player l_player = getOrderDetails().getPlayer();
+        Player l_neutralPlayer = getOrderDetails().getNeutralPlayer();
 
-        if (!l_player.checkIfCardAvailable(CardType.DIPLOMACY)) {
+        if (!l_player.checkIfCardAvailable(CardsType.DIPLOMACY)) {
             System.err.println("The player lacks the required diplomacy card.");
-            d_logEntryBuffer.logInfo("The player lacks the required diplomacy card.");
+            d_logEntryBuffer.logAction("The player lacks the required diplomacy card.");
             return false;
         }
 
         if (l_neutralPlayer == null) {
             System.err.println("Invalid neutral player specified.");
-            d_logEntryBuffer.logInfo("Invalid neutral player specified.");
+            d_logEntryBuffer.logAction("Invalid neutral player specified.");
             return false;
         }
 
-        if (!d_gameMap.getPlayers().containsKey(l_neutralPlayer.getName())) {
+        if (!d_gameMap.getGamePlayers().containsKey(l_neutralPlayer.getPlayerName())) {
             System.err.println("Non-existent neutral player specified.");
-            d_logEntryBuffer.logInfo("Non-existent neutral player specified.");
+            d_logEntryBuffer.logAction("Non-existent neutral player specified.");
             return false;
         }
         return true;
@@ -79,12 +79,13 @@ public class NegotiateOrder extends Order {
     /**
      * Displays the negotiation order command for user awareness.
      */
-    @Override
+    
+     @Override
     public void printOrderCommand() {
-        String l_message = "Negotiation established with " + getOrderInfo().getNeutralPlayer().getName() + ".";
+        String l_message = "Negotiation established with " + getOrderDetails().getNeutralPlayer().getPlayerName() + ".";
         System.out.println(l_message);
         System.out.println(
                 "---------------------------------------------------------------------------------------------");
-        d_logEntryBuffer.logInfo(l_message);
+        d_logEntryBuffer.logAction(l_message);
     }
 }
