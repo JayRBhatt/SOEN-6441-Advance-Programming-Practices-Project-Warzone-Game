@@ -1,5 +1,7 @@
 package services;
 
+import java.util.HashMap;
+
 import controller.*;
 import model.Country;
 import model.GameMap;
@@ -8,6 +10,7 @@ import model.orders.OrderDetails;
 import model.Player;
 import model.orders.Order;
 import utils.InvalidCommandException;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * Class that has the main logic behind the functioning of Execute order phase
@@ -19,18 +22,13 @@ import utils.InvalidCommandException;
  * @author Meera Muraleedharan Nair
  */
 
- public class ExecuteOrder implements GameEngineController{
-        /**
-     * Reinforcement Phase enum keyword
-     */
- //   GamePhase d_ReinforcementGamePhase = GamePhase.Reinforcement;
-    /**
-     * Exit Phase enum keyword
-     */
-   // GamePhase d_ExitGamePhase = GamePhase.ExitGame;
+public class ExecuteOrder implements GameEngineController {
+
     GamePhase d_NextState = GamePhase.ExitGame;
     GamePhase d_GamePhase;
     GameMap d_GameMap;
+    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    GamePhase d_ReinforcementGamePhase = GamePhase.Reinforcement;
 
     /**
      * Constructs an ExecuteOrderService with a reference to the game map.
@@ -42,34 +40,48 @@ import utils.InvalidCommandException;
     }
 
     /**
-     * Starts the execution of orders in the Execute Order phase and then takes the player to the next game phase 
-     * after this phase gets completed 
+     * Starts the execution of orders in the Execute Order phase and then takes the
+     * player to the next game phase
+     * after this phase gets completed
+     * 
      * @throws InvalidCommandException if game phase transition is invalid.
      */
-    
+
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
         System.out.println("**************************************************************************************");
         System.out.println(
                 "Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
+        d_LogEntryBuffer.logAction("\n EXECUTE ORDER PHASE \n");
         executeOrders();
-        System.out.println("All the orders have been executed successfully");
-        return p_GamePhase.nextState(d_NextState);
+        clearAllNeutralPlayers();
+
+        return checkPlayerWon(p_GamePhase);
     }
 
     /**
      * Executes orders for each player in the game.
      */
-    
-    public void executeOrders() {
-        for (Player l_Player : d_GameMap.getGamePlayers().values()) {
-            for (Order order : l_Player.getOrders()) {
-                boolean isOrderExecuted = execute(order);
-                if (isOrderExecuted) {
-                    System.out.println("Order executed: " + order.getOrderDetails());
+
+    private void executeOrders() {
+        int l_Counter = 0;
+        while (l_Counter < d_GameMap.getGamePlayers().size()) {
+            l_Counter = 0;
+            for (Player player : d_GameMap.getGamePlayers().values()) {
+                Order l_Order = player.nextOrder();
+                if (l_Order == null) {
+                    l_Counter++;
                 } else {
-                    System.out.println("Failed to execute order: " + order.getOrderDetails());
+                    if (l_Order.execute()) {
+                        // l_Order.printOrderCommand();
+                    }
                 }
             }
+        }
+    }
+
+    private void clearAllNeutralPlayers() {
+        for (Player l_Player : d_GameMap.getGamePlayers().values()) {
+            l_Player.removeNeutralPlayer();
         }
     }
 
@@ -80,34 +92,16 @@ import utils.InvalidCommandException;
      * @return true if the order was successfully executed, or false
      *         otherwise.
      */
-    
-    public boolean execute(Order order) {
-        // Get the order details
-        OrderDetails orderDetails = order.getOrderDetails();
+    public GamePhase checkPlayerWon(GamePhase p_GamePhase) {
 
-        // Check if the player or destination is null
-        if (orderDetails.getPlayer() == null || orderDetails.getCountryWhereDeployed() == null) {
-            System.out.println(
-                    "Sorry,this order can't be done you have made a mistake we guess,try checking the above commands and execute the order again");
-            return false;
-        }
-        // Get player, destination, and the number of armies from orderDetails
-        Player l_Player = orderDetails.getPlayer();
-        String l_Destination = orderDetails.getCountryWhereDeployed();
-        int l_ArmiesToDeploy = orderDetails.getNumberOfArmy();
-
-        for (Country l_Country : l_Player.getOccupiedCountries()) {
-            if (l_Country.getCountryName().equals(l_Destination)) {
-                l_Country.deployArmies(l_ArmiesToDeploy);
-                System.out
-                        .println(l_Country.getArmies() + " Armies have been deployed in " + l_Country.getCountryName());
+        for (Player l_Player : d_GameMap.getGamePlayers().values()) {
+            if (l_Player.getOccupiedCountries().size() == d_GameMap.getCountries().size()) {
+                System.out.println("The Player " + l_Player.getPlayerName() + " won the game.");
+                System.out.println("Exiting the game...");
+                return p_GamePhase.nextState(d_NextState);
             }
         }
-
-        System.out.println(
-                "\nHoorayyy, The Execution has been completed successfully: " + l_ArmiesToDeploy
-                        + " armies deployed to " + l_Destination + ".");
-        System.out.println("=========================================================================================");
-        return true;
+        return p_GamePhase.nextState(d_ReinforcementGamePhase);
     }
+
 }

@@ -23,7 +23,7 @@ public class GameEngine {
     /**
      * gamephase instance for the state
      */
-     GamePhase d_GamePhase = GamePhase.MapEditor;
+    GamePhase d_GamePhase = GamePhase.MapEditor;
 
     /**
      * The main method for accepting command from users to run the warzone game
@@ -45,22 +45,26 @@ public class GameEngine {
      */
 
     public void start(GameCalculation p_GameCalculation) throws InvalidCommandException {
-        try {
-            if (!d_GamePhase.equals(GamePhase.ExitGame)) {
+        while (!d_GamePhase.equals(GamePhase.ExitGame)) {
+            try {
                 GameEngineController l_GameController = d_GamePhase.getController();
-                if (Objects.isNull(l_GameController)) {
-                    throw new Exception("No Controller found");
+                if (l_GameController == null) {
+                    System.err.println("No Controller found for the current phase.");
+                    return;
                 }
                 d_GamePhase = l_GameController.start(d_GamePhase);
                 System.out.println("You have entered the " + d_GamePhase + " Phase.");
-                System.out.println("-----------------------------------------------------------------------------------------");
-                start(p_GameCalculation);
+                System.out.println(
+                        "-----------------------------------------------------------------------------------------");
+
+            } catch (InvalidInputException | InvalidCommandException p_Exception) {
+                System.err.println(p_Exception.getMessage());
+
+            } catch (Exception p_Exception) {
+                p_Exception.printStackTrace();
+
+                break;
             }
-        } catch (InvalidInputException | InvalidCommandException p_Exception) {
-            System.err.println(p_Exception.getMessage());
-            start(p_GameCalculation);
-        } catch (Exception p_Exception) {
-            p_Exception.printStackTrace();
         }
     }
 }

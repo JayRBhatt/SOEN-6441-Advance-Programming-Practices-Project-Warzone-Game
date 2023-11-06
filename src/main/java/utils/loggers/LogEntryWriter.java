@@ -1,6 +1,6 @@
-package utils.logger;
+package utils.loggers;
 
-import utils.Observer;
+import utils.maputils.Observer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -16,7 +16,7 @@ public class LogEntryWriter implements Observer {
      *
      * @param p_message the information to be logged.
      */
-    public void receiveUpdate(String p_message) {
+    public void update(String p_message) {
         logMessage(p_message);
     }
 

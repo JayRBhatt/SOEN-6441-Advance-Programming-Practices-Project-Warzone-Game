@@ -1,4 +1,4 @@
-package utils;
+package utils.maputils;
 
 /**
  * An interface for implementation of Observable with a notifyObservers
