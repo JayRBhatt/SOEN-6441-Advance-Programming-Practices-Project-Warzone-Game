@@ -12,7 +12,7 @@ import org.junit.Test;
 import model.Country;
 import model.GameMap;
 import model.GamePhase;
-import model.Player;
+import model.Player; 
 
 /**
  * Test class that tests Execute order phase implementations

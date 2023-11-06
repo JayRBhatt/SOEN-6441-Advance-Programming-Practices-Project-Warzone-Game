@@ -96,7 +96,7 @@ public class Player {
      * @param p_Order
      */
 
-    private void receiveOrder(Order p_Order) {
+    public void receiveOrder(Order p_Order) {
         d_Orders.add(p_Order);
     }
 

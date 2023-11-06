@@ -1,7 +1,7 @@
 package utils.maputils;
 
 import model.GameMap;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -81,5 +81,10 @@ public class ValidateMapTest {
     @Test
     public void testIfGameMapIsConnected() {
         assertEquals(true, ValidateMap.checkIfMapIsConnected(d_GameMap));
+    }
+    @Test
+    public void CheckIfMapIsInvalid() throws InvalidCommandException {
+        d_GameMap.removeNeighbor("Newyork", "Pak");
+        assertFalse(ValidateMap.checkIfMapIsConnected(d_GameMap));
     }
 }

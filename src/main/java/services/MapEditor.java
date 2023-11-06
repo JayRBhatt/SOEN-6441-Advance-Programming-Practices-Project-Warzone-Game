@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import controller.*;
 import model.GameMap;
 import model.GamePhase;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
@@ -261,7 +261,11 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-
+         // Retrieve the continent name from the command list.
+        String l_ContinentName = p_CommandList.get(2);
+        if (d_GameMap.getContinents().containsKey(l_ContinentName)) {
+            throw new InvalidCommandException("The continent " + l_ContinentName + " already exists.");
+        }
         d_GameMap.addContinent(p_CommandList.get(1), p_CommandList.get(2));
     }
 
@@ -274,8 +278,14 @@ public class MapEditor implements GameEngineController{
     private void removeContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();
+        } 
+        // Retrieve the continent name from the command list.
+        String l_ContinentName = p_CommandList.get(1);
+    
+        // Check if the continent exists in the GameMap's continents hashmap.
+        if (!d_GameMap.getContinents().containsKey(l_ContinentName)) {
+            throw new InvalidCommandException("The continent " + l_ContinentName + " does not exist.");
         }
-
         d_GameMap.removeContinent(p_CommandList.get(1));
     }
 
@@ -287,10 +297,19 @@ public class MapEditor implements GameEngineController{
      */
     private void addCountry(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {
-            throw new InvalidCommandException();
+            throw new InvalidCommandException("The command does not have the correct number of arguments.");
         }
-
-        d_GameMap.addCountry(p_CommandList.get(1), p_CommandList.get(2));
+    
+        // Retrieve the continent name from the command list.
+        String l_ContinentName = p_CommandList.get(2);
+    
+        // Check if the continent exists in the GameMap's continents hashmap.
+        if (!d_GameMap.getContinents().containsKey(l_ContinentName)) {
+            throw new InvalidCommandException("The continent " + l_ContinentName + " does not exist.");
+        }
+    
+        // Since the continent exists, proceed to add the country.
+        d_GameMap.addCountry(p_CommandList.get(1), l_ContinentName);
     }
 
     /**
@@ -303,7 +322,13 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();
         }
-
+        // Retrieve the country name from the command list.
+        String l_CountryName = p_CommandList.get(1);
+    
+        // Check if the country exists in the GameMap's conuntries hashmap.
+        if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
+            throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
+        }
         d_GameMap.removeCountry(p_CommandList.get(1));
     }
 
@@ -317,7 +342,15 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-
+        // Retrieve the country name from the command list.
+        String l_CountryName = p_CommandList.get(2);
+        String l_NeighborCountryMName = p_CommandList.get(1);
+        // Check if the country exists in the GameMap's conuntries hashmap.
+        if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
+            throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
+        }else if(!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
+            throw new InvalidCommandException("The Country - " + l_NeighborCountryMName + " - does not exist.");
+        }
         d_GameMap.addNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 
@@ -331,7 +364,15 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-
+        // Retrieve the country name from the command list.
+        String l_CountryName = p_CommandList.get(2);
+        String l_NeighborCountryMName = p_CommandList.get(1);
+        // Check if the country exists in the GameMap's conuntries hashmap.
+        if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
+            throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
+        }else if(!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
+            throw new InvalidCommandException("The Country - " + l_NeighborCountryMName + " - does not exist.");
+        }
         d_GameMap.removeNeighbor(p_CommandList.get(1), p_CommandList.get(2));
     }
 
