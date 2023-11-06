@@ -14,12 +14,14 @@ import utils.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 
 /**
- * Class that has the main logic behind the functioning of OrderIssue phase
- * in the game
+ * Class which is the controller for the Issue Order phase
  *
- * @author Mariya Bosy Kondody
- * @author Reema Ann Reny
- * @author Meera Muraleedharan Nair
+ * @author Prathika Suvarna
+ * @author Neona Pinto
+ * @author Dhananjay Narayan
+ * @author Surya Manian
+ * @author Madhuvanthi Hemanathan
+ * @version 1.0.0
  */
 
 public class OrderIssue implements GameEngineController {

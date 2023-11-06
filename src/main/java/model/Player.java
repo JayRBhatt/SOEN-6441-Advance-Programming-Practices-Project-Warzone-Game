@@ -54,6 +54,16 @@ public class Player {
     }
 
     /**
+     * Method to check if particular card is available in the player's card list
+     *
+     * @param p_cardType The type of card
+     * @return true if card is available else false
+     */
+    public boolean checkIfCardAvailable(CardsType p_cardType) {
+        return d_PlayersCards.stream().anyMatch(p_card -> p_card.getCardsType().equals(p_cardType));
+    }
+
+    /**
      * Returns a List of Occupied Countries by a Player
      * 
      * @return d_OccupiedCountries
