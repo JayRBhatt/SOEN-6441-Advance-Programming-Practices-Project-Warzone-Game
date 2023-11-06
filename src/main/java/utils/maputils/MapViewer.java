@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import model.GameMap;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 
 /**
  * A class which provides the logic for reading the pre-existing maps in the file

@@ -10,7 +10,7 @@ import controller.*;
 import model.GameMap;
 import model.GamePhase;
 import model.Player;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 
 /**

@@ -1,4 +1,4 @@
-package model;
+package model.GameCalculations;
 
 public class GameCalculation {
     /**

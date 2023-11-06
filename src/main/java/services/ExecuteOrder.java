@@ -9,7 +9,7 @@ import model.GamePhase;
 import model.orders.OrderDetails;
 import model.Player;
 import model.orders.Order;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 
 /**

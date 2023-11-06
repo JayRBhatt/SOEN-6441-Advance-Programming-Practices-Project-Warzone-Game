@@ -1,4 +1,8 @@
-package model;
+package model.GameCalculations;
+
+import model.Cards;
+import model.Country;
+import model.Player;
 
 public class DefaultAttackLogic implements AttackLogic{
      GameCalculation calculation = GameCalculation.getInstance();
@@ -32,7 +36,7 @@ public class DefaultAttackLogic implements AttackLogic{
                 //Assign power card to winner
                 Cards l_AssignedCard = new Cards();
                 p_Player.addPlayerCard(l_AssignedCard);
-                System.out.println("Attacker: " + p_Player.getPlayerName() + " received a card: " + l_AssignedCard);
+                System.out.println("Attacker: " + p_Player.getPlayerName() + " received a card: " + l_AssignedCard.getCardsType().name());
                // d_LogEntryBuffer.logInfo("Attacker: " + p_Player.getName() + " received a card: "+ l_AssignedCard);
                 System.out.println("Attacker : " + p_Player.getPlayerName() + " won.");
                 System.out.println("Remaining attacker's armies " + p_To.getArmies() + " moved from " + p_From.getCountryName() + " to " + p_To.getCountryName() + ".");

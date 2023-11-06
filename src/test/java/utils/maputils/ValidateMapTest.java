@@ -1,7 +1,7 @@
 package utils.maputils;
 
 import model.GameMap;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 
 import org.junit.After;
 import org.junit.Before;
