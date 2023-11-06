@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import model.orders.Order;
 import model.orders.OrderCreator;
 import services.OrderIssue;
-import services.OrderIssue;
 
 /**
  * Class that provides every method that is required for any properties of
@@ -158,7 +157,6 @@ public class Player {
     }
 
     public void deployOrder() {
-        Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), this);
         receiveOrder(l_Order);
     }
