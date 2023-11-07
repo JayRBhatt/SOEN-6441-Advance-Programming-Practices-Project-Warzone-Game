@@ -233,7 +233,7 @@ public class Player {
         if (getOccupiedCountries().size() > 0) {
             int l_reinforcements = (int) Math.floor(getOccupiedCountries().size() / 3f);
             l_reinforcements += getExtraArmiesIfPlayerWins(p_gameMap);
-            setAdditionalArmies(l_reinforcements > 2 ? l_reinforcements : 5);
+            setAdditionalArmies(l_reinforcements > 2 ? l_reinforcements : 20);
         } else {
             setAdditionalArmies(5);
         }

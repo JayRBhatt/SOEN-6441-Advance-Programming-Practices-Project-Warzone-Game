@@ -1,12 +1,8 @@
 package services;
 
-import java.util.HashMap;
-
 import controller.*;
-import model.Country;
 import model.GameMap;
 import model.GamePhase;
-import model.orders.OrderDetails;
 import model.Player;
 import model.orders.Order;
 import utils.exceptions.InvalidCommandException;

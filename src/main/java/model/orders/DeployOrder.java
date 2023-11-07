@@ -19,7 +19,6 @@ import utils.loggers.LogEntryBuffer;
  */
 public class DeployOrder extends Order {
     LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
-    //
 
     /**
      * Constructor for class DeployOrder

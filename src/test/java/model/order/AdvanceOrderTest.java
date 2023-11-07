@@ -2,9 +2,9 @@ package model.order;
 
 import services.OrderIssue;
 import model.Country;
-import model.DefaultAttackLogic;
+import model.GameCalculations.DefaultAttackLogic;
 import model.GameMap;
-import model.GameCalculation;
+import model.GameCalculations.GameCalculation;
 import model.Player;
 import model.orders.Order;
 import model.orders.OrderCreator;
@@ -45,13 +45,13 @@ public class AdvanceOrderTest {
         GameCalculation l_GameSettings = GameCalculation.getInstance();
         l_GameSettings.setStrategy(new DefaultAttackLogic());
 
-        //Add Continent
+        // Add Continent
         d_GameMap.addContinent("Asia", "4");
-        //Add Countries
+        // Add Countries
         d_GameMap.addCountry("India", "Asia");
         d_GameMap.addCountry("China", "Asia");
         d_GameMap.addCountry("Vietnam", "Asia");
-        //Add Neighbors
+        // Add Neighbors
         Country l_Country1 = d_GameMap.getCountry("India");
         Country l_Country2 = d_GameMap.getCountry("China");
         Country l_Country3 = d_GameMap.getCountry("Vietnam");
@@ -60,11 +60,11 @@ public class AdvanceOrderTest {
         l_Country3.setNeighbors(l_Country1);
         d_GameMap.addGamePlayer("Player1");
         d_GameMap.addGamePlayer("Player2");
-        //Add Countries to players
+        // Add Countries to players
         d_GameMap.getGamePlayer("Player1").getOccupiedCountries().add(d_GameMap.getCountry("India"));
         d_GameMap.getGamePlayer("Player1").getOccupiedCountries().add(d_GameMap.getCountry("Vietnam"));
         d_GameMap.getGamePlayer("Player2").getOccupiedCountries().add(d_GameMap.getCountry("China"));
-        //Add Reinforcements to players
+        // Add Reinforcements to players
         d_GameMap.getGamePlayer("Player1").setAdditionalArmies(10);
         d_GameMap.getGamePlayer("Player2").setAdditionalArmies(10);
     }
@@ -88,7 +88,8 @@ public class AdvanceOrderTest {
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
 
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertFalse(l_Player1.nextOrder().execute());
@@ -102,7 +103,8 @@ public class AdvanceOrderTest {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(0).setArmies(6);
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer1.get(1).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer1.get(1).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertFalse(l_Player1.nextOrder().execute());
@@ -117,7 +119,8 @@ public class AdvanceOrderTest {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(1).setArmies(6);
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(1).getCountryName() + " " + l_CountriesPlayer1.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(1).getCountryName() + " "
+                + l_CountriesPlayer1.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertTrue(l_Player1.nextOrder().execute());
@@ -136,11 +139,13 @@ public class AdvanceOrderTest {
         // Set Armies to each country
         l_CountriesPlayer1.get(0).setArmies(6);
 
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertTrue(l_Player1.nextOrder().execute());
-        assertEquals("Armies Depleted from source and deployed to target",5,d_GameMap.getCountry("China").getArmies());
+        assertEquals("Armies Depleted from source and deployed to target", 5,
+                d_GameMap.getCountry("China").getArmies());
         assertTrue(l_CountriesPlayer1.get(0).getArmies() > 0);
     }
 
@@ -161,14 +166,16 @@ public class AdvanceOrderTest {
         l_CountriesPlayer1.get(0).setArmies(6);
         l_CountriesPlayer2.get(0).setArmies(6);
 
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertTrue(l_Player1.nextOrder().execute());
     }
 
     /**
-     * Test to check if attack execution succeeds and ownership changed, if destination is neighbor
+     * Test to check if attack execution succeeds and ownership changed, if
+     * destination is neighbor
      * and troops deployed and king exists.
      */
     @Test
@@ -178,17 +185,18 @@ public class AdvanceOrderTest {
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         Player l_Player2 = d_GameMap.getGamePlayer("Player2");
 
-        //Set Players to Countries
+        // Set Players to Countries
         l_CountriesPlayer1.get(0).setPlayer(l_Player1);
         l_CountriesPlayer2.get(0).setPlayer(l_Player2);
         // Set Armies to each country
         l_CountriesPlayer1.get(0).setArmies(6);
 
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertTrue(l_Player1.nextOrder().execute());
-        assertEquals("Ownership changed",l_Player1,d_GameMap.getCountry("China").getPlayer());
+        assertEquals("Ownership changed", l_Player1, d_GameMap.getCountry("China").getPlayer());
     }
 
     /**
@@ -206,11 +214,12 @@ public class AdvanceOrderTest {
         // Set Armies to each country
         l_CountriesPlayer1.get(0).setArmies(6);
         l_CountriesPlayer2.get(0).setArmies(6);
-        //Set Neutral Players
+        // Set Neutral Players
         l_Player1.getNeutralPlayers().add(l_Player2);
         l_Player2.getNeutralPlayers().add(l_Player1);
 
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " " + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(0).getCountryName() + " "
+                + l_CountriesPlayer2.get(0).getCountryName() + " " + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertTrue(l_Player1.nextOrder().execute());
@@ -224,7 +233,8 @@ public class AdvanceOrderTest {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(1).setArmies(6);
-        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(1).getCountryName() + " " + "Thailand" + " " + (l_Player1.getAdditionalArmies() - 5);
+        OrderIssue.Commands = "advance " + l_CountriesPlayer1.get(1).getCountryName() + " " + "Thailand" + " "
+                + (l_Player1.getAdditionalArmies() - 5);
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertFalse(l_Player1.nextOrder().execute());
