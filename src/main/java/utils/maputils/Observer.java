@@ -3,7 +3,7 @@ package utils.maputils;
 /**
  * An interface for implementation of Observer with an update function
  * 
- * @author
+ * @author Madhav Anadkat
  */
 public interface Observer {
 
@@ -14,3 +14,4 @@ public interface Observer {
      */
     void update(String p_s);
 }
+

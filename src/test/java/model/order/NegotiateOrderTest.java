@@ -15,6 +15,12 @@ import static org.junit.Assert.*;
 
 /**
  * Test class for Negotiate Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class NegotiateOrderTest {
     GameMap d_GameMap;

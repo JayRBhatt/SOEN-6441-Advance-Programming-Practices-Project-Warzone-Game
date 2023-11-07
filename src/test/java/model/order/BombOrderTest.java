@@ -16,6 +16,12 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for Bomb Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class BombOrderTest {
     GameMap d_GameMap;

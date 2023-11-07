@@ -17,6 +17,12 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for Deploy Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class DeployOrderTest {
     GameMap d_GameMap;

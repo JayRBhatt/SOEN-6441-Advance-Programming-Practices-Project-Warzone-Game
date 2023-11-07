@@ -19,7 +19,12 @@ import java.util.List;
 
 /**
  * This class tests the Airlift Order
- * @author Surya Manian
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class AirliftOrderTest {
     GameMap d_GameMap;
