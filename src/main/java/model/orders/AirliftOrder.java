@@ -8,7 +8,6 @@ import utils.loggers.LogEntryBuffer;
 
 /**
  * This class gives the order to execute AirliftOrder, from one country to another.
- * @author Surya Manian
  */
 public class AirliftOrder extends Order {
 

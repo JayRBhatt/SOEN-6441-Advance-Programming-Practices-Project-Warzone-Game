@@ -1,6 +1,35 @@
-xyzz has issued this order :- deploy nigeria 2
+Entered Map Editor Phase!
+Ended Map Editor Phase
+Added Continent: africa
+Added Continent: southamerica
+Added Continent: asia
+Added Continent: northamerica
+Added Continent: europe
+Added Country: spain to europe continent
+Added Country: brazil to southamerica continent
+Added Country: egypt to africa continent
+Added Country: canada to northamerica continent
+Added Country: india to asia continent
+Added Neighbor: india to spain
+Added Neighbor: spain to brazil
+Added Neighbor: canada to egypt
+Added Neighbor: brazil to canada
+Added Neighbor: egypt to india
+Added GamePlayer: mad
+Added GamePlayer: jay
+canada Assigned to mad
+india Assigned to jay
+spain Assigned to mad
+egypt Assigned to jay
+brazil Assigned to mad
 
  ISSUE ORDER PHASE 
 
-jay has issued this order :- 
-jay has issued this order :- deploy india 4
+mad has issued this order :- deploy canada 20
+jay has issued this order :- deploy india 10
+
+ EXECUTE ORDER PHASE 
+
+
+ ISSUE ORDER PHASE 
+

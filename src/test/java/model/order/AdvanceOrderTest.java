@@ -2,9 +2,9 @@ package model.order;
 
 import services.OrderIssue;
 import model.Country;
-import model.DefaultAttackLogic;
+import model.GameCalculations.DefaultAttackLogic;
 import model.GameMap;
-import model.GameCalculation;
+import model.GameCalculations.GameCalculation;
 import model.Player;
 import model.orders.Order;
 import model.orders.OrderCreator;
