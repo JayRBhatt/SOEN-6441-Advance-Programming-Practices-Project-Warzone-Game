@@ -8,7 +8,7 @@ import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 import controller.GameEngineController;
 import model.*;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 
 /**

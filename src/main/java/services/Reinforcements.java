@@ -4,7 +4,7 @@ import controller.GameEngineController;
 import model.GameMap;
 import model.GamePhase;
 import model.Player;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.exceptions.InvalidInputException;
 
 /**

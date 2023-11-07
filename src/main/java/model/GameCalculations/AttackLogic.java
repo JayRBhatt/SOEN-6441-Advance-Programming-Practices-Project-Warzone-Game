@@ -1,4 +1,7 @@
-package model;
+package model.GameCalculations;
+
+import model.Country;
+import model.Player;
 
 public interface AttackLogic {
  

@@ -1,9 +1,9 @@
 package model.orders;
 
-import model.AttackLogic;
 import model.Country;
-import model.GameCalculation;
 import model.Player;
+import model.GameCalculations.AttackLogic;
+import model.GameCalculations.GameCalculation;
 import utils.loggers.LogEntryBuffer;
 
 import java.util.Objects;

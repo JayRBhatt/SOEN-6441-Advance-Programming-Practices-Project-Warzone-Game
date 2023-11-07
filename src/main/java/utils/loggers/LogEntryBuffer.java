@@ -40,7 +40,7 @@ public class LogEntryBuffer implements Observable {
      */
     public void prepareNewLogFile() {
         PrintWriter l_writer = null;
-        String l_fileName = "game_log";
+        String l_fileName = "demo";
         try {
             l_writer = new PrintWriter(new BufferedWriter(new FileWriter("logFiles/" + l_fileName + ".log", false)));
             l_writer.print(""); // Clear the file content.

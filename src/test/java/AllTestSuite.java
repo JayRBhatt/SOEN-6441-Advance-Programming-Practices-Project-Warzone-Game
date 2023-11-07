@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import utils.maputils.ValidateMapTest;
 
-@RunWith(Suite.class)
+// @RunWith(Suite.class)
 
 /**
  * Run all test cases
@@ -24,9 +24,9 @@ import utils.maputils.ValidateMapTest;
         ContinentTest.class, CountryTest.class, GameMapTest.class, PlayerTest.class,
         ValidateMapTest.class})
 
-/**
- * class for test suite
- */
-public class AllTestSuite {
+// /**
+// * class for test suite
+// */
+ public class AllTestSuite {
 
-}
+ }

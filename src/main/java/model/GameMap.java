@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 import utils.maputils.SaveMap;
 import utils.maputils.ValidateMap;
@@ -276,7 +276,7 @@ public class GameMap {
 
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
         d_LogEntryBuffer.logAction("Added GamePlayer: "+p_PlayerName);
-
+        
     }
 
     /**

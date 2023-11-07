@@ -1,10 +1,9 @@
-import java.util.Objects;
 
 import controller.GameEngineController;
-import model.DefaultAttackLogic;
-import model.GameCalculation;
 import model.GamePhase;
-import utils.InvalidCommandException;
+import model.GameCalculations.DefaultAttackLogic;
+import model.GameCalculations.GameCalculation;
+import utils.exceptions.InvalidCommandException;
 import utils.exceptions.InvalidInputException;
 
 /**

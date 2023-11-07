@@ -1,0 +1,15 @@
+[Map]
+
+[Continents]
+africa 10
+southamerica 16
+asia 15
+northamerica 12
+europe 14
+[Territories]
+spain europe india
+brazil southamerica spain
+egypt africa canada
+canada northamerica brazil
+india asia egypt
+

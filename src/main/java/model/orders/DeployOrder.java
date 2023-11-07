@@ -9,7 +9,7 @@ import utils.loggers.LogEntryBuffer;
  *
  * /**
  * A class with the information of Order details
- * 
+ *
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -19,7 +19,6 @@ import utils.loggers.LogEntryBuffer;
  */
 public class DeployOrder extends Order {
     LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
-    //
 
     /**
      * Constructor for class DeployOrder
