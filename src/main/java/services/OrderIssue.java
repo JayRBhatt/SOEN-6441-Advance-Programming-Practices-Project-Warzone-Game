@@ -15,8 +15,9 @@ import utils.loggers.LogEntryBuffer;
 
 /**
  * Class which is the controller for the Issue Order phase
- *
- * 
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
 

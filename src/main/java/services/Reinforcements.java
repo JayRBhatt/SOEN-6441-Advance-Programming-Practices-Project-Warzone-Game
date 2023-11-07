@@ -9,10 +9,7 @@ import utils.exceptions.InvalidInputException;
 
 /**
  * Class that has the main logic behind the functioning of Reinforcements phase
- * in
- * the game
- *
- *
+ * in the game
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair

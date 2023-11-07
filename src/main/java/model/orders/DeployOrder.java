@@ -6,10 +6,6 @@ import utils.loggers.LogEntryBuffer;
 
 /**
  * Class DeployOrder which is a child of Order, used to execute the orders
- *
- * /**
- * A class with the information of Order details
- *
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi

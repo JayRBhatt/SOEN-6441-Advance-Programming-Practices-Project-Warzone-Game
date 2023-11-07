@@ -1,5 +1,14 @@
 package model.orders;
 
+/**
+ * An abstract class to manage the orders of the players
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ */
 public abstract class Order {
     /**
      * A data member to strore the order type

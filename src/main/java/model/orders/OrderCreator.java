@@ -7,12 +7,12 @@ import utils.loggers.LogEntryBuffer;
 
 /**
  * A class to create Orders in the game.
- *
- * @author Neona Pinto
- * @author Dhananjay Narayan
- * @author Surya Manian
- * @author Madhuvanthi Hemanathan
- * @author Prathika Suvarna
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class OrderCreator {
     /**

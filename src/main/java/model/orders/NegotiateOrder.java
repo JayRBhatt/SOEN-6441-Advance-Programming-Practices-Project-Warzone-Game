@@ -8,6 +8,12 @@ import utils.loggers.LogEntryBuffer;
 /**
  * This class extends Order to provide functionality for executing a negotiate
  * order.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class NegotiateOrder extends Order {
     private LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();

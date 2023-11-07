@@ -11,6 +11,12 @@ import utils.loggers.LogEntryBuffer;
  * It allows a player to bomb a country, reducing its army count by half.
  * The action is not permitted on the player's own countries or on neutral
  * countries with a truce.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class BombOrder extends Order {
 

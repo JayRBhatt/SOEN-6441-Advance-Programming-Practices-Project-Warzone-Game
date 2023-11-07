@@ -1,6 +1,16 @@
 package model;
 import java.util.Random;
 
+
+/**
+ * An enum containing all the card types
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ */
 public enum CardsType {
     /**
      * Bomb Card Type

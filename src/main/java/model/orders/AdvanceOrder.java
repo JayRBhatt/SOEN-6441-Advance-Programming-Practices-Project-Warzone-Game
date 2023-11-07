@@ -10,6 +10,12 @@ import java.util.Objects;
 
 /**
  * Represents the advance order and its operational logic within the game.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  */
 public class AdvanceOrder extends Order {
 
