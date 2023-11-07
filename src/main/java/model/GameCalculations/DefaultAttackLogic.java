@@ -4,8 +4,8 @@ import model.Cards;
 import model.Country;
 import model.Player;
 
-public class DefaultAttackLogic implements AttackLogic{
-     GameCalculation calculation = GameCalculation.getInstance();
+public class DefaultAttackLogic implements AttackLogic {
+    GameCalculation calculation = GameCalculation.getInstance();
 
     /**
      * Logger for game actions
@@ -33,13 +33,16 @@ public class DefaultAttackLogic implements AttackLogic{
             if (l_armiesLeftAttacker > 0 && l_armiesLeftDefender <= 0) {
                 p_To.setArmies(l_armiesLeftAttacker);
                 winner(p_Player, p_To);
-                //Assign power card to winner
+                // Assign power card to winner
                 Cards l_AssignedCard = new Cards();
                 p_Player.addPlayerCard(l_AssignedCard);
-                System.out.println("Attacker: " + p_Player.getPlayerName() + " received a card: " + l_AssignedCard.getCardsType().name());
-               // d_LogEntryBuffer.logInfo("Attacker: " + p_Player.getName() + " received a card: "+ l_AssignedCard);
+                System.out.println("Attacker: " + p_Player.getPlayerName() + " received a card: "
+                        + l_AssignedCard.getCardsType().name());
+                // d_LogEntryBuffer.logInfo("Attacker: " + p_Player.getName() + " received a
+                // card: "+ l_AssignedCard);
                 System.out.println("Attacker : " + p_Player.getPlayerName() + " won.");
-                System.out.println("Remaining attacker's armies " + p_To.getArmies() + " moved from " + p_From.getCountryName() + " to " + p_To.getCountryName() + ".");
+                System.out.println("Remaining attacker's armies " + p_To.getArmies() + " moved from "
+                        + p_From.getCountryName() + " to " + p_To.getCountryName() + ".");
             } else {
                 p_From.deployArmies(l_armiesLeftAttacker);
                 p_To.setArmies(l_armiesLeftDefender);
@@ -51,5 +54,5 @@ public class DefaultAttackLogic implements AttackLogic{
         } catch (Exception p_Exception) {
             return false;
         }
-    }   
+    }
 }

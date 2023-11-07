@@ -45,9 +45,7 @@ public class ExecuteOrder implements GameEngineController {
      */
 
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
-        System.out.println("**************************************************************************************");
-        System.out.println(
-                "Heyyy Smartie,You have came too far now,its time to execute your orders to conquer this world");
+        d_GamePhase = p_GamePhase;
         d_LogEntryBuffer.logAction("\n EXECUTE ORDER PHASE \n");
         executeOrders();
         clearAllNeutralPlayers();
@@ -69,7 +67,7 @@ public class ExecuteOrder implements GameEngineController {
                     l_Counter++;
                 } else {
                     if (l_Order.execute()) {
-                        // l_Order.printOrderCommand();
+                        l_Order.printOrderCommand();
                     }
                 }
             }
