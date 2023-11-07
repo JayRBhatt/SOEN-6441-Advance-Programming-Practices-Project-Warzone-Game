@@ -276,7 +276,7 @@ public class GameMap {
 
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
         d_LogEntryBuffer.logAction("Added GamePlayer: "+p_PlayerName);
-
+        
     }
 
     /**
