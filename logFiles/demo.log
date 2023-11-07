@@ -4,3 +4,2369 @@ xyzz has issued this order :- deploy nigeria 2
 
 jay has issued this order :- 
 jay has issued this order :- deploy india 4
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+France Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+France Assigned to Player2
+China Assigned to Player1
+India Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Afganisthan Assigned to Player2
+China Assigned to Player1
+Pakistan Assigned to Player2
+Myanmar Assigned to Player1
+SriLanka Assigned to Player2
+India Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Bangladesh Assigned to Player1
+Afganisthan Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+Pakistan Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+SriLanka Assigned to Player1
+Pakistan Assigned to Player2
+Afganisthan Assigned to Player1
+Bangladesh Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+India Assigned to Player1
+Afganisthan Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+Pakistan Assigned to Player1
+SriLanka Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+SriLanka Assigned to Player1
+Afganisthan Assigned to Player2
+India Assigned to Player1
+Bangladesh Assigned to Player2
+Pakistan Assigned to Player1
+Myanmar Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Myanmar Assigned to Player2
+India Assigned to Player1
+SriLanka Assigned to Player2
+Afganisthan Assigned to Player1
+Pakistan Assigned to Player2
+Bangladesh Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+France Assigned to Player2
+China Assigned to Player1
+India Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+France Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+Afganisthan Assigned to Player1
+China Assigned to Player2
+SriLanka Assigned to Player1
+Myanmar Assigned to Player2
+India Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+India Assigned to Player1
+Bangladesh Assigned to Player2
+Afganisthan Assigned to Player1
+SriLanka Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+SriLanka Assigned to Player2
+Bangladesh Assigned to Player1
+Afganisthan Assigned to Player2
+India Assigned to Player1
+Myanmar Assigned to Player2
+China Assigned to Player1
+Pakistan Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+Afganisthan Assigned to Player1
+SriLanka Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+India Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+SriLanka Assigned to Player2
+India Assigned to Player1
+Pakistan Assigned to Player2
+Myanmar Assigned to Player1
+Bangladesh Assigned to Player2
+Afganisthan Assigned to Player1
+China Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+Afganisthan Assigned to Player1
+Pakistan Assigned to Player2
+Myanmar Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+France Assigned to Player1
+India Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+France Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+Myanmar Assigned to Player1
+SriLanka Assigned to Player2
+China Assigned to Player1
+Pakistan Assigned to Player2
+India Assigned to Player1
+Afganisthan Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Myanmar Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+SriLanka Assigned to Player1
+Pakistan Assigned to Player2
+Bangladesh Assigned to Player1
+Afganisthan Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+Myanmar Assigned to Player1
+China Assigned to Player2
+Afganisthan Assigned to Player1
+Pakistan Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Bangladesh Assigned to Player1
+Pakistan Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+Myanmar Assigned to Player1
+Afganisthan Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Afganisthan Assigned to Player2
+India Assigned to Player1
+Myanmar Assigned to Player2
+SriLanka Assigned to Player1
+China Assigned to Player2
+Pakistan Assigned to Player1
+Bangladesh Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Afganisthan Assigned to Player1
+Pakistan Assigned to Player2
+China Assigned to Player1
+SriLanka Assigned to Player2
+Bangladesh Assigned to Player1
+Myanmar Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+France Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+France Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Afganisthan Assigned to Player2
+Bangladesh Assigned to Player1
+Pakistan Assigned to Player2
+India Assigned to Player1
+SriLanka Assigned to Player2
+Myanmar Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+Bangladesh Assigned to Player1
+Afganisthan Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Myanmar Assigned to Player1
+Bangladesh Assigned to Player2
+Pakistan Assigned to Player1
+SriLanka Assigned to Player2
+Afganisthan Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+SriLanka Assigned to Player1
+Afganisthan Assigned to Player2
+India Assigned to Player1
+Pakistan Assigned to Player2
+China Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+SriLanka Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Myanmar Assigned to Player1
+Bangladesh Assigned to Player2
+Pakistan Assigned to Player1
+Afganisthan Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Bangladesh Assigned to Player1
+Myanmar Assigned to Player2
+Pakistan Assigned to Player1
+SriLanka Assigned to Player2
+India Assigned to Player1
+Afganisthan Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+France Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+France Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Myanmar Assigned to Player2
+Afganisthan Assigned to Player1
+Bangladesh Assigned to Player2
+SriLanka Assigned to Player1
+Pakistan Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Afganisthan Assigned to Player1
+China Assigned to Player2
+Myanmar Assigned to Player1
+Pakistan Assigned to Player2
+SriLanka Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Pakistan Assigned to Player1
+China Assigned to Player2
+Myanmar Assigned to Player1
+Afganisthan Assigned to Player2
+SriLanka Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Afganisthan Assigned to Player1
+Myanmar Assigned to Player2
+SriLanka Assigned to Player1
+Bangladesh Assigned to Player2
+China Assigned to Player1
+Pakistan Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Afganisthan Assigned to Player1
+Bangladesh Assigned to Player2
+SriLanka Assigned to Player1
+India Assigned to Player2
+Pakistan Assigned to Player1
+Myanmar Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+Myanmar Assigned to Player1
+SriLanka Assigned to Player2
+China Assigned to Player1
+Afganisthan Assigned to Player2
+Pakistan Assigned to Player1
+Bangladesh Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+France Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+France Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+SriLanka Assigned to Player2
+Afganisthan Assigned to Player1
+Bangladesh Assigned to Player2
+Myanmar Assigned to Player1
+Pakistan Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+China Assigned to Player1
+India Assigned to Player2
+Afganisthan Assigned to Player1
+Myanmar Assigned to Player2
+SriLanka Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Pakistan Assigned to Player1
+Afganisthan Assigned to Player2
+Bangladesh Assigned to Player1
+SriLanka Assigned to Player2
+Myanmar Assigned to Player1
+India Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Afganisthan Assigned to Player2
+SriLanka Assigned to Player1
+Pakistan Assigned to Player2
+Bangladesh Assigned to Player1
+Myanmar Assigned to Player2
+China Assigned to Player1
+India Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Myanmar Assigned to Player2
+SriLanka Assigned to Player1
+Afganisthan Assigned to Player2
+Bangladesh Assigned to Player1
+Pakistan Assigned to Player2
+China Assigned to Player1
+India Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Pakistan Assigned to Player2
+SriLanka Assigned to Player1
+Bangladesh Assigned to Player2
+Myanmar Assigned to Player1
+Afganisthan Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Europe
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Ghana to Africa continent
+Added Country: AustraliaCountry to Australia continent
+Added Country: USA to NorthAmerica continent
+Added Country: Brazil to SouthAmerica continent
+Added Neighbor: Ghana to India
+Added Neighbor: USA to Ghana
+Added Neighbor: AustraliaCountry to USA
+Added Neighbor: Brazil to AustraliaCountry
+Added Neighbor: India to Brazil
+Added Country: Newyork to NorthAmerica continent
+Added Country: Pak to Asia continent
+Added Neighbor: Pak to Newyork
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Africa continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+France Assigned to Player2
+Added Continent: Asia
+Added Continent: Europe
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: France to Europe continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+France Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from India to China
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Advanced/Moved 5 from Vietnam to India
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Destination country Vietnam is not a neighbor of India
+
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added Country: Vietnam to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Failed due to some errors
+	-> Attacking troop count 5 is greater than available troops 0 in India
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Pakistan Assigned to Player1
+SriLanka Assigned to Player2
+India Assigned to Player1
+Afganisthan Assigned to Player2
+Myanmar Assigned to Player1
+Bangladesh Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Bangladesh Assigned to Player1
+Afganisthan Assigned to Player2
+Pakistan Assigned to Player1
+India Assigned to Player2
+SriLanka Assigned to Player1
+Myanmar Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+Bangladesh Assigned to Player2
+Afganisthan Assigned to Player1
+Pakistan Assigned to Player2
+SriLanka Assigned to Player1
+Myanmar Assigned to Player2
+India Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+India Assigned to Player2
+SriLanka Assigned to Player1
+Afganisthan Assigned to Player2
+Myanmar Assigned to Player1
+Pakistan Assigned to Player2
+Bangladesh Assigned to Player1
+China Assigned to Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+SriLanka Assigned to Player2
+Pakistan Assigned to Player1
+Bangladesh Assigned to Player2
+Afganisthan Assigned to Player1
+China Assigned to Player2
+Myanmar Assigned to Player1
+India Assigned to Player2
+The country is not under the player's control.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: Pakistan to Asia continent
+Added Country: SriLanka to Asia continent
+Added Country: Afganisthan to Asia continent
+Added Country: Bangladesh to Asia continent
+Added Country: Myanmar to Asia continent
+Added Country: China to Asia continent
+China Assigned to Player2
+Myanmar Assigned to Player1
+India Assigned to Player2
+Pakistan Assigned to Player1
+SriLanka Assigned to Player2
+Afganisthan Assigned to Player1
+Bangladesh Assigned to Player2
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+A player cannot bomb their own territory.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Zambia Assigned to Player2
+India Assigned to Player1
+The bomb card is not available for the player.
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Continent: Africa
+Added Country: India to Asia continent
+Added Country: Zambia to Africa continent
+Added Neighbor: Zambia to India
+Added Neighbor: India to Zambia
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+Zambia Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+China Assigned to Player2
+India Assigned to Player1
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Invalid neutral player specified.
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+Added Continent: Asia
+Added Country: India to Asia continent
+Added Country: China to Asia continent
+Added GamePlayer: Player1
+Added GamePlayer: Player2
+India Assigned to Player2
+China Assigned to Player1

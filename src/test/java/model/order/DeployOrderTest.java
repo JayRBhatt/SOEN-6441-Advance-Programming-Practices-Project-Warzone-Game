@@ -17,6 +17,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for Deploy Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class DeployOrderTest {
     GameMap d_GameMap;
@@ -69,7 +72,7 @@ public class DeployOrderTest {
      * Check if the command is valid
      */
     @Test
-    public void checkIfTheCommandIsValid() {
+    public void testIfTheCommandIsValid() {
         OrderIssue.Commands = "deploy " + d_CountriesPlayer1.get(0).getCountryName() + " " + d_Player.getAdditionalArmies();
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), d_Player);
         d_Player.receiveOrder(l_Order);
@@ -80,7 +83,7 @@ public class DeployOrderTest {
      * Check if countries in command are valid
      */
     @Test
-    public void checkIfTheCountriesAreValid() {
+    public void testIfTheCountriesAreValid() {
         d_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
         OrderIssue.Commands = "deploy " + d_CountriesPlayer2.get(0).getCountryName() + " " + d_Player.getAdditionalArmies();
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), d_Player);
@@ -92,7 +95,7 @@ public class DeployOrderTest {
      * Check if armies are valid in command
      */
     @Test
-    public void checkIfTheArmiesAreValid() {
+    public void testIfTheArmiesAreValid() {
         OrderIssue.Commands = "deploy " + d_CountriesPlayer1.get(0).getCountryName() + " 10";
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), d_Player);
         d_Player.receiveOrder(l_Order);

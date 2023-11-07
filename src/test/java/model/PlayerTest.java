@@ -20,8 +20,9 @@ import org.junit.Test;
 public class PlayerTest {
     Player p = new Player();
     String d_CountryValid, d_CountryInvalid;
-    int d_ArmyCountInvalid,d_ArmyCountValid;
-    List<Country> d_CapturedCountries = new ArrayList<>();
+    int d_ArmyNumberInvalid,d_ArmyNumberValid;
+    int d_AdditionalArmies;
+    List<Country> d_OccupiedCountries = new ArrayList<>();
     Country c1 = new Country();
     Country c2 = new Country();
     Country c3 = new Country();
@@ -39,12 +40,14 @@ public class PlayerTest {
         c3.setCountryName("Japan");
         d_CountryValid = "India";
         d_CountryInvalid = "Canada";
-        d_CapturedCountries.add(c1);           
-        d_CapturedCountries.add(c2);
-        d_CapturedCountries.add(c3);
-        p.setOccupiedCountries(d_CapturedCountries);
-        d_ArmyCountValid = 5; 
-        d_ArmyCountInvalid = 13;
+        d_OccupiedCountries.add(c1);           
+        d_OccupiedCountries.add(c2);
+        d_OccupiedCountries.add(c3);
+        p.setOccupiedCountries(d_OccupiedCountries);
+        d_AdditionalArmies = 10;
+        p.setAdditionalArmies(d_AdditionalArmies);
+        d_ArmyNumberValid = 5; 
+        d_ArmyNumberInvalid = 13;
     }
 
     /**
@@ -92,7 +95,7 @@ public class PlayerTest {
      */
     @Test
     public void testValidateRighfulDeploymentOfTroops(){
-      assertTrue(p.stationAdditionalArmiesFromPlayer(d_ArmyCountValid));
+      assertTrue(p.stationAdditionalArmiesFromPlayer(d_ArmyNumberValid));
     } 
 
     /**
@@ -101,7 +104,7 @@ public class PlayerTest {
      */
     @Test
     public void testValidateWrongfulDeploymentOfTroops() {
-        assertFalse(p.stationAdditionalArmiesFromPlayer(d_ArmyCountInvalid));
+        assertFalse(p.stationAdditionalArmiesFromPlayer(d_ArmyNumberInvalid));
     }
 
 }

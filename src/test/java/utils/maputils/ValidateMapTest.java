@@ -30,12 +30,16 @@ public class ValidateMapTest {
         d_GameMap.addContinent("NorthAmerica", "5");
         d_GameMap.addContinent("SouthAmerica", "5");
         d_GameMap.addCountry("India", "Asia");
+        d_GameMap.addCountry("Pak", "Asia");
+        d_GameMap.addCountry("Newyork", "North America");
         d_GameMap.addCountry("Ghana", "Africa");
         d_GameMap.addCountry("AustraliaCountry", "Australia");
         d_GameMap.addCountry("USA", "NorthAmerica");
         d_GameMap.addCountry("Brazil", "SouthAmerica");
         d_GameMap.addNeighbor("India", "Ghana");
         d_GameMap.addNeighbor("Ghana", "USA");
+        d_GameMap.addNeighbor("Pak", "Newyork");
+        d_GameMap.addNeighbor("Newyork", "Pak");
         d_GameMap.addNeighbor("USA", "AustraliaCountry");
         d_GameMap.addNeighbor("AustraliaCountry", "Brazil");
         d_GameMap.addNeighbor("Brazil", "India");
@@ -83,7 +87,7 @@ public class ValidateMapTest {
         assertEquals(true, ValidateMap.checkIfMapIsConnected(d_GameMap));
     }
     @Test
-    public void CheckIfMapIsInvalid() throws InvalidCommandException {
+    public void testIfMapIsInvalid() throws InvalidCommandException {
         d_GameMap.removeNeighbor("Newyork", "Pak");
         assertFalse(ValidateMap.checkIfMapIsConnected(d_GameMap));
     }

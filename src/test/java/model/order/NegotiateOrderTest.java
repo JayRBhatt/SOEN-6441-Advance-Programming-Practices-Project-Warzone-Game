@@ -15,6 +15,9 @@ import static org.junit.Assert.*;
 
 /**
  * Test class for Negotiate Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class NegotiateOrderTest {
     GameMap d_GameMap;
@@ -41,7 +44,7 @@ public class NegotiateOrderTest {
     }
 
     /**
-     * Test to check if the command executes correctly
+     * Test to test if the command executes correctly
      *
      */
     @Test
@@ -58,7 +61,7 @@ public class NegotiateOrderTest {
      * Test the validation of Negotiate command
      */
     @Test
-    public void checkIfCommandIsTrue() {
+    public void testIfCommandIsTrue() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.DIPLOMACY));
         OrderIssue.Commands = "negotiate Player2";
@@ -71,7 +74,7 @@ public class NegotiateOrderTest {
      * Test the validation of Negotiate command
      */
     @Test
-    public void checkIfCommandIsfalse() {
+    public void testIfCommandIsfalse() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.DIPLOMACY));
         OrderIssue.Commands = "negotiate Player3";

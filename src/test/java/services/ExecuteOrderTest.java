@@ -73,7 +73,7 @@ public class ExecuteOrderTest {
      * Check if the player won
      */
     @Test
-    public void checkIfPlayerWon() {
+    public void testIfPlayerWon() {
         HashMap<String, Country> l_ListOfAllCountries = d_GameMap.getCountries();
         d_Player = d_GameMap.getGamePlayer("Player1");
         for (Country l_Country : l_ListOfAllCountries.values()) {

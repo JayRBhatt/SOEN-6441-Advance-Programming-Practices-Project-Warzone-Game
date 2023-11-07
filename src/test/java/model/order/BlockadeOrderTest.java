@@ -19,7 +19,9 @@ import java.util.List;
 /**
  * This class tests the Blockade Order
  *
- * @author Dhananjay Narayan
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 
 public class BlockadeOrderTest {
@@ -64,7 +66,7 @@ public class BlockadeOrderTest {
 
 
     /**
-     * Test to check that the blockade command works successfully
+     * Test to test that the blockade command works successfully
      *
      */
     @Test
@@ -82,7 +84,7 @@ public class BlockadeOrderTest {
      *
      */
     @Test
-    public void checkIfCommandIsTrue() {
+    public void testIfCommandIsTrue() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.BLOCKADE));
         OrderIssue.Commands = "blockade " + d_CountryList1.get(0).getCountryName() ;
@@ -97,7 +99,7 @@ public class BlockadeOrderTest {
      *
      */
     @Test
-    public void checkIfCommandIsfalse() {
+    public void testIfCommandIsfalse() {
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_Player1.addPlayerCard(new Cards(CardsType.BLOCKADE));
         OrderIssue.Commands = "blockade " + d_CountryList2.get(0).getCountryName() ;

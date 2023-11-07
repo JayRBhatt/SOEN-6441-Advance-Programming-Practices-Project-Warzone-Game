@@ -19,7 +19,9 @@ import java.util.List;
 
 /**
  * This class tests the Airlift Order
- * @author Surya Manian
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class AirliftOrderTest {
     GameMap d_GameMap;
@@ -59,7 +61,7 @@ public class AirliftOrderTest {
     }
 
     /**
-     * Test to check if the command executes correctly
+     * Test to test if the command executes correctly
      *
      */
     @Test
@@ -77,7 +79,7 @@ public class AirliftOrderTest {
      * Test the validation of Airlift command for when the target country belongs to same player
      */
     @Test
-    public void checkIfCommandIsTrue() {
+    public void testIfCommandIsTrue() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.AIRLIFT));
         l_CountryList1.get(0).setArmies(100);
@@ -93,7 +95,7 @@ public class AirliftOrderTest {
      *
      */
     @Test
-    public void checkIfCommandIsfalse() {
+    public void testIfCommandIsfalse() {
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_Player1.addPlayerCard(new Cards(CardsType.AIRLIFT));
         OrderIssue.Commands = "airlift " + l_CountryList1.get(0).getCountryName() + " " + l_CountryList2.get(1).getCountryName()+" "+2;

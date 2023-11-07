@@ -16,6 +16,9 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Test class for Bomb Order
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class BombOrderTest {
     GameMap d_GameMap;
@@ -74,7 +77,7 @@ public class BombOrderTest {
      * Test the validation of Execute command
      */
     @Test
-    public void checkIfCommandIsTrue() {
+    public void testIfCommandIsTrue() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.BOMB));
         OrderIssue.Commands = "bomb " + d_Player2Countries.get(0).getCountryName();
@@ -84,7 +87,7 @@ public class BombOrderTest {
     }
 
     /**
-     * Test to check if player has bomb card
+     * Test to test if player has bomb card
      */
     @Test
     public void noBombCardTest() {
@@ -96,7 +99,7 @@ public class BombOrderTest {
         assertFalse(l_Player.nextOrder().validateCommand());
     }
     /**
-     * Test to check if Target Country belongs to the player
+     * Test to test if Target Country belongs to the player
      */
     @Test
     public void invalidTargetCountry() {

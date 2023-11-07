@@ -19,7 +19,9 @@ import static org.junit.Assert.*;
 /**
  * Test cases for Advance Order
  *
- * @author Madhuvanthi Hemanathan
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class AdvanceOrderTest {
     /**
@@ -83,7 +85,7 @@ public class AdvanceOrderTest {
      * Test to check if advance execution fails on no troops deployed
      */
     @Test
-    public void checkExecutionFailOnNoTroopsDeployed() {
+    public void testExecutionFailOnNoTroopsDeployed() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
 
@@ -98,7 +100,7 @@ public class AdvanceOrderTest {
      * Test to check if advance execution fails, if destination is not neighbor
      */
     @Test
-    public void checkExecutionFailOnNotANeighbor() {
+    public void testExecutionFailOnNotANeighbor() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(0).setArmies(6);
@@ -113,7 +115,7 @@ public class AdvanceOrderTest {
      * and troops deployed.
      */
     @Test
-    public void checkExecutionSuccessOnNeighborAndTroopsDeployedInOwnCountry() {
+    public void testExecutionSuccessOnNeighborAndTroopsDeployedInOwnCountry() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(1).setArmies(6);
@@ -129,7 +131,7 @@ public class AdvanceOrderTest {
      * after successful attack.
      */
     @Test
-    public void checkAdvanceSuccessOnNeighborIfNoKingExists() {
+    public void testAdvanceSuccessOnNeighborIfNoKingExists() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
@@ -149,7 +151,7 @@ public class AdvanceOrderTest {
      * and troops deployed and king exists.
      */
     @Test
-    public void checkAttackSuccessOnNeighborWithKing() {
+    public void testAttackSuccessOnNeighborWithKing() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
@@ -172,7 +174,7 @@ public class AdvanceOrderTest {
      * and troops deployed and king exists.
      */
     @Test
-    public void checkOwnershipChangeOnAdvanceSuccess() {
+    public void testOwnershipChangeOnAdvanceSuccess() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
@@ -195,7 +197,7 @@ public class AdvanceOrderTest {
      * Test to check if advance command gets skipped if on neutral player
      */
     @Test
-    public void checkExecutionSkipsOnNeutralPlayer() {
+    public void testExecutionSkipsOnNeutralPlayer() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         List<Country> l_CountriesPlayer2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
@@ -220,7 +222,7 @@ public class AdvanceOrderTest {
      * Test to check if advance execution fails and gets skipped if invalid command
      */
     @Test
-    public void checkExecutionFailOnInvalidCommand() {
+    public void testExecutionFailOnInvalidCommand() {
         List<Country> l_CountriesPlayer1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
         l_CountriesPlayer1.get(1).setArmies(6);
