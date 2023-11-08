@@ -8,7 +8,6 @@ import utils.exceptions.InvalidInputException;
 
 /**
  * A class that starts the game with the first phase
- *
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -17,7 +16,6 @@ import utils.exceptions.InvalidInputException;
  * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
-
 public class GameEngine {
     /**
      * gamephase instance for the state
