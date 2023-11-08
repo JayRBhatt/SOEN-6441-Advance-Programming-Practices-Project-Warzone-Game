@@ -35,12 +35,12 @@ public class DeployOrder extends Order {
      */
     public boolean execute() {
         Country l_Destination = getOrderDetails().getCountryWhereDeployed();
-        int l_ArmiesToDeploy = getOrderDetails().getNumberOfArmy();
+        int l_ArmiesToDeploy = getOrderDetails().getAmountOfArmy();
         System.out.println(
                 "---------------------------------------------------------------------------------------------");
         System.out.println(
                 "The order: " + getOrderType() + " " + getOrderDetails().getCountryWhereDeployed().getCountryName()
-                        + " " + getOrderDetails().getNumberOfArmy());
+                        + " " + getOrderDetails().getAmountOfArmy());
         if (validateCommand()) {
             l_Destination.deployArmies(l_ArmiesToDeploy);
             return true;
@@ -56,7 +56,7 @@ public class DeployOrder extends Order {
     public boolean validateCommand() {
         Player l_Player = getOrderDetails().getPlayer();
         Country l_Destination = getOrderDetails().getCountryWhereDeployed();
-        int l_Reinforcements = getOrderDetails().getNumberOfArmy();
+        int l_Reinforcements = getOrderDetails().getAmountOfArmy();
         if (l_Player == null || l_Destination == null) {
             System.out.println("Invalid order information.");
             return false;
@@ -76,11 +76,11 @@ public class DeployOrder extends Order {
      * A function to print the order on completion
      */
     public void printOrderCommand() {
-        System.out.println("Deployed " + getOrderDetails().getNumberOfArmy() + " armies to "
+        System.out.println("Deployed " + getOrderDetails().getAmountOfArmy() + " armies to "
                 + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
         System.out.println(
                 "---------------------------------------------------------------------------------------------");
-        d_LogEntryBuffer.logAction("Deployed " + getOrderDetails().getNumberOfArmy() + " armies to "
+        d_LogEntryBuffer.logAction("Deployed " + getOrderDetails().getAmountOfArmy() + " armies to "
                 + getOrderDetails().getCountryWhereDeployed().getCountryName() + ".");
 
     }

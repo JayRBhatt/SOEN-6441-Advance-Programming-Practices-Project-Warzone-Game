@@ -8,11 +8,12 @@ import utils.loggers.LogEntryBuffer;
 /**
  * A class to create Orders in the game.
  *
- * @author Neona Pinto
- * @author Dhananjay Narayan
- * @author Surya Manian
- * @author Madhuvanthi Hemanathan
- * @author Prathika Suvarna
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair 
  */
 public class OrderCreator {
     /**
@@ -40,23 +41,23 @@ public class OrderCreator {
                 l_Order.setOrderDetails(GenerateDeployOrderInfo(p_commands, player));
                 break;
             case "advance":
-                l_Order = new AdvanceOrder();
+                l_Order = new AdvancingOrder();
                 l_Order.setOrderDetails(GenerateAdvanceOrderInfo(p_commands, player));
                 break;
             case "negotiate":
-                l_Order = new NegotiateOrder();
+                l_Order = new NegotiatingOrder();
                 l_Order.setOrderDetails(GenerateNegotiateOrderInfo(p_commands, player));
                 break;
             case "blockade":
-                l_Order = new BlockadeOrder();
+                l_Order = new OrderForBlockade();
                 l_Order.setOrderDetails(GenerateBlockadeOrderInfo(p_commands, player));
                 break;
             case "airlift":
-                l_Order = new AirliftOrder();
+                l_Order = new AirliftingOrder();
                 l_Order.setOrderDetails(GenerateAirliftOrderInfo(p_commands, player));
                 break;
             case "bomb":
-                l_Order = new BombOrder();
+                l_Order = new BombingOrder();
                 l_Order.setOrderDetails(GenerateBombOrderInfo(p_commands, player));
                 break;
             default:
@@ -81,7 +82,7 @@ public class OrderCreator {
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
         l_OrderDetails.setCountryWhereDeployed(l_Country);
-        l_OrderDetails.setNumberOfArmy(l_NumberOfArmy);
+        l_OrderDetails.setAmountOfArmy(l_NumberOfArmy);
         return l_OrderDetails;
     }
 
@@ -102,7 +103,7 @@ public class OrderCreator {
         l_OrderDetails.setPlayer(p_Player);
         l_OrderDetails.setDeparture(l_FromCountry);
         l_OrderDetails.setCountryWhereDeployed(l_ToCountry);
-        l_OrderDetails.setNumberOfArmy(l_NumberOfArmies);
+        l_OrderDetails.setAmountOfArmy(l_NumberOfArmies);
         return l_OrderDetails;
     }
 
@@ -154,7 +155,7 @@ public class OrderCreator {
         l_OrderDetails.setPlayer(p_player);
         l_OrderDetails.setDeparture(l_FromCountry);
         l_OrderDetails.setCountryWhereDeployed(l_ToCountry);
-        l_OrderDetails.setNumberOfArmy(l_NumberOfArmies);
+        l_OrderDetails.setAmountOfArmy(l_NumberOfArmies);
         return l_OrderDetails;
     }
 

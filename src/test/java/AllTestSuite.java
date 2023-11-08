@@ -20,13 +20,13 @@ import utils.maputils.ValidateMapTest;
  */
 @Suite.SuiteClasses({
         IssueOrderTest.class, ReinforcementTest.class, ExecuteOrderTest.class,
-        AirliftOrderTest.class, BlockadeOrderTest.class, DeployOrderTest.class, NegotiateOrderTest.class, AdvanceOrderTest.class, BombOrderTest.class,
+        AirliftingOrderTest.class, OrderOfBlockadeTest.class, DeployOrderTest.class, NegotiatingOrderTest.class, AdvancingOrderTest.class, BombingOrderTest.class,
         ContinentTest.class, CountryTest.class, GameMapTest.class, PlayerTest.class,
         ValidateMapTest.class})
 
-// /**
-// * class for test suite
-// */
- public class AllTestSuite {
+/**
+ * class for test suite
+ */
+public class AllTestSuite {
 
- }
+}

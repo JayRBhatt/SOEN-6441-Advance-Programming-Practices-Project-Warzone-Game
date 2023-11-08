@@ -10,7 +10,7 @@ import utils.loggers.LogEntryBuffer;
  * Represents an order to execute a blockade, which triples the number of armies
  * in a country and makes it neutral.
  */
-public class BlockadeOrder extends Order {
+public class OrderForBlockade extends Order {
     private LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
     /**
      * Reference to the singleton instance of the game map.
@@ -20,7 +20,7 @@ public class BlockadeOrder extends Order {
     /**
      * Initializes a new instance of the Blockade Order.
      */
-    public BlockadeOrder() {
+    public OrderForBlockade() {
         super();
         setOrderType("blockade");
         d_gameMap = GameMap.getInstance();
@@ -62,8 +62,7 @@ public class BlockadeOrder extends Order {
             d_logEntryBuffer.logAction("Invalid player for the blockade order.");
             return false;
         }
-
-        if (l_country.getPlayer() != l_player) {
+         if (l_country.getPlayer() != l_player) {
             System.err.println("The country is not under the player's control.");
             d_logEntryBuffer.logAction("The country is not under the player's control.");
             return false;

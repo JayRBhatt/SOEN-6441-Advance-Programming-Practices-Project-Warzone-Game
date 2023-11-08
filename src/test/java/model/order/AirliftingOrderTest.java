@@ -6,8 +6,9 @@ import model.CardsType;
 import model.Country;
 import model.GameMap;
 import model.Player;
-import model.orders.OrderCreator;
 import model.orders.Order;
+import model.orders.OrderCreator;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,22 +18,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class tests the Blockade Order
- *
+ * This class tests the Airlift Order
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
-
-public class BlockadeOrderTest {
-
+public class AirliftingOrderTest {
     GameMap d_GameMap;
-    List<Country> d_CountryList1 = new ArrayList<Country>();
-    List<Country> d_CountryList2 = new ArrayList<Country>();
+    List<Country> l_CountryList1 = new ArrayList<Country>();
+    List<Country> l_CountryList2 = new ArrayList<Country>();
 
     /**
      * Setup for the test case
-     *
      * @throws Exception in case of any exception
      */
     @Before
@@ -49,10 +46,9 @@ public class BlockadeOrderTest {
         d_GameMap.addCountry("Myanmar", "Asia");
         d_GameMap.addCountry("China", "Asia");
         d_GameMap.assignCountries();
-        d_CountryList1= d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
-        d_CountryList2= d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
+        l_CountryList1 = d_GameMap.getGamePlayer("Player1").getOccupiedCountries();
+        l_CountryList2 = d_GameMap.getGamePlayer("Player2").getOccupiedCountries();
     }
-
 
     /**
      * Clear the instance
@@ -64,47 +60,49 @@ public class BlockadeOrderTest {
         d_GameMap.ClearMap();
     }
 
-
     /**
-     * Test to test that the blockade command works successfully
+     * Test to test if the command executes correctly
      *
      */
     @Test
     public void execute() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
-        l_Player.addPlayerCard(new Cards(CardsType.BLOCKADE));
-        OrderIssue.Commands = "blockade " + d_CountryList1.get(0).getCountryName() ;
+        l_Player.addPlayerCard(new Cards(CardsType.AIRLIFT));
+        l_CountryList1.get(0).setArmies(100);
+        OrderIssue.Commands = "airlift " + l_CountryList1.get(0).getCountryName() + " " + l_CountryList1.get(1).getCountryName()+ " "+ 10;
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player);
         l_Player.receiveOrder(l_Order1);
         assertTrue(l_Player.nextOrder().execute());
     }
 
     /**
-     * Test the validation of Blockade command for when the target country belongs to same player
-     *
+     * Test the validation of Airlift command for when the target country belongs to same player
      */
     @Test
     public void testIfCommandIsTrue() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
-        l_Player.addPlayerCard(new Cards(CardsType.BLOCKADE));
-        OrderIssue.Commands = "blockade " + d_CountryList1.get(0).getCountryName() ;
+        l_Player.addPlayerCard(new Cards(CardsType.AIRLIFT));
+        l_CountryList1.get(0).setArmies(100);
+        System.out.println("Source: "+ l_CountryList1.get(0).getArmies());
+        OrderIssue.Commands = "airlift " + l_CountryList1.get(0).getCountryName() + " " + l_CountryList1.get(1).getCountryName()+ " "+ 10;
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player);
         l_Player.receiveOrder(l_Order1);
         assertTrue(l_Player.nextOrder().validateCommand());
     }
 
-
     /**
-     * Test the validation of Blockade command when the target country does not belong to player
+     * Test the validation of Airlift command when the target country does not belong to player
      *
      */
     @Test
     public void testIfCommandIsfalse() {
         Player l_Player1 = d_GameMap.getGamePlayer("Player1");
-        l_Player1.addPlayerCard(new Cards(CardsType.BLOCKADE));
-        OrderIssue.Commands = "blockade " + d_CountryList2.get(0).getCountryName() ;
+        l_Player1.addPlayerCard(new Cards(CardsType.AIRLIFT));
+        OrderIssue.Commands = "airlift " + l_CountryList1.get(0).getCountryName() + " " + l_CountryList2.get(1).getCountryName()+" "+2;
         Order l_Order1 = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), l_Player1);
         l_Player1.receiveOrder(l_Order1);
         assertFalse(l_Player1.nextOrder().validateCommand());
     }
+
 }
+

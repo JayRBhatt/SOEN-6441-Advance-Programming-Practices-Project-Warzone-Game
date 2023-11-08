@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
-public class AdvanceOrderTest {
+public class AdvancingOrderTest {
     /**
      * Game map object
      */

@@ -9,7 +9,7 @@ import utils.loggers.LogEntryBuffer;
  * This class extends Order to provide functionality for executing a negotiate
  * order.
  */
-public class NegotiateOrder extends Order {
+public class NegotiatingOrder extends Order {
     private LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
     /**
      * Singleton instance of GameMap.
@@ -19,7 +19,7 @@ public class NegotiateOrder extends Order {
     /**
      * Constructs a new negotiate order and sets the order type to "negotiate".
      */
-    public NegotiateOrder() {
+    public NegotiatingOrder() {
         super();
         setOrderType("negotiate");
         d_gameMap = GameMap.getInstance();

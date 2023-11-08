@@ -11,13 +11,13 @@ import model.Player;
  * @author Bhargav Fofandi
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
- * @author Meera Muraleedharan Nair
+ * @author Meera Muraleedharan Nair 
  */
 public class OrderDetails {
 
     private Player d_Player;
     private Country d_Departure;
-    private int d_NumberOfArmy;
+    private int d_AmountOfArmy;
     private Country d_TargetCountry;
     private Player d_NeutralPlayer;
     private Country d_CountryWhereDeployed;
@@ -112,9 +112,9 @@ public class OrderDetails {
      * @return the number of armies
      */
     
-    public int getNumberOfArmy() {
+    public int getAmountOfArmy() {
 
-        return d_NumberOfArmy;
+        return d_AmountOfArmy;
     }
 
     /**
@@ -123,9 +123,9 @@ public class OrderDetails {
      * @param d_NumberOfArmy the number of armies
      */
     
-    public void setNumberOfArmy(int d_NumberOfArmy) {
+    public void setAmountOfArmy(int d_AmountOfArmy) {
 
-        this.d_NumberOfArmy = d_NumberOfArmy;
+        this.d_AmountOfArmy = d_AmountOfArmy;
     }
 
     /**
