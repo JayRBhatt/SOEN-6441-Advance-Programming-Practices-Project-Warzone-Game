@@ -1,35 +1,68 @@
 Entered Map Editor Phase!
 Ended Map Editor Phase
-Added Continent: africa
-Added Continent: southamerica
-Added Continent: asia
-Added Continent: northamerica
-Added Continent: europe
-Added Country: spain to europe continent
-Added Country: brazil to southamerica continent
-Added Country: egypt to africa continent
-Added Country: canada to northamerica continent
-Added Country: india to asia continent
-Added Neighbor: india to spain
-Added Neighbor: spain to brazil
-Added Neighbor: canada to egypt
-Added Neighbor: brazil to canada
-Added Neighbor: egypt to india
-Added GamePlayer: mad
-Added GamePlayer: jay
-canada Assigned to mad
-india Assigned to jay
-spain Assigned to mad
-egypt Assigned to jay
-brazil Assigned to mad
+Added Continent: AFRICA
+Added Continent: USA
+Added Continent: AUSTRALIA
+Added Continent: ASIA
+Added Continent: ANTARTICA
+Added Country: penquin to ANTARTICA continent
+Added Country: Pak to AFRICA continent
+Added Country: NY to USA continent
+Added Country: india to ASIA continent
+Added Country: Melbourne to AUSTRALIA continent
+Added Neighbor: india to penquin
+Added Neighbor: Melbourne to penquin
+Added Neighbor: india to Pak
+Added Neighbor: NY to Pak
+Added Neighbor: Pak to NY
+Added Neighbor: penquin to india
+Added Neighbor: Pak to india
+Added Neighbor: penquin to Melbourne
+Added GamePlayer: abc
+Added GamePlayer: xyz
+penquin Assigned to abc
+Melbourne Assigned to xyz
+Pak Assigned to abc
+india Assigned to xyz
+NY Assigned to abc
 
  ISSUE ORDER PHASE 
 
-mad has issued this order :- deploy canada 20
-jay has issued this order :- deploy india 10
+abc has issued this order :- deploy NY 5
+xyz has issued this order :- deploy india 5
 
  EXECUTE ORDER PHASE 
 
+Deployed 5 armies to NY.
+Deployed 5 armies to india.
 
  ISSUE ORDER PHASE 
 
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent
+Added Continent: Asia
+Added Continent: Africa
+Added Continent: Australia
+Added Continent: NorthAmerica
+Added Continent: SouthAmerica
+Added Country: India to Asia continent
+Added Country: Pak to Asia continent

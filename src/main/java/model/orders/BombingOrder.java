@@ -12,7 +12,7 @@ import utils.loggers.LogEntryBuffer;
  * The action is not permitted on the player's own countries or on neutral
  * countries with a truce.
  */
-public class BombOrder extends Order {
+public class BombingOrder extends Order {
 
     /** Reference to the game map to access the global state. */
     private GameMap d_gameMap;
@@ -22,7 +22,7 @@ public class BombOrder extends Order {
     /**
      * Constructs a new bomb order and initializes the game map instance.
      */
-    public BombOrder() {
+    public BombingOrder() {
         super();
         setOrderType("bomb");
         d_gameMap = GameMap.getInstance();
@@ -66,19 +66,16 @@ public class BombOrder extends Order {
             d_logEntryBuffer.logAction("Invalid player for the bomb order.");
             return false;
         }
-
         if (!l_player.checkIfCardAvailable(CardsType.BOMB)) {
             System.err.println("The bomb card is not available for the player.");
             d_logEntryBuffer.logAction("The bomb card is not available for the player.");
             return false;
         }
-
-        if (l_player.getOccupiedCountries().contains(l_targetCountry)) {
-            System.err.println("A player cannot bomb their own territory.");
+         if (l_player.getOccupiedCountries().contains(l_targetCountry)) {
+            System.err.println("Are you crazy?? You want to bomb your own territory?");
             d_logEntryBuffer.logAction("A player cannot bomb their own territory.");
             return false;
         }
-
         boolean l_isAdjacent = false;
         for (Country l_country : l_player.getOccupiedCountries()) {
             if (l_country.isNeighbor(l_targetCountry)) {
@@ -107,7 +104,7 @@ public class BombOrder extends Order {
      */
     @Override
     public void printOrderCommand() {
-        String l_message = "Bomb order by " + getOrderDetails().getPlayer().getPlayerName() +
+        String l_message = "Bombing order by " + getOrderDetails().getPlayer().getPlayerName() +
                 " targeting " + getOrderDetails().getTargetCountry().getCountryName();
         System.out.println(l_message);
         System.out.println("-------------------------------------------------------------------");

@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
-public class NegotiateOrderTest {
+public class NegotiatingOrderTest {
     GameMap d_GameMap;
 
     /**

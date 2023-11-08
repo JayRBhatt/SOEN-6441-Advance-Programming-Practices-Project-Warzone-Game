@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
-public class BombOrderTest {
+public class BombingOrderTest {
     GameMap d_GameMap;
     List<Country> d_Player1Countries;
     List<Country> d_Player2Countries;

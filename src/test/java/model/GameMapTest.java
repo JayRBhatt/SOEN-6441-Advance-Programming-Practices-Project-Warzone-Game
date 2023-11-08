@@ -1,7 +1,7 @@
 package model;
 
 import org.junit.Test;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import java.util.*;
 import static org.junit.Assert.*;
 
