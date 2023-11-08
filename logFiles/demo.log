@@ -24,26 +24,13 @@ Melbourne Assigned to abc
 Pak Assigned to xyz
 india Assigned to abc
 penquin Assigned to xyz
+penquin Assigned to abc
+Melbourne Assigned to xyz
+Pak Assigned to abc
+india Assigned to xyz
 NY Assigned to abc
 
  ISSUE ORDER PHASE 
 
-abc has issued this order :- deploy india 10
-xyz has issued this order :- deploy Pak 8
-
- EXECUTE ORDER PHASE 
-
-Deployed 10 armies to india.
-Deployed 8 armies to Pak.
-
- ISSUE ORDER PHASE 
-
-abc has issued this order :- advance india Pak 10
-xyz has issued this order :- pass
-
- EXECUTE ORDER PHASE 
-
-Advanced 10 armies from india to Pak.
-
- ISSUE ORDER PHASE 
-
+abc has issued this order :- deploy NY 5
+xyz has issued this order :- deploy india 5
