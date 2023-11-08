@@ -1,19 +1,21 @@
 package model;
 
 import org.junit.Test;
-import utils.InvalidCommandException;
+import utils.exceptions.InvalidCommandException;
 import java.util.*;
 import static org.junit.Assert.*;
 
 /**
  * A class to test the functionalities of GameMap Class
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
  */
 public class GameMapTest {
     /**
-     * A test to assure that all countries are shuffled/randomized before being assigned.
+     * A test to assure that all countries are shuffled/randomized before being
+     * assigned.
      * This ensures random assignment of countries.
      *
      * @throws ValidationException if validation fails
@@ -30,12 +32,12 @@ public class GameMapTest {
         l_CountryList.add("Sri Lanka");
         Collections.shuffle(l_CountryList);
         List<String> l_Occupied = new ArrayList<String>();
-        for(int i = 0; i < l_CountryList.size(); i++) {
+        for (int i = 0; i < l_CountryList.size(); i++) {
             String l_C = l_CountryList.get(i);
             l_Occupied.add(l_C);
-            l_CountryList.set(i,"Assigned to some player");
+            l_CountryList.set(i, "Assigned to some player");
         }
-        boolean l_X= l_CountryList.equals(l_Occupied);
+        boolean l_X = l_CountryList.equals(l_Occupied);
         assertFalse(l_X);
     }
 }

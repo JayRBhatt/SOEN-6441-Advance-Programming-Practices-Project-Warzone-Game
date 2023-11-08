@@ -1,0 +1,15 @@
+[Map]
+
+[Continents]
+afrcia 9
+asia 6
+northamerica 6
+australia 9
+europe 8
+[Territories]
+spain europe india sydney
+sydney australia spain
+egypt afrcia india canada
+canada northamerica egypt
+india asia egypt spain
+
