@@ -1,35 +1,103 @@
 Entered Map Editor Phase!
 Ended Map Editor Phase
-Added Continent: africa
-Added Continent: southamerica
+Added Continent: afrcia
 Added Continent: asia
 Added Continent: northamerica
+Added Continent: australia
 Added Continent: europe
 Added Country: spain to europe continent
-Added Country: brazil to southamerica continent
-Added Country: egypt to africa continent
+Added Country: sydney to australia continent
+Added Country: egypt to afrcia continent
 Added Country: canada to northamerica continent
 Added Country: india to asia continent
 Added Neighbor: india to spain
-Added Neighbor: spain to brazil
+Added Neighbor: sydney to spain
+Added Neighbor: spain to sydney
+Added Neighbor: india to egypt
 Added Neighbor: canada to egypt
-Added Neighbor: brazil to canada
+Added Neighbor: egypt to canada
 Added Neighbor: egypt to india
-Added GamePlayer: mad
-Added GamePlayer: jay
-canada Assigned to mad
-india Assigned to jay
-spain Assigned to mad
-egypt Assigned to jay
-brazil Assigned to mad
+Added Neighbor: spain to india
+Added GamePlayer: abcd
+Added GamePlayer: xyzz
+canada Assigned to xyzz
+sydney Assigned to abcd
+india Assigned to xyzz
+spain Assigned to abcd
+egypt Assigned to xyzz
 
- ISSUE ORDER PHASE 
+ ENTERED THE ISSUE ORDER PHASE 
 
-mad has issued this order :- deploy canada 20
-jay has issued this order :- deploy india 10
+xyzz has issued this order :- deploy india 10
+abcd has issued this order :- deploy spain 2
+xyzz has issued this order :- advance india egypt 8
+abcd has issued this order :- pass
+xyzz has issued this order :- pass
+
+ EXECUTE ORDER PHASE 
+
+Deployed 10 armies to india.
+Deployed 2 armies to spain.
+Advanced/Moved 8 from india to egypt
+Advanced 8 armies from india to egypt.
+
+ ENTERED THE ISSUE ORDER PHASE 
+
+xyzz has issued this order :- pass
+abcd has issued this order :- pass
 
  EXECUTE ORDER PHASE 
 
 
- ISSUE ORDER PHASE 
+ ENTERED THE ISSUE ORDER PHASE 
 
+xyzz has issued this order :- advance india spain 8
+abcd has issued this order :- pass
+xyzz has issued this order :- pass
+
+ EXECUTE ORDER PHASE 
+
+Failed due to some errors
+	-> Attacking troop count 8 is greater than available troops 2 in india
+
+ ENTERED THE ISSUE ORDER PHASE 
+
+xyzz has issued this order :- deploy india 12
+abcd has issued this order :- pass
+xyzz has issued this order :- advance india spain 8
+xyzz has issued this order :- pass
+
+ EXECUTE ORDER PHASE 
+
+Deployed 12 armies to india.
+Attacker: xyzz received a card: BLOCKADE
+Advanced 8 armies from india to spain.
+
+ ENTERED THE ISSUE ORDER PHASE 
+
+xyzz has issued this order :- blockade canada 
+abcd has issued this order :- pass
+xyzz has issued this order :- pass
+
+ EXECUTE ORDER PHASE 
+
+Blockade applied to canada by xyzz
+
+ ENTERED THE ISSUE ORDER PHASE 
+
+xyzz has issued this order :- deploy canada 10
+abcd has issued this order :- deploy sydney 2
+xyzz has issued this order :- deploy spain 10
+abcd has issued this order :- advance sydney spain 2
+xyzz has issued this order :- advance spain sydney 8
+abcd has issued this order :- pass
+xyzz has issued this order :- pass
+
+ EXECUTE ORDER PHASE 
+
+Deployed 10 armies to canada.
+Deployed 2 armies to sydney.
+Deployed 10 armies to spain.
+Advanced 2 armies from sydney to spain.
+Attacker: xyzz received a card: AIRLIFT
+Advanced 8 armies from spain to sydney.
