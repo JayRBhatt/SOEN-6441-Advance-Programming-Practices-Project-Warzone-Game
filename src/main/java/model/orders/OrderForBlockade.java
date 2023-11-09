@@ -27,8 +27,8 @@ public class OrderForBlockade extends Order {
     }
 
     /**
-     * Executes the blockade order, tripling the number of armies in the targeted
-     * country and relinquishing control.
+     * Executes the blockade order, doubling the number of armies in the targeted
+     * country
      *
      * @return True if the execution is successful, false otherwise.
      */
@@ -37,8 +37,7 @@ public class OrderForBlockade extends Order {
         Player l_player = getOrderDetails().getPlayer();
         Country l_country = getOrderDetails().getTargetCountry();
         if (validateCommand()) {
-            l_country.setArmies(l_country.getArmies() * 3);
-            l_player.getOccupiedCountries().remove(l_country);
+            l_country.setArmies(l_country.getArmies() * 2);
             l_country.setPlayer(null);
             System.out.println("Executing order: " + getOrderType() + " on " + l_country.getCountryName());
             l_player.removeCard(CardsType.BLOCKADE);

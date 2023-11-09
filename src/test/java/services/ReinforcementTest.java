@@ -22,6 +22,7 @@ public class ReinforcementTest extends Player {
     GamePhase d_NextGamePhase = GamePhase.IssueOrder;
     GameMap d_GameMap;
     Reinforcements l_Reinforcement;
+
     /**
      * This method initializes the values for continents, countries and players
      * before execution of every test case
@@ -42,6 +43,7 @@ public class ReinforcementTest extends Player {
         l_Reinforcement = new Reinforcements();
         l_Reinforcement.d_GamePhase = GamePhase.Reinforcement;
     }
+
     /**
      * This method will be executed at the end of the test
      *
@@ -55,11 +57,11 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests the validation for next Game phase
      *
-     * @throws ValidationException if validation fails
+     * @throws ValidationException       if validation fails
      * @throws InvalidExecutionException if execution is invalid
      */
     @Test
-    public void teststartShouldReturnNextPhase() throws InvalidCommandException,InvalidInputException {
+    public void teststartShouldReturnNextPhase() throws InvalidCommandException, InvalidInputException {
         GamePhase l_NextGamePhase = l_Reinforcement.start(GamePhase.Reinforcement);
         assertEquals(d_NextGamePhase, l_NextGamePhase);
     }
@@ -67,11 +69,11 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests if valid reinforcements is set
      *
-     * @throws ValidationException if validation fails
+     * @throws ValidationException       if validation fails
      * @throws InvalidExecutionException if execution is invalid
      */
     @Test
-    public void testReinforcementsSetOrNot() throws InvalidCommandException,InvalidInputException {
+    public void testReinforcementsSetOrNot() throws InvalidCommandException, InvalidInputException {
         l_Reinforcement.d_CurrentPlayer = d_GameMap.getGamePlayer("Player2");
         l_Reinforcement.assignReinforcementTroops();
         assertTrue(l_Reinforcement.d_CurrentPlayer.getAdditionalArmies() >= 3);

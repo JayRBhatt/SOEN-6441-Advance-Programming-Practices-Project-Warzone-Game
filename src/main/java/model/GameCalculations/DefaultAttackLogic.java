@@ -40,7 +40,8 @@ public class DefaultAttackLogic implements AttackLogic {
                 System.out.println("Attacker: " + p_Player.getPlayerName() + " received a card: "
                         + l_AssignedCard.getCardsType().name());
                 d_LogEntryBuffer
-                        .logAction("Attacker: " + p_Player.getPlayerName() + " received a card: " + l_AssignedCard);
+                        .logAction("Attacker: " + p_Player.getPlayerName() + " received a card: "
+                                + l_AssignedCard.getCardsType().name());
                 System.out.println("Attacker : " + p_Player.getPlayerName() + " won.");
                 System.out.println("Remaining attacker's armies " + p_To.getArmies() + " moved from "
                         + p_From.getCountryName() + " to " + p_To.getCountryName() + ".");
