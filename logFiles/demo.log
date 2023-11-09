@@ -1,1 +1,20 @@
 Entered Map Editor Phase!
+Ended Map Editor Phase
+Added Continent: AFRICA
+Added Continent: USA
+Added Continent: AUSTRALIA
+Added Continent: ASIA
+Added Continent: ANTARTICA
+Added Country: penquin to ANTARTICA continent
+Added Country: Pak to AFRICA continent
+Added Country: NY to USA continent
+Added Country: india to ASIA continent
+Added Country: Melbourne to AUSTRALIA continent
+Added Neighbor: india to penquin
+Added Neighbor: Melbourne to penquin
+Added Neighbor: india to Pak
+Added Neighbor: NY to Pak
+Added Neighbor: Pak to NY
+Added Neighbor: penquin to india
+Added Neighbor: Pak to india
+Added Neighbor: penquin to Melbourne

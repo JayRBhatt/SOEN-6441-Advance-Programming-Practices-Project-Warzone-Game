@@ -48,7 +48,7 @@ public class OrderIssue implements GameEngineController {
      * @param p_GamePhase the current ID of the Phase
      * @throws InvalidCommandException if it encounters any wrong command
      */
-    public GamePhase start(GamePhase p_GamePhase) throws Exception {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
 
         d_GamePhase = p_GamePhase;
         d_LogEntryBuffer.logAction("\n ENTERED THE ISSUE ORDER PHASE \n");

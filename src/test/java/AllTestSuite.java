@@ -8,9 +8,8 @@ import model.PlayerTest;
 import model.order.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import utils.maputils.ValidateMapTest;
 
-// @RunWith(Suite.class)
+ @RunWith(Suite.class)
 
 /**
  * Run all test cases
@@ -23,7 +22,7 @@ import utils.maputils.ValidateMapTest;
         IssueOrderTest.class, ReinforcementTest.class, ExecuteOrderTest.class,
         AirliftingOrderTest.class, OrderOfBlockadeTest.class, DeployOrderTest.class, NegotiatingOrderTest.class, AdvancingOrderTest.class, BombingOrderTest.class,
         ContinentTest.class, CountryTest.class, GameMapTest.class, PlayerTest.class,
-        ValidateMapTest.class})
+        })
 
 /**
  * class for test suite
