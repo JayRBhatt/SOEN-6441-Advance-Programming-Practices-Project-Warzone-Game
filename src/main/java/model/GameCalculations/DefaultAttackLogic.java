@@ -4,7 +4,16 @@ import model.Cards;
 import model.Country;
 import model.Player;
 import utils.loggers.LogEntryBuffer;
-
+/**
+ * An class which implements the AttackLogic class
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class DefaultAttackLogic implements AttackLogic {
     GameCalculation calculation = GameCalculation.getInstance();
 

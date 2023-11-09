@@ -20,6 +20,7 @@ import utils.maputils.ValidateMap;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class MapEditor implements GameEngineController{
     private Scanner sc = new Scanner(System.in);
@@ -42,8 +43,8 @@ public class MapEditor implements GameEngineController{
      * Method where the command gets checked of its type(editcontinent or editcountry
      * etc)
      * 
-     * @param p_GamePhase
-     * @throws InvalidCommandException
+     * @param p_GamePhase the game phase
+     * @throws InvalidCommandException when something failes
      */
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
         d_LogEntryBuffer.prepareNewLogFile();
@@ -156,7 +157,7 @@ public class MapEditor implements GameEngineController{
     /**
      * Method that checks whether the input is valid
      * 
-     * @param p_InputList
+     * @param p_InputList list of inputs
      * @return true if the input provided by the player is present in set of PredefinedCommands or else it returns false
      */
     public boolean isValidInput(List<String> p_InputList) {
@@ -254,8 +255,8 @@ public class MapEditor implements GameEngineController{
     /**
      * Method that adds continent on the map
      * 
-     * @param p_CommandList
-     * @throws InvalidCommandException
+     * @param p_CommandList command list
+     * @throws InvalidCommandException when something failes
      */
     public void addContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 3) {

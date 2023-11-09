@@ -10,7 +10,16 @@ import services.GamePlayBegins;
 import services.MapEditor;
 import services.OrderIssue;
 import services.Reinforcements;
-
+/**
+ * Enum containing the  different phases of the Game.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public enum GamePhase {
     /**
      * MapEditor state handling map creation and validation operations

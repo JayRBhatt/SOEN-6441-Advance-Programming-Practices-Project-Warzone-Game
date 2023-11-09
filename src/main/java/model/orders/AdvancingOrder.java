@@ -9,7 +9,14 @@ import utils.loggers.LogEntryBuffer;
 import java.util.Objects;
 
 /**
- * Represents the advance order and its operational logic within the game.
+ * Represents the advancing order and its operational logic within the game.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
 public class AdvancingOrder extends Order {
 

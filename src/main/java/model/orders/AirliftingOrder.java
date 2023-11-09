@@ -7,7 +7,14 @@ import model.Player;
 import utils.loggers.LogEntryBuffer;
 
 /**
- * This class gives the order to execute AirliftOrder, from one country to another.
+ * This class gives the order to execute Airlifting Order, from one country to another.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
 public class AirliftingOrder extends Order {
 
@@ -18,7 +25,7 @@ public class AirliftingOrder extends Order {
     private final GameMap d_GameMap;
 
     /**
-     * Constructor class for Airlift Order
+     * Constructor class for Airlifting Order
      */
     public AirliftingOrder() {
         super();
@@ -27,7 +34,7 @@ public class AirliftingOrder extends Order {
     }
 
     /**
-     * execute the Airlift Order
+     * execute the Airlifting Order
      *
      * @return true if the execute was successful else false
      */

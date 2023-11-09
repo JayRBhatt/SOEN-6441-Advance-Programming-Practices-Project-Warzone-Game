@@ -17,6 +17,7 @@ import static org.junit.Assert.assertTrue;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class ReinforcementTest extends Player {
     GamePhase d_NextGamePhase = GamePhase.IssueOrder;
@@ -57,8 +58,8 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests the validation for next Game phase
      *
-     * @throws ValidationException       if validation fails
-     * @throws InvalidExecutionException if execution is invalid
+     * @throws InvalidCommandException       if validation fails
+     * @throws InvalidInputException if execution is invalid
      */
     @Test
     public void teststartShouldReturnNextPhase() throws InvalidCommandException, InvalidInputException {
@@ -69,8 +70,8 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests if valid reinforcements is set
      *
-     * @throws ValidationException       if validation fails
-     * @throws InvalidExecutionException if execution is invalid
+     * @throws InvalidCommandException       if validation fails
+     * @throws InvalidInputException if execution is invalid
      */
     @Test
     public void testReinforcementsSetOrNot() throws InvalidCommandException, InvalidInputException {

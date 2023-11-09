@@ -19,7 +19,7 @@ public class SaveMap {
   /**
    * A method which creates a string of neighboring countries
    * 
-   * @param p_Neighbors
+   * @param p_Neighbors a set of neigbour countries
    * @return a string of names of neighboring countries
    */  
     
@@ -33,8 +33,8 @@ public class SaveMap {
    
     /**
      * A method which saves a game map into a file with .map extension
-     * @param p_GameMap 
-     * @param name 
+     * @param p_GameMap the game map
+     * @param name file name
      * @return true if the map is saved or else returns false
      */
     public boolean saveMapIntoFile(GameMap p_GameMap, String name) {

@@ -91,6 +91,7 @@ public class MapViewer
      @param p_GameMap where country is to be added
      @param p_CountryArray a value list of countries
      @throws InvalidCommandException when validation fails
+     @return neighbour countries
    */
 
     public static Map<String, List<String>> readCountriesFromFile(GameMap p_GameMap, List<String> p_CountryArray) throws InvalidCommandException

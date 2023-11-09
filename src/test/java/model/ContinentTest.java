@@ -12,16 +12,17 @@ import java.util.HashSet; // Import this if you need to initialize a Set
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class ContinentTest {
 
     private Continent d_Continent;
     private final String d_ContinentName = "Asia";
-    private final int d_ContinentValue = 10; // Example value, set this as appropriate
-    private final Set<Country> d_Countries = new HashSet<>(); // Example set, initialize as needed
+    private final int d_ContinentValue = 10;
+    private final Set<Country> d_Countries = new HashSet<>(); 
 
     public ContinentTest() {
-        // JUnit requires this no-arg constructor
+    
     }
 
     @Before

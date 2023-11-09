@@ -17,11 +17,12 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * Test cases for Advance Order
+ * Test cases for Advancing Order
  *
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class AdvancingOrderTest {
     /**

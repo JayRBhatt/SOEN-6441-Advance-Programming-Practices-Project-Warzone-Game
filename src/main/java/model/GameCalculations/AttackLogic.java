@@ -2,7 +2,17 @@ package model.GameCalculations;
 
 import model.Country;
 import model.Player;
-
+/**
+ * An interface with the Attack logic
+ * 
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public interface AttackLogic {
  
     /**

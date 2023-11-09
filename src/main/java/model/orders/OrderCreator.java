@@ -14,6 +14,7 @@ import utils.loggers.LogEntryBuffer;
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair 
+ * @version 1.0.0
  */
 public class OrderCreator {
     /**
@@ -29,7 +30,7 @@ public class OrderCreator {
      * A function to create an order
      *
      * @param p_commands the command entered
-     * @param player     object parameter of type Player
+     * @param player object parameter of type Player
      * @return the order
      */
     public static Order CreateOrder(String[] p_commands, Player player) {
@@ -109,7 +110,7 @@ public class OrderCreator {
 
 
     /**
-     * A function to generate the information of Negotiate order
+     * A function to generate the information of Negotiating order
      *
      * @param p_Command the command entered
      * @param p_Player  object parameter of type Player
@@ -139,7 +140,7 @@ public class OrderCreator {
     }
 
     /**
-     * function to generate information about Airlift Order
+     * function to generate information about Airlifting Order
      *
      * @param p_command the command entered
      * @param p_player  object parameter of type Player
@@ -158,7 +159,13 @@ public class OrderCreator {
         l_OrderDetails.setAmountOfArmy(l_NumberOfArmies);
         return l_OrderDetails;
     }
-
+    /**
+     * function to generate information about Bombing Order
+     *
+     * @param p_command the command entered
+     * @param p_player  object parameter of type Player
+     * @return the order information of deploy
+     */
     private static OrderDetails GenerateBombOrderInfo(String[] p_command, Player p_player){
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_player);

@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class GameMapTest {
     /**
@@ -18,7 +19,7 @@ public class GameMapTest {
      * assigned.
      * This ensures random assignment of countries.
      *
-     * @throws ValidationException if validation fails
+     * @throws InvalidCommandException if validation fails
      */
     @Test
     public void assignCountries() throws InvalidCommandException {

@@ -1,8 +1,10 @@
 unnamed package
 controller
 model
+model.GameCalculations
+model.order
 model.orders
 services
-utils
 utils.exceptions
+utils.loggers
 utils.maputils

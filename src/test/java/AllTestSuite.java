@@ -17,6 +17,7 @@ import utils.maputils.ValidateMapTest;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 @Suite.SuiteClasses({
         IssueOrderTest.class, ReinforcementTest.class, ExecuteOrderTest.class,

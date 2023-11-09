@@ -1,12 +1,21 @@
 package model.GameCalculations;
-
+/**
+ * An class that contains the Game calculations
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 public class GameCalculation {
     /**
-     * Game settings object
+     * Game calculation object
      */
     private static GameCalculation calculation;
     /**
-     * Game strategy object
+     * Game Attacklogic object
      */
     private AttackLogic d_AttackLogic;
     /**
@@ -27,7 +36,7 @@ public class GameCalculation {
     /**
      * Method to get the instance of GameCalculation
      *
-     * @return game settings object
+     * @return game calculation object
      */
     public static GameCalculation getInstance() {
         if (calculation==null) {
@@ -39,14 +48,14 @@ public class GameCalculation {
     /**
      * Getter for strategy
      *
-     * @return the game strategy chosen
+     * @return the Attack logic chosen
      */
     public AttackLogic getStrategy() {
         return d_AttackLogic;
     }
 
     /**
-     * Setter for game strategy
+     * Setter for Attack logic
      *
      * @param p_Strategy the game strategy chosen
      */

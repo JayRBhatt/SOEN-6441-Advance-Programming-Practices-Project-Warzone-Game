@@ -18,10 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class tests the Airlift Order
+ * This class tests the Airlifting Order
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class AirliftingOrderTest {
     GameMap d_GameMap;

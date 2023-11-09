@@ -11,11 +11,13 @@ import utils.exceptions.InvalidInputException;
  * Class that has the main logic behind the functioning of Reinforcements phase
  * in
  * the game
- *
- *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
 public class Reinforcements implements GameEngineController{
 
@@ -59,8 +61,7 @@ public class Reinforcements implements GameEngineController{
 
 	/**
 	 * Method that assigns the calculated number of reinforcements for a player
-	 * 
-	 * @param p_Player Current Player
+	 * @throws InvalidInputException if the validation fails
 	 */
 	public void assignReinforcementTroops() throws InvalidInputException{
 	        if (d_GamePhase.equals(GamePhase.Reinforcement)) {

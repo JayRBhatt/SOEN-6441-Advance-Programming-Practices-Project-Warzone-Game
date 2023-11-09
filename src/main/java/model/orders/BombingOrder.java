@@ -5,12 +5,18 @@ import model.Country;
 import model.GameMap;
 import model.Player;
 import utils.loggers.LogEntryBuffer;
-
 /**
- * Manages the logic for the bomb order in the game.
+ * Manages the logic for the bombing order in the game.
  * It allows a player to bomb a country, reducing its army count by half.
  * The action is not permitted on the player's own countries or on neutral
  * countries with a truce.
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
 public class BombingOrder extends Order {
 

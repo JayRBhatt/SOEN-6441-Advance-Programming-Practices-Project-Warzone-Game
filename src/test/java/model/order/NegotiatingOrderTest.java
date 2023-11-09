@@ -14,10 +14,11 @@ import model.orders.OrderCreator;
 import static org.junit.Assert.*;
 
 /**
- * Test class for Negotiate Order
+ * Test class for Negotiating Order
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class NegotiatingOrderTest {
     GameMap d_GameMap;

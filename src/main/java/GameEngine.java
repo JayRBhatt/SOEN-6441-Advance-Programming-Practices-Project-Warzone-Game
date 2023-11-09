@@ -28,7 +28,7 @@ public class GameEngine {
      * The main method for accepting command from users to run the warzone game
      * 
      * @param args are passed to main if used in command line
-     * @throws InvalidCommandException
+     * @throws InvalidCommandException when something failes
      */
 
     public static void main(String args[]) throws InvalidCommandException {
@@ -39,8 +39,8 @@ public class GameEngine {
 
     /**
      * The function which takes the game to different phases through gameController
-     * 
-     * @throws InvalidCommandException
+     * @param p_GameCalculation 
+     * @throws InvalidCommandException when something failes
      */
 
     public void start(GameCalculation p_GameCalculation) throws InvalidCommandException {

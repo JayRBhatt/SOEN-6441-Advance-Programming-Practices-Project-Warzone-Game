@@ -11,6 +11,7 @@ import java.util.StringJoiner;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 
 public class Country {
@@ -36,7 +37,7 @@ public class Country {
     /**
      * Sets the name of the Country
      * 
-     * @param p_CountryName
+     * @param p_CountryName country whose name is to be set
      */
     public void setCountryName(String p_CountryName) {
         this.d_CountryName = p_CountryName;
@@ -50,7 +51,12 @@ public class Country {
     public String getContinent() {
         return d_Continent;
     }
-
+    /**
+     * Method that checks if the country is a neighbour
+     *
+     * @param p_Neighbor the neighboring country
+     * @return the neighbour list
+     */
     public boolean isNeighbor(Country p_Neighbor) {
         return this.getNeighbors().contains(p_Neighbor);
     }
@@ -58,7 +64,7 @@ public class Country {
     /**
      * Sets the Continent Name into which the country is to be residing
      * 
-     * @param p_Continent
+     * @param p_Continent continent whose name is to be set
      */
     public void setContinent(String p_Continent) {
         this.d_Continent = p_Continent;
@@ -76,7 +82,7 @@ public class Country {
     /**
      * Sets the Player to associate with the country
      * 
-     * @param p_Player
+     * @param p_Player player which is to be set
      */
     public void setPlayer(Player p_Player) {
         this.d_Player = p_Player;
@@ -94,7 +100,7 @@ public class Country {
     /**
      * Sets the Number of Army the Country will possess
      * 
-     * @param p_Armies
+     * @param p_Armies the army which is to be set to country
      */
     public void setArmies(int p_Armies) {
         this.d_Armies = p_Armies;
@@ -103,12 +109,16 @@ public class Country {
     /**
      * Just adds the armies to the number already deployed
      * 
-     * @param p_Armies
+     * @param p_Armies the number of army which to be deployed
      */
     public void deployArmies(int p_Armies) {
         d_Armies += p_Armies;
     }
-
+    /**
+     * This method depletes the number of armies
+     *
+     * @param p_armies the number of armies
+     */
     public void depleteArmies(int p_armies) {
         d_Armies -= p_armies;
     }
@@ -135,7 +145,7 @@ public class Country {
     /**
      * Sets the Neighbors to the countries
      * 
-     * @param p_Neighbor
+     * @param p_Neighbor the country which is to be added as neighbour
      */
     public void setNeighbors(Country p_Neighbor) {
         if (d_Neighbors == null) {
@@ -147,7 +157,7 @@ public class Country {
     /**
      * Sets the Name of the Neighbors to the Country
      * 
-     * @param p_NeighborCountryName
+     * @param p_NeighborCountryName the neighbour country whose name is to be set
      */
     public void setNeighborsCountryName(String p_NeighborCountryName) {
         if (d_NeighborsCountryName == null) {
@@ -171,7 +181,7 @@ public class Country {
     /**
      * Removes the name of the neighbor from the set
      * 
-     * @param p_NeighborCountryName
+     * @param p_NeighborCountryName the country which is to be removed as a neighbour
      */
     public void removeNeighborsName(String p_NeighborCountryName) {
         if (d_NeighborsCountryName == null) {
@@ -185,7 +195,7 @@ public class Country {
      * which is
      * separated by hyphens ("-").
      * 
-     * @param p_Neighbors
+     * @param p_Neighbors the set of neighbour countries from which list is to be created
      * @return string containing the names of neighboring countries which are
      *         separated by hyphens.
      */

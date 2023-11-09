@@ -20,6 +20,7 @@ import static org.junit.Assert.assertTrue;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class DeployOrderTest {
     GameMap d_GameMap;

@@ -12,10 +12,13 @@ import utils.loggers.LogEntryBuffer;
  * Class that has the main logic behind the functioning of Execute order phase
  * in
  * the game
- *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair
+ * @version 1.0.0
  */
 
 public class ExecuteOrder implements GameEngineController {
@@ -72,7 +75,9 @@ public class ExecuteOrder implements GameEngineController {
             }
         }
     }
-
+    /**
+     * Remove all the neutral players from list
+     */
     private void clearAllNeutralPlayers() {
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             l_Player.removeNeutralPlayer();
@@ -80,11 +85,10 @@ public class ExecuteOrder implements GameEngineController {
     }
 
     /**
-     * Executes a game order by deploying armies to a destination country.
+     * Check if the player won the game after every execution phase
      *
-     * @param order The order to execute.
-     * @return true if the order was successfully executed, or false
-     *         otherwise.
+     * @param p_GamePhase the next phase based on the status of player
+     * @return the gamephase it has to change to based on the win
      */
     public GamePhase checkPlayerWon(GamePhase p_GamePhase) {
 

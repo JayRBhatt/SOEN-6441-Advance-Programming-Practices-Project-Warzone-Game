@@ -7,6 +7,7 @@ package utils.exceptions;
  * @author Madhav Anadkat
  */
 public class InvalidInputException extends Exception {
+    // a message
     String d_Message = "Oh C'mon you can't be using this command in this phase";
 
     /**

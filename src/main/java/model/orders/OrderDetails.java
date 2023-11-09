@@ -12,17 +12,33 @@ import model.Player;
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
  * @author Meera Muraleedharan Nair 
+ * @version 1.0.0
  */
 public class OrderDetails {
-
+    /**
+     * A player object
+     */
     private Player d_Player;
+     /**
+     * A country object for departure
+     */
     private Country d_Departure;
+    /**
+     * An integer data member to store the amount of armies
+     */
     private int d_AmountOfArmy;
+     /**
+     * A country object for a target country
+     */
     private Country d_TargetCountry;
+    /**
+     * An object for neutral player
+     */
     private Player d_NeutralPlayer;
+    /**
+     * A country object for country where armies are deployed
+     */
     private Country d_CountryWhereDeployed;
-
-    
 
     /**
      * function to get the Neutral player
@@ -98,7 +114,7 @@ public class OrderDetails {
     /**
      * A function to set the destination of the armies
      * 
-     * @param d_Destination the destination of armies
+     * @param d_CountryWhereDeployed the destination of armies
      */
     
     public void setCountryWhereDeployed(Country d_CountryWhereDeployed) {
@@ -109,7 +125,7 @@ public class OrderDetails {
     /**
      * A function to get the number of armies in the order
      * 
-     * @return the number of armies
+     * @return the amount of armies
      */
     
     public int getAmountOfArmy() {
@@ -120,7 +136,7 @@ public class OrderDetails {
     /**
      * A function to set the number of armies in the order
      * 
-     * @param d_NumberOfArmy the number of armies
+     * @param d_AmountOfArmy the number of armies
      */
     
     public void setAmountOfArmy(int d_AmountOfArmy) {

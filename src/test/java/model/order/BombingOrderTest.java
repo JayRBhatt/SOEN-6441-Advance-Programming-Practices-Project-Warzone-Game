@@ -15,10 +15,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Test class for Bomb Order
+ * Test class for Bombing Order
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class BombingOrderTest {
     GameMap d_GameMap;
@@ -90,7 +91,7 @@ public class BombingOrderTest {
      * Test to test if player has bomb card
      */
     @Test
-    public void noBombCardTest() {
+    public void testnoBombCardTest() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.BLOCKADE));
         OrderIssue.Commands = "bomb " + d_Player2Countries.get(0).getCountryName();
@@ -102,7 +103,7 @@ public class BombingOrderTest {
      * Test to test if Target Country belongs to the player
      */
     @Test
-    public void invalidTargetCountry() {
+    public void testinvalidTargetCountry() {
         Player l_Player = d_GameMap.getGamePlayer("Player1");
         l_Player.addPlayerCard(new Cards(CardsType.BOMB));
         OrderIssue.Commands = "bomb " + d_Player1Countries.get(0).getCountryName();

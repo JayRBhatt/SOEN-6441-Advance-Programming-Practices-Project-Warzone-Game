@@ -20,6 +20,7 @@ import utils.maputils.ValidateMap;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 
 public class GameMap {
@@ -67,7 +68,7 @@ public class GameMap {
     /**
      * Returns a particular continent out of the HashMap
      * 
-     * @param p_ID
+     * @param p_ID the id of the continent
      * @return d_continents
      */
     public Continent getContinent(String p_ID) {
@@ -86,7 +87,7 @@ public class GameMap {
     /**
      * Returns a single country value out of the HashMap of d_Countries
      * 
-     * @param p_ID
+     * @param p_ID the id of the country
      * @return d_Countries.get(p_ID)
      */
     public Country getCountry(String p_ID) {
@@ -105,7 +106,7 @@ public class GameMap {
     /**
      * Returns a Particular Player Entity from the HashMap
      * 
-     * @param p_ID
+     * @param p_ID the id of the game player
      * @return d_GamePlayer.get(P_ID)
      */
     public Player getGamePlayer(String p_ID) {
@@ -124,7 +125,7 @@ public class GameMap {
     /**
      * Sets the value of the Invalid Message
      * 
-     * @param p_InvalidMessage
+     * @param p_InvalidMessage 
      */
     public void setInvalidMessage(String p_InvalidMessage) {
         this.d_InvalidMessage = p_InvalidMessage;
@@ -142,7 +143,7 @@ public class GameMap {
     /**
      * sets the Name of the Map
      * 
-     * @param p_Name
+     * @param p_Name the name of the map which is to be st
      */
     public void setName(String p_Name) {
         this.d_Name = p_Name;
@@ -161,8 +162,8 @@ public class GameMap {
     /**
      * Adds the Continent to The Map
      * 
-     * @param p_ContinentName
-     * @param p_TroopsValue
+     * @param p_ContinentName the continent which to be added
+     * @param p_TroopsValue the army value
      */
     public void addContinent(String p_ContinentName, String p_TroopsValue) {
 
@@ -177,7 +178,7 @@ public class GameMap {
      /**
      * Removes the Continent from The Map
      * 
-     * @param p_ContinentName
+     * @param p_ContinentName continent which is to be removed
      */
     
      public void removeContinent(String p_ContinentName) {
@@ -193,8 +194,8 @@ public class GameMap {
     /**
      * Adds a Country to the Map
      * 
-     * @param p_CountryName
-     * @param p_ContinentName
+     * @param p_CountryName country which is to be added
+     * @param p_ContinentName continent which is to be added
      */
     public void addCountry(String p_CountryName, String p_ContinentName) {
         Country l_Country = new Country();
@@ -209,7 +210,7 @@ public class GameMap {
     /**
      * Removes a Country from the Game Map
      * 
-     * @param p_CountryName
+     * @param p_CountryName the country which is to be removed
      */
     public void removeCountry(String p_CountryName) {
         Country l_Country = this.getCountry(p_CountryName);
@@ -222,8 +223,8 @@ public class GameMap {
     /**
      * Adds a Neighbor to the Country
      * 
-     * @param p_CountryName
-     * @param p_NeighborCountryName
+     * @param p_CountryName the country name
+     * @param p_NeighborCountryName the neighbour country name
      */
     public void addNeighbor(String p_CountryName, String p_NeighborCountryName) {
         Country l_Country = this.getCountry(p_CountryName);
@@ -238,9 +239,9 @@ public class GameMap {
     /**
      * Removes a Neighbor of a country provided from the map
      * 
-     * @param p_CountryName
-     * @param p_NeighborCountryName
-     * @throws InvalidCommandException
+     * @param p_CountryName country name
+     * @param p_NeighborCountryName neighbour country name
+     * @throws InvalidCommandException when something failes
      */
     public void removeNeighbor(String p_CountryName, String p_NeighborCountryName) throws InvalidCommandException {
         Country l_Country = this.getCountry(p_CountryName);
@@ -263,8 +264,8 @@ public class GameMap {
     /**
      * Adds a Player to the game
      * 
-     * @param p_PlayerName
-     * @throws InvalidCommandException
+     * @param p_PlayerName player which is to be added
+     * @throws InvalidCommandException when something failes
      */
     public void addGamePlayer(String p_PlayerName) throws InvalidCommandException {
         if (this.getGamePlayers().containsKey(p_PlayerName)) {
@@ -282,8 +283,8 @@ public class GameMap {
     /**
      * Removes a player already present in the game
      * 
-     * @param p_PlayerName
-     * @throws InvalidCommandException
+     * @param p_PlayerName player which is to be removed
+     * @throws InvalidCommandException when something failes
      */
     public void removeExistingPlayer(String p_PlayerName) throws InvalidCommandException {
         Player l_ExistingPlayer = this.getGamePlayer(p_PlayerName);
@@ -299,7 +300,7 @@ public class GameMap {
     /**
      * Saves the Map with all the changes done in it
      * 
-     * @throws InvalidCommandException
+     * @throws InvalidCommandException when something failes
      */
     public void saveMap() throws InvalidCommandException {
 

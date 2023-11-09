@@ -1,8 +1,16 @@
 package model;
 
 import java.util.Objects;
-
-
+/**
+ * A class that creates card and assigns them randomly
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
+ * @version 1.0.0
+ */
 
 public class Cards {
       /**

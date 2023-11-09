@@ -10,6 +10,7 @@ import java.util.Set;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 
 public class Continent {
@@ -20,9 +21,9 @@ public class Continent {
     /**
      * Parameterised Constructor that initializes the variables
      * 
-     * @param d_ContinentName
-     * @param d_ContinentValue
-     * @param d_Countries
+     * @param d_ContinentName The Name of a continent
+     * @param d_ContinentValue the value of the continent
+     * @param d_Countries The set of the countries which continent possess
      */
     public Continent(String d_ContinentName, int d_ContinentValue, Set<Country> d_Countries) {
 
@@ -44,7 +45,7 @@ public class Continent {
     /**
      * sets the name of the continent
      * 
-     * @param p_ContinentName
+     * @param p_ContinentName the continent whose name is to set
      */
     public void setContinentName(String p_ContinentName) {
 
@@ -65,7 +66,7 @@ public class Continent {
     /**
      * Sets the value of the Continent
      * 
-     * @param p_ContinentValue
+     * @param p_ContinentValue the continent whose value is to be set
      */
     public void setContinentValue(int p_ContinentValue) {
         this.d_ContinentValue = p_ContinentValue;

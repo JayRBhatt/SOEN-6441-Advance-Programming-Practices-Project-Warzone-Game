@@ -13,11 +13,14 @@ import model.GamePhase;
 import model.Player;
 import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
-
 /**
  * Class which is the controller for the Issue Order phase
- *
- * 
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @author Mariya Bosy Kondody
+ * @author Reema Ann Reny
+ * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
 
