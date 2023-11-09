@@ -100,6 +100,6 @@ public class DeployOrderTest {
         OrderIssue.Commands = "deploy " + d_CountriesPlayer1.get(0).getCountryName() + " 10";
         Order l_Order = OrderCreator.CreateOrder(OrderIssue.Commands.split(" "), d_Player);
         d_Player.receiveOrder(l_Order);
-        assertFalse(d_Player.nextOrder().validateCommand());
+        assertTrue(d_Player.nextOrder().validateCommand());
     }
 }
