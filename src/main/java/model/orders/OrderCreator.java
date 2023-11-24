@@ -13,7 +13,7 @@ import utils.loggers.LogEntryBuffer;
  * @author Bhargav Fofandi
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
- * @author Meera Muraleedharan Nair 
+ * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
 public class OrderCreator {
@@ -24,13 +24,13 @@ public class OrderCreator {
     /**
      * Static object of LogEntryBuffer to hold instance
      */
-    static LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    static LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * A function to create an order
      *
      * @param p_commands the command entered
-     * @param player object parameter of type Player
+     * @param player     object parameter of type Player
      * @return the order
      */
     public static Order CreateOrder(String[] p_commands, Player player) {
@@ -108,7 +108,6 @@ public class OrderCreator {
         return l_OrderDetails;
     }
 
-
     /**
      * A function to generate the information of Negotiating order
      *
@@ -159,6 +158,7 @@ public class OrderCreator {
         l_OrderDetails.setAmountOfArmy(l_NumberOfArmies);
         return l_OrderDetails;
     }
+
     /**
      * function to generate information about Bombing Order
      *
@@ -166,7 +166,7 @@ public class OrderCreator {
      * @param p_player  object parameter of type Player
      * @return the order information of deploy
      */
-    private static OrderDetails GenerateBombOrderInfo(String[] p_command, Player p_player){
+    private static OrderDetails GenerateBombOrderInfo(String[] p_command, Player p_player) {
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_player);
         String l_CountryID = p_command[1];

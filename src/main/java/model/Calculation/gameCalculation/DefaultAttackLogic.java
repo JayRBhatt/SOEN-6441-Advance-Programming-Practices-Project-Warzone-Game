@@ -1,11 +1,13 @@
-package model.GameCalculations;
+package model.Calculation.gameCalculation;
 
 import model.Cards;
 import model.Country;
 import model.Player;
 import utils.loggers.LogEntryBuffer;
+
 /**
  * An class which implements the AttackLogic class
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -20,7 +22,7 @@ public class DefaultAttackLogic implements AttackLogic {
     /**
      * Logger for game actions
      */
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * Method holding the default attack logic

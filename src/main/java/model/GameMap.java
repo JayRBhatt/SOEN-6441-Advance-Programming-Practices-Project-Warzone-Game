@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import model.Calculation.playerStrategy.PlayerStrategy;
 import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 import utils.maputils.SaveMap;
@@ -23,7 +25,9 @@ import utils.maputils.ValidateMap;
  * @version 1.0.0
  */
 
-public class GameMap {
+public class GameMap implements Serializable {
+
+    private static final long serialVersionUID = 45443434343L;
 
     /**
      * Constructor that initializes the various values
@@ -39,10 +43,16 @@ public class GameMap {
     private HashMap<String, Country> d_Countries;
     private HashMap<String, Player> d_GamePlayers;
 
+    private GamePhase d_GamePhase;
     private String d_InvalidMessage;
     private static GameMap d_GameMap = new GameMap();
     private String d_Name;
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
+    private Player d_Winner;
+    private int d_Tries;
+    private Player d_CurrentPlayer;
+    private Boolean d_GameLoaded = false;
+
     /**
      * A static method that returns the instance of the GameMap
      * 
@@ -54,6 +64,30 @@ public class GameMap {
         }
         return d_GameMap;
     }
+
+    /**
+     * To get the current phase
+     *
+     * @return gamephase instance
+     */
+    public GamePhase getGamePhase() {
+        return d_GamePhase;
+    }
+
+    /**
+     * Set the current phase
+     *
+     * @param d_GamePhase gamephase instance
+     */
+    public void setGamePhase(GamePhase d_GamePhase) {
+        this.d_GamePhase = d_GamePhase;
+    }
+
+    /**
+     * Get the list of all the continents
+     *
+     * @return d_Continents List of the continents
+     */
 
     /**
      * Returns the Hashmap of Continents
@@ -125,7 +159,7 @@ public class GameMap {
     /**
      * Sets the value of the Invalid Message
      * 
-     * @param p_InvalidMessage 
+     * @param p_InvalidMessage
      */
     public void setInvalidMessage(String p_InvalidMessage) {
         this.d_InvalidMessage = p_InvalidMessage;
@@ -150,6 +184,85 @@ public class GameMap {
     }
 
     /**
+     * Get the current Player
+     *
+     * @return player
+     */
+    public Player getCurrentPlayer() {
+        return d_CurrentPlayer;
+    }
+
+    /**
+     * Set the current Player
+     *
+     * @param d_CurrentPlayer player
+     */
+    public void setCurrentPlayer(Player d_CurrentPlayer) {
+        this.d_CurrentPlayer = d_CurrentPlayer;
+    }
+
+    /**
+     * Get the game loaded status
+     *
+     * @return true if game is loaded
+     */
+    public Boolean getGameLoaded() {
+        return d_GameLoaded;
+    }
+
+    /**
+     * set the game loaded status
+     *
+     * @param d_GameLoaded loaded status
+     */
+    public void setGameLoaded(Boolean d_GameLoaded) {
+        this.d_GameLoaded = d_GameLoaded;
+    }
+
+    /**
+     * method to get tries
+     *
+     * @return number of tries
+     */
+    public int getTries() {
+        return d_Tries;
+    }
+
+    /**
+     * method to set number of tries
+     *
+     * @param p_Tries number of tries
+     */
+    public void setTries(int p_Tries) {
+        d_Tries = p_Tries;
+    }
+
+    /**
+     * method to to go to next turn
+     */
+    public void nextTry() {
+        d_Tries++;
+    }
+
+    /**
+     * method to get winner
+     *
+     * @return the winner
+     */
+    public Player getWinner() {
+        return d_Winner;
+    }
+
+    /**
+     * method to set winner
+     *
+     * @param p_Winner the winner
+     */
+    public void setWinner(Player p_Winner) {
+        d_Winner = p_Winner;
+    }
+
+    /**
      * Clears the Object off the values that were set by the user
      * 
      */
@@ -163,7 +276,7 @@ public class GameMap {
      * Adds the Continent to The Map
      * 
      * @param p_ContinentName the continent which to be added
-     * @param p_TroopsValue the army value
+     * @param p_TroopsValue   the army value
      */
     public void addContinent(String p_ContinentName, String p_TroopsValue) {
 
@@ -171,30 +284,30 @@ public class GameMap {
         l_Continent.setContinentName(p_ContinentName);
         l_Continent.setContinentValue(Integer.parseInt(p_TroopsValue));
         this.getContinents().put(p_ContinentName, l_Continent);
-        System.out.println("Woohooo! You have added "+p_ContinentName+" to your World Map!!");
-        d_LogEntryBuffer.logAction("Added Continent: "+p_ContinentName);
+        System.out.println("Woohooo! You have added " + p_ContinentName + " to your World Map!!");
+        d_LogEntryBuffer.logAction("Added Continent: " + p_ContinentName);
     }
-    
-     /**
+
+    /**
      * Removes the Continent from The Map
      * 
      * @param p_ContinentName continent which is to be removed
      */
-    
-     public void removeContinent(String p_ContinentName) {
+
+    public void removeContinent(String p_ContinentName) {
         Set<String> l_CountrySet = this.getContinents().remove(p_ContinentName).getCountries().stream()
                 .map(Country::getCountryName).collect(Collectors.toSet());
         for (String l_Country : l_CountrySet) {
             this.getCountries().remove(l_Country);
         }
         System.out.println("WOW!!" + p_ContinentName + " is off the Map!!!");
-        d_LogEntryBuffer.logAction("Removed Continent: "+p_ContinentName);
+        d_LogEntryBuffer.logAction("Removed Continent: " + p_ContinentName);
     }
 
     /**
      * Adds a Country to the Map
      * 
-     * @param p_CountryName country which is to be added
+     * @param p_CountryName   country which is to be added
      * @param p_ContinentName continent which is to be added
      */
     public void addCountry(String p_CountryName, String p_ContinentName) {
@@ -204,7 +317,7 @@ public class GameMap {
         this.getCountries().put(p_CountryName, l_Country);
         this.getContinent(p_ContinentName).getCountries().add(l_Country);
         System.out.println("There you have it! " + p_CountryName + " a part of " + p_ContinentName);
-        d_LogEntryBuffer.logAction("Added Country: "+p_CountryName+" to "+p_ContinentName+" continent");
+        d_LogEntryBuffer.logAction("Added Country: " + p_CountryName + " to " + p_ContinentName + " continent");
     }
 
     /**
@@ -217,13 +330,13 @@ public class GameMap {
         this.getContinent(l_Country.getContinent()).getCountries().remove(l_Country);
         this.getCountries().remove(l_Country.getCountryName());
         System.out.println("...And " + p_CountryName + " is erased off the map!! ");
-        d_LogEntryBuffer.logAction("Removed Continent: "+p_CountryName);
+        d_LogEntryBuffer.logAction("Removed Continent: " + p_CountryName);
     }
 
     /**
      * Adds a Neighbor to the Country
      * 
-     * @param p_CountryName the country name
+     * @param p_CountryName         the country name
      * @param p_NeighborCountryName the neighbour country name
      */
     public void addNeighbor(String p_CountryName, String p_NeighborCountryName) {
@@ -232,14 +345,14 @@ public class GameMap {
 
         l_Country.getNeighbors().add(l_NeighborCountry);
         System.out.println("Ohhh Look at you! We have neighbors around you, Are they friendly? We'll find out soon");
-        d_LogEntryBuffer.logAction("Added Neighbor: "+p_NeighborCountryName+" to "+p_CountryName);
+        d_LogEntryBuffer.logAction("Added Neighbor: " + p_NeighborCountryName + " to " + p_CountryName);
 
     }
 
     /**
      * Removes a Neighbor of a country provided from the map
      * 
-     * @param p_CountryName country name
+     * @param p_CountryName         country name
      * @param p_NeighborCountryName neighbour country name
      * @throws InvalidCommandException when something failes
      */
@@ -257,7 +370,7 @@ public class GameMap {
             this.getCountry(p_CountryName).getNeighbors().remove(l_NeighborCountry);
             System.out.println("Good Riddance!! Annoying Neighbors makes one's life a living hell. Removed: "
                     + p_CountryName + " and " + p_NeighborCountryName + " as neighbors");
-        d_LogEntryBuffer.logAction("Removed Neighbor: "+p_NeighborCountryName +" of Country: "+p_CountryName);
+            d_LogEntryBuffer.logAction("Removed Neighbor: " + p_NeighborCountryName + " of Country: " + p_CountryName);
         }
     }
 
@@ -271,13 +384,32 @@ public class GameMap {
         if (this.getGamePlayers().containsKey(p_PlayerName)) {
             throw new InvalidCommandException("Duplicates?! No you don't belong here");
         }
-        Player l_GamePlayer = new Player();
+        Player l_GamePlayer = new Player(PlayerStrategy.getStrategy("human"));
         l_GamePlayer.setPlayerName(p_PlayerName);
         getGamePlayers().put(p_PlayerName, l_GamePlayer);
 
         System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
-        d_LogEntryBuffer.logAction("Added GamePlayer: "+p_PlayerName);
-        
+        d_LogEntryBuffer.logAction("Added GamePlayer: " + p_PlayerName);
+
+    }
+
+    /**
+     * Adds a Player to the game
+     * 
+     * @param p_PlayerName player which is to be added
+     * @throws InvalidCommandException when something failes
+     */
+    public void addGamePlayer(String p_PlayerName, String p_Strategy) throws InvalidCommandException {
+        if (this.getGamePlayers().containsKey(p_PlayerName)) {
+            throw new InvalidCommandException("Duplicates?! No you don't belong here");
+        }
+        Player l_GamePlayer = new Player(PlayerStrategy.getStrategy(p_Strategy));
+        l_GamePlayer.setPlayerName(p_PlayerName);
+        getGamePlayers().put(p_PlayerName, l_GamePlayer);
+
+        System.out.println("Hello " + p_PlayerName + ", Welcome to the world of wars!!");
+        d_LogEntryBuffer.logAction("Added GamePlayer: " + p_PlayerName);
+
     }
 
     /**
@@ -293,8 +425,8 @@ public class GameMap {
         }
         this.getGamePlayers().remove(l_ExistingPlayer.getPlayerName());
         System.out.println("You didn't like the name or What? Deleted: " + p_PlayerName);
-        
-        d_LogEntryBuffer.logAction("Removed GamePlayer: "+p_PlayerName);
+
+        d_LogEntryBuffer.logAction("Removed GamePlayer: " + p_PlayerName);
     }
 
     /**
@@ -314,7 +446,7 @@ public class GameMap {
                 } else {
                     if (d_SaveMap.saveMapIntoFile(d_GameMap, d_GameMap.getName())) {
                         System.out.println("Wow! The Map is in Correct Format ");
-                        d_LogEntryBuffer.logAction("The map is Validated and saved");              
+                        d_LogEntryBuffer.logAction("The map is Validated and saved");
                     } else {
                         throw new InvalidCommandException(
                                 "This isn't a Multiverse, give a different name for the country");
@@ -345,9 +477,9 @@ public class GameMap {
             d_p.getOccupiedCountries().add(d_c);
             d_c.setPlayer(d_p);
             System.out.println(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
-            
+
             d_LogEntryBuffer.logAction(d_c.getCountryName() + " Assigned to " + d_p.getPlayerName());
-            
+
             if (d_player_index < d_GameMap.getGamePlayers().size() - 1) {
                 d_player_index++;
             } else {
@@ -449,6 +581,28 @@ public class GameMap {
      */
     private void printTableFooter(String format) {
         System.out.println(format);
+    }
+
+    /**
+     * Returns new instance of gamemap
+     *
+     * @return instance of gamemap
+     */
+    public static GameMap newInstance() {
+        GameMap l_GameMap = d_GameMap;
+        if (Objects.nonNull(l_GameMap)) {
+            l_GameMap.d_GamePhase = null;
+            l_GameMap.d_Name = "";
+            l_GameMap.d_InvalidMessage = "";
+            l_GameMap.d_Winner = null;
+            l_GameMap.d_Tries = 0;
+            l_GameMap.d_CurrentPlayer = null;
+            l_GameMap.d_GameLoaded = false;
+            l_GameMap.ClearMap();
+            return d_GameMap;
+        } else {
+            return getInstance();
+        }
     }
 
 }

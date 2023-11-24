@@ -3,6 +3,8 @@ package services;
 import model.GameMap;
 import model.GamePhase;
 import model.Player;
+import model.Calculation.playerStrategy.PlayerStrategy;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +25,10 @@ public class ReinforcementTest extends Player {
     GamePhase d_NextGamePhase = GamePhase.IssueOrder;
     GameMap d_GameMap;
     Reinforcements l_Reinforcement;
+
+    public ReinforcementTest() {
+        super(PlayerStrategy.getStrategy("human"));
+    }
 
     /**
      * This method initializes the values for continents, countries and players
@@ -58,8 +64,8 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests the validation for next Game phase
      *
-     * @throws InvalidCommandException       if validation fails
-     * @throws InvalidInputException if execution is invalid
+     * @throws InvalidCommandException if validation fails
+     * @throws InvalidInputException   if execution is invalid
      */
     @Test
     public void teststartShouldReturnNextPhase() throws InvalidCommandException, InvalidInputException {
@@ -70,8 +76,8 @@ public class ReinforcementTest extends Player {
     /**
      * This method tests if valid reinforcements is set
      *
-     * @throws InvalidCommandException       if validation fails
-     * @throws InvalidInputException if execution is invalid
+     * @throws InvalidCommandException if validation fails
+     * @throws InvalidInputException   if execution is invalid
      */
     @Test
     public void testReinforcementsSetOrNot() throws InvalidCommandException, InvalidInputException {

@@ -8,6 +8,7 @@ import utils.loggers.LogEntryBuffer;
 /**
  * This class extends Order to provide functionality for executing a negotiate
  * order.
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -17,7 +18,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class NegotiatingOrder extends Order {
-    private LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
+    private LogEntryBuffer d_logEntryBuffer = LogEntryBuffer.getInstance();
     /**
      * Singleton instance of GameMap.
      */
@@ -86,8 +87,8 @@ public class NegotiatingOrder extends Order {
     /**
      * Displays the negotiation order command for user awareness.
      */
-    
-     @Override
+
+    @Override
     public void printOrderCommand() {
         String l_message = "Negotiation established with " + getOrderDetails().getNeutralPlayer().getPlayerName() + ".";
         System.out.println(l_message);

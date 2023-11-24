@@ -2,10 +2,10 @@ package model.order;
 
 import services.OrderIssue;
 import model.Country;
-import model.GameCalculations.DefaultAttackLogic;
 import model.GameMap;
-import model.GameCalculations.GameCalculation;
 import model.Player;
+import model.Calculation.gameCalculation.DefaultAttackLogic;
+import model.Calculation.gameCalculation.GameCalculation;
 import model.orders.Order;
 import model.orders.OrderCreator;
 import org.junit.After;

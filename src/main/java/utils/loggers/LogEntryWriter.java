@@ -3,40 +3,54 @@ package utils.loggers;
 import utils.maputils.Observer;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 
 /**
  * Observes LogEntryBuffer and records the actions to a log file.
  */
-public class LogEntryWriter implements Observer {
+public class LogEntryWriter implements Observer, Serializable {
 
     /**
-     * Receives updates from the observed subject and logs the information.
-     *
-     * @param p_message the information to be logged.
+     * File name for logger
      */
-    public void update(String p_message) {
-        logMessage(p_message);
+    private String l_FilenameString = "demo";
+
+    public LogEntryWriter() {
+        clearAllLogs();
     }
 
-    /**
-     * Logs game actions to a specified log file.
-     *
-     * @param p_logMessage the content to be logged.
-     */
-    public void logMessage(String p_logMessage) {
-        PrintWriter l_writer = null;
-        String l_fileName = "demo";
-        try {
-            l_writer = new PrintWriter(new BufferedWriter(new FileWriter("logFiles/" + l_fileName + ".log", true)));
-            l_writer.println(p_logMessage);
-        } catch (Exception l_exception) {
-            System.out.println(l_exception.getMessage());
-        } finally {
-            if (l_writer != null) {
-                l_writer.close();
-            }
+    public void update(String p_s) {
+        logMessage(p_s);
+    }
+
+    public void logMessage(String p_str) {
+        String filePath = "logFiles/" + l_FilenameString + ".log";
+        try (PrintWriter l_WriteData = new PrintWriter(new BufferedWriter(new FileWriter(filePath, true)))) {
+            checkDirectory("logFiles");
+            l_WriteData.println(p_str);
+        } catch (IOException p_Exception) {
+            System.out.println("Error writing to log file: " + p_Exception.getMessage());
+        }
+    }
+
+    private void checkDirectory(String path) {
+        File directory = new File(path);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+    }
+
+    @Override
+    public void clearAllLogs() {
+        String filePath = "logFiles/" + l_FilenameString + ".log";
+        checkDirectory("logFiles");
+        File l_File = new File(filePath);
+        if (l_File.exists()) {
+            l_File.delete();
         }
     }
 }

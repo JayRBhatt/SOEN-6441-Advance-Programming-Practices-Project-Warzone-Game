@@ -12,7 +12,8 @@ import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 
 /**
- * Class that has the main logic behind the functioning of GameplayBegins phase in
+ * Class that has the main logic behind the functioning of GameplayBegins phase
+ * in
  * the game
  *
  * @author Jay Bhatt
@@ -21,13 +22,14 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 
-public class GamePlayBegins implements GameEngineController{
+public class GamePlayBegins implements GameEngineController {
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer",
             "assigncountries");
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.Reinforcement;
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
+
     /**
      * Constructor to initialize d_GameMap
      * 
@@ -43,10 +45,10 @@ public class GamePlayBegins implements GameEngineController{
      * @param p_GamePhase current Game Phase
      * @throws InvalidCommandException when any invalid command is encountered
      */
-    public  GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
 
         d_LogEntryBuffer.logAction("Ended Map Editor Phase");
-        
+
         System.out
                 .println("================================ End of Map Editor Phase ==================================");
         System.out.println(

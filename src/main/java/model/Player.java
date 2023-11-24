@@ -3,6 +3,7 @@ package model;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import model.Calculation.playerStrategy.PlayerStrategy;
 import model.orders.Order;
 import model.orders.OrderCreator;
 import services.OrderIssue;
@@ -17,6 +18,7 @@ import services.OrderIssue;
  * @version 1.0.0
  */
 public class Player {
+
     /**
      * An integer to store the ID of player
      */
@@ -53,6 +55,17 @@ public class Player {
      * A list of orders
      */
     public static List<Order> OrderList = new ArrayList<>();
+
+    private final PlayerStrategy d_PlayerStrategy;
+
+    public Player(PlayerStrategy p_PlayerStrategy) {
+        this.d_PlayerStrategy = p_PlayerStrategy;
+    }
+
+    public String readFromPlayer() {
+        return this.d_PlayerStrategy.createCommand();
+    }
+
     /**
      * A function to get the player ID
      *
@@ -61,6 +74,7 @@ public class Player {
     public int getPlayerId() {
         return d_PlayerId;
     }
+
     /**
      * A function to set the player ID
      *
@@ -73,7 +87,7 @@ public class Player {
     /**
      * Returns the Name of the Player
      * 
-     * @return String
+     * @return PlayerName
      */
     public String getPlayerName() {
         return d_PlayerName;
@@ -154,7 +168,8 @@ public class Player {
     public void setAdditionalArmies(int p_AdditionalArmies) {
         this.d_AdditionalArmies = p_AdditionalArmies;
     }
-      /**
+
+    /**
      * A function to get list of all cards for the player
      *
      * @return list of all cards
@@ -162,6 +177,7 @@ public class Player {
     public List<Cards> getPlayersCards() {
         return d_PlayersCards;
     }
+
     /**
      * Method to check if particular card is available in the player's card list
      *
@@ -171,7 +187,8 @@ public class Player {
     public boolean checkCardAvailablity(CardsType p_cardsType) {
         return d_PlayersCards.stream().anyMatch(p_cards -> p_cards.getCardsType().equals(p_cardsType));
     }
-      /**
+
+    /**
      * Remove the card for the player
      *
      * @param p_CardsType card to be removed
@@ -180,12 +197,14 @@ public class Player {
     public boolean removeCard(CardsType p_CardsType) {
         return d_PlayersCards.remove(new Cards(p_CardsType));
     }
+
     /**
      * A function to remove the all cards from the player
      */
     public void removeCards() {
         d_PlayersCards.clear();
     }
+
     /**
      * Add the card to the player on conquering the territory
      *
@@ -194,7 +213,8 @@ public class Player {
     public void addPlayerCard(Cards p_Card) {
         d_PlayersCards.add(p_Card);
     }
-     /**
+
+    /**
      * Get the list of all players you cannot attack
      *
      * @return list of players
@@ -202,7 +222,8 @@ public class Player {
     public List<Player> getNeutralPlayers() {
         return d_NeutralPlayers;
     }
-     /**
+
+    /**
      * Add the neutral player to the list
      *
      * @param p_NeutralPlayer The player you cannot attack
@@ -212,7 +233,8 @@ public class Player {
             d_NeutralPlayers.add(p_NeutralPlayer);
         }
     }
-     /**
+
+    /**
      * Remove all the neutral players from list
      */
     public void removeNeutralPlayer() {
@@ -220,7 +242,8 @@ public class Player {
             d_NeutralPlayers.clear();
         }
     }
-     /**
+
+    /**
      * A function to get the issue order from player and add to the order list
      */
     public void deployOrder() {
@@ -247,7 +270,7 @@ public class Player {
      * Confirms whether a country is occupied or not
      * 
      * @param p_Country the country which is to be checked
-     * @param p_Player the player who occupied the country
+     * @param p_Player  the player who occupied the country
      * @return true if country is occupied by player or else returns false
      */
     public boolean confirmIfCountryisOccupied(String p_Country, Player p_Player) {
@@ -293,6 +316,7 @@ public class Player {
 
     /**
      * Calculates the total of alloted reinforcements for a player
+     * 
      * @param p_gameMap the game map
      */
     public void calculateTotalReinforcementArmies(GameMap p_gameMap) {
@@ -307,7 +331,7 @@ public class Player {
         System.out.println("The Player:" + getPlayerName() + " is assigned with " + getAdditionalArmies() + " armies.");
 
     }
-    
+
     /**
      * Calculates the extra army which players received after winning
      * 

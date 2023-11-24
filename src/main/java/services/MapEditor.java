@@ -22,11 +22,11 @@ import utils.maputils.ValidateMap;
  * @author Bhargav Fofandi
  * @version 1.0.0
  */
-public class MapEditor implements GameEngineController{
+public class MapEditor implements GameEngineController {
     private Scanner sc = new Scanner(System.in);
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.StartUp;
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     private final List<String> l_PreDefinedCommands = Arrays.asList("editcontinent", "editcountry", "editneighbor",
             "showmap",
             "savemap", "editmap", "validatemap");
@@ -40,14 +40,15 @@ public class MapEditor implements GameEngineController{
     }
 
     /**
-     * Method where the command gets checked of its type(editcontinent or editcountry
+     * Method where the command gets checked of its type(editcontinent or
+     * editcountry
      * etc)
      * 
      * @param p_GamePhase the game phase
      * @throws InvalidCommandException when something failes
      */
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
-        d_LogEntryBuffer.prepareNewLogFile();
+        d_LogEntryBuffer.clear();
         d_LogEntryBuffer.logAction("Entered Map Editor Phase!");
         while (true) {
             System.out.println(
@@ -158,7 +159,8 @@ public class MapEditor implements GameEngineController{
      * Method that checks whether the input is valid
      * 
      * @param p_InputList list of inputs
-     * @return true if the input provided by the player is present in set of PredefinedCommands or else it returns false
+     * @return true if the input provided by the player is present in set of
+     *         PredefinedCommands or else it returns false
      */
     public boolean isValidInput(List<String> p_InputList) {
         if (p_InputList.size() == 1) {
@@ -262,7 +264,7 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException();
         }
-         // Retrieve the continent name from the command list.
+        // Retrieve the continent name from the command list.
         String l_ContinentName = p_CommandList.get(2);
         if (d_GameMap.getContinents().containsKey(l_ContinentName)) {
             throw new InvalidCommandException("The continent " + l_ContinentName + " already exists.");
@@ -279,10 +281,10 @@ public class MapEditor implements GameEngineController{
     private void removeContinent(List<String> p_CommandList) throws InvalidCommandException {
         if (p_CommandList.size() != 2) {
             throw new InvalidCommandException();
-        } 
+        }
         // Retrieve the continent name from the command list.
         String l_ContinentName = p_CommandList.get(1);
-    
+
         // Check if the continent exists in the GameMap's continents hashmap.
         if (!d_GameMap.getContinents().containsKey(l_ContinentName)) {
             throw new InvalidCommandException("The continent " + l_ContinentName + " does not exist.");
@@ -300,15 +302,15 @@ public class MapEditor implements GameEngineController{
         if (p_CommandList.size() != 3) {
             throw new InvalidCommandException("The command does not have the correct number of arguments.");
         }
-    
+
         // Retrieve the continent name from the command list.
         String l_ContinentName = p_CommandList.get(2);
-    
+
         // Check if the continent exists in the GameMap's continents hashmap.
         if (!d_GameMap.getContinents().containsKey(l_ContinentName)) {
             throw new InvalidCommandException("The continent " + l_ContinentName + " does not exist.");
         }
-    
+
         // Since the continent exists, proceed to add the country.
         d_GameMap.addCountry(p_CommandList.get(1), l_ContinentName);
     }
@@ -325,7 +327,7 @@ public class MapEditor implements GameEngineController{
         }
         // Retrieve the country name from the command list.
         String l_CountryName = p_CommandList.get(1);
-    
+
         // Check if the country exists in the GameMap's conuntries hashmap.
         if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
             throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
@@ -349,7 +351,7 @@ public class MapEditor implements GameEngineController{
         // Check if the country exists in the GameMap's conuntries hashmap.
         if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
             throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
-        }else if(!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
+        } else if (!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
             throw new InvalidCommandException("The Country - " + l_NeighborCountryMName + " - does not exist.");
         }
         d_GameMap.addNeighbor(p_CommandList.get(1), p_CommandList.get(2));
@@ -371,7 +373,7 @@ public class MapEditor implements GameEngineController{
         // Check if the country exists in the GameMap's conuntries hashmap.
         if (!d_GameMap.getCountries().containsKey(l_CountryName)) {
             throw new InvalidCommandException("The Country - " + l_CountryName + " - does not exist.");
-        }else if(!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
+        } else if (!d_GameMap.getCountries().containsKey(l_NeighborCountryMName)) {
             throw new InvalidCommandException("The Country - " + l_NeighborCountryMName + " - does not exist.");
         }
         d_GameMap.removeNeighbor(p_CommandList.get(1), p_CommandList.get(2));

@@ -1,7 +1,7 @@
 package utils.exceptions;
 
 /**
- * This class represents an exception for handling invalid console commands.
+ * This class manages invalid execution of commands in the game stage.
  * It provides a user-friendly default message if none is provided.
  * 
  * @author Madhav Anadkat

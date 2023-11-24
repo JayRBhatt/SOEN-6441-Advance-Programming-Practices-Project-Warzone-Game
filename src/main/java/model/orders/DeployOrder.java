@@ -19,7 +19,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class DeployOrder extends Order {
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * Constructor for class DeployOrder

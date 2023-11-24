@@ -1,6 +1,8 @@
-package model.GameCalculations;
+package model.Calculation.gameCalculation;
+
 /**
  * An class that contains the Game calculations
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -28,6 +30,11 @@ public class GameCalculation {
     public final double DEFENDER_PROBABILITY = 0.7;
 
     /**
+     * Max tries
+     */
+    public int MAX_TRIES;
+
+    /**
      * Constructor for Game Calculation
      */
     private GameCalculation() {
@@ -39,7 +46,7 @@ public class GameCalculation {
      * @return game calculation object
      */
     public static GameCalculation getInstance() {
-        if (calculation==null) {
+        if (calculation == null) {
             calculation = new GameCalculation();
         }
         return calculation;
@@ -61,5 +68,5 @@ public class GameCalculation {
      */
     public void setStrategy(AttackLogic p_Strategy) {
         d_AttackLogic = p_Strategy;
-    }    
+    }
 }

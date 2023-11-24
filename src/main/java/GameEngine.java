@@ -1,10 +1,11 @@
 
 import controller.GameEngineController;
 import model.GamePhase;
-import model.GameCalculations.DefaultAttackLogic;
-import model.GameCalculations.GameCalculation;
+import model.Calculation.gameCalculation.DefaultAttackLogic;
+import model.Calculation.gameCalculation.GameCalculation;
 import utils.exceptions.InvalidCommandException;
 import utils.exceptions.InvalidInputException;
+import utils.loggers.LogEntryBuffer;
 
 /**
  * A class that starts the game with the first phase
@@ -18,32 +19,37 @@ import utils.exceptions.InvalidInputException;
  * @version 1.0.0
  */
 
-public class GameEngine {
+public class GameEngine implements Engine {
     /**
      * gamephase instance for the state
      */
     GamePhase d_GamePhase = GamePhase.MapEditor;
+    /**
+     * Creating Logger Observable
+     * Single Instance needs to be maintained (Singleton)
+     */
+    private static LogEntryBuffer d_LogEntryBuffer;
 
     /**
-     * The main method for accepting command from users to run the warzone game
-     * 
-     * @param args are passed to main if used in command line
-     * @throws InvalidCommandException when something failes
+     * constructor for game engine
      */
 
-    public static void main(String args[]) throws InvalidCommandException {
+    public GameEngine() {
         GameCalculation l_gameCalculation = GameCalculation.getInstance();
         l_gameCalculation.setStrategy(new DefaultAttackLogic());
-        new GameEngine().start(l_gameCalculation);
+        d_LogEntryBuffer = LogEntryBuffer.getInstance();
+        d_LogEntryBuffer.clear();
+
     }
 
     /**
      * The function which takes the game to different phases through gameController
-     * @param p_GameCalculation 
+     * 
+     * @param p_GameCalculation
      * @throws InvalidCommandException when something failes
      */
 
-    public void start(GameCalculation p_GameCalculation) throws InvalidCommandException {
+    public void start() throws InvalidCommandException {
         while (!d_GamePhase.equals(GamePhase.ExitGame)) {
             try {
                 GameEngineController l_GameController = d_GamePhase.getController();
@@ -65,5 +71,14 @@ public class GameEngine {
                 break;
             }
         }
+    }
+
+    /**
+     * method to set game phase
+     * 
+     * @param p_GamePhase the game phase
+     */
+    public void setGamePhase(GamePhase p_GamePhase) {
+        d_GamePhase = p_GamePhase;
     }
 }

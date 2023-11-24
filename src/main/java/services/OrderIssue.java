@@ -13,8 +13,10 @@ import model.GamePhase;
 import model.Player;
 import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
+
 /**
  * Class which is the controller for the Issue Order phase
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -31,7 +33,7 @@ public class OrderIssue implements GameEngineController {
     private final static Scanner sc = new Scanner(System.in);
     private static Set<Player> SkippedPlayers = new HashSet<>();
     public static String Commands = null;
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * Constructor that initializes the GameMAp Instance with the current State

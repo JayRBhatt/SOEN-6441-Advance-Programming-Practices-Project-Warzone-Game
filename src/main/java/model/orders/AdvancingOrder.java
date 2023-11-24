@@ -2,14 +2,15 @@ package model.orders;
 
 import model.Country;
 import model.Player;
-import model.GameCalculations.AttackLogic;
-import model.GameCalculations.GameCalculation;
+import model.Calculation.gameCalculation.AttackLogic;
+import model.Calculation.gameCalculation.GameCalculation;
 import utils.loggers.LogEntryBuffer;
 
 import java.util.Objects;
 
 /**
  * Represents the advancing order and its operational logic within the game.
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -21,7 +22,7 @@ import java.util.Objects;
 public class AdvancingOrder extends Order {
 
     /** Buffer to hold log entries for events within the game. */
-    private LogEntryBuffer d_leb = new LogEntryBuffer();
+    private LogEntryBuffer d_leb = LogEntryBuffer.getInstance();
 
     /** Singleton instance to manage game settings. */
     private GameCalculation d_settings = GameCalculation.getInstance();

@@ -1,7 +1,8 @@
-package model.GameCalculations;
+package model.Calculation.gameCalculation;
 
 import model.Country;
 import model.Player;
+
 /**
  * An interface with the Attack logic
  * 
@@ -14,7 +15,7 @@ import model.Player;
  * @version 1.0.0
  */
 public interface AttackLogic {
- 
+
     /**
      * Method holding the default attack logic
      *
@@ -29,12 +30,12 @@ public interface AttackLogic {
     /**
      * Method to swap the ownership of territories once conquered
      *
-     * @param p_Player The player to whom the ownership should go
+     * @param p_Player  The player to whom the ownership should go
      * @param p_Country The country which is conquered
      */
     default void winner(Player p_Player, Country p_Country) {
         p_Country.getPlayer().getOccupiedCountries().remove(p_Country);
         p_Country.setPlayer(p_Player);
         p_Player.getOccupiedCountries().add(p_Country);
-    }   
+    }
 }

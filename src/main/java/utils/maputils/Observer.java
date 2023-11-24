@@ -13,4 +13,9 @@ public interface Observer {
      * @param p_s the message to be updated
      */
     void update(String p_s);
+
+    /**
+     * clear all logs
+     */
+    void clearAllLogs();
 }

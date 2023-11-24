@@ -12,6 +12,7 @@ import utils.loggers.LogEntryBuffer;
  * Class that has the main logic behind the functioning of Execute order phase
  * in
  * the game
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -26,7 +27,7 @@ public class ExecuteOrder implements GameEngineController {
     GamePhase d_NextState = GamePhase.ExitGame;
     GamePhase d_GamePhase;
     GameMap d_GameMap;
-    LogEntryBuffer d_LogEntryBuffer = new LogEntryBuffer();
+    LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     GamePhase d_ReinforcementGamePhase = GamePhase.Reinforcement;
 
     /**
@@ -75,6 +76,7 @@ public class ExecuteOrder implements GameEngineController {
             }
         }
     }
+
     /**
      * Remove all the neutral players from list
      */

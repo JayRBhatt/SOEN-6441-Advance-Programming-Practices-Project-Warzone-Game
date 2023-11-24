@@ -5,11 +5,13 @@ import model.Country;
 import model.GameMap;
 import model.Player;
 import utils.loggers.LogEntryBuffer;
+
 /**
  * Manages the logic for the bombing order in the game.
  * It allows a player to bomb a country, reducing its army count by half.
  * The action is not permitted on the player's own countries or on neutral
  * countries with a truce.
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -23,7 +25,7 @@ public class BombingOrder extends Order {
     /** Reference to the game map to access the global state. */
     private GameMap d_gameMap;
     /** Log entry buffer to record events and states in the game. */
-    private LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
+    private LogEntryBuffer d_logEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * Constructs a new bomb order and initializes the game map instance.
@@ -77,7 +79,7 @@ public class BombingOrder extends Order {
             d_logEntryBuffer.logAction("The bomb card is not available for the player.");
             return false;
         }
-         if (l_player.getOccupiedCountries().contains(l_targetCountry)) {
+        if (l_player.getOccupiedCountries().contains(l_targetCountry)) {
             System.err.println("Are you crazy?? You want to bomb your own territory?");
             d_logEntryBuffer.logAction("A player cannot bomb their own territory.");
             return false;
