@@ -137,7 +137,7 @@ public class DominationMap {
     public boolean saveMap(GameMap p_GameMap, String p_FileName) throws IOException {
         String l_Message = " ";
         l_Message = "yura.net Risk 1.0.9.2";
-        String l_CurrentPath = System.getProperty("user.dir") + "\\Maps\\";
+        String l_CurrentPath = System.getProperty("user.dir") + "\\src/main/maps/\\";
         String l_MapPath = l_CurrentPath + p_FileName + ".map";
         BufferedWriter bwFile = new BufferedWriter(new FileWriter(l_MapPath));
         String d_Content = ";Map ";

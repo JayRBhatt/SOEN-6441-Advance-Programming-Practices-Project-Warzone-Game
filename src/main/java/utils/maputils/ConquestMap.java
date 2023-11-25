@@ -40,7 +40,7 @@ public class ConquestMap {
          */
         try {
             p_GameMap.ClearMap();
-            File l_File = new File("maps/" + p_FileName);
+            File l_File = new File("src/main/maps/" + p_FileName);
 
             FileReader l_FileReader = new FileReader(l_File);
             Map<String, List<String>> l_MapFileContents = new HashMap<>();
@@ -155,7 +155,7 @@ public class ConquestMap {
             }
             PrintWriter l_WriteData = null;
             try {
-                final String PATH = "maps/";
+                final String PATH = "src/main/maps/";
                 l_WriteData = new PrintWriter(PATH + p_FileName + ".map");
                 l_WriteData.println(l_MapData);
                 return true;

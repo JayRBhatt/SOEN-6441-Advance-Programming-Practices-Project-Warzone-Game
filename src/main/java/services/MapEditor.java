@@ -1,5 +1,6 @@
 package services;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -47,7 +48,7 @@ public class MapEditor implements GameEngineController {
      * @param p_GamePhase the game phase
      * @throws InvalidCommandException when something failes
      */
-    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException {
+    public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException,IOException {
         d_LogEntryBuffer.clear();
         d_LogEntryBuffer.logAction("Entered Map Editor Phase!");
         while (true) {
@@ -397,10 +398,23 @@ public class MapEditor implements GameEngineController {
      * @param p_CommandList
      * @throws InvalidCommandException
      */
-    private void handleSaveMap(List<String> p_CommandList) throws InvalidCommandException {
+    private void handleSaveMap(List<String> p_CommandList) throws InvalidCommandException,IOException {
         if (p_CommandList.size() == 1) {
             d_GameMap.setName(p_CommandList.get(0));
-            d_GameMap.saveMap();
+            d_LogEntryBuffer.logAction(" Which format do you want to save the file? Type the number.");
+            d_LogEntryBuffer.logAction("1. Domination map \n2. Conquest map");
+            Scanner l_Scanner = new Scanner(System.in);
+            String l_UserInput = l_Scanner.nextLine();
+            if (l_UserInput.equals("1")){
+            d_GameMap.saveMap(false);
+            d_LogEntryBuffer.logAction("The loaded file is of the format Domination map");
+            }
+            else if (l_UserInput.equals("2")) {
+                d_GameMap.saveMap(true);
+                d_LogEntryBuffer.logAction("The loaded file is of the format Conquest map");
+            }
+            else
+                d_LogEntryBuffer.logAction("Please enter the right value");
         }
     }
 

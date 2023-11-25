@@ -1,0 +1,9 @@
+;Map hhh.mapname hhh.map Mapyura.net Risk 1.0.9.2
+[continents]
+Asia 0 00000
+
+[countries]
+1 India 1
+
+[borders]
+1

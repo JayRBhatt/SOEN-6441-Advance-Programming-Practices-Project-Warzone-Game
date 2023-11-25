@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,6 +13,9 @@ import java.util.stream.Collectors;
 import model.Calculation.playerStrategy.PlayerStrategy;
 import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
+import utils.maputils.Adaptor;
+import utils.maputils.ConquestMap;
+import utils.maputils.DominationMap;
 import utils.maputils.SaveMap;
 import utils.maputils.ValidateMap;
 
@@ -433,18 +437,19 @@ public class GameMap implements Serializable {
      * Saves the Map with all the changes done in it
      * 
      * @throws InvalidCommandException when something failes
+     * @throws IOException
      */
-    public void saveMap() throws InvalidCommandException {
+    public void saveMap(boolean p_saveAsConquest) throws InvalidCommandException, IOException {
 
         if (ValidateMap.validateMap(d_GameMap, 0)) {
-            SaveMap d_SaveMap = new SaveMap();
+            DominationMap l_SaveMap = p_saveAsConquest ? new Adaptor(new ConquestMap()) : new DominationMap();
             boolean flag = true;
             while (flag) {
                 d_GameMap.getName();
                 if (Objects.isNull(d_GameMap.getName()) || d_GameMap.getName().isEmpty()) {
                     throw new InvalidCommandException("Nope! Not the Correct name I suppose.");
                 } else {
-                    if (d_SaveMap.saveMapIntoFile(d_GameMap, d_GameMap.getName())) {
+                    if (l_SaveMap.saveMap(d_GameMap, d_GameMap.getName())) {
                         System.out.println("Wow! The Map is in Correct Format ");
                         d_LogEntryBuffer.logAction("The map is Validated and saved");
                     } else {

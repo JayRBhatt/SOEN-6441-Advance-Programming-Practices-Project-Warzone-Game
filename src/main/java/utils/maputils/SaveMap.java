@@ -38,29 +38,29 @@ public class SaveMap {
      * @return true if the map is saved or else returns false
      */
     public boolean saveMapIntoFile(GameMap p_GameMap, String name) {
-        String mapData = "[Map]\n\n[Continents]\n";
+        String l_MapData = "[Map]\nauthor=Anonymous\n[Continents]\n";
         for (Continent continent : p_GameMap.getContinents().values()) {
-            mapData += continent.getContinentName() + " " + continent.getContinentValue();
-            mapData += "\n";
+            l_MapData += continent.getContinentName() + " " + continent.getContinentValue();
+            l_MapData += "\n";
         }
 
-        mapData += "[Territories]\n";
+        l_MapData += "[Territories]\n";
         for (Continent continent : p_GameMap.getContinents().values()) {
             for (Country country : p_GameMap.getCountries().values()) {
-                mapData += country.getCountryName() + " " + country.getContinent() + " "
+                l_MapData += country.getCountryName() + " " + country.getContinent() + " "
                         + createANeighborList(country.getNeighbors()) + "\n";
             }
 
-            PrintWriter writeData = null;
+            PrintWriter l_writeData = null;
             try {
-                writeData = new PrintWriter("src/main/maps/" + name + ".map");
-                writeData.println(mapData);
+                l_writeData = new PrintWriter("src/main/maps/" + name + ".map");
+                l_writeData.println(l_MapData);
                 return true;
             } catch (Exception ex) {
                 return false;
             } finally {
-                if (writeData != null) {
-                    writeData.close();
+                if (l_writeData != null) {
+                    l_writeData.close();
                 }
             }
         }
