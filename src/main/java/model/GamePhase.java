@@ -10,6 +10,7 @@ import services.GamePlayBegins;
 import services.MapEditor;
 import services.OrderIssue;
 import services.Reinforcements;
+import services.LoadGame;
 /**
  * Enum containing the  different phases of the Game.
  * @author Jay Bhatt
@@ -45,6 +46,33 @@ public enum GamePhase {
         @Override
         public GameEngineController getController() {
             return new MapEditor();
+        }
+    },
+
+    /**
+     * Loadgame state handling game loading
+     */
+    LoadGame {
+        /**
+         *  Overrides getController() method which returns the controller
+         *  for load game phase.
+         *
+         * @return null
+         */
+        @Override
+        public List<GamePhase> possibleStates() {
+            return null;
+        }
+
+        /**
+         *  Overrides getController() method which returns the controller
+         *  for load game phase.
+         *
+         * @return loadgame object
+         */
+        @Override
+        public GameEngineController getController() {
+            return new LoadGame();
         }
     },
 

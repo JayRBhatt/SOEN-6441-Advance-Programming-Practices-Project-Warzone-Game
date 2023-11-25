@@ -9,62 +9,64 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-
 /**
- *  A class to save and load game progress
- 
+ * A class to save and load game progress
+ * @author Jay Bhatt
+ * @version 1.0.0
+ *
  */
 public class GameProgress {
     /**
-     * constant path
+     * Constant path
      */
     static final String PATH = "savedFiles/";
+
     /**
      * LogEntry Buffer Instance
      */
-    private static LogEntryBuffer d_Logger = LogEntryBuffer.getInstance();
+    private static LogEntryBuffer d_LogManager = LogEntryBuffer.getInstance();
 
     /**
      * A function to save the game progress
      *
-     * @param p_GameMap instance of the game
-     * @param p_Name file name
-     * @return true is successful else false
+     * @param p_MapState instance of the game
+     * @param p_FileLabel file name
+     * @return true if successful else false
      */
-    public static boolean SaveGameProgress(GameMap p_GameMap, String p_Name){
+    public static boolean storeGameState(GameMap p_MapState, String p_FileLabel) {
         try {
-            FileOutputStream l_Fs = new FileOutputStream(PATH + p_Name + ".bin");
-            ObjectOutputStream l_Os = new ObjectOutputStream(l_Fs);
-            l_Os.writeObject(p_GameMap);
-            d_Logger.logAction("The game has been saved successfully to file ./savedFiles/" + p_Name + ".bin");
-            l_Os.flush();
-            l_Fs.close();
-            p_GameMap.ClearMap();
+            FileOutputStream l_fileStream = new FileOutputStream(PATH + p_FileLabel + ".bin");
+            ObjectOutputStream l_objectStream = new ObjectOutputStream(l_fileStream);
+            l_objectStream.writeObject(p_MapState);
+            d_LogManager.logAction("The game has been saved successfully to file ./savedFiles/" + p_FileLabel + ".bin");
+            l_objectStream.flush();
+            l_fileStream.close();
+            p_MapState.ClearMap();
             return true;
-        } catch(Exception p_Exception) {
-            d_Logger.logAction(p_Exception.toString());
+        } catch (Exception p_Error) {
+            d_LogManager.logAction(p_Error.toString());
             return false;
         }
     }
 
     /**
-     * A file to load the game progress
+     * A function to load the game progress
      *
-     * @param p_Filename the file name string
-     * @return Gamephase instance
+     * @param p_SaveFileName the file name string
+     * @return GamePhase instance
      */
-    public static GamePhase LoadGameProgress(String p_Filename){
-        FileInputStream l_Fs;
-        GameMap l_LoadedGameMap;
+    public static GamePhase retrieveGameState(String p_SaveFileName) {
+        FileInputStream l_fileStream;
+        GameMap l_retrievedMap;
         try {
-            l_Fs = new FileInputStream(PATH + p_Filename);
-            ObjectInputStream l_Os = new ObjectInputStream(l_Fs);
-            l_LoadedGameMap = (GameMap) l_Os.readObject();
-            d_Logger.logAction("The game is loaded successfully will continue from where it last stopped.");
-            l_Os.close();
-            return GameMap.getInstance().gamePlayBuilder(l_LoadedGameMap);
-        } catch (IOException |ClassNotFoundException | InvalidCommandException p_Exception) {
-            d_Logger.logAction("The file could not be loaded.");
+            l_fileStream = new FileInputStream(PATH + p_SaveFileName);
+            ObjectInputStream l_objectStream = new ObjectInputStream(l_fileStream);
+            l_retrievedMap = (GameMap) l_objectStream.readObject();
+            d_LogManager.logAction("The game is loaded successfully will continue from where it last stopped.");
+            l_objectStream.close();
+            return GameMap.getInstance().gamePlayBuilder(l_retrievedMap);
+        } catch (IOException | ClassNotFoundException | InvalidCommandException p_Error) {
+            d_LogManager.logAction("The file could not be loaded.");
             return GamePhase.StartUp;
         }
     }
@@ -74,25 +76,25 @@ public class GameProgress {
      *
      * @throws IOException File exception
      */
-    public static void showFiles() throws IOException {
-        d_Logger.logAction("==================================");
-        d_Logger.logAction("\t\t\t Warzone");
-        d_Logger.logAction("==================================");
-        d_Logger.logAction("\t\t\t Load Game");
-        d_Logger.logAction("\t=======================\n");
+    public static void displaySavedGames() throws IOException {
+        d_LogManager.logAction("==================================");
+        d_LogManager.logAction("\t\t\t Warzone");
+        d_LogManager.logAction("==================================");
+        d_LogManager.logAction("\t\t\t Load Game");
+        d_LogManager.logAction("\t=======================\n");
         if (new File(PATH).exists()) {
             Files.walk(Path.of(PATH))
                     .filter(path -> path.toFile().isFile())
                     .forEach(path -> {
-                        d_Logger.logAction("\t\t " + path.getFileName());
+                        d_LogManager.logAction("\t\t " + path.getFileName());
                     });
         } else {
-            d_Logger.logAction("\t\t " + "no load files found");
+            d_LogManager.logAction("\t\t " + "no load files found");
         }
-        d_Logger.logAction("");
-        d_Logger.logAction("\t=======================");
-        d_Logger.logAction("\t use file name to load");
-        d_Logger.logAction("==================================");
-        d_Logger.logAction("example command: loadgame");
+        d_LogManager.logAction("");
+        d_LogManager.logAction("\t=======================");
+        d_LogManager.logAction("\t use file name to load");
+        d_LogManager.logAction("==================================");
+        d_LogManager.logAction("example command: loadgame");
     }
 }

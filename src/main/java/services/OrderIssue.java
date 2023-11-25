@@ -103,9 +103,22 @@ public class OrderIssue implements GameEngineController {
                     if (Commands.equals("pass")) {
                         break;
                     }
+
+
                     if (Commands.split(" ")[0].equals("savegame") && l_IssueCommand) {
-                        d_GameMap.setGamePhase(d_MapEditorPhase);
-                        return d_MapEditorPhase;
+                        System.out.println("Do you wish to save the game progress? Y/n");
+                        String l_Input = new Scanner(System.in).nextLine();
+                        if(l_Input.equalsIgnoreCase("Y")){
+                            GameProgress.storeGameState(d_GameMap, Commands);
+                            l_IssueCommand = true;
+                            d_GameMap.setGamePhase(d_MapEditorPhase);
+                            return d_MapEditorPhase;
+                        }
+                        else{
+                            System.out.println("The game won't be saved and it'll continue");
+                            l_IssueCommand = false;
+                        }
+                        
                     }
                 }
                 if (!Commands.equals("pass")) {
@@ -170,7 +183,7 @@ public class OrderIssue implements GameEngineController {
                 System.out.println("Are you sure you want to save the file? Enter Yes/No.");
                 String l_Input = new Scanner(System.in).nextLine();
                 if (l_Input.equalsIgnoreCase("Yes")) {
-                    GameProgress.SaveGameProgress(d_GameMap, l_CommandArr[1]);
+                    GameProgress.storeGameState(d_GameMap, l_CommandArr[1]);
                     return true;
                 } else {
                     d_Logger.logAction("The game has not been saved, continue to play.");

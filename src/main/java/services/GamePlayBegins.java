@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Scanner;
+
+import utils.maputils.GameProgress;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 import controller.GameEngineController;
@@ -25,9 +27,10 @@ import utils.loggers.LogEntryBuffer;
 public class GamePlayBegins implements GameEngineController {
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer",
-            "assigncountries");
+            "assigncountries","savegame","loadgame","tournament");
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.Reinforcement;
+    GamePhase d_MapEditorPhase = GamePhase.MapEditor;
     LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
@@ -121,6 +124,25 @@ public class GamePlayBegins implements GameEngineController {
                         d_GameMap.showMap();
                         break;
                     }
+
+                    case "savegame": {
+                        if (l_ArrayOfCommands.length == 1) {
+                            GameProgress.storeGameState(d_GameMap, l_ArrayOfCommands[0]);
+                            d_GameMap.setGamePhase(d_MapEditorPhase);
+                            return d_MapEditorPhase;
+                        }
+                        break;
+                    }
+                    case "loadgame": {
+                        if (l_ArrayOfCommands.length == 1) {
+                            GamePhase l_GameLoaded = GameProgress.retrieveGameState(l_ArrayOfCommands[0]);
+                            if (!l_GameLoaded.equals(GamePhase.StartUp)) {
+                                return l_GameLoaded;
+                            }
+                        }
+                        break;
+                    }
+
                     case "exit": {
                         return p_GamePhase.nextState(d_NextState);
                     }
@@ -137,6 +159,8 @@ public class GamePlayBegins implements GameEngineController {
                         System.out.println("If you wish to assign countries to the players type : assigncountries");
                         System.out.println(
                                 "-----------------------------------------------------------------------------------------");
+                        System.out.println("If you wish to save the progress of the game until the last action you took: savegame filename");
+                        System.out.println("If you wish to load the previously stored game progress: loadgame filename");
 
                     }
                 }

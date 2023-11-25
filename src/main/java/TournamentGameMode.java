@@ -18,8 +18,8 @@ import utils.maputils.ValidateMap;
 
 public class TournamentGameMode implements Engine {
     private LogEntryBuffer d_Logger;
-    private GameTournamentSettings d_Options;
-    private List<GameTournamentResult> d_Results = new ArrayList<>();
+    public GameTournamentSettings d_Options;
+    public List<GameTournamentResult> d_Results = new ArrayList<>();
     private GameMap d_CurrentMap;
 
     public TournamentGameMode() {
