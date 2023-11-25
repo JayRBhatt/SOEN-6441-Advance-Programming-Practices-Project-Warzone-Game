@@ -58,6 +58,32 @@ public class Player {
 
     private final PlayerStrategy d_PlayerStrategy;
 
+    /**
+     * method to get armies issued
+     *
+     * @return issues armies
+     */
+    public int getIssuedArmies() {
+        return d_ArmiesToIssue;
+    }
+
+    /**
+     * method to set the armies issued
+     * 
+     * @param p_ArmiesToIssue armies to issue to player
+     */
+    public void setIssuedArmies(int p_ArmiesToIssue) {
+        d_ArmiesToIssue = p_ArmiesToIssue;
+    }
+
+    /**
+     * number of armies to issue
+     */
+    private int d_ArmiesToIssue = 0;
+
+    /**
+     * A list of cards for the player
+     */
     public Player(PlayerStrategy p_PlayerStrategy) {
         this.d_PlayerStrategy = p_PlayerStrategy;
     }

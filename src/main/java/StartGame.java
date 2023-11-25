@@ -24,9 +24,11 @@ public class StartGame {
     public void start() throws Exception {
         Scanner l_Scanner = new Scanner(System.in);
         boolean continueRunning = true;
+        d_Engine = new GameEngine();
 
         while (continueRunning) {
             displayMainMenu();
+
             try {
                 int option = l_Scanner.nextInt();
                 processMenuOption(MenuOption.fromInt(option));

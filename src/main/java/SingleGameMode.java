@@ -25,13 +25,15 @@ public class SingleGameMode implements Engine {
 
     public SingleGameMode() {
         d_LogEntryBuffer = LogEntryBuffer.getInstance();
+        d_Options = new GameTournamentSettings();
         init();
     }
 
     public void init() {
-        do {
-            d_Options = getGameTournamentSettings();
-        } while (Objects.isNull(d_Options));
+        d_Options = getGameTournamentSettings();
+        if (Objects.isNull(d_Options)) {
+            init();
+        }
     }
 
     private GameTournamentSettings getGameTournamentSettings() {
@@ -41,6 +43,7 @@ public class SingleGameMode implements Engine {
         d_Options = parseCommand(l_TournamentCommand);
         if (Objects.isNull(d_Options)) {
             d_LogEntryBuffer.logAction("Wrong command please type again");
+            getGameTournamentSettings();
         }
         return d_Options;
     }
@@ -56,36 +59,34 @@ public class SingleGameMode implements Engine {
     }
 
     private GameTournamentSettings parseCommand(String p_TournamentCommand) {
-        if (!isValidCommand(p_TournamentCommand)) {
+        try {
+            d_Options = new GameTournamentSettings();
+            if (!p_TournamentCommand.isEmpty() &&
+                    p_TournamentCommand.contains("-M") && p_TournamentCommand.contains("-P")) {
+                List<String> l_CommandList = Arrays.asList(p_TournamentCommand.split(" "));
+                String l_MapValue = l_CommandList.get(l_CommandList.indexOf("-M") + 1);
+                String l_PlayerTypes = l_CommandList.get(l_CommandList.indexOf("-P") + 1);
+                String[] l_Maps = l_MapValue.split(",");
+                if (l_Maps.length == 1) {
+                    d_Options.getMap().add(l_Maps[0]);
+                    for (String l_Strategy : l_PlayerTypes.split(",")) {
+                        d_Options.getPlayerStrategies().add(PlayerStrategy.getStrategy(l_Strategy));
+                    }
+                } else {
+                    d_LogEntryBuffer.logAction("Multiple maps not allowed in single game mode");
+                    throw new Exception();
+                }
+            } else {
+                return null;
+            }
+            return d_Options;
+        } catch (Exception e) {
             d_LogEntryBuffer.logAction("Check your command");
             d_LogEntryBuffer
                     .logAction("command should be in this format: tournament -M mapfile -P listofplayerstrategies");
             return null;
         }
 
-        try {
-            d_Options = new GameTournamentSettings();
-            List<String> l_CommandList = Arrays.asList(p_TournamentCommand.split(" "));
-            String l_MapValue = l_CommandList.get(l_CommandList.indexOf("-M") + 1);
-            String l_PlayerTypes = l_CommandList.get(l_CommandList.indexOf("-P") + 1);
-            String[] l_Maps = l_MapValue.split(",");
-            if (l_Maps.length > 1) {
-                d_LogEntryBuffer.logAction("Multiple maps not allowed in single game mode");
-                return null;
-            }
-            d_Options.getMap().add(l_Maps[0]);
-            for (String l_Strategy : l_PlayerTypes.split(",")) {
-                d_Options.getPlayerStrategies().add(PlayerStrategy.getStrategy(l_Strategy));
-            }
-            return d_Options;
-        } catch (Exception e) {
-            d_LogEntryBuffer.logAction("Error parsing the command");
-            return null;
-        }
-    }
-
-    private boolean isValidCommand(String command) {
-        return !command.isEmpty() && command.contains("-M") && command.contains("-P");
     }
 
     public void start() throws InvalidCommandException {

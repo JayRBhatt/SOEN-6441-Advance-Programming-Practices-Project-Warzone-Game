@@ -17,6 +17,11 @@ import model.orders.OrderCreator;
 import services.OrderIssue;
 import utils.loggers.LogEntryBuffer;
 
+/**
+ * A class to implement the Aggressive strategy for a player
+ *
+ * @author Madhav Anadkat
+ */
 public class AggressiveStrategy extends PlayerStrategy implements Serializable {
     private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     private List<Country> orderedList;

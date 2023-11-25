@@ -20,6 +20,12 @@ import model.orders.OrderCreator;
 import services.OrderIssue;
 import utils.loggers.LogEntryBuffer;
 
+/**
+ * Class that implements the Benevolent Player Strategy
+ *
+ * @author Madhav Anadkat
+ */
+
 public class BenevolentStrategy extends PlayerStrategy implements Serializable {
     private static final Random d_Random = new Random();
     private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();

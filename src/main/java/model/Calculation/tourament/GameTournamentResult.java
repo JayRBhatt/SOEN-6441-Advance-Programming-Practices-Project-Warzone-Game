@@ -1,5 +1,10 @@
 package model.Calculation.tourament;
 
+/**
+ * Class to implement the game tournament result
+ *
+ * @author Madhav Anadkat
+ */
 public class GameTournamentResult {
     /**
      * string for map
