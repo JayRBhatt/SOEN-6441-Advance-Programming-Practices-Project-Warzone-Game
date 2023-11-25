@@ -1,5 +1,7 @@
 package model.orders;
 
+import java.io.Serializable;
+
 import model.Country;
 import model.Player;
 import utils.loggers.LogEntryBuffer;
@@ -18,7 +20,7 @@ import utils.loggers.LogEntryBuffer;
  * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
-public class DeployOrder extends Order {
+public class DeployOrder extends Order implements Serializable {
     LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**

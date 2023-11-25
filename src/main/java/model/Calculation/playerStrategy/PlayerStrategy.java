@@ -2,6 +2,13 @@ package model.Calculation.playerStrategy;
 
 import model.Player;
 
+/**
+ * Abstract class for strategies of player.
+ *
+ * @author Madhav Anadkat
+ * @version 1.0.0
+ */
+
 public abstract class PlayerStrategy {
     /**
      * player

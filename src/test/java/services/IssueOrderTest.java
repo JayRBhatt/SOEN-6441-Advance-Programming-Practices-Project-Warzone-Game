@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+
 /**
  * Test class that tests Issue order phase implementations
  * 
@@ -56,7 +57,7 @@ public class IssueOrderTest {
      */
     @Test
     public void validateCommand() {
-        assertEquals(true, OrderIssue.CommandValidation("deploy india 10", d_GameMap.getGamePlayer("Player1")));
-        assertEquals(false, OrderIssue.CommandValidation("deploye india 10", d_GameMap.getGamePlayer("Player2")));
+        assert d_IssueOrder.CommandValidation("deploy india 10", d_GameMap.getGamePlayer("Player1"));
+        assert !d_IssueOrder.CommandValidation("deploye india 10", d_GameMap.getGamePlayer("Player2"));
     }
 }

@@ -1,6 +1,7 @@
 package model.orders;
 
 import java.io.Serializable;
+import java.util.StringJoiner;
 
 import model.Country;
 import model.GameMap;
@@ -79,14 +80,18 @@ public class OrderCreator implements Serializable {
      * @return the order information of deploy
      */
     public static OrderDetails GenerateDeployOrderInfo(String[] p_Command, Player p_Player) {
-        String l_CountryID = p_Command[1];
-        Country l_Country = d_GameMap.getCountry(l_CountryID);
-        int l_NumberOfArmy = Integer.parseInt(p_Command[2]);
-        OrderDetails l_OrderDetails = new OrderDetails();
-        l_OrderDetails.setPlayer(p_Player);
-        l_OrderDetails.setCountryWhereDeployed(l_Country);
-        l_OrderDetails.setAmountOfArmy(l_NumberOfArmy);
-        return l_OrderDetails;
+        Country l_Country = d_GameMap.getCountry(p_Command[1]);
+        int l_NumberOfArmies = Integer.parseInt(p_Command[2]);
+        OrderDetails l_OrderInfo = new OrderDetails();
+        l_OrderInfo.setCommand(ConvertToString(p_Command));
+        l_OrderInfo.setPlayer(p_Player);
+        l_OrderInfo.setCountryWhereDeployed(l_Country);
+        l_OrderInfo.setAmountOfArmy(l_NumberOfArmies);
+        if (p_Player.getAdditionalArmies() > 0 && l_NumberOfArmies <= p_Player.getIssuedArmies()
+                && l_NumberOfArmies > 0) {
+            p_Player.setIssuedArmies(p_Player.getIssuedArmies() - l_NumberOfArmies);
+        }
+        return l_OrderInfo;
     }
 
     /**
@@ -103,6 +108,7 @@ public class OrderCreator implements Serializable {
         Country l_ToCountry = d_GameMap.getCountry(l_ToCountryID);
         int l_NumberOfArmies = Integer.parseInt(p_Command[3]);
         OrderDetails l_OrderDetails = new OrderDetails();
+        l_OrderDetails.setCommand(ConvertToString(p_Command));
         l_OrderDetails.setPlayer(p_Player);
         l_OrderDetails.setDeparture(l_FromCountry);
         l_OrderDetails.setCountryWhereDeployed(l_ToCountry);
@@ -120,6 +126,7 @@ public class OrderCreator implements Serializable {
     public static OrderDetails GenerateNegotiateOrderInfo(String[] p_Command, Player p_Player) {
         OrderDetails l_OrderDetails = new OrderDetails();
         l_OrderDetails.setPlayer(p_Player);
+        l_OrderDetails.setCommand(ConvertToString(p_Command));
         l_OrderDetails.setNeutralPlayer(d_GameMap.getGamePlayer(p_Command[1]));
         return l_OrderDetails;
     }
@@ -133,6 +140,7 @@ public class OrderCreator implements Serializable {
      */
     public static OrderDetails GenerateBlockadeOrderInfo(String[] p_command, Player p_player) {
         OrderDetails l_OrderDetails = new OrderDetails();
+        l_OrderDetails.setCommand(ConvertToString(p_command));
         l_OrderDetails.setPlayer(p_player);
         String l_CountryID = p_command[1];
         Country l_TargetCountry = d_GameMap.getCountry(l_CountryID);
@@ -154,6 +162,7 @@ public class OrderCreator implements Serializable {
         Country l_ToCountry = d_GameMap.getCountry(l_ToCountryID);
         int l_NumberOfArmies = Integer.parseInt(p_command[3]);
         OrderDetails l_OrderDetails = new OrderDetails();
+        l_OrderDetails.setCommand(ConvertToString(p_command));
         l_OrderDetails.setPlayer(p_player);
         l_OrderDetails.setDeparture(l_FromCountry);
         l_OrderDetails.setCountryWhereDeployed(l_ToCountry);
@@ -170,6 +179,7 @@ public class OrderCreator implements Serializable {
      */
     public static OrderDetails GenerateBombOrderInfo(String[] p_command, Player p_player) {
         OrderDetails l_OrderDetails = new OrderDetails();
+        l_OrderDetails.setCommand(ConvertToString(p_command));
         l_OrderDetails.setPlayer(p_player);
         String l_CountryID = p_command[1];
         Country l_TargetCountry = d_GameMap.getCountry(l_CountryID);
@@ -177,4 +187,17 @@ public class OrderCreator implements Serializable {
         return l_OrderDetails;
     }
 
+    /**
+     * The method to convert command to string
+     *
+     * @param p_Commands the command entered
+     * @return the string
+     */
+    private static String ConvertToString(String[] p_Commands) {
+        StringJoiner l_Joiner = new StringJoiner(" ");
+        for (int l_Index = 0; l_Index < p_Commands.length; l_Index++) {
+            l_Joiner.add(p_Commands[l_Index]);
+        }
+        return l_Joiner.toString();
+    }
 }

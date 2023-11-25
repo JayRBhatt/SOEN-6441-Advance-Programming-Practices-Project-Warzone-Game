@@ -4,6 +4,7 @@ import controller.*;
 import model.GameMap;
 import model.GamePhase;
 import model.Player;
+import model.Calculation.gameCalculation.GameCalculation;
 import model.orders.Order;
 import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
@@ -93,14 +94,23 @@ public class ExecuteOrder implements GameEngineController {
      * @return the gamephase it has to change to based on the win
      */
     public GamePhase checkPlayerWon(GamePhase p_GamePhase) {
-
         for (Player l_Player : d_GameMap.getGamePlayers().values()) {
             if (l_Player.getOccupiedCountries().size() == d_GameMap.getCountries().size()) {
-                System.out.println("The Player " + l_Player.getPlayerName() + " won the game.");
-                System.out.println("Exiting the game...");
+                d_LogEntryBuffer.logAction("The Player " + l_Player.getPlayerName() + " won the game.");
+                d_LogEntryBuffer.logAction("Exiting the game...");
+                d_GameMap.setWinner(l_Player);
+                d_GameMap.setGamePhase(d_NextState);
+                d_GameMap.setWinner(l_Player);
                 return p_GamePhase.nextState(d_NextState);
             }
         }
+
+        if (GameCalculation.getInstance().MAX_TRIES > 0
+                && d_GameMap.getTries() >= GameCalculation.getInstance().MAX_TRIES) {
+            d_GameMap.setGamePhase(d_NextState);
+            return p_GamePhase.nextState(d_NextState);
+        }
+        d_GameMap.setGamePhase(d_ReinforcementGamePhase);
         return p_GamePhase.nextState(d_ReinforcementGamePhase);
     }
 
