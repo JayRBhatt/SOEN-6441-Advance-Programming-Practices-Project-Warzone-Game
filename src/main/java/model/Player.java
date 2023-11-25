@@ -3,6 +3,7 @@ package model;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 import model.Calculation.playerStrategy.PlayerStrategy;
 import model.orders.Order;
 import model.orders.OrderCreator;
@@ -138,7 +139,10 @@ public class Player {
     public Deque<Order> getOrders() {
         return d_Orders;
     }
-
+    
+    public void setOrders(Deque<Order> p_Orders){
+        this.d_Orders = p_Orders;
+    }
     /**
      * Adds an order to the Deque of Orders
      * 
@@ -176,6 +180,9 @@ public class Player {
      */
     public List<Cards> getPlayersCards() {
         return d_PlayersCards;
+    }
+    public void setPlayersCards(List<Cards> p_Cards) {
+        d_PlayersCards = p_Cards;
     }
 
     /**
