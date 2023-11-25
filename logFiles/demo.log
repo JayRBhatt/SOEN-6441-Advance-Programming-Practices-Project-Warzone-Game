@@ -1,271 +1,126 @@
-Entered Map Editor Phase!
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-China Assigned to Player1
-Added Continent: Asia
-Added Continent: Europe
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: France to Europe continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-China Assigned to Player1
-France Assigned to Player2
-Added Continent: Asia
-Added Continent: Europe
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: France to Europe continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-France Assigned to Player1
-China Assigned to Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-China Assigned to Player2
-India Assigned to Player1
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-China Assigned to Player2
-Afganisthan Assigned to Player1
-Bangladesh Assigned to Player2
-SriLanka Assigned to Player1
-India Assigned to Player2
-Myanmar Assigned to Player1
-Pakistan Assigned to Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-India Assigned to Player2
-China Assigned to Player1
-Bangladesh Assigned to Player2
-Myanmar Assigned to Player1
-Afganisthan Assigned to Player2
-SriLanka Assigned to Player1
-Pakistan Assigned to Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-Myanmar Assigned to Player2
-Afganisthan Assigned to Player1
-India Assigned to Player2
-Pakistan Assigned to Player1
-China Assigned to Player2
-SriLanka Assigned to Player1
-Bangladesh Assigned to Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-Pakistan Assigned to Player2
-Myanmar Assigned to Player1
-SriLanka Assigned to Player2
-Bangladesh Assigned to Player1
-Afganisthan Assigned to Player2
-India Assigned to Player1
-China Assigned to Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-SriLanka Assigned to Player2
-Bangladesh Assigned to Player1
-Myanmar Assigned to Player2
-China Assigned to Player1
-Pakistan Assigned to Player2
-Afganisthan Assigned to Player1
-India Assigned to Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: Pakistan to Asia continent
-Added Country: SriLanka to Asia continent
-Added Country: Afganisthan to Asia continent
-Added Country: Bangladesh to Asia continent
-Added Country: Myanmar to Asia continent
-Added Country: China to Asia continent
-Bangladesh Assigned to Player2
-India Assigned to Player1
-Myanmar Assigned to Player2
-China Assigned to Player1
-Afganisthan Assigned to Player2
-Pakistan Assigned to Player1
-SriLanka Assigned to Player2
-The country is not under the player's control.
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-China Assigned to Player2
-India Assigned to Player1
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-China Assigned to Player1
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-China Assigned to Player1
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-China Assigned to Player2
-India Assigned to Player1
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Invalid neutral player specified.
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Failed due to some errors
-	-> Destination country Vietnam is not a neighbor of India
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Aggressive Player - AggressiveStrategy
+AggressiveStrategy issuing new command: deploy india 22
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Cheater Player - CheaterStrategy
+Conquered the neighbor country of enemy - india
+Armies doubled in Cheater Player's countryindia
 
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Attacker: Player1 received a card: BLOCKADE
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Advanced/Moved 5 from India to China
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
+ EXECUTE ORDER PHASE 
+
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Aggressive Player - AggressiveStrategy
+AggressiveStrategy issuing new command: deploy canada 15
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Cheater Player - CheaterStrategy
+Conquered the neighbor country of enemy - egypt
+Armies doubled in Cheater Player's countryegypt
+
+ EXECUTE ORDER PHASE 
+
+Deployed 15 armies to canada.
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Aggressive Player - AggressiveStrategy
+AggressiveStrategy issuing new command: deploy canada 6
+AggressiveStrategy issuing new command: advance canada egypt 15
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+Issuing Orders for the Cheater Player - CheaterStrategy
+Conquered the neighbor country of enemy - canada
+
+ EXECUTE ORDER PHASE 
+
 Failed due to some errors
-	-> Attacking troop count 5 is greater than available troops 0 in India
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Advanced/Moved 5 from Vietnam to India
-Added Continent: Asia
-Added Country: India to Asia continent
-Added Country: China to Asia continent
-Added Country: Vietnam to Asia continent
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Added Continent: Asia
-Added Continent: Africa
-Added Country: India to Asia continent
-Added Country: Zambia to Africa continent
-Added Neighbor: Zambia to India
-Added Neighbor: India to Zambia
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-Zambia Assigned to Player1
-The bomb card is not available for the player.
-Added Continent: Asia
-Added Continent: Africa
-Added Country: India to Asia continent
-Added Country: Zambia to Africa continent
-Added Neighbor: Zambia to India
-Added Neighbor: India to Zambia
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-Zambia Assigned to Player1
-Added Continent: Asia
-Added Continent: Africa
-Added Country: India to Asia continent
-Added Country: Zambia to Africa continent
-Added Neighbor: Zambia to India
-Added Neighbor: India to Zambia
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-Zambia Assigned to Player2
-India Assigned to Player1
-Added Continent: Asia
-Added Continent: Africa
-Added Country: India to Asia continent
-Added Country: Zambia to Africa continent
-Added Neighbor: Zambia to India
-Added Neighbor: India to Zambia
-Added GamePlayer: Player1
-Added GamePlayer: Player2
-India Assigned to Player2
-Zambia Assigned to Player1
-A player cannot bomb their own territory.
+	-> Country canada does not belong to player AggressiveStrategy
+
+The Player CheaterStrategy won the game.
+Exiting the game...
+
+==================================
+			 Warzone
+==================================
+			 Main Menu
+	=======================
+		 1. New Game
+		 2. Load Game
+		 3. Single Game Mode
+		 4. Tournament Mode
+		 5. Exit
+	=======================
+		Select the option
+==================================
+
+Invalid input. Please enter a number.
+
+==================================
+			 Warzone
+==================================
+			 Main Menu
+	=======================
+		 1. New Game
+		 2. Load Game
+		 3. Single Game Mode
+		 4. Tournament Mode
+		 5. Exit
+	=======================
+		Select the option
+==================================
