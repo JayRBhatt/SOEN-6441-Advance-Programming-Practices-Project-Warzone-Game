@@ -11,15 +11,17 @@ import model.Player;
  * @author Bhargav Fofandi
  * @author Mariya Bosy Kondody
  * @author Reema Ann Reny
- * @author Meera Muraleedharan Nair 
+ * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
 public class OrderDetails {
+
+    private String d_Command;
     /**
      * A player object
      */
     private Player d_Player;
-     /**
+    /**
      * A country object for departure
      */
     private Country d_Departure;
@@ -27,7 +29,7 @@ public class OrderDetails {
      * An integer data member to store the amount of armies
      */
     private int d_AmountOfArmy;
-     /**
+    /**
      * A country object for a target country
      */
     private Country d_TargetCountry;
@@ -83,7 +85,7 @@ public class OrderDetails {
      * 
      * @return the departure country object
      */
-    
+
     public Country getDeparture() {
 
         return d_Departure;
@@ -94,7 +96,7 @@ public class OrderDetails {
      * 
      * @param d_Departure departure country object
      */
-    
+
     public void setDeparture(Country d_Departure) {
 
         this.d_Departure = d_Departure;
@@ -105,7 +107,7 @@ public class OrderDetails {
      * 
      * @return the destination of armies
      */
-    
+
     public Country getCountryWhereDeployed() {
 
         return d_CountryWhereDeployed;
@@ -116,7 +118,7 @@ public class OrderDetails {
      * 
      * @param d_CountryWhereDeployed the destination of armies
      */
-    
+
     public void setCountryWhereDeployed(Country d_CountryWhereDeployed) {
 
         this.d_CountryWhereDeployed = d_CountryWhereDeployed;
@@ -127,7 +129,7 @@ public class OrderDetails {
      * 
      * @return the amount of armies
      */
-    
+
     public int getAmountOfArmy() {
 
         return d_AmountOfArmy;
@@ -138,7 +140,7 @@ public class OrderDetails {
      * 
      * @param d_AmountOfArmy the number of armies
      */
-    
+
     public void setAmountOfArmy(int d_AmountOfArmy) {
 
         this.d_AmountOfArmy = d_AmountOfArmy;
@@ -160,6 +162,24 @@ public class OrderDetails {
      */
     public void setTargetCountry(Country p_TargetCountry) {
         this.d_TargetCountry = p_TargetCountry;
+    }
+
+    /**
+     * Getter for Command
+     *
+     * @return command
+     */
+    public String getCommand() {
+        return d_Command;
+    }
+
+    /**
+     * Setter for command
+     *
+     * @param p_Command command
+     */
+    public void setCommand(String p_Command) {
+        d_Command = p_Command;
     }
 
 }

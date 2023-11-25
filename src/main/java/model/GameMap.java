@@ -27,7 +27,7 @@ import utils.maputils.ValidateMap;
 
 public class GameMap implements Serializable {
 
-    private static final long serialVersionUID = 45443434343L;
+    // private static final long serialVersionUID = 45443434343L;
 
     /**
      * Constructor that initializes the various values
