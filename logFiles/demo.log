@@ -1,100 +1,3 @@
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Aggressive Player - AggressiveStrategy
-AggressiveStrategy issuing new command: deploy india 22
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Cheater Player - CheaterStrategy
-Conquered the neighbor country of enemy - india
-Armies doubled in Cheater Player's countryindia
-
- EXECUTE ORDER PHASE 
-
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Aggressive Player - AggressiveStrategy
-AggressiveStrategy issuing new command: deploy canada 15
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Cheater Player - CheaterStrategy
-Conquered the neighbor country of enemy - egypt
-Armies doubled in Cheater Player's countryegypt
-
- EXECUTE ORDER PHASE 
-
-Deployed 15 armies to canada.
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Aggressive Player - AggressiveStrategy
-AggressiveStrategy issuing new command: deploy canada 6
-AggressiveStrategy issuing new command: advance canada egypt 15
------------------------------------------------------------------------------------------
-List of game loop commands
-To deploy the armies : deploy countryID numarmies
-To advance/attack the armies : advance countrynamefrom countynameto numarmies
-To airlift the armies : airlift sourcecountryID targetcountryID numarmies
-To blockade the armies : blockade countryID
-To negotiate with player : negotiate playerID
-To bomb the country : bomb countryID
-To skip: pass
------------------------------------------------------------------------------------------
-The countries assigned to the player are: 
-Issuing Orders for the Cheater Player - CheaterStrategy
-Conquered the neighbor country of enemy - canada
-
- EXECUTE ORDER PHASE 
-
-Failed due to some errors
-	-> Country canada does not belong to player AggressiveStrategy
-
-The Player CheaterStrategy won the game.
-Exiting the game...
-
 ==================================
 			 Warzone
 ==================================
@@ -109,8 +12,11 @@ Exiting the game...
 		Select the option
 ==================================
 
+<<<<<<< HEAD
 Invalid input. Please enter a number.
 
+=======
+>>>>>>> 8729dc2659aba858267615936a4f55d69220d96f
 ==================================
 			 Warzone
 ==================================

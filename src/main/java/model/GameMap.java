@@ -582,6 +582,35 @@ public class GameMap implements Serializable {
     private void printTableFooter(String format) {
         System.out.println(format);
     }
+    public GamePhase gamePlayBuilder(GameMap p_GameMap) throws InvalidCommandException {
+        this.ClearMap();
+        d_GameMap.setGameLoaded(true);
+        for (Map.Entry<String, Continent> l_Continent : p_GameMap.getContinents().entrySet()) {
+            this.addContinent(l_Continent.getKey(), String.valueOf(l_Continent.getValue().getBonusArmies()));
+        }
+        for (Map.Entry<String, Country> l_Country : p_GameMap.getCountries().entrySet()) {
+            this.addCountry(l_Country.getKey(), l_Country.getValue().getContinent());
+        }
+        for (Continent l_Continent : p_GameMap.getContinents().values()) {
+            for (Country l_Country : l_Continent.getCountries()) {
+                for (Country l_Neighbour : l_Country.getNeighbors()) {
+                    p_GameMap.addNeighbor(l_Country.getCountryName(), l_Neighbour.getCountryName());
+                }
+            }
+        }
+        for (Map.Entry<String, Player> l_Player : p_GameMap.getGamePlayers().entrySet()) {
+            this.addGamePlayer(l_Player.getKey());
+            this.getGamePlayer(l_Player.getKey()).setOccupiedCountries(l_Player.getValue().getOccupiedCountries());
+            this.getGamePlayer(l_Player.getKey()).setAdditionalArmies(l_Player.getValue().getAdditionalArmies());
+        }
+        this.setGamePhase(p_GameMap.getGamePhase());
+        this.setCurrentPlayer(p_GameMap.getCurrentPlayer());
+        for (Map.Entry<String, Player> l_Player : p_GameMap.getGamePlayers().entrySet()) {
+            this.getGamePlayer(l_Player.getKey()).setOrders(l_Player.getValue().getOrders());
+            this.getGamePlayer(l_Player.getKey()).setPlayersCards(l_Player.getValue().getPlayersCards());
+        }
+        return p_GameMap.getGamePhase();
+    }
 
     /**
      * Returns new instance of gamemap

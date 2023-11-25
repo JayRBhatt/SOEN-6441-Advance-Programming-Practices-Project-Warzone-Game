@@ -16,6 +16,7 @@ import java.util.Set;
 public class Continent {
     private String d_ContinentName;
     private int d_ContinentValue;
+    private int d_BonusArmies;
     private Set<Country> d_Countries;
 
     /**
@@ -71,7 +72,23 @@ public class Continent {
     public void setContinentValue(int p_ContinentValue) {
         this.d_ContinentValue = p_ContinentValue;
     }
+     /**
+     * Get the Awarded armies
+     *
+     * @return d_AwardArmies  The Awarded armies assigned to the continent
+     */
+    public int getBonusArmies() {
+        return d_BonusArmies;
+    }
 
+    /**
+     * Set the Awarded armies for the continent
+     *
+     * @param p_AwardArmies Awarded armies
+     */
+    public void setBonusArmies(int p_AwardArmies) {
+        this.d_BonusArmies = p_AwardArmies;
+    }
     /**
      * Gets the Set of Countries it possess
      * 
