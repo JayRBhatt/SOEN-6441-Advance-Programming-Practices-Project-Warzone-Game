@@ -13,7 +13,6 @@ import model.GameMap;
 import model.GamePhase;
 import model.Player;
 import model.orders.Order;
-import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 import utils.maputils.GameProgress;
 
@@ -57,7 +56,7 @@ public class OrderIssue implements GameEngineController {
     /**
      * Log Entry
      */
-    private LogEntryBuffer d_Logger = LogEntryBuffer.getInstance();
+    private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**
      * Constructor to get the GameMap instance
@@ -104,28 +103,17 @@ public class OrderIssue implements GameEngineController {
                         break;
                     }
 
-
                     if (Commands.split(" ")[0].equals("savegame") && l_IssueCommand) {
-                        System.out.println("Do you wish to save the game progress? Y/n");
-                        String l_Input = new Scanner(System.in).nextLine();
-                        if(l_Input.equalsIgnoreCase("Y")){
-                            GameProgress.storeGameState(d_GameMap, Commands);
-                            l_IssueCommand = true;
-                            d_GameMap.setGamePhase(d_MapEditorPhase);
-                            return d_MapEditorPhase;
-                        }
-                        else{
-                            System.out.println("The game won't be saved and it'll continue");
-                            l_IssueCommand = false;
-                        }
-                        
+                        d_GameMap.setGamePhase(d_MapEditorPhase);
+                        return d_MapEditorPhase;
                     }
                 }
                 if (!Commands.equals("pass")) {
-                    d_Logger.logAction(l_Player.getPlayerName() + " has issued this order :- " + Commands);
+                    d_LogEntryBuffer.logAction(l_Player.getPlayerName() + " has issued this order :- " + Commands);
                     l_Player.deployOrder();
-                    d_Logger.logAction("The order has been added to the list of orders.");
-                    d_Logger.logAction("=============================================================================");
+                    d_LogEntryBuffer.logAction("The order has been added to the list of orders.");
+                    d_LogEntryBuffer
+                            .logAction("=============================================================================");
                 }
             }
             d_GameMap.setGameLoaded(false);
@@ -151,11 +139,11 @@ public class OrderIssue implements GameEngineController {
             return false;
         }
         if (!l_Commands.contains(l_CommandArr[0].toLowerCase())) {
-            d_Logger.logAction("The command syntax is invalid." + p_CommandArr);
+            d_LogEntryBuffer.logAction("The command syntax is invalid." + p_CommandArr);
             return false;
         }
         if (!CheckLengthOfCommand(l_CommandArr[0], l_CommandArr.length)) {
-            d_Logger.logAction("The command syntax is invalid." + p_CommandArr);
+            d_LogEntryBuffer.logAction("The command syntax is invalid." + p_CommandArr);
             return false;
         }
         switch (l_CommandArr[0].toLowerCase()) {
@@ -163,11 +151,11 @@ public class OrderIssue implements GameEngineController {
                 try {
                     Integer.parseInt(l_CommandArr[2]);
                 } catch (NumberFormatException l_Exception) {
-                    d_Logger.logAction("The number format is invalid");
+                    d_LogEntryBuffer.logAction("The number format is invalid");
                     return false;
                 }
                 if (Integer.parseInt(l_CommandArr[2]) < 0) {
-                    d_Logger.logAction("The number format is invalid");
+                    d_LogEntryBuffer.logAction("The number format is invalid");
                     return false;
                 }
                 break;
@@ -175,7 +163,7 @@ public class OrderIssue implements GameEngineController {
                 try {
                     Integer.parseInt(l_CommandArr[3]);
                 } catch (NumberFormatException l_Exception) {
-                    d_Logger.logAction("The number format is invalid");
+                    d_LogEntryBuffer.logAction("The number format is invalid");
                     return false;
                 }
                 break;
@@ -186,7 +174,7 @@ public class OrderIssue implements GameEngineController {
                     GameProgress.storeGameState(d_GameMap, l_CommandArr[1]);
                     return true;
                 } else {
-                    d_Logger.logAction("The game has not been saved, continue to play.");
+                    d_LogEntryBuffer.logAction("The game has not been saved, continue to play.");
                     return false;
                 }
             default:
@@ -229,16 +217,20 @@ public class OrderIssue implements GameEngineController {
      * @param p_Player The current player object
      */
     public void showStatus(Player p_Player) {
-        d_Logger.logAction("-----------------------------------------------------------------------------------------");
-        d_Logger.logAction("List of game loop commands");
-        d_Logger.logAction("To deploy the armies : deploy countryID numarmies");
-        d_Logger.logAction("To advance/attack the armies : advance countrynamefrom countynameto numarmies");
-        d_Logger.logAction("To airlift the armies : airlift sourcecountryID targetcountryID numarmies");
-        d_Logger.logAction("To blockade the armies : blockade countryID");
-        d_Logger.logAction("To negotiate with player : negotiate playerID");
-        d_Logger.logAction("To bomb the country : bomb countryID");
-        d_Logger.logAction("To skip: pass");
-        d_Logger.logAction("-----------------------------------------------------------------------------------------");
+        d_LogEntryBuffer
+                .logAction("-----------------------------------------------------------------------------------------");
+        d_LogEntryBuffer.logAction("List of game loop commands");
+        d_LogEntryBuffer.logAction("To deploy the armies : deploy countryID numarmies");
+        d_LogEntryBuffer.logAction("To advance/attack the armies : advance countrynamefrom countynameto numarmies");
+        d_LogEntryBuffer.logAction("To airlift the armies : airlift sourcecountryID targetcountryID numarmies");
+        d_LogEntryBuffer.logAction("To blockade the armies : blockade countryID");
+        d_LogEntryBuffer.logAction("To negotiate with player : negotiate playerID");
+        d_LogEntryBuffer.logAction("To bomb the country : bomb countryID");
+        d_LogEntryBuffer.logAction(
+                "If you wish to save the progress of the game until the last action you took: savegame filename");
+        d_LogEntryBuffer.logAction("To skip: pass");
+        d_LogEntryBuffer
+                .logAction("-----------------------------------------------------------------------------------------");
         String l_Table = "|%-15s|%-19s|%-22s|%n";
         System.out.format("+--------------+-----------------------+------------------+%n");
         System.out.format("| Current Player   | Initial Assigned  | Left Armies      | %n");
@@ -247,7 +239,7 @@ public class OrderIssue implements GameEngineController {
                 p_Player.getIssuedArmies());
         System.out.format("+--------------+-----------------------+------------------+%n");
 
-        d_Logger.logAction("The countries assigned to the player are: ");
+        d_LogEntryBuffer.logAction("The countries assigned to the player are: ");
         System.out.format("+--------------+-----------------------+------------------+---------+%n");
 
         System.out.format(
@@ -266,15 +258,15 @@ public class OrderIssue implements GameEngineController {
         System.out.format("+--------------+-----------------------+------------------+---------+\n");
 
         if (!p_Player.getPlayersCards().isEmpty()) {
-            d_Logger.logAction("The Cards assigned to the Player are: ");
+            d_LogEntryBuffer.logAction("The Cards assigned to the Player are: ");
             for (Cards l_Card : p_Player.getPlayersCards()) {
-                d_Logger.logAction(l_Card.getCardsType().toString());
+                d_LogEntryBuffer.logAction(l_Card.getCardsType().toString());
             }
         }
         if (!p_Player.getOrders().isEmpty()) {
-            d_Logger.logAction("The Orders issued by Player " + p_Player.getPlayerName() + " are:");
+            d_LogEntryBuffer.logAction("The Orders issued by Player " + p_Player.getPlayerName() + " are:");
             for (Order l_Order : p_Player.getOrders()) {
-                d_Logger.logAction(l_Order.getOrderDetails().getCommand());
+                d_LogEntryBuffer.logAction(l_Order.getOrderDetails().getCommand());
             }
         }
     }

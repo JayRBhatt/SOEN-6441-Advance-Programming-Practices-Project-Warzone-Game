@@ -70,7 +70,7 @@ public class StartGame {
                 d_GamePhase = GamePhase.MapEditor;
                 break;
             case LOAD_GAME:
-                d_GamePhase = GamePhase.StartUp;
+                d_GamePhase = GamePhase.LoadGame;
                 break;
             case SINGLE_GAME_MODE:
                 d_Engine = new SingleGameMode();

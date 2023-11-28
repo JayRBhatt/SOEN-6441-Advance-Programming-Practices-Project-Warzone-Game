@@ -27,7 +27,7 @@ import utils.loggers.LogEntryBuffer;
 public class GamePlayBegins implements GameEngineController {
     private final Scanner sc = new Scanner(System.in);
     private final List<String> l_PreDefinedCommands = Arrays.asList("showmap", "loadmap", "gameplayer",
-            "assigncountries","savegame","loadgame","tournament");
+            "assigncountries", "savegame", "loadgame", "tournament");
     GameMap d_GameMap;
     GamePhase d_NextState = GamePhase.Reinforcement;
     GamePhase d_MapEditorPhase = GamePhase.MapEditor;
@@ -158,9 +158,9 @@ public class GamePlayBegins implements GameEngineController {
                                 "If you have added any player by mistake or if you want to get rid of any player type: gameplayer -remove player");
                         System.out.println("If you wish to assign countries to the players type : assigncountries");
                         System.out.println(
-                                "-----------------------------------------------------------------------------------------");
-                        System.out.println("If you wish to save the progress of the game until the last action you took: savegame filename");
-                        System.out.println("If you wish to load the previously stored game progress: loadgame filename");
+                                "If you wish to save the progress of the game until the last action you took: savegame filename");
+                        System.out
+                                .println("If you wish to load the previously stored game progress: loadgame filename");
 
                     }
                 }

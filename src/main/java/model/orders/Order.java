@@ -1,6 +1,10 @@
 package model.orders;
+
+import java.io.Serializable;
+
 /**
  * An abstract class to manage the orders of the players
+ * 
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
@@ -9,7 +13,7 @@ package model.orders;
  * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
-public abstract class Order {
+public abstract class Order implements Serializable {
     /**
      * A data member to strore the order type
      */
@@ -31,7 +35,8 @@ public abstract class Order {
     /**
      * A function to the set Order information based on the order
      *
-     * @param p_OrderDetails Order Information contained in an object of type OrderDetails
+     * @param p_OrderDetails Order Information contained in an object of type
+     *                       OrderDetails
      */
     public void setOrderDetails(OrderDetails p_OrderDetails) {
         this.d_OrderDetails = p_OrderDetails;

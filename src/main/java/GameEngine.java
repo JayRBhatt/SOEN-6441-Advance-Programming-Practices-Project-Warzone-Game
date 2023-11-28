@@ -1,5 +1,6 @@
 
 import controller.GameEngineController;
+import model.GameMap;
 import model.GamePhase;
 import model.Calculation.gameCalculation.DefaultAttackLogic;
 import model.Calculation.gameCalculation.GameCalculation;
@@ -58,6 +59,7 @@ public class GameEngine implements Engine {
                     return;
                 }
                 d_GamePhase = l_GameController.start(d_GamePhase);
+                GameMap.getInstance().setGamePhase(d_GamePhase);
                 System.out.println("You have entered the " + d_GamePhase + " Phase.");
                 System.out.println(
                         "-----------------------------------------------------------------------------------------");
