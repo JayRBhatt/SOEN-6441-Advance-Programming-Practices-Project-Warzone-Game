@@ -12,12 +12,20 @@ import java.util.List;
  */
 public class LogEntryBuffer implements Observable, Serializable {
     private static volatile LogEntryBuffer Logger; // Made volatile for thread safety
+    
+    /**
+     * List of observers
+     */
     private List<Observer> d_ObserverList = new ArrayList<>();
 
     private LogEntryBuffer() {
         // Private constructor to prevent instantiation
     }
 
+	 /**
+	 * Retrieves the singleton instance of LogEntryBuffer in a thread-safe manner.
+	 * @return The instance of LogEntryBuffer.
+	 */
     public static LogEntryBuffer getInstance() {
         if (Logger == null) {
             synchronized (LogEntryBuffer.class) {
@@ -29,10 +37,17 @@ public class LogEntryBuffer implements Observable, Serializable {
         return Logger;
     }
 
+    /**
+     * Logs an action and notifies observers
+     * @param p_s The message for the observers.
+     */
     public void logAction(String p_s) {
         notifyObservers(p_s);
     }
 
+    /**
+     * Clears all observers associated with the subject.
+     */
     public void clear() {
         clearAllObservers();
     }

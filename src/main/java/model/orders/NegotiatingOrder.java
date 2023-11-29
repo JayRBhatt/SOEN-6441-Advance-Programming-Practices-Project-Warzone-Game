@@ -18,6 +18,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class NegotiatingOrder extends Order {
+	 /** Buffer to hold log entries for events within the game. */
     private LogEntryBuffer d_logEntryBuffer = LogEntryBuffer.getInstance();
     /**
      * Singleton instance of GameMap.

@@ -20,6 +20,7 @@ import utils.loggers.LogEntryBuffer;
  */
 public class AirliftingOrder extends Order {
 
+	 /** Buffer to hold log entries for events within the game. */
     LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     /**
      * A data member to store the instance of the gamemap.

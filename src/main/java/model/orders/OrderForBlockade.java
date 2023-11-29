@@ -19,6 +19,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class OrderForBlockade extends Order {
+	 /** Buffer to hold log entries for events within the game. */
     private LogEntryBuffer d_logEntryBuffer = LogEntryBuffer.getInstance();
     /**
      * Reference to the singleton instance of the game map.

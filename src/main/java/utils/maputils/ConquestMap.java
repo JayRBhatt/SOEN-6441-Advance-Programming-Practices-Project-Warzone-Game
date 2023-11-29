@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
-/**
+
+
+/** This class is used for reading and writing map files in Conquest format
  * @author Bhargav Fofandi
- * This class is used for reading and writing map files in Conquest format
- *
  */
 public class ConquestMap {
     /**

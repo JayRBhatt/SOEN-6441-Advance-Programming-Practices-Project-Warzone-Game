@@ -21,6 +21,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class DeployOrder extends Order implements Serializable {
+	 /** Buffer to hold log entries for events within the game. */
     LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
 
     /**

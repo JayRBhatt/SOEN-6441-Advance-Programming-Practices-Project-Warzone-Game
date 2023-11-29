@@ -26,7 +26,7 @@ public class ValidateMap
  /**
   * A method which validates the map by checking various different factors
   * @param p_GameMap a GameMap which has to be validated
-  * @param p_MinimumCountryCount
+  * @param p_MinimumCountryCount The minimum required count of countries.
   * @return true if all the validation factors are satisfied or else returns false
   */
 
@@ -131,7 +131,7 @@ public class ValidateMap
 
     /**
      * A method which checks if there are any duplicate countries present in the map
-     * @param p_GameMap
+     * @param p_GameMap a GameMap  that has to be checked for duplicate countries.
      * @return true if the validation is successful or else returns false
      */
 
@@ -148,8 +148,8 @@ public class ValidateMap
     }
 
     /**
-     * A method which checks if there are any duplicate neighbours 
-     * @param p_GameMap
+     * A method which checks if there are any duplicate neighbors 
+     * @param p_GameMap that has to be checked for duplicate neighbor countries.
      * @return true if validation is successful or else returns false
      */
     public static boolean checkDuplicateNeighbours(GameMap p_GameMap) {
@@ -179,8 +179,8 @@ public class ValidateMap
 
 /**
  * A method which checks that the country count is greater than minimum number of countries required
- * @param p_GameMap
- * @param p_MinimumCountryCount
+ * @param p_GameMap to be checked for country count.
+ * @param p_MinimumCountryCount The minimum required number of countries.
  * @return true if the validation is successful or else it returns false
  */
 
@@ -273,7 +273,7 @@ public class ValidateMap
     /**
      * A method to check whether the continent is connected or not
      
-     * @param p_GameMap
+     * @param p_GameMap The GameMap to be checked for continent connectivity.
      * @return true if the continents are strongly connected or else returns false
      */
     public static boolean checkIfContinentIsConnected(GameMap p_GameMap) {
@@ -304,7 +304,7 @@ public class ValidateMap
     }
 /**
  * A method which checks if the whole map is strongly connected or not
- * @param p_GameMap
+ * @param p_GameMap The GameMap to be checked for strong connectivity.
  * @return true if the whole map is strongly connected or else returns false
  */
     public static boolean checkIfMapIsConnected(GameMap p_GameMap) {

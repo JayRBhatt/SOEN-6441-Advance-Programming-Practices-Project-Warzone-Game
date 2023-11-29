@@ -28,7 +28,7 @@ public class Adaptor extends DominationMap {
      * This method loads the map file
      * @param p_GameMap  the game map
      * @param p_FileName the map file name
-     * @throws ValidationException files exception
+     * @throws InvalidCommandException files exception
      */
 
     public void readMap(GameMap p_GameMap, String p_FileName) throws InvalidCommandException {

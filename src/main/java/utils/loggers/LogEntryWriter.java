@@ -19,13 +19,25 @@ public class LogEntryWriter implements Observer, Serializable {
      */
     private String l_FilenameString = "demo";
 
+    /**
+     * Constructs a LogEntryWriter and clears all existing logs.
+     */
     public LogEntryWriter() {
         clearAllLogs();
     }
 
+    /**
+     * Updates the observer with the provided message 
+     * @param p_s The message to be logged.
+     */
     public void update(String p_s) {
         logMessage(p_s);
     }
+    
+    /**
+     * Logs a message to a file with the provided content.
+     * @param p_str The message to be logged.
+     */
 
     public void logMessage(String p_str) {
         String filePath = "logFiles/" + l_FilenameString + ".log";

@@ -17,6 +17,7 @@ import utils.loggers.LogEntryBuffer;
  * @version 1.0.0
  */
 public class DefaultAttackLogic implements AttackLogic {
+	
     GameCalculation calculation = GameCalculation.getInstance();
 
     /**

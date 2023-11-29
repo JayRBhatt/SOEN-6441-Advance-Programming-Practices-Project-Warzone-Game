@@ -17,6 +17,12 @@ public class GameTournamentSettings {
     private Set<PlayerStrategy> d_PlayerStrategies = new HashSet<>();
     private int d_Games;
     private int d_MaxTries;
+    
+    /**
+     * Gets the map data as a list of strings.
+     *
+     * @return The map data.
+     */
 
     public List<String> getMap() {
         return d_Map;

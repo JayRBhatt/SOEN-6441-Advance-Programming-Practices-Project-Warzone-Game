@@ -18,6 +18,9 @@ import model.Player;
  */
 public class OrderDetails implements Serializable {
 
+	/**
+	 * The command string
+	 */
     private String d_Command;
     /**
      * A player object

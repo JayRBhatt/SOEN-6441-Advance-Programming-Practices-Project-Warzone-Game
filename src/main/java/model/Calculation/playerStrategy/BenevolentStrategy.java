@@ -28,9 +28,18 @@ import utils.loggers.LogEntryBuffer;
 
 public class BenevolentStrategy extends PlayerStrategy implements Serializable {
     private static final Random d_Random = new Random();
+    /**
+     * Logger for game actions
+     */
     private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     private static GameMap d_GameMap;
 
+    /**
+     * Retrieves the weakest country conquered by a player.
+     *
+     * @param p_Player The player whose occupied countries are considered.
+     * @return The weakest conquered country or null
+     */
     public Country getWeakestConqueredCountry(Player p_Player) {
         List<Country> l_CountryList = p_Player.getOccupiedCountries();
         if (!l_CountryList.isEmpty()) {

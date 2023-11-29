@@ -23,9 +23,21 @@ import utils.loggers.LogEntryBuffer;
  * @author Madhav Anadkat
  */
 public class AggressiveStrategy extends PlayerStrategy implements Serializable {
+	
+	/**
+	 * The log entry buffer for recording game actions.
+	 */
     private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
+    /**
+     * The ordered list of countries for processing game commands.
+     */
     private List<Country> orderedList;
-
+    
+    /**
+     * Initiates aggressive player's turn
+     * Issues orders, including deploying armies,
+     * bombing or attacking, and reinforcing own territories
+     */
     public String createCommand() {
         d_Player = GameMap.getInstance().getCurrentPlayer();
         d_LogEntryBuffer.logAction("Issuing Orders for the Aggressive Player - " + d_Player.getPlayerName());
