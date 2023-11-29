@@ -53,5 +53,4 @@ public class LoadGame implements GameEngineController {
         return "";
     }
 
-
 }

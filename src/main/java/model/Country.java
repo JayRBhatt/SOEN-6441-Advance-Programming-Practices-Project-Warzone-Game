@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringJoiner;
@@ -14,7 +15,7 @@ import java.util.StringJoiner;
  * @version 1.0.0
  */
 
-public class Country {
+public class Country implements Serializable {
 
     String d_CountryId;
     String d_CountryName;
@@ -51,6 +52,7 @@ public class Country {
     public String getContinent() {
         return d_Continent;
     }
+
     /**
      * Method that checks if the country is a neighbour
      *
@@ -114,6 +116,7 @@ public class Country {
     public void deployArmies(int p_Armies) {
         d_Armies += p_Armies;
     }
+
     /**
      * This method depletes the number of armies
      *
@@ -181,7 +184,8 @@ public class Country {
     /**
      * Removes the name of the neighbor from the set
      * 
-     * @param p_NeighborCountryName the country which is to be removed as a neighbour
+     * @param p_NeighborCountryName the country which is to be removed as a
+     *                              neighbour
      */
     public void removeNeighborsName(String p_NeighborCountryName) {
         if (d_NeighborsCountryName == null) {
@@ -195,7 +199,8 @@ public class Country {
      * which is
      * separated by hyphens ("-").
      * 
-     * @param p_Neighbors the set of neighbour countries from which list is to be created
+     * @param p_Neighbors the set of neighbour countries from which list is to be
+     *                    created
      * @return string containing the names of neighboring countries which are
      *         separated by hyphens.
      */

@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import java.util.Set;
  * @version 1.0.0
  */
 
-public class Continent {
+public class Continent implements Serializable {
     private String d_ContinentName;
     private int d_ContinentValue;
     private int d_BonusArmies;
@@ -22,9 +23,9 @@ public class Continent {
     /**
      * Parameterised Constructor that initializes the variables
      * 
-     * @param d_ContinentName The Name of a continent
+     * @param d_ContinentName  The Name of a continent
      * @param d_ContinentValue the value of the continent
-     * @param d_Countries The set of the countries which continent possess
+     * @param d_Countries      The set of the countries which continent possess
      */
     public Continent(String d_ContinentName, int d_ContinentValue, Set<Country> d_Countries) {
 
@@ -72,10 +73,11 @@ public class Continent {
     public void setContinentValue(int p_ContinentValue) {
         this.d_ContinentValue = p_ContinentValue;
     }
-     /**
+
+    /**
      * Get the Awarded armies
      *
-     * @return d_AwardArmies  The Awarded armies assigned to the continent
+     * @return d_AwardArmies The Awarded armies assigned to the continent
      */
     public int getBonusArmies() {
         return d_BonusArmies;
@@ -89,6 +91,7 @@ public class Continent {
     public void setBonusArmies(int p_AwardArmies) {
         this.d_BonusArmies = p_AwardArmies;
     }
+
     /**
      * Gets the Set of Countries it possess
      * 

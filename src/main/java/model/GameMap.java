@@ -31,7 +31,7 @@ import utils.maputils.ValidateMap;
 
 public class GameMap implements Serializable {
 
-    // private static final long serialVersionUID = 45443434343L;
+    private static final long serialVersionUID = 45443434343L;
 
     /**
      * Constructor that initializes the various values
@@ -587,7 +587,9 @@ public class GameMap implements Serializable {
     private void printTableFooter(String format) {
         System.out.println(format);
     }
+
     public GamePhase gamePlayBuilder(GameMap p_GameMap) throws InvalidCommandException {
+
         this.ClearMap();
         d_GameMap.setGameLoaded(true);
         for (Map.Entry<String, Continent> l_Continent : p_GameMap.getContinents().entrySet()) {
@@ -614,6 +616,7 @@ public class GameMap implements Serializable {
             this.getGamePlayer(l_Player.getKey()).setOrders(l_Player.getValue().getOrders());
             this.getGamePlayer(l_Player.getKey()).setPlayersCards(l_Player.getValue().getPlayersCards());
         }
+
         return p_GameMap.getGamePhase();
     }
 

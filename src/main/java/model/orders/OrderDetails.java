@@ -1,5 +1,7 @@
 package model.orders;
 
+import java.io.Serializable;
+
 import model.Country;
 import model.Player;
 
@@ -14,7 +16,7 @@ import model.Player;
  * @author Meera Muraleedharan Nair
  * @version 1.0.0
  */
-public class OrderDetails {
+public class OrderDetails implements Serializable {
 
     private String d_Command;
     /**

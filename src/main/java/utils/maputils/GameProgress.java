@@ -11,6 +11,7 @@ import java.nio.file.Path;
 
 /**
  * A class to save and load game progress
+ * 
  * @author Jay Bhatt
  * @version 1.0.0
  *
@@ -19,7 +20,7 @@ public class GameProgress {
     /**
      * Constant path
      */
-    static final String PATH = "savedFiles/";
+    static final String PATH = "savedProgress/";
 
     /**
      * LogEntry Buffer Instance
@@ -29,7 +30,7 @@ public class GameProgress {
     /**
      * A function to save the game progress
      *
-     * @param p_MapState instance of the game
+     * @param p_MapState  instance of the game
      * @param p_FileLabel file name
      * @return true if successful else false
      */
@@ -38,7 +39,8 @@ public class GameProgress {
             FileOutputStream l_fileStream = new FileOutputStream(PATH + p_FileLabel + ".bin");
             ObjectOutputStream l_objectStream = new ObjectOutputStream(l_fileStream);
             l_objectStream.writeObject(p_MapState);
-            d_LogManager.logAction("The game has been saved successfully to file ./savedFiles/" + p_FileLabel + ".bin");
+            d_LogManager
+                    .logAction("The game has been saved successfully to file ./savedProgress/" + p_FileLabel + ".bin");
             l_objectStream.flush();
             l_fileStream.close();
             p_MapState.ClearMap();
@@ -60,13 +62,16 @@ public class GameProgress {
         GameMap l_retrievedMap;
         try {
             l_fileStream = new FileInputStream(PATH + p_SaveFileName);
+
             ObjectInputStream l_objectStream = new ObjectInputStream(l_fileStream);
+
             l_retrievedMap = (GameMap) l_objectStream.readObject();
+
             d_LogManager.logAction("The game is loaded successfully will continue from where it last stopped.");
             l_objectStream.close();
             return GameMap.getInstance().gamePlayBuilder(l_retrievedMap);
         } catch (IOException | ClassNotFoundException | InvalidCommandException p_Error) {
-            d_LogManager.logAction("The file could not be loaded.");
+            d_LogManager.logAction("The file could not be loaded." + p_Error);
             return GamePhase.StartUp;
         }
     }
