@@ -300,6 +300,13 @@ public class Player implements Serializable {
      * 
      * @param p_Command
      */
+    public boolean deployReinforcementArmiesFromPlayer(int p_ArmyCount) {
+        if (p_ArmyCount > d_AdditionalArmies || p_ArmyCount <= 0) {
+            return false;
+        }
+        d_AdditionalArmies -= p_ArmyCount;
+        return true;
+    }
 
     /**
      * Confirms whether a country is occupied or not

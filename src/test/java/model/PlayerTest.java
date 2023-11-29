@@ -15,99 +15,145 @@ import model.Calculation.playerStrategy.PlayerStrategy;
 
 /**
  * Test Class that showcases the testcases for Model Class Player
- *
- * @author Madhav Anadkat
  * 
  */
-public class PlayerTest {
-    Player p = new Player(PlayerStrategy.getStrategy("Human"));
-    String d_CountryValid, d_CountryInvalid;
-    int d_ArmyNumberInvalid, d_ArmyNumberValid;
-    int d_AdditionalArmies;
-    List<Country> d_OccupiedCountries = new ArrayList<>();
-    Country c1 = new Country();
-    Country c2 = new Country();
-    Country c3 = new Country();
+public class PlayerTest extends Player {
+
+    /**
+     * ID of player
+     */
+    int d_Id;
+    /**
+     * Name of player
+     */
+    String d_Name;
+
+    /**
+     * Reinforcement armies
+     */
+    int d_ReinforcementArmies;
+    /**
+     * Number of valid armies
+     */
+    int d_ArmyCountValid;
+    /**
+     * Number of invalid armies
+     */
+    int d_ArmyCountInvalid;
+    /**
+     * Player object
+     */
+    Player d_Player;
+    /**
+     * Valid country string
+     */
+    String d_CountryValid;
+    /**
+     * Invalid country string
+     */
+    String d_CountryInvalid;
+    /**
+     * List of captured countries
+     */
+    List<Country> d_CapturedCountries = new ArrayList<>();
+    /**
+     * First country
+     */
+    Country d_Country1 = new Country();
+    /**
+     * Second country
+     */
+    Country d_Country2 = new Country();
+    /**
+     * Third country
+     */
+    Country d_Country3 = new Country();
+    /**
+     * Gamemap object
+     */
     GameMap d_GameMap = GameMap.getInstance();
 
     /**
-     * initializes the test data
-     * 
-     * @throws Exception
+     * Constructor for player test
      */
-    @Before
-    public void initializeTestData() throws Exception {
-        c1.setCountryName("India");
-        c2.setCountryName("China");
-        c3.setCountryName("Japan");
-        d_CountryValid = "India";
-        d_CountryInvalid = "Canada";
-        d_OccupiedCountries.add(c1);
-        d_OccupiedCountries.add(c2);
-        d_OccupiedCountries.add(c3);
-        p.setOccupiedCountries(d_OccupiedCountries);
-        d_AdditionalArmies = 10;
-        p.setAdditionalArmies(d_AdditionalArmies);
-        d_ArmyNumberValid = 5;
-        d_ArmyNumberInvalid = 13;
+    public PlayerTest() {
+        super(PlayerStrategy.getStrategy("human"));
+        d_Player = this;
     }
 
     /**
-     * Cleans up all the data from the GameMap object after execution of the test
-     * cases
-     * 
-     * @throws Exception
+     * This method initializes each value before execution of every test case
+     *
+     * @throws Exception if initialisation fails
+     */
+    @Before
+    public void setUp() throws Exception {
+        d_Id = 4;
+        d_Player.setIPlayerId(d_Id);
+        d_Name = "Shiro";
+        d_Player.setPlayerName(d_Name);
+
+        d_ReinforcementArmies = 10;
+        d_ArmyCountValid = 5;
+        d_ArmyCountInvalid = 13;
+        d_Player.setAdditionalArmies(d_ReinforcementArmies);
+
+        d_Country1.setCountryName("India");
+        d_Country2.setCountryName("China");
+        d_Country3.setCountryName("Japan");
+        d_CountryValid = "India";
+        d_CountryInvalid = "Canada";
+        d_CapturedCountries.add(d_Country1); // add to list
+        d_CapturedCountries.add(d_Country2);
+        d_CapturedCountries.add(d_Country3);
+        d_Player.setOccupiedCountries(d_CapturedCountries);
+    }
+
+    /**
+     * This method will be executed at the end of the test
+     *
+     * @throws Exception when execution fails
      */
     @After
-    public void cleanUpTestdata() throws Exception {
+    public void tearDown() throws Exception {
         d_GameMap.getContinents().clear();
         d_GameMap.getCountries().clear();
         d_GameMap.getGamePlayers().clear();
     }
 
     /**
-     * Test that validates whether a country IS assigned to the player
-     * 
+     * This is the test method to check the Player ID
      */
+
     @Test
-    public void testCheckIfTheCountryIsOccupiedByThePlayer() {
-        assertTrue(p.confirmIfCountryisOccupied(d_CountryValid, p));
+    public void testCountryId() {
+        int l_Id = d_Player.getPlayerId();
+        assertEquals(d_Id, l_Id);
     }
 
     /**
-     * Test that validates whether a country IS NOT assigned to the player
-     *
+     * This is the test method to check the Player Name
      */
+
     @Test
-    public void testCheckIfCountryIsNotAssignedToPlayer() {
-        assertFalse(p.confirmIfCountryisOccupied(d_CountryInvalid, p));
+    public void testCountryName() {
+        String l_Name = d_Player.getPlayerName();
+        assertEquals(d_Name, l_Name);
     }
 
     /**
-     * Test that validates the player gets assigned 10 armies only
-     * 
+     * Checks the reinforcement armies
      */
     @Test
-    public void testValidateIfTheNumberOfArmiesAllotedIsCorrect() {
-        assertEquals(10, p.getAdditionalArmies());
+    public void testValidDeployReinforcementArmiesFromPlayer() {
+        assertTrue(d_Player.deployReinforcementArmiesFromPlayer(d_ArmyCountValid));
     }
 
     /**
-     * Test that validates Right number of troops being deployed
-     * 
+     * This is the test method to check the invalid deployment of armies
      */
     @Test
-    public void testValidateRighfulDeploymentOfTroops() {
-        assertTrue(p.stationAdditionalArmiesFromPlayer(d_ArmyNumberValid));
+    public void testInvalidDeployReinforcementArmiesFromPlayer() {
+        assertFalse(d_Player.deployReinforcementArmiesFromPlayer(d_ArmyCountInvalid));
     }
-
-    /**
-     * Test that validates wrongful deployment of troops by a player
-     * 
-     */
-    @Test
-    public void testValidateWrongfulDeploymentOfTroops() {
-        assertFalse(p.stationAdditionalArmiesFromPlayer(d_ArmyNumberInvalid));
-    }
-
 }

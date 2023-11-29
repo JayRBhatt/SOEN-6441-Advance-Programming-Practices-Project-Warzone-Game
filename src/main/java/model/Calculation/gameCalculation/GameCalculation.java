@@ -67,6 +67,6 @@ public class GameCalculation {
      * @param p_Strategy the game strategy chosen
      */
     public void setStrategy(AttackLogic p_Strategy) {
-        d_AttackLogic = p_Strategy;
+        this.d_AttackLogic = p_Strategy;
     }
 }
