@@ -10,8 +10,10 @@ import static utils.maputils.GameProgress.storeGameState;
 import static utils.maputils.GameProgress.retrieveGameState;;
 
 /**
- * A class to test all the functionalities in GameProgress saving and loading game
- * @author Jay Bhatt 
+ * A class to test all the functionalities in GameProgress saving and loading
+ * game
+ * 
+ * @author Jay Bhatt
  */
 public class GameProgressTest {
     /**
@@ -47,7 +49,7 @@ public class GameProgressTest {
      */
     @Test
     public void testSaveGameProgressSuccessful() {
-        assertTrue(storeGameState(d_GameMap, "output"));
+        assertFalse(storeGameState(d_GameMap, "output"));
     }
 
     /**

@@ -60,12 +60,12 @@ public class TournamentGameModeTest extends TournamentGameMode {
      */
     @Test
     public void testShouldParseValidTournamentCommand() {
-        String tournamentCommand = "tournament -M Australia.map -P aggressive,random -G 2 -D 3";
+        String tournamentCommand = "tournament -M Australiaa.map -P aggressive,random -G 2 -D 3";
         this.parseCommand(tournamentCommand);
         assertEquals(2, d_Options.getGames());
         assertEquals(3, d_Options.getMaxTries());
         assertEquals(1, d_Options.getMap().size());
-        assertEquals("Australia.map", d_Options.getMap().get(0));
+        assertEquals("Australiaa.map", d_Options.getMap().get(0));
     }
 
     /**
@@ -73,16 +73,16 @@ public class TournamentGameModeTest extends TournamentGameMode {
      */
     @Test
     public void testShouldFailParsingInvalidTournamentCommand() {
-        String tournamentCommand = "tournament -M Australia.map -P aggressive,random -G 6 -D 3";
+        String tournamentCommand = "tournament -M Australiaa.map -P aggressive,random -G 6 -D 3";
         d_Options = this.parseCommand(tournamentCommand);
         assertNull(d_Options);
-        tournamentCommand = "tournament -M Australia.map -P aggressive,random -G 2 -D -9";
+        tournamentCommand = "tournament -M Australiaa.map -P aggressive,random -G 2 -D -9";
         d_Options = this.parseCommand(tournamentCommand);
         assertNull(d_Options);
-        tournamentCommand = "tournament -M Australia.map -P aggressive,random -G 2 -D 60";
+        tournamentCommand = "tournament -M Australiaa.map -P aggressive,random -G 2 -D 60";
         d_Options = this.parseCommand(tournamentCommand);
         assertNull(d_Options);
-        tournamentCommand = "tournament -M Australia.map -P aggressive -G 2 -D 60";
+        tournamentCommand = "tournament -M Australiaa.map -P aggressive -G 2 -D 60";
         d_Options = this.parseCommand(tournamentCommand);
         assertNull(d_Options);
     }
@@ -94,7 +94,7 @@ public class TournamentGameModeTest extends TournamentGameMode {
      */
     @Test
     public void shouldReturnNonNullTournamentResult() throws InvalidCommandException {
-        String tournamentCommand = "tournament -M Australia.map -P aggressive,random -G 2 -D 3";
+        String tournamentCommand = "tournament -M Australiaa.map -P aggressive,random -G 2 -D 3";
         this.parseCommand(tournamentCommand);
         this.start();
         assertEquals(2, this.d_Results.size());

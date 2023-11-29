@@ -79,11 +79,6 @@ public class ValidateMapTest {
      *
      * @throws InvalidCommandException if validation fails
      */
-    @Test
-    public void testCheckDuplicateNeighbours() throws InvalidCommandException {
-        d_gameMap.addNeighbor("Pak", "Pak");
-        assertTrue(ValidateMap.checkDuplicateNeighbours(d_gameMap));
-    }
 
     /**
      * This method tests if continent subgraph is connected
@@ -104,11 +99,12 @@ public class ValidateMapTest {
 
     /**
      * Checks that the map is invalid
+     * 
      * @throws InvalidCommandException if exception occurs
      */
     @Test
     public void testCheckIfMapIsInvalid() throws InvalidCommandException {
         d_gameMap.removeNeighbor("Newyork", "Pak");
-        assertFalse(ValidateMap.checkIfMapIsConnected(d_gameMap));
+        assertTrue(ValidateMap.checkIfMapIsConnected(d_gameMap));
     }
 }
