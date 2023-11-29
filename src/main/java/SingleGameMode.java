@@ -16,6 +16,9 @@ import utils.loggers.LogEntryBuffer;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 
+/**
+ * Represents the Single Game Mode in the Warzone game
+ */
 public class SingleGameMode implements Engine {
 
     private LogEntryBuffer d_LogEntryBuffer;
@@ -23,18 +26,32 @@ public class SingleGameMode implements Engine {
     private List<GameTournamentResult> d_Results = new ArrayList<>();
     private GameMap d_CurrentMap;
 
+    
+    /**
+     * Constructs a SingleGameMode instance and initializes loggers and settings.
+     */
     public SingleGameMode() {
         d_LogEntryBuffer = LogEntryBuffer.getInstance();
         d_Options = new GameTournamentSettings();
         init();
     }
 
+
+    /**
+     * Initializes the game settings by prompting the user for input.
+     */
     public void init() {
         d_Options = getGameTournamentSettings();
         if (Objects.isNull(d_Options)) {
             init();
         }
     }
+    
+    /**
+     * Prompts the user to enter settings for the single game and returns the obtained settings.
+     *
+     * @return The settings for the single game.
+     */
 
     private GameTournamentSettings getGameTournamentSettings() {
         Scanner l_Scanner = new Scanner(System.in);
@@ -48,6 +65,9 @@ public class SingleGameMode implements Engine {
         return d_Options;
     }
 
+    /**
+     * Logs instructions for entering the command for single game mode.
+     */
     private void logTournamentModeInstructions() {
         d_LogEntryBuffer
                 .logAction("-----------------------------------------------------------------------------------------");
@@ -57,6 +77,13 @@ public class SingleGameMode implements Engine {
         d_LogEntryBuffer
                 .logAction("-----------------------------------------------------------------------------------------");
     }
+    
+    /**
+     * Method to parse the entered command for single game mode
+     *
+     * @param p_TournamentCommand The entered command for single game mode.
+     * @return The parsed game settings.
+     */
 
     private GameTournamentSettings parseCommand(String p_TournamentCommand) {
         try {
@@ -89,6 +116,10 @@ public class SingleGameMode implements Engine {
 
     }
 
+    /**
+     * Starts the execution of the single game 
+     * @throws InvalidCommandException If an invalid command or map is encountered.
+     */
     public void start() throws InvalidCommandException {
         String l_File = d_Options.getMap().get(0);
         GameCalculation.getInstance().MAX_TRIES = 30;

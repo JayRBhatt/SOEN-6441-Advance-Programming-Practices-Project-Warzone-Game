@@ -6,21 +6,39 @@ import utils.loggers.ConsoleEntryWriter;
 import utils.loggers.LogEntryBuffer;
 import utils.loggers.LogEntryWriter;
 
+/**
+ * Entry point for the Warzone game.
+ */
 public class StartGame {
 
     private Engine d_Engine;
     private final LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     private GamePhase d_GamePhase;
 
+    
+
+    /**
+     * Constructs a StartGame instance and initializes loggers.
+     */
     public StartGame() {
         d_LogEntryBuffer.addNewObserver(new LogEntryWriter());
         d_LogEntryBuffer.addNewObserver(new ConsoleEntryWriter());
     }
 
+    /**
+     * Main method to start the Warzone game.
+     *
+     * @param args Command-line arguments (not used).
+     * @throws Exception If an exception occurs during game execution.
+     */
     public static void main(String[] args) throws Exception {
         new StartGame().start();
     }
 
+    /**
+     * Starts the Warzone game, displaying the main menu and processing user input.
+     * @throws Exception If an exception occurs during game execution.
+     */
     public void start() throws Exception {
         Scanner l_Scanner = new Scanner(System.in);
         boolean continueRunning = true;
@@ -46,6 +64,9 @@ public class StartGame {
         }
     }
 
+    /**
+     * Displays the main menu for the Warzone game.
+     */
     private void displayMainMenu() {
         d_LogEntryBuffer.logAction("");
         d_LogEntryBuffer.logAction("==================================");
@@ -63,6 +84,13 @@ public class StartGame {
         d_LogEntryBuffer.logAction("==================================");
 
     }
+    
+    /**
+     * Method that processes the user-selected menu option
+     *
+     * @param option The selected menu option.
+     * @throws InvalidOptionException If an invalid menu option is selected.
+     */
 
     private void processMenuOption(MenuOption option) throws InvalidOptionException {
         switch (option) {
@@ -85,6 +113,10 @@ public class StartGame {
                 throw new InvalidOptionException();
         }
     }
+    
+    /**
+     * Enumeration representing the menu options available in the Warzone game.
+     */
 
     enum MenuOption {
         NEW_GAME(1), LOAD_GAME(2), SINGLE_GAME_MODE(3), SIMULATION_MODE(4), EXIT(5);
@@ -94,6 +126,14 @@ public class StartGame {
         MenuOption(int value) {
             this.value = value;
         }
+        
+        /**
+         * Method that converts an integer value to the corresponding MenuOption.
+         *
+         * @param option The integer representing the menu option.
+         * @return The MenuOption corresponding to the provided integer.
+         * @throws InvalidOptionException If an invalid integer is provided.
+         */
 
         public static MenuOption fromInt(int option) throws InvalidOptionException {
             for (MenuOption mo : MenuOption.values()) {
@@ -105,6 +145,9 @@ public class StartGame {
         }
     }
 
+    /**
+     * Custom exception class for handling invalid menu options.
+     */
     static class InvalidOptionException extends Exception {
         InvalidOptionException() {
             super("Invalid menu option selected.");
