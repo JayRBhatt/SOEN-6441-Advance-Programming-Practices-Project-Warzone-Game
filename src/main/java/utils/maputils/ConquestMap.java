@@ -14,6 +14,8 @@ import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 /**
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
  * @author Bhargav Fofandi
  * This class is used for reading and writing map files in Conquest format
  *
@@ -141,33 +143,31 @@ public class ConquestMap {
      */
 
 
-    public boolean saveMap(GameMap p_Map, String p_FileName) throws IOException {
-        String l_MapData = "[Map]\nauthor=Anonymous\n[Continents]\\n";
+     public boolean saveMap(GameMap p_Map, String p_FileName) throws IOException {
+        StringBuilder mapDataBuilder = new StringBuilder("[Map]\nauthor=Anonymous\n[Continents]\n");
+    
         for (Continent l_Continent : p_Map.getContinents().values()) {
-            l_MapData += l_Continent.getContinentName() + "=" + l_Continent.getBonusArmies();
-            l_MapData += "\n";
+            mapDataBuilder.append(l_Continent.getContinentName()).append("=").append(l_Continent.getBonusArmies()).append("\n");
         }
-
-        l_MapData += "[Territories]\n";
-        for (Continent l_Continent : p_Map.getContinents().values()) {
-            for (Country l_Country : p_Map.getCountries().values()) {
-                l_MapData += l_Country.getCountryName() + " " + l_Country.getContinent() + " " + createANeighborList(l_Country.getNeighbors()) + "\n";
-            }
-            PrintWriter l_WriteData = null;
-            try {
-                final String PATH = "src/main/maps/";
-                l_WriteData = new PrintWriter(PATH + p_FileName + ".map");
-                l_WriteData.println(l_MapData);
-                return true;
-            } catch (Exception p_Exception) {
-                return false;
-            } finally { l_WriteData.close();
-            }
+    
+        mapDataBuilder.append("[Territories]\n");
+    
+        for (Country l_Country : p_Map.getCountries().values()) {
+            mapDataBuilder.append(l_Country.getCountryName())
+                    .append(" ")
+                    .append(l_Country.getContinent())
+                    .append(" ")
+                    .append(createANeighborList(l_Country.getNeighbors()))
+                    .append("\n");
         }
-        return true;
-
+    
+        try (PrintWriter writer = new PrintWriter("src/main/maps/" + p_FileName + ".map")) {
+            writer.println(mapDataBuilder.toString());
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
-
-
 }
 

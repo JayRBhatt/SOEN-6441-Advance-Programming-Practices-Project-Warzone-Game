@@ -2,8 +2,9 @@ package model.Calculation.tourament;
 
 /**
  * Class to implement the game tournament result
- *
+ * @author Jay Bhatt
  * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class GameTournamentResult {
     /**

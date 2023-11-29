@@ -10,6 +10,9 @@ import java.util.*;
 
 /**
  * Domination class
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  * @version 1.0.0
  */
 public class DominationMap {
@@ -135,47 +138,59 @@ public class DominationMap {
      * @throws IOException exception for file save
      */
     public boolean saveMap(GameMap p_GameMap, String p_FileName) throws IOException {
-        String l_Message = " ";
-        l_Message = "yura.net Risk 1.0.9.2";
-        String l_CurrentPath = System.getProperty("user.dir") + "\\src/main/maps/\\";
-        String l_MapPath = l_CurrentPath + p_FileName + ".map";
-        BufferedWriter bwFile = new BufferedWriter(new FileWriter(l_MapPath));
-        String d_Content = ";Map ";
-        d_Content += (p_FileName + ".map" + "");
-        d_Content += ("\rname " + p_FileName + ".map" + " Map");
-        d_Content += ("\r" + l_Message + "\r");
-        d_Content += ("\r\n[continents]\r\n");
-        HashMap<Integer, String> l_ContinentMap = createContinentList(p_GameMap);
+        String mapTitle = "yura.net Risk 1.0.9.2";
+        String currentPath = System.getProperty("user.dir") + "\\src/main/maps/";
+        String mapPath = currentPath + p_FileName + ".map";
+        
+        BufferedWriter bwFile = new BufferedWriter(new FileWriter(mapPath));
+        StringBuilder mapContent = new StringBuilder();
+    
+        mapContent.append(";Map ").append(p_FileName).append(".map").append("\r")
+                  .append("name ").append(p_FileName).append(".map").append(" Map").append("\r")
+                  .append(mapTitle).append("\r")
+                  .append("\r\n[continents]\r\n");
+    
+        HashMap<Integer, String> continentMap = createContinentList(p_GameMap);
+    
         for (Continent continent : p_GameMap.getContinents().values()) {
-            d_Content += (continent.getContinentName() + " " + continent.getBonusArmies() + " 00000\r\n");
+            mapContent.append(continent.getContinentName()).append(" ").append(continent.getBonusArmies()).append(" 00000\r\n");
         }
-        d_Content += ("\r\n[countries]\r\n");
-        String borders = "";
-        HashMap<Integer, String> l_CountryMap = createCountryList(p_GameMap);
-        for (Map.Entry<Integer, String> l_Country : l_CountryMap.entrySet()) {
-            for(Map.Entry<Integer, String> l_Continent : l_ContinentMap.entrySet()) {
-                if(l_Continent.getValue().equals(p_GameMap.getCountry(l_Country.getValue()).getContinent())) {
-                    d_Content += (l_Country.getKey() + " " + l_Country.getValue() + " " + l_Continent.getKey() + "\r\n");
+    
+        mapContent.append("\r\n[countries]\r\n");
+        StringBuilder borders = new StringBuilder();
+    
+        HashMap<Integer, String> countryMap = createCountryList(p_GameMap);
+    
+        for (Map.Entry<Integer, String> countryEntry : countryMap.entrySet()) {
+            for (Map.Entry<Integer, String> continentEntry : continentMap.entrySet()) {
+                if (continentEntry.getValue().equals(p_GameMap.getCountry(countryEntry.getValue()).getContinent())) {
+                    mapContent.append(countryEntry.getKey()).append(" ").append(countryEntry.getValue())
+                              .append(" ").append(continentEntry.getKey()).append("\r\n");
                     break;
                 }
             }
-            borders += (l_Country.getKey() + "");
-            for (Country l_Neighbor : p_GameMap.getCountry(l_Country.getValue()).getNeighbors()) {
-                for(Map.Entry<Integer, String> l_CountryList : l_CountryMap.entrySet()){
-                    if(l_Neighbor.getCountryName().equals(l_CountryList.getValue())){
-                        borders += (" " + l_CountryList.getKey());
+    
+            borders.append(countryEntry.getKey());
+            for (Country neighbor : p_GameMap.getCountry(countryEntry.getValue()).getNeighbors()) {
+                for (Map.Entry<Integer, String> countryListEntry : countryMap.entrySet()) {
+                    if (neighbor.getCountryName().equals(countryListEntry.getValue())) {
+                        borders.append(" ").append(countryListEntry.getKey());
                     }
                 }
             }
-            borders += ("\r\n");
+            borders.append("\r\n");
         }
-        d_Content += ("\r\n[borders]\r\n" + borders);
-        bwFile.write(d_Content);
+    
+        mapContent.append("\r\n[borders]\r\n").append(borders);
+    
+        bwFile.write(mapContent.toString());
         bwFile.close();
+        
         System.out.println("Map file saved as: " + p_FileName + ".map");
+        
         return true;
     }
-
+    
     /**
      * Create hashmap of country
      *

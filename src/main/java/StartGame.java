@@ -5,22 +5,47 @@ import model.GamePhase;
 import utils.loggers.ConsoleEntryWriter;
 import utils.loggers.LogEntryBuffer;
 import utils.loggers.LogEntryWriter;
-
-public class StartGame {
-
+/**
+ * Class to implement the game
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ */
+public class StartGame { 
+    /**
+     * game engine
+     */
     private Engine d_Engine;
+    /**
+     * logEntryBuffer observable
+     */
     private final LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
+    /**
+     * game phase
+     */
     private GamePhase d_GamePhase;
-
+    /**
+     * Default Constructor
+     */
     public StartGame() {
         d_LogEntryBuffer.addNewObserver(new LogEntryWriter());
         d_LogEntryBuffer.addNewObserver(new ConsoleEntryWriter());
     }
-
+      /**
+     * method to implement main class to start game
+     *
+     * @param args the arguments
+     * @throws Exception if it occurs
+     */
     public static void main(String[] args) throws Exception {
         new StartGame().start();
     }
-
+    
+    /**
+     * method which starts each phase in the game
+     *
+     * @throws Exception when it occurs
+     */
     public void start() throws Exception {
         Scanner l_Scanner = new Scanner(System.in);
         boolean continueRunning = true;
@@ -45,7 +70,9 @@ public class StartGame {
             }
         }
     }
-
+   /**
+    * displays the mode selection when game is started
+    */
     private void displayMainMenu() {
         d_LogEntryBuffer.logAction("");
         d_LogEntryBuffer.logAction("==================================");
@@ -63,7 +90,11 @@ public class StartGame {
         d_LogEntryBuffer.logAction("==================================");
 
     }
-
+    /**
+     * Processes the selected menu option and updates the game phase accordingly.
+     * @param option The selected menu option to process.
+     * @throws InvalidOptionException If the selected menu option is not recognized or is invalid.
+     */
     private void processMenuOption(MenuOption option) throws InvalidOptionException {
         switch (option) {
             case NEW_GAME:
@@ -85,16 +116,29 @@ public class StartGame {
                 throw new InvalidOptionException();
         }
     }
-
+    /**
+     * Enumeration representing the available menu options in the Risk game.
+     
+     */
     enum MenuOption {
         NEW_GAME(1), LOAD_GAME(2), SINGLE_GAME_MODE(3), SIMULATION_MODE(4), EXIT(5);
 
         private final int value;
-
+     /**
+     * Constructs a MenuOption with the specified integer value.
+     *
+     * @param value The integer value associated with the menu option.
+     */
         MenuOption(int value) {
             this.value = value;
         }
-
+      /**
+     * Converts an integer into the corresponding MenuOption.
+     *
+     * @param option The integer value to convert into a MenuOption.
+     * @return The MenuOption corresponding to the provided integer.
+     * @throws InvalidOptionException If the provided integer does not match any valid menu option.
+     */ 
         public static MenuOption fromInt(int option) throws InvalidOptionException {
             for (MenuOption mo : MenuOption.values()) {
                 if (mo.value == option) {
@@ -104,7 +148,7 @@ public class StartGame {
             throw new InvalidOptionException();
         }
     }
-
+     
     static class InvalidOptionException extends Exception {
         InvalidOptionException() {
             super("Invalid menu option selected.");

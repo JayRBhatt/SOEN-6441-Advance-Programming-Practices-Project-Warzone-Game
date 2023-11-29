@@ -22,15 +22,20 @@ import utils.loggers.LogEntryBuffer;
 
 /**
  * Class that implements the Benevolent Player Strategy
- *
+ * @author Jay Bhatt
  * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 
 public class BenevolentStrategy extends PlayerStrategy implements Serializable {
     private static final Random d_Random = new Random();
     private LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
     private static GameMap d_GameMap;
-
+/**
+ * Retrieves the weakest conquered country owned by the specified player.
+ * @param p_Player The player for whom to find the weakest conquered country.
+ * @return The weakest conquered country owned by the player, or null if the player does not own any countries.
+ */
     public Country getWeakestConqueredCountry(Player p_Player) {
         List<Country> l_CountryList = p_Player.getOccupiedCountries();
         if (!l_CountryList.isEmpty()) {
@@ -44,7 +49,10 @@ public class BenevolentStrategy extends PlayerStrategy implements Serializable {
         }
         return null;
     }
-
+    /**
+     * Creates and issues orders for a benevolent player's turn.
+     * @return "pass" to indicate the completion of the player's turn
+     */
     public String createCommand() {
         d_GameMap = GameMap.getInstance();
         d_Player = d_GameMap.getCurrentPlayer();
@@ -61,7 +69,6 @@ public class BenevolentStrategy extends PlayerStrategy implements Serializable {
 
         int l_ArmiesReinforce = d_Player.getAdditionalArmies();
 
-        // Deploy armies to weakest Country
         l_Commands.add(0, "deploy");
         l_Commands.add(1, l_WeakestCountry.getCountryName());
         l_Commands.add(2, String.valueOf(l_ArmiesReinforce));
@@ -73,7 +80,6 @@ public class BenevolentStrategy extends PlayerStrategy implements Serializable {
                 .logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
         d_Player.deployOrder();
 
-        // If Player has a diplomacy card, then use it
         if (d_Player.getPlayersCards().size() > 0) {
             for (Cards l_Card : d_Player.getPlayersCards()) {
                 if (l_Card.getCardsType() == CardsType.DIPLOMACY) {
@@ -95,9 +101,6 @@ public class BenevolentStrategy extends PlayerStrategy implements Serializable {
                 }
             }
         }
-
-        // Move armies to the weakest country from the other neighboring countries of
-        // the same player
         for (Country l_Country : l_WeakestCountry.getNeighbors()) {
             if (l_Country.getPlayer().getPlayerName().equals(d_Player.getPlayerName())) {
                 l_Commands = new ArrayList<>();

@@ -9,8 +9,10 @@ import model.Calculation.playerStrategy.PlayerStrategy;
 
 /**
  * Class to implement the tournament game tournament settings
- *
+ * 
+ * @author Jay Bhatt
  * @author Madhav Anadkat
+ * @author Bhargav Fofandi
  */
 public class GameTournamentSettings {
     private List<String> d_Map = new ArrayList<>();

@@ -2,6 +2,10 @@ import model.GamePhase;
 
 /**
  * interface of Engine classes
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public interface Engine {
 

@@ -2,7 +2,14 @@ package model.Calculation.playerStrategy;
 
 import java.io.Serializable;
 import java.util.Scanner;
-
+/**
+ * Human Strategy class, taking command inputs from human player.
+ *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
+ */
 public class HumanStrategy extends PlayerStrategy implements Serializable {
 
     /**

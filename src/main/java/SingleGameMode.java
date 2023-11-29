@@ -15,27 +15,53 @@ import utils.exceptions.InvalidCommandException;
 import utils.loggers.LogEntryBuffer;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
-
+/**
+ * Represents a single game mode in the game
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
+ */
 public class SingleGameMode implements Engine {
-
+   
+    /**
+     * the logentrybuffer observable
+     */
     private LogEntryBuffer d_LogEntryBuffer;
+   /**
+     * gametournament options
+     */
     private GameTournamentSettings d_Options;
+   /**
+     * list for tournament results
+     */
     private List<GameTournamentResult> d_Results = new ArrayList<>();
+   /**
+     * current game map
+     */
     private GameMap d_CurrentMap;
-
+   /**
+     * constructor for single game engine
+     */
     public SingleGameMode() {
         d_LogEntryBuffer = LogEntryBuffer.getInstance();
         d_Options = new GameTournamentSettings();
         init();
     }
-
+    /**
+     * method for checking options
+     */
     public void init() {
         d_Options = getGameTournamentSettings();
         if (Objects.isNull(d_Options)) {
             init();
         }
     }
-
+     /**
+     * method to check tournament settings
+     *
+     * @return parsed command
+     */
     private GameTournamentSettings getGameTournamentSettings() {
         Scanner l_Scanner = new Scanner(System.in);
         logTournamentModeInstructions();
@@ -47,7 +73,11 @@ public class SingleGameMode implements Engine {
         }
         return d_Options;
     }
-
+    /**
+     * method to check tournament instructions
+     *
+     * @return parsed command
+     */
     private void logTournamentModeInstructions() {
         d_LogEntryBuffer
                 .logAction("-----------------------------------------------------------------------------------------");
@@ -57,7 +87,12 @@ public class SingleGameMode implements Engine {
         d_LogEntryBuffer
                 .logAction("-----------------------------------------------------------------------------------------");
     }
-
+        /**
+     * method to parse command
+     *
+     * @param p_TournamentCommand the tournament command
+     * @return tournament options
+     */
     private GameTournamentSettings parseCommand(String p_TournamentCommand) {
         try {
             d_Options = new GameTournamentSettings();
@@ -88,7 +123,11 @@ public class SingleGameMode implements Engine {
         }
 
     }
-
+   /**
+     * start of the single game mode
+     *
+     * @throws InvalidCommandException if it occurs
+     */
     public void start() throws InvalidCommandException {
         String l_File = d_Options.getMap().get(0);
         GameCalculation.getInstance().MAX_TRIES = 30;

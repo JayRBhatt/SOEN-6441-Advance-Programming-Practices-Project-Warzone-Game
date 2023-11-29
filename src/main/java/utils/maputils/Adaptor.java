@@ -6,7 +6,10 @@ import model.GameMap;
 import utils.exceptions.InvalidCommandException;
 /**
  * This class is used to implement Adapter Pattern
- *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class Adaptor extends DominationMap {
     /**
@@ -14,14 +17,14 @@ public class Adaptor extends DominationMap {
      */
     public static final String mapType="Domination";
 
-    ConquestMap d_adp = new ConquestMap();
+    ConquestMap d_adaptor = new ConquestMap();
 
     /**
      * Constructor to initialize adaptee object
      * @param adp Object of adaptee class
      */
     public Adaptor(ConquestMap adp) {
-        this.d_adp = adp;
+        this.d_adaptor = adp;
     }
 
     /**
@@ -32,7 +35,7 @@ public class Adaptor extends DominationMap {
      */
 
     public void readMap(GameMap p_GameMap, String p_FileName) throws InvalidCommandException {
-        d_adp.readMap(p_GameMap, p_FileName);
+        d_adaptor.readMap(p_GameMap, p_FileName);
     }
 
     /**
@@ -44,7 +47,7 @@ public class Adaptor extends DominationMap {
      * @throws IOException files exception
      */
     public boolean saveMap(GameMap map, String fileName)  throws IOException {
-        return d_adp.saveMap(map, fileName);
+        return d_adaptor.saveMap(map, fileName);
     }
 
 }

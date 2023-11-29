@@ -6,7 +6,9 @@ import utils.maputils.Observer;
 
 /**
  * A class to enable writing to console using the observer patter.
- * 
+ *@author Jay Bhatt
+ *@author Madhav Anadkat
+ *@author Bhargav Fofandi
  */
 public class ConsoleEntryWriter implements Observer, Serializable {
 

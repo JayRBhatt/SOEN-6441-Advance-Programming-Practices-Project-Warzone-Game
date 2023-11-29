@@ -15,9 +15,12 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+
 /**
  * Random Strategy class, taking random commands for tournament mode.
  *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
  * @author Bhargav Fofandi
  * @version 1.0.0
  */
@@ -31,7 +34,7 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
      */
     private static GameMap d_GameMap;
     /**
-     * Logger Observable
+     * Logentry buffer instance
      */
     private LogEntryBuffer d_Logger = LogEntryBuffer.getInstance();
 
@@ -46,7 +49,7 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
                 .flatMap(country -> country.getNeighbors().stream())
                 .filter(country -> !country.getPlayer().getPlayerName().equals(d_Player.getPlayerName()))
                 .collect(Collectors.toList());
-        if (l_Enemies.size() > 0) {
+        if (l_Enemies.isEmpty()) {
             int l_Random = d_Random.nextInt(l_Enemies.size());
             return l_Enemies.get(l_Random).getPlayer();
         }
@@ -61,13 +64,14 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
      */
     protected Country getRandomUnconqueredCountry(Player p_Player) {
         Country l_RandomCountry = null;
-        if (d_GameMap.getCountries().size() > 0 && p_Player.getOccupiedCountries().size() < d_GameMap.getCountries().size()) {
-            int l_Index = d_Random.nextInt(d_GameMap.getCountries().size());
-            l_RandomCountry = (Country) d_GameMap.getCountries().values().toArray()[l_Index];
-            while (l_RandomCountry.getPlayer().equals(p_Player)) {
-                l_Index = d_Random.nextInt(d_GameMap.getCountries().size());
-                l_RandomCountry = (Country) d_GameMap.getCountries().values().toArray()[l_Index];
-            }
+        int l_totalCountries = d_GameMap.getCountries().size();
+        int l_occupiedCountries = p_Player.getOccupiedCountries().size();
+    
+        if (l_totalCountries > 0 && l_occupiedCountries <l_totalCountries) {
+            do {
+                int l_randomIndex = d_Random.nextInt(l_totalCountries);
+                l_RandomCountry = (Country) d_GameMap.getCountries().values().toArray()[l_randomIndex];
+            } while (l_RandomCountry.getPlayer().equals(p_Player));
         }
         return l_RandomCountry;
     }
@@ -78,11 +82,15 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
      * @param p_Player current player
      * @return random country
      */
+
     protected Country getRandomConqueredCountry(Player p_Player) {
-        if (p_Player.getOccupiedCountries().size() > 0) {
-            int l_Index = d_Random.nextInt(p_Player.getOccupiedCountries().size());
-            return p_Player.getOccupiedCountries().get(l_Index);
+        List<Country> l_occupiedCountries = p_Player.getOccupiedCountries();
+    
+        if (!l_occupiedCountries.isEmpty()) {
+            int l_randomIndex = new Random().nextInt(l_occupiedCountries.size());
+            return l_occupiedCountries.get(l_randomIndex);
         }
+    
         return null;
     }
 
@@ -108,77 +116,140 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
     public String createCommand() {
         d_GameMap = GameMap.getInstance();
         d_Player = d_GameMap.getCurrentPlayer();
-        Order l_Order = null;
-        List<String> l_Commands = new ArrayList<>();
-        String[] l_CommandsArr;
-        //check if player can still play
         int l_Random = d_Random.nextInt(11);
         Country l_RandomCountry = getRandomConqueredCountry(d_Player);
+    
         switch (l_Random) {
             case 0:
             case 1:
             case 2:
             case 3:
-                if (Objects.nonNull(l_RandomCountry) && d_Player.getAdditionalArmies() > 0) {
-                    l_Commands.add(0, "deploy");
-                    l_Commands.add(1, l_RandomCountry.getCountryName());
-                    l_Commands.add(2, String.valueOf(d_Random.nextInt(d_Player.getAdditionalArmies()) + 1));
-                    l_CommandsArr = l_Commands.toArray(new String[l_Commands.size()]);
-                    l_Order = new DeployOrder();
-                    l_Order.setOrderDetails(OrderCreator.GenerateDeployOrderInfo(l_CommandsArr, d_Player));
-                    OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                    d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
-                    d_Player.deployOrder();
-                }
-                break;
+                return handleDeployCommand(l_RandomCountry);
             case 4:
             case 5:
             case 6:
-                Country l_RandomNeighbor = getRandomNeighbor(l_RandomCountry);
-                if (Objects.nonNull(l_RandomCountry) && Objects.nonNull(l_RandomNeighbor)) {
-                    if (l_RandomCountry.getArmies() > 0) {
-                        l_Commands.add(0, "advance");
-                        l_Commands.add(1, l_RandomCountry.getCountryName());
-                        l_Commands.add(2, l_RandomNeighbor.getCountryName());
-                        l_Commands.add(3, String.valueOf(d_Random.nextInt(l_RandomCountry.getArmies())));
-                        l_CommandsArr = l_Commands.toArray(new String[l_Commands.size()]);
-                        l_Order = new AdvancingOrder();
-                        l_Order.setOrderDetails(OrderCreator.GenerateAdvanceOrderInfo(l_CommandsArr, d_Player));
-                        OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                        d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
-                        d_Player.deployOrder();
-                        return "pass";
-                    }
-                    break;
-                }
+                return handleAdvanceCommand(l_RandomCountry);
             case 7:
             case 8:
-                if (d_Player.getPlayersCards().size() <= 0) {
-                    break;
-                }
-                int l_RandomCardIdx = d_Random.nextInt(d_Player.getPlayersCards().size());
-                Cards l_Card = d_Player.getPlayersCards().get(l_RandomCardIdx);
-                if (cardAttack(l_Card, l_RandomCountry)) {
-                    return "pass";
-                }
+                return handleCardUsageCommand();
             default:
                 return "pass";
         }
+    }
+    /**
+     * Handles the deployment of additional armies to a random country during a player's turn.
+     * @param l_RandomCountry The random country to which additional armies will be deployed.
+     * @return An empty string if deployment is successful, or "pass" if the player chooses to skip deployment.
+     */
+    private String handleDeployCommand(Country l_RandomCountry) {
+        if (Objects.nonNull(l_RandomCountry) && d_Player.getAdditionalArmies() > 0) {
+            List<String> l_Commands = prepareDeployCommands(l_RandomCountry);
+            executeDeployOrder(l_Commands);
+            return "";
+        }
+        return "pass";
+    }
+    /**
+     * Prepares a list of deployment commands for the given random country.
+     * @param l_RandomCountry The random country to which additional armies will be deployed.
+     * @return A list of strings representing deployment commands.
+     */
+    private List<String> prepareDeployCommands(Country l_RandomCountry) {
+        List<String> l_Commands = new ArrayList<>();
+        l_Commands.add("deploy");
+        l_Commands.add(l_RandomCountry.getCountryName());
+        l_Commands.add(String.valueOf(d_Random.nextInt(d_Player.getAdditionalArmies()) + 1));
+        return l_Commands;
+    }
+    /**
+     * Executes a deployment order based on the provided list of commands.
+     * @param l_Commands A list of strings containing deployment commands
+     */
+    private void executeDeployOrder(List<String> l_Commands) {
+        String[] l_CommandsArr = l_Commands.toArray(new String[0]);
+        Order l_Order = new DeployOrder();
+        l_Order.setOrderDetails(OrderCreator.GenerateDeployOrderInfo(l_CommandsArr, d_Player));
+        finalizeOrderExecution(l_Order);
+    }
+    /**
+     * Handles the advancement of armies from a random country to a random neighboring country during a player's turn.
+     * @param l_RandomCountry The random country from which armies will be advanced.
+     * @return "pass" if advancement is successful, or an empty string if the player cannot advance armies.
+     */
+    private String handleAdvanceCommand(Country l_RandomCountry) {
+        Country l_RandomNeighbor = getRandomNeighbor(l_RandomCountry);
+        if (Objects.nonNull(l_RandomCountry) && Objects.nonNull(l_RandomNeighbor) && l_RandomCountry.getArmies() > 0) {
+            List<String> l_Commands = prepareAdvanceCommands(l_RandomCountry, l_RandomNeighbor);
+            executeAdvanceOrder(l_Commands);
+            return "pass";
+        }
         return "";
     }
-
-    private boolean cardAttack(Cards l_Card, Country l_RandomCountry) {
-        switch (l_Card.getCardsType()) {
+    /**
+     * Prepares a list of advance commands to move armies from one country to another.
+      * @param l_RandomCountry The source country from which armies will be advanced.
+      * @param l_RandomNeighbor The target country to which armies will be advanced.
+      * @return A list of strings representing advance commands.    
+     */
+    private List<String> prepareAdvanceCommands(Country l_RandomCountry, Country l_RandomNeighbor) {
+        List<String> l_Commands = new ArrayList<>();
+        l_Commands.add("advance");
+        l_Commands.add(l_RandomCountry.getCountryName());
+        l_Commands.add(l_RandomNeighbor.getCountryName());
+        l_Commands.add(String.valueOf(d_Random.nextInt(l_RandomCountry.getArmies())));
+        return l_Commands;
+    }
+    /**
+     * Executes an advancement order based on the provided list of commands.
+     * @param l_Commands A list of strings containing advancement commands
+     */
+    private void executeAdvanceOrder(List<String> l_Commands) {
+        String[] l_CommandsArr = l_Commands.toArray(new String[0]);
+        Order l_Order = new AdvancingOrder();
+        l_Order.setOrderDetails(OrderCreator.GenerateAdvanceOrderInfo(l_CommandsArr, d_Player));
+        finalizeOrderExecution(l_Order);
+    }
+    /**
+     * Handles the usage of a player's cards during their turn.
+     * @return "pass" if a card is used for an attack, or "pass" if there are no cards to use or the card cannot be used.
+     */
+    private String handleCardUsageCommand() {
+        if (!d_Player.getPlayersCards().isEmpty()) {
+            int l_RandomCardIdx = d_Random.nextInt(d_Player.getPlayersCards().size());
+            Cards l_Card = d_Player.getPlayersCards().get(l_RandomCardIdx);
+            if (cardAttack(l_Card, getRandomConqueredCountry(d_Player))) {
+                return "pass";
+            }
+        }
+        return "pass";
+    }
+    /**
+     * Finalizes the execution of a player's order and logs the issued command.
+     * @param l_Order The Order object representing the player's order to be executed.
+     */
+    private void finalizeOrderExecution(Order l_Order) {
+        OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
+        d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
+        d_Player.deployOrder();
+    }
+  /**
+   * Executes a card-based attack action based on the type of card provided.
+   * @param p_Card The Cards object representing the type of card to be used.
+   * @param p_RandomCountry The target Country for the card action, as applicable to the card type.
+   * @return true if the card action is successful, false otherwise.
+   */
+    private boolean cardAttack(Cards p_Card, Country p_RandomCountry) {
+        switch (p_Card.getCardsType()) {
             case BLOCKADE:
-                if (Objects.nonNull(l_RandomCountry)) {
+                if (Objects.nonNull(p_RandomCountry)) {
                     List<String> l_Commands = new ArrayList<>();
                     l_Commands.add(0, "blockade");
-                    l_Commands.add(1, l_RandomCountry.getCountryName());
+                    l_Commands.add(1, p_RandomCountry.getCountryName());
                     String[] l_CommandsArr = l_Commands.toArray(new String[l_Commands.size()]);
                     Order l_Order = new OrderForBlockade();
                     l_Order.setOrderDetails(OrderCreator.GenerateBlockadeOrderInfo(l_CommandsArr, d_Player));
                     OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                    d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
+                    d_Logger.logAction(String.format("%s Issuing the new Command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
                     d_Player.deployOrder();
                     return true;
                 }
@@ -192,7 +263,7 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
                     Order l_Order = new BombingOrder();
                     l_Order.setOrderDetails(OrderCreator.GenerateBombOrderInfo(l_CommandsArr, d_Player));
                     OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                    d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
+                    d_Logger.logAction(String.format("%s Issuing the new Command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
                     d_Player.deployOrder();
                     return true;
                 }
@@ -209,7 +280,7 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
                     Order l_Order = new AirliftingOrder();
                     l_Order.setOrderDetails(OrderCreator.GenerateAirliftOrderInfo(l_CommandsArr, d_Player));
                     OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                    d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
+                    d_Logger.logAction(String.format("%s Issuing the new Command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
                     d_Player.deployOrder();
                     return true;
                 }
@@ -224,7 +295,7 @@ public class RandomStrategy extends PlayerStrategy implements Serializable {
                     Order l_Order = new NegotiatingOrder();
                     l_Order.setOrderDetails(OrderCreator.GenerateNegotiateOrderInfo(l_CommandsArr, d_Player));
                     OrderIssue.Commands = l_Order.getOrderDetails().getCommand();
-                    d_Logger.logAction(String.format("%s issuing new command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
+                    d_Logger.logAction(String.format("%s Issuing the new Command: %s", d_Player.getPlayerName(), OrderIssue.Commands));
                     d_Player.deployOrder();
                     return true;
                 }

@@ -16,17 +16,39 @@ import utils.loggers.LogEntryBuffer;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
 
+/**
+ * Class to implement the tournament mode game
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ */
 public class TournamentGameMode implements Engine {
+  /**
+   * logger observable
+   */
     private LogEntryBuffer d_Logger;
+ /**
+  * Tournament options variable
+  */
     public GameTournamentSettings d_Options;
+     /**
+     * List to hold the tournament results
+     */
     public List<GameTournamentResult> d_Results = new ArrayList<>();
+     /**
+     * game map instance
+     */
     private GameMap d_CurrentMap;
-
+    /**
+     * default constructor
+     */
     public TournamentGameMode() {
         d_Logger = LogEntryBuffer.getInstance();
         init();
     }
-
+    /**
+     * method to check if object is null
+     */
     public void init() {
         d_Options = getTournamentOptions();
         if (Objects.isNull(d_Options)) {
@@ -34,7 +56,11 @@ public class TournamentGameMode implements Engine {
             init();
         }
     }
-
+    /**
+     * Method to read the tournament command
+     *
+     * @return parsed command
+     */
     public GameTournamentSettings getTournamentOptions() {
         Scanner l_Scanner = new Scanner(System.in);
         logTournamentModeInstructions();
@@ -45,7 +71,9 @@ public class TournamentGameMode implements Engine {
         }
         return d_Options;
     }
-
+    /**
+     * Displays the tournament command helper
+     */
     private void logTournamentModeInstructions() {
         String instruction = "-----------------------------------------------------------------------------------------\n"
                 + "You are in Tournament Mode\n"
@@ -54,7 +82,12 @@ public class TournamentGameMode implements Engine {
                 + "-----------------------------------------------------------------------------------------";
         d_Logger.logAction(instruction);
     }
-
+      /**
+     * method to parse the tournament command
+     *
+     * @param p_TournamentCommand the tournament command
+     * @return tournament options
+     */
     public GameTournamentSettings parseCommand(String p_TournamentCommand) {
         try {
             d_Options = new GameTournamentSettings();
@@ -72,18 +105,28 @@ public class TournamentGameMode implements Engine {
             return null;
         }
     }
-
+    /** 
+     * Check for valid tournament command
+     * @param command The string command to validate for a tournament.
+     * @return true if the command is valid for a tournament; false otherwise.
+     */
     private boolean isValidTournamentCommand(String command) {
         return !command.isEmpty() &&
                 command.contains("-M") && command.contains("-P") &&
                 command.contains("-G") && command.contains("-D");
     }
-
+   /**
+    * Processes a tournament command by extracting and setting its options.
+    * @param command The string command representing a tournament configuration to be processed.
+    */
     private void processTournamentCommand(String command) {
         List<String> commandList = Arrays.asList(command.split(" "));
         extractAndSetCommandOptions(commandList);
     }
-
+  /**
+   * Extracts and sets the tournament command options.
+   * @param commandList The list of command options representing a tournament configuration.
+   */
     private void extractAndSetCommandOptions(List<String> commandList) {
         String mapValue = commandList.get(commandList.indexOf("-M") + 1);
         String playerTypes = commandList.get(commandList.indexOf("-P") + 1);
@@ -95,7 +138,11 @@ public class TournamentGameMode implements Engine {
         d_Options.setGames(Integer.parseInt(gameCount));
         d_Options.setMaxTries(Integer.parseInt(maxTries));
     }
-
+  /**
+   * Extracts and sets player strategies from a comma-separated string.
+   * @param playerTypes A string containing comma-separated player strategy identifiers.
+   * @throws IllegalArgumentException If less than two player strategies are provided.
+   */
     private void extractPlayerStrategies(String playerTypes) {
         if (playerTypes.contains("human")) {
             d_Logger.logAction("Tournament mode does not support human players. Switch to Single Game Mode.");
@@ -108,7 +155,10 @@ public class TournamentGameMode implements Engine {
             throw new IllegalArgumentException("At least two player strategies are required.");
         }
     }
-
+    /**
+     * Starts the tournament by setting up and running multiple games based on the tournament configuration.
+     * @throws InvalidCommandException If an invalid command or configuration is encountered during the tournament setup.
+     */
     public void start() throws InvalidCommandException {
         for (String file : d_Options.getMap()) {
             for (int game = 1; game <= d_Options.getGames(); game++) {
@@ -117,7 +167,12 @@ public class TournamentGameMode implements Engine {
         }
         displayResults();
     }
-
+    /**
+     * Sets up and starts a single game within the tournament based on the specified map and game number.
+     * @param file The map file used for the game setup.
+     * @param game The number representing the current game within the tournament.
+     * @throws InvalidCommandException If an invalid command or configuration is encountered during game setup.
+     */
     private void setupGame(String file, int game) throws InvalidCommandException {
         GameCalculation.getInstance().MAX_TRIES = d_Options.getMaxTries();
         d_CurrentMap = GameMap.newInstance();
@@ -128,7 +183,12 @@ public class TournamentGameMode implements Engine {
         result.setMap(file);
         setupPlayersAndStartGame(file, result);
     }
-
+   /**
+    * Sets up players and starts a game based on the specified map and records the result.
+    * @param file   The map file used for setting up the game.
+    * @param result The tournament result object to record the game's outcome.
+    * @throws InvalidCommandException If an invalid command or configuration is encountered during game setup.
+    */
     private void setupPlayersAndStartGame(String file, GameTournamentResult result) throws InvalidCommandException {
         MapViewer.readMap(d_CurrentMap, file);
         if (!ValidateMap.validateMap(d_CurrentMap, 0)) {
@@ -145,12 +205,17 @@ public class TournamentGameMode implements Engine {
         gameEngine.start();
         determineWinner(result);
     }
-
+    /**
+     * Determines and records the winner (or draw) of a game and updates the tournament result.
+     * @param result The tournament result object in which the game's outcome will be recorded.
+     */
     private void determineWinner(GameTournamentResult result) {
         Player winner = d_CurrentMap.getWinner();
         result.setWinner(Objects.nonNull(winner) ? winner.getPlayerName() : "Draw");
     }
-
+    /**
+     * Displays the results of the tournament in a formatted table.
+     */
     private void displayResults() {
         String tableHeader = "|%-15s|%-28s|%-19s|%n";
         System.out.format("+--------------+-----------------------+-------------------------+%n");
