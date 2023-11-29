@@ -1,0 +1,11 @@
+;Map rrr.mapname rrr.map Mapyura.net Risk 1.0.9.2
+[continents]
+europe 0 00000
+
+[countries]
+1 germany 1
+2 italy 1
+
+[borders]
+1 2
+2 1

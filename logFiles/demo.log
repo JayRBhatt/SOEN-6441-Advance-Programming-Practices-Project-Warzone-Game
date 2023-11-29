@@ -1,8 +1,7 @@
-Entered Map Editor Phase!
-Added Continent: asia
-Added Country: china to asia continent
- Which format do you want to save the file? Type the number.
-1. Domination map 
-2. Conquest map
-The map is Validated and saved
-The loaded file is of the format Conquest map
+Domination map is loaded 
+
+Added Continent: america
+Added Country: canada to america continent
+Added Country: us to america continent
+Added Neighbor: us to canada
+Added Neighbor: canada to us

@@ -10,6 +10,9 @@ import static org.junit.Assert.assertNull;
  * Test case class to check the correct starting phase of game
  *
  * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class TournamentGameModeTest extends TournamentGameMode {
     /**
@@ -87,7 +90,7 @@ public class TournamentGameModeTest extends TournamentGameMode {
     /**
      * Check if Result of tournament is not null
      *
-     * @throws ValidationException validation exception
+     * @throws ValidationException when it happens
      */
     @Test
     public void shouldReturnNonNullTournamentResult() throws InvalidCommandException {

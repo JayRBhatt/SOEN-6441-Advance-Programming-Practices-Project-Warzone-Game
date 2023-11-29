@@ -1,0 +1,8 @@
+[Map]
+author=Anonymous
+[Continents]
+asgard=0
+[Territories]
+thor asgard loki
+loki asgard thor
+

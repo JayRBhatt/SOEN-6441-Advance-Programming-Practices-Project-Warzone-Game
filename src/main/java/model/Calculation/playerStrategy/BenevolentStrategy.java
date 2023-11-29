@@ -25,6 +25,7 @@ import utils.loggers.LogEntryBuffer;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 
 public class BenevolentStrategy extends PlayerStrategy implements Serializable {
@@ -51,7 +52,7 @@ public class BenevolentStrategy extends PlayerStrategy implements Serializable {
     }
     /**
      * Creates and issues orders for a benevolent player's turn.
-     * @return "pass" to indicate the completion of the player's turn
+     * @return pass to indicate the completion of the player's turn
      */
     public String createCommand() {
         d_GameMap = GameMap.getInstance();

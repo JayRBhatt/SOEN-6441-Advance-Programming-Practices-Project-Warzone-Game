@@ -1,0 +1,8 @@
+[Map]
+author=Anonymous
+[Continents]
+america=0
+[Territories]
+canada america us
+us america canada
+

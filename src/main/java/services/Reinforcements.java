@@ -39,6 +39,7 @@ public class Reinforcements implements GameEngineController{
 	 * 
 	 * @param p_GamePhase ID of the GamePhase
 	 * @throws InvalidCommandException if command is invlaid
+	 * @throws InvalidInputException when it happens
 	 */
 	public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException, InvalidInputException {
 		d_GamePhase = p_GamePhase;
@@ -49,7 +50,7 @@ public class Reinforcements implements GameEngineController{
 
 	/**
 	 * Method that calculates the reinforcements
-	 * 
+	 * @throws InvalidInputException
 	 */
 	private void calculateReinforcements() throws InvalidInputException{
 		for (Player l_Player : d_GameMap.getGamePlayers().values()) {

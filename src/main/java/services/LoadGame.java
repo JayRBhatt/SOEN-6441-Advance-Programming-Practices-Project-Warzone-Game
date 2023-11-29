@@ -10,11 +10,15 @@ import controller.GameEngineController;
 
 /**
  * Loadgame controller
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class LoadGame implements GameEngineController {
 
     /**
-     * logger to print
+     * logger observable
      */
     private final LogEntryBuffer d_Logger = LogEntryBuffer.getInstance();
 
@@ -43,7 +47,7 @@ public class LoadGame implements GameEngineController {
      * function to parse the command
      *
      * @param command string to be parsed
-     * @return command
+     * @return the parsed command
      */
     private String parseCommand(String command) {
         String[] l_Commands = command.split(" ");

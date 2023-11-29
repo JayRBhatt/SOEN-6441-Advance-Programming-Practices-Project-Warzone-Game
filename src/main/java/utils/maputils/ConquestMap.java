@@ -14,11 +14,11 @@ import java.io.PrintWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 /**
+  This class is used for reading and writing map files in Conquest format
  * @author Jay Bhatt
  * @author Madhav Anadkat
- * @author Bhargav Fofandi
- * This class is used for reading and writing map files in Conquest format
- *
+ * @author Bhargav Fofandi 
+ * @version 1.0.0
  */
 public class ConquestMap {
     /**
@@ -36,10 +36,7 @@ public class ConquestMap {
      */
     public void readMap(GameMap p_GameMap, String p_FileName) throws InvalidCommandException {
         d_LogEntryBuffer.clear();
-        d_LogEntryBuffer.logAction("Conquest map is loaded \n");
-        /**
-         *
-         */
+        d_LogEntryBuffer.logAction("Domination map is loaded \n");
         try {
             p_GameMap.ClearMap();
             File l_File = new File("src/main/maps/" + p_FileName);

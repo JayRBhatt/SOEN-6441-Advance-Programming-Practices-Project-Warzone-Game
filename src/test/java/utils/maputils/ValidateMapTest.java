@@ -10,7 +10,10 @@ import static org.junit.Assert.*;
 
 /**
  * A class to test all the functionalities in Map Validation
- *
+ * @author Jay Bhatt
+ * @author Madhav Anadkat
+ * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class ValidateMapTest {
     /**

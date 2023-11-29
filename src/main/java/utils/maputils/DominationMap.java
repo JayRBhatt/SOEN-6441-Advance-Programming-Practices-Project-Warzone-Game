@@ -47,10 +47,10 @@ public class DominationMap {
      */
     public void readMap(GameMap p_GameMap, String p_FileName) throws InvalidCommandException {
         d_Logger.clear();
-        d_Logger.logAction("Domination map is loaded \n");
+        d_Logger.logAction("Conquest map is loaded \n");
         try {
             p_GameMap.ClearMap();
-            File l_File = new File("maps/" + p_FileName);
+            File l_File = new File("src/main/maps/" + p_FileName);
             FileReader l_FileReader = new FileReader(l_File);
             Map<String, List<String>> l_MapFileContents = new HashMap<>();
 

@@ -41,12 +41,11 @@ public class MapEditor implements GameEngineController {
     }
 
     /**
-     * Method where the command gets checked of its type(editcontinent or
-     * editcountry
-     * etc)
+     * Method where the command gets checked of its type
      * 
      * @param p_GamePhase the game phase
      * @throws InvalidCommandException when something failes
+     * @throws IOException when it happens
      */
     public GamePhase start(GamePhase p_GamePhase) throws InvalidCommandException,IOException {
         d_LogEntryBuffer.clear();
@@ -402,16 +401,16 @@ public class MapEditor implements GameEngineController {
         if (p_CommandList.size() == 1) {
             d_GameMap.setName(p_CommandList.get(0));
             d_LogEntryBuffer.logAction(" Which format do you want to save the file? Type the number.");
-            d_LogEntryBuffer.logAction("1. Domination map \n2. Conquest map");
+            d_LogEntryBuffer.logAction("1. Conquest map \n2. Domination map");
             Scanner l_Scanner = new Scanner(System.in);
             String l_UserInput = l_Scanner.nextLine();
             if (l_UserInput.equals("1")){
             d_GameMap.saveMap(false);
-            d_LogEntryBuffer.logAction("The loaded file is of the format Domination map");
+            d_LogEntryBuffer.logAction("The loaded file is of the format Conquest map");
             }
             else if (l_UserInput.equals("2")) {
                 d_GameMap.saveMap(true);
-                d_LogEntryBuffer.logAction("The loaded file is of the format Conquest map");
+                d_LogEntryBuffer.logAction("The loaded file is of the format Domination map");
             }
             else
                 d_LogEntryBuffer.logAction("Please enter the right value");

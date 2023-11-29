@@ -21,7 +21,7 @@ public class Adaptor extends DominationMap {
 
     /**
      * Constructor to initialize adaptee object
-     * @param adp Object of adaptee class
+     * @param adp Object of Conquest map class
      */
     public Adaptor(ConquestMap adp) {
         this.d_adaptor = adp;

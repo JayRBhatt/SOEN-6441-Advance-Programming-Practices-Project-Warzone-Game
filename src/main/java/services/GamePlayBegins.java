@@ -1,10 +1,17 @@
 package services;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Scanner;
 
+import utils.maputils.Adaptor;
+import utils.maputils.ConquestMap;
+import utils.maputils.DominationMap;
 import utils.maputils.GameProgress;
 import utils.maputils.MapViewer;
 import utils.maputils.ValidateMap;
@@ -173,12 +180,29 @@ public class GamePlayBegins implements GameEngineController {
      *
      * @param p_Filename the map file name
      * @throws ValidationException when validation fails
+     * @throws IOException when it occurs
      */
 
-    private void loadMapFromFile(String p_Filename) throws InvalidCommandException {
-        MapViewer.readMap(d_GameMap, p_Filename);
+    private void loadMapFromFile(String p_Filename) throws InvalidCommandException{
+        boolean l_ShouldUseConquestAdaptor = true;
+        try {
+            File l_File = new File("src/main/maps/"+p_Filename);
+            BufferedReader l_BufferedReader = new BufferedReader(new FileReader(l_File));
+            while(l_BufferedReader.ready()) {
+                String l_FirstLine = l_BufferedReader.readLine();
+                if(! l_FirstLine.isEmpty()) {
+                    if (l_FirstLine.contains(";")) {
+                        l_ShouldUseConquestAdaptor = false;
+                    }
+                    l_BufferedReader.close();
+                }}}
+        catch (IOException l_E) {
+            // Do nothing.
+        }
+        DominationMap l_MapReader = l_ShouldUseConquestAdaptor ?  new Adaptor(new ConquestMap()) : new DominationMap();
+        l_MapReader.readMap(d_GameMap, p_Filename);
         if (!ValidateMap.validateMap(d_GameMap, 0)) {
-            throw new InvalidCommandException("OOPS! I fear that this is not the right map");
+            throw new InvalidCommandException("Invalid Map");
         }
     }
 

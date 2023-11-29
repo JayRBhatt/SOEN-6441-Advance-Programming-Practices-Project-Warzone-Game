@@ -12,6 +12,7 @@ import java.util.List;
  * @author Jay Bhatt
  * @author Madhav Anadkat
  * @author Bhargav Fofandi
+ * @version 1.0.0
  */
 public class LogEntryBuffer implements Observable, Serializable {
     private static volatile LogEntryBuffer Logger; // Made volatile for thread safety
