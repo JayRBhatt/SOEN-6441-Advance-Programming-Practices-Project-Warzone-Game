@@ -16,13 +16,33 @@ import java.util.StringJoiner;
  */
 
 public class Country implements Serializable {
-
+/**
+ * countryId
+ */
     String d_CountryId;
+/**
+ * country name
+ */
     String d_CountryName;
+/**
+ * continent
+ */
     String d_Continent;
+/**
+ * player
+ */
     Player d_Player;
+/**
+ * armies
+ */
     int d_Armies;
+/**
+ * set of neighbors
+ */
     Set<Country> d_Neighbors;
+/**
+ * set of neighbor country
+ */
     Set<String> d_NeighborsCountryName;
 
     /**

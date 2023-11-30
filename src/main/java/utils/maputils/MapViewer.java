@@ -80,7 +80,7 @@ public class MapViewer
         for (String l_InputString : p_ContinentArray) 
         {
             String[] l_InputArray = l_InputString.split(" ");
-            if (l_InputArray.length == 2) {
+             if (l_InputArray.length == 2) {
                 p_GameMap.addContinent(l_InputArray[0], l_InputArray[1]);
             }
         }
@@ -103,7 +103,7 @@ public class MapViewer
             if (l_CountryStringArray.size() >= 2) {
                 p_GameMap.addCountry(l_CountryStringArray.get(0), l_CountryStringArray.get(1));
                 l_NeighborCountries.put(l_CountryStringArray.get(0), l_CountryStringArray.subList(2, l_CountryStringArray.size()));
-            }
+        }
         }
         return l_NeighborCountries;
     }

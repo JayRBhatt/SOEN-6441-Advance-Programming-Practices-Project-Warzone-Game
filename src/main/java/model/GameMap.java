@@ -42,19 +42,53 @@ public class GameMap implements Serializable {
         this.d_Countries = new HashMap<>();
         this.d_GamePlayers = new HashMap<>();
     }
-
+   /**
+    *  string of continents
+    */
     private HashMap<String, Continent> d_Continents;
+    /**
+     * string of countries
+     */
     private HashMap<String, Country> d_Countries;
+    /**
+     * string of players of the game
+     */
     private HashMap<String, Player> d_GamePlayers;
-
+    /**
+    * the game phase
+    */
     private GamePhase d_GamePhase;
+    /**
+     * string of invalid message
+     */
     private String d_InvalidMessage;
+    /**
+     * object of game map
+     */
     private static GameMap d_GameMap = new GameMap();
+    /**
+     * name
+     */
     private String d_Name;
+    /**
+     * logger instance
+     */
     LogEntryBuffer d_LogEntryBuffer = LogEntryBuffer.getInstance();
+    /**
+     * winner player
+     */
     private Player d_Winner;
+    /**
+     * integer tries
+     */
     private int d_Tries;
+    /**
+     * current player
+     */
     private Player d_CurrentPlayer;
+    /**
+     * boolean to check game is loaded or not
+     */
     private Boolean d_GameLoaded = false;
 
     /**
@@ -401,6 +435,7 @@ public class GameMap implements Serializable {
      * Adds a Player to the game
      * 
      * @param p_PlayerName player which is to be added
+     * @param p_Strategy the chosen strategy
      * @throws InvalidCommandException when something failes
      */
     public void addGamePlayer(String p_PlayerName, String p_Strategy) throws InvalidCommandException {
@@ -435,9 +470,9 @@ public class GameMap implements Serializable {
 
     /**
      * Saves the Map with all the changes done in it
-     * 
+     * @param p_saveAsConquest whether to save map in conquest or not
      * @throws InvalidCommandException when something failes
-     * @throws IOException
+     * @throws IOException when it happens
      */
     public void saveMap(boolean p_saveAsConquest) throws InvalidCommandException, IOException {
 
@@ -587,7 +622,12 @@ public class GameMap implements Serializable {
     private void printTableFooter(String format) {
         System.out.println(format);
     }
-
+   /**
+    * Builds and initializes the game state using a provided game map.
+    * @param p_GameMap The game map containing the initial state information.
+    * @return The game phase after initialization
+    * @throws InvalidCommandException when it happens
+    */
     public GamePhase gamePlayBuilder(GameMap p_GameMap) throws InvalidCommandException {
 
         this.ClearMap();

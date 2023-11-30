@@ -1,0 +1,11 @@
+;Map indiarussia.mapname indiarussia.map Mapyura.net Risk 1.0.9.2
+[continents]
+asia 0 00000
+
+[countries]
+1 russia 1
+2 india 1
+
+[borders]
+1 2
+2 1

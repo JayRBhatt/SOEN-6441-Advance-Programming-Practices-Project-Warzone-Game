@@ -1,7 +1,9 @@
 unnamed package
 controller
 model
-model.GameCalculations
+model.Calculation.gameCalculation
+model.Calculation.playerStrategy
+model.Calculation.tourament
 model.order
 model.orders
 services

@@ -15,10 +15,23 @@ import java.util.Set;
  */
 
 public class Continent implements Serializable {
+    /**
+     * continent name
+     */
     private String d_ContinentName;
+    /**
+     * continent value
+     */
     private int d_ContinentValue;
+    /**
+     * bonusarmies
+     */
     private int d_BonusArmies;
+    /**
+     * set of countries
+     */
     private Set<Country> d_Countries;
+
 
     /**
      * Parameterised Constructor that initializes the variables

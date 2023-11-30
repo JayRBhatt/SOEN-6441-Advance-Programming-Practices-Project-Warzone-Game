@@ -83,19 +83,22 @@ public class Player implements Serializable {
     private int d_ArmiesToIssue = 0;
 
     /**
-     * A list of cards for the player
+     * A choosing the player strategy
+     * @param p_PlayerStrategy chosen strategy
      */
     public Player(PlayerStrategy p_PlayerStrategy) {
         this.d_PlayerStrategy = p_PlayerStrategy;
     }
-
+    /**
+     * reading from a player
+     * @return the command based on chosen strategy
+     */
     public String readFromPlayer() {
         return this.d_PlayerStrategy.createCommand();
     }
 
     /**
      * A function to get the player ID
-     *
      * @return the ID of player
      */
     public int getPlayerId() {
@@ -160,12 +163,15 @@ public class Player implements Serializable {
     /**
      * Returns a Deque of Orders for a player
      * 
-     * @return d_Orders
+     * @return d_Orders the order
      */
     public Deque<Order> getOrders() {
         return d_Orders;
     }
-
+ /**
+  * Sets the orders
+  * @param p_Orders the orders to be set
+  */
     public void setOrders(Deque<Order> p_Orders) {
         this.d_Orders = p_Orders;
     }
@@ -208,7 +214,10 @@ public class Player implements Serializable {
     public List<Cards> getPlayersCards() {
         return d_PlayersCards;
     }
-
+  /**
+   * Set the cards for the player
+   * @param p_Cards the list of cards
+   */
     public void setPlayersCards(List<Cards> p_Cards) {
         d_PlayersCards = p_Cards;
     }
@@ -296,9 +305,9 @@ public class Player implements Serializable {
     }
 
     /**
-     * Publishes the order given by a player
-     * 
-     * @param p_Command
+     * Deploys the reinforcement armies if player has a additional armies to deploy
+     * @param p_ArmyCount the army count
+     * @return true if the operation was successful otherwisw false 
      */
     public boolean deployReinforcementArmiesFromPlayer(int p_ArmyCount) {
         if (p_ArmyCount > d_AdditionalArmies || p_ArmyCount <= 0) {

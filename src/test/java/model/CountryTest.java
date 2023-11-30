@@ -13,7 +13,13 @@ import static org.junit.Assert.*;
  * @version 1.0.0
  */
 public class CountryTest extends Country{
+    /**
+     * name of the country
+     */
     String d_Name;
+    /**
+     * object of country class
+     */
     Country d_Country = new Country();
 
     /**

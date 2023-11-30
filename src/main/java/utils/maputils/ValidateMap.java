@@ -131,7 +131,7 @@ public class ValidateMap
 
     /**
      * A method which checks if there are any duplicate countries present in the map
-     * @param p_GameMap
+     * @param p_GameMap the game map
      * @return true if the validation is successful or else returns false
      */
 
@@ -149,7 +149,7 @@ public class ValidateMap
 
     /**
      * A method which checks if there are any duplicate neighbours 
-     * @param p_GameMap
+     * @param p_GameMap the game map
      * @return true if validation is successful or else returns false
      */
     public static boolean checkDuplicateNeighbours(GameMap p_GameMap) {
@@ -179,7 +179,7 @@ public class ValidateMap
 
 /**
  * A method which checks that the country count is greater than minimum number of countries required
- * @param p_GameMap
+ * @param p_GameMap the game map
  * @param p_MinimumCountryCount
  * @return true if the validation is successful or else it returns false
  */
@@ -273,7 +273,7 @@ public class ValidateMap
     /**
      * A method to check whether the continent is connected or not
      
-     * @param p_GameMap
+     * @param p_GameMap the game map
      * @return true if the continents are strongly connected or else returns false
      */
     public static boolean checkIfContinentIsConnected(GameMap p_GameMap) {
@@ -304,7 +304,7 @@ public class ValidateMap
     }
 /**
  * A method which checks if the whole map is strongly connected or not
- * @param p_GameMap
+ * @param p_GameMap the game map
  * @return true if the whole map is strongly connected or else returns false
  */
     public static boolean checkIfMapIsConnected(GameMap p_GameMap) {

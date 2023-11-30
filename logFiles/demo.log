@@ -1,7 +1,112 @@
-Domination map is loaded 
+Conquest map is loaded 
 
-Added Continent: america
-Added Country: canada to america continent
-Added Country: us to america continent
-Added Neighbor: us to canada
-Added Neighbor: canada to us
+Added Continent: asia
+Added Country: kuwait to asia continent
+Added Country: india to asia continent
+Added Neighbor: india to kuwait
+Added Neighbor: kuwait to india
+Added GamePlayer: abc
+Added GamePlayer: xyz
+kuwait Assigned to abc
+india Assigned to xyz
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+If you wish to save the progress of the game until the last action you took: savegame filename
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+abc has issued this order :- deploy kuwait 20
+The order has been added to the list of orders.
+=============================================================================
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+If you wish to save the progress of the game until the last action you took: savegame filename
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+xyz has issued this order :- deploy india 2
+The order has been added to the list of orders.
+=============================================================================
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+If you wish to save the progress of the game until the last action you took: savegame filename
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+The Orders issued by Player abc are:
+deploy kuwait 20
+abc has issued this order :- advance kuwait india 20
+The order has been added to the list of orders.
+=============================================================================
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+If you wish to save the progress of the game until the last action you took: savegame filename
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+The Orders issued by Player xyz are:
+deploy india 2
+-----------------------------------------------------------------------------------------
+List of game loop commands
+To deploy the armies : deploy countryID numarmies
+To advance/attack the armies : advance countrynamefrom countynameto numarmies
+To airlift the armies : airlift sourcecountryID targetcountryID numarmies
+To blockade the armies : blockade countryID
+To negotiate with player : negotiate playerID
+To bomb the country : bomb countryID
+If you wish to save the progress of the game until the last action you took: savegame filename
+To skip: pass
+-----------------------------------------------------------------------------------------
+The countries assigned to the player are: 
+The Orders issued by Player abc are:
+deploy kuwait 20
+advance kuwait india 20
+
+ EXECUTE ORDER PHASE 
+
+Deployed 20 armies to kuwait.
+Deployed 2 armies to india.
+Attacker : abc (kuwait) won
+Attacker: abc received a card: BOMB
+Since won, left out kuwait (Attacker) armies 19 moved to india.
+Advanced 20 armies from kuwait to india.
+The Player abc won the game.
+Exiting the game...
+
+==================================
+			 Warzone
+==================================
+			 Main Menu
+	=======================
+		 1. New Game
+		 2. Load Game
+		 3. Single Game Mode
+		 4. Tournament Mode
+		 5. Exit
+	=======================
+		Select the option
+==================================

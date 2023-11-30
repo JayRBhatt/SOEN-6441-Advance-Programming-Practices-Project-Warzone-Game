@@ -90,7 +90,7 @@ public class TournamentGameModeTest extends TournamentGameMode {
     /**
      * Check if Result of tournament is not null
      *
-     * @throws ValidationException when it happens
+     * @throws InvalidCommandException when it happens
      */
     @Test
     public void shouldReturnNonNullTournamentResult() throws InvalidCommandException {

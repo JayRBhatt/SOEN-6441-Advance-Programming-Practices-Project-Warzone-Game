@@ -1,0 +1,15 @@
+[Map]
+author=Anonymous
+[Continents]
+africa=0
+asia=0
+northamerica=0
+australia=0
+europe=0
+[Territories]
+spain europe sydney india
+sydney australia spain
+egypt africa india canada
+canada northamerica egypt
+india asia spain egypt
+

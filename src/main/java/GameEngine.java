@@ -45,8 +45,6 @@ public class GameEngine implements Engine {
 
     /**
      * The function which takes the game to different phases through gameController
-     * 
-     * @param p_GameCalculation
      * @throws InvalidCommandException when something failes
      */
 
